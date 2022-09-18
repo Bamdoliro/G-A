@@ -1,12 +1,12 @@
 import { View, StyleSheet, Image, Text } from "react-native";
 
-export default function ChatList({MAIN_TEXT, SUB_TEXT, PARTICIPANT, DATE}) {
+export default function ChatList({IMG ,MAIN_TEXT, SUB_TEXT, PARTICIPANT, DATE}) {
     return (
         <View style={styles.ChatListContent}>
             <View style={styles.ProfileAndTitle}>
                 <Image
                     style={styles.ChatProfileImg}
-                    source={require('../../assets/profile.jpg')}
+                    source={{uri: IMG}}
                 />
                 <View style={styles.ChatSetText}>
                     <View style={styles.ChatSetMainText}>

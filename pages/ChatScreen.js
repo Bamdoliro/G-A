@@ -6,6 +6,7 @@ export default function ChatScreen() {
     return (
         <View>
             <ChatList
+                IMG = {ChatListData.row.IMG}
                 MAIN_TEXT = {ChatListData.row.MAIN_TEXT}
                 SUB_TEXT = {ChatListData.row.SUB_TEXT}
                 PARTICIPANT = {ChatListData.row.PARTICIPANT}
