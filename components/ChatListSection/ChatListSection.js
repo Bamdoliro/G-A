@@ -1,9 +1,17 @@
 import { ScrollView, StyleSheet } from "react-native";
+import ChatList from "../ChatList/ChatList";
+import ChatListData from "../../data/ChatList.json"
 
 export default function ChatListSection() {
     return (
         <ScrollView style={styles.ScrollSection}>
-            {/* ChatList.js 를 여기다 넣어야함 근데 지금 넣고 Merge 하면 충돌될께 뻔해서 내가 합치겠음 Scroll 잘 되는건 확인함. */}
+            <ChatList
+                IMG = {ChatListData.row.IMG}
+                MAIN_TEXT = {ChatListData.row.MAIN_TEXT}
+                SUB_TEXT = {ChatListData.row.SUB_TEXT}
+                PARTICIPANT = {ChatListData.row.PARTICIPANT}
+                DATE = {ChatListData.row.DATE}
+            />
         </ScrollView>
     )
 }
