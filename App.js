@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
 import LoginScreen from "./pages/LoginScreen";
+import ChatScreen from "./pages/ChatScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -14,7 +15,8 @@ export default function App() {
           headerShown: false
         }}
       >
-        <Stack.Screen name="Login" component={LoginScreen} />
+        {/* <Stack.Screen name="Login" component={LoginScreen} /> */}
+        <Stack.Screen name="ChatScreen" component={ChatScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
