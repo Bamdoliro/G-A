@@ -1,7 +1,9 @@
-import { View, StyleSheet, Image, Text } from "react-native";
+import { View, StyleSheet, Text, Image } from "react-native";
+import Arrow from "../../assets/arrow.png";
+import MenuBtn from "../../assets/menu_btn.png";
 
 // 시간 날때 클래스 명 좀 고칠께요 개발 빨리 하려다 보니 야매로 지었습니다..
-// 이미지는 SVG 가 따로 안넣어져서 아직 안넣음
+// 이미지는 SVG 가 따로 안넣어져서 아직 안넣음    
 
 export default function ChatLiveHeader() {
     return (
@@ -9,6 +11,10 @@ export default function ChatLiveHeader() {
             <View style={styles.HeaderContent}>
                 <View style={styles.HeaderSetText}>
                     {/* Arrow SVG 부분 */}
+                    <Image 
+                        source={Arrow}
+                        style={styles.ArrowImg}
+                    />
                     <Text style={styles.ChatTitle}>
                         자이 강아지 산책 모임
                     </Text>
@@ -16,6 +22,10 @@ export default function ChatLiveHeader() {
                 </View>
                 <View style={styles.MenuBtn}>
                     {/* MenuBtn 부분 */}
+                    <Image
+                        source={MenuBtn}
+                        style={styles.MenuBtn}
+                    />
                 </View>
             </View>
         </View>
@@ -45,8 +55,9 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     ArrowImg: {
-        width: "30px",
-        height: "30px"
+        width: "13px",
+        height: "23px",
+        marginRight: 15
     },
     ChatTitle: {
         fontSize: "15px",
@@ -60,6 +71,6 @@ const styles = StyleSheet.create({
     },
     MenuBtn: {
         width: "20px",
-        height: "20px"
+        height: "23px",
     }
 })
