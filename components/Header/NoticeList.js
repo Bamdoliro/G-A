@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function NoticeList(AlramTitle, AlramContent, SendHour, SendMinute) {
+export default function NoticeList({AlramTitle, AlramContent, SendHour, SendMinute}) {
     return (
         <View styles={styles.AlramSection}>
             <Text styles={styles.AlramTitle}>{AlramTitle}</Text>
