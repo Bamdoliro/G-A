@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import ChatRoomSearch from './ChatRoomSearch.js';
-import BellIcon from '../../assets/Bell_Icon.png';
+import Notice from './Notice.js';
 
 export default function Header(){
     return (
@@ -9,7 +9,7 @@ export default function Header(){
             <Text style={styles.text}>
                 채팅
             </Text>
-            <Image source={BellIcon} style={styles.bellIcon} />
+            <Notice />
             <ChatRoomSearch style={styles.chatRoomSearch}/>
         </View>
     );

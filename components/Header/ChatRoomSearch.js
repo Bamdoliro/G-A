@@ -1,9 +1,12 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Image, View } from 'react-native';
 import { TextInput } from 'react-native-web';
+import { useState } from 'react/cjs/react.production.min';
 import SearchIcon from '../../assets/Search_Icon.png';
 
 export default function ChatRoomSearch(){
+  const [search, setSearch] = useState("");
+
     return (
       <View style={styles.input}>
         <Image 
