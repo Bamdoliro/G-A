@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer style={{flex:1}}>
       <Stack.Navigator
         screenOptions={{
           headerShown: false
@@ -18,8 +18,9 @@ export default function App() {
       >
         {/* <Stack.Screen name="Login" component={LoginScreen} /> */}
         {/* <Stack.Screen name="ChatScreen" component={ChatScreen} /> */}
-        <Stack.Screen name="ChatLiveScreen" component={ChatLiveScreen} />
+        <Stack.Screen name="ChatLiveScreen" component={ChatLiveScreen} style={{flex:1}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
+
