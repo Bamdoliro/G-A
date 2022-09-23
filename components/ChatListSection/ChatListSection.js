@@ -12,6 +12,20 @@ export default function ChatListSection() {
                 PARTICIPANT = {ChatListData.row.PARTICIPANT}
                 DATE = {ChatListData.row.DATE}
             />
+            <ChatList
+                IMG = {ChatListData.row.IMG}
+                MAIN_TEXT = {ChatListData.row.MAIN_TEXT}
+                SUB_TEXT = {ChatListData.row.SUB_TEXT}
+                PARTICIPANT = {ChatListData.row.PARTICIPANT}
+                DATE = {ChatListData.row.DATE}
+            />
+            <ChatList
+                IMG = {ChatListData.row.IMG}
+                MAIN_TEXT = {ChatListData.row.MAIN_TEXT}
+                SUB_TEXT = {ChatListData.row.SUB_TEXT}
+                PARTICIPANT = {ChatListData.row.PARTICIPANT}
+                DATE = {ChatListData.row.DATE}
+            />
         </ScrollView>
     )
 }
@@ -21,5 +35,6 @@ const styles = StyleSheet.create({
         width: "100%",
         flex: 1,
         flexDirection: "column",
+        padding: 20,
     }
 })
