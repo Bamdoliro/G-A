@@ -1,4 +1,4 @@
-import { View, StyleSheet, ScrollView, Text } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 
 export default function ChatLiveFelid() {
     return (
