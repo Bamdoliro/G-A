@@ -7,8 +7,8 @@ export default function ChatLiveScreen() {
 
     return (
         <View style={styles.ChatLiveSection} >
-            <ChatLiveHeader />
-            <ChatLiveFelid />
+            <ChatLiveHeader style={{flex: 1}} />
+            <ChatLiveFelid style={{flex: 1}} />
             <KeyboardAvoidingView
                 style={styles.ChatKeyboardView}
                 behavior={Platform.OS == 'ios' ? "padding" : "position"}
@@ -30,6 +30,7 @@ export default function ChatLiveScreen() {
 const styles = StyleSheet.create({
     ChatLiveSection: {
         flex: 1,
+        backgroundColor: "#D4E0FF"
     },
     ChatKeyboardView: {
         flex: 1,
