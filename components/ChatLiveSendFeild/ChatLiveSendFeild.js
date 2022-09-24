@@ -1,30 +1,31 @@
 import { useEffect, useState } from "react";
-import { View, StyleSheet, TextInput, Image, TouchableOpacity } from "react-native";
-import SendBtn from "../../assets/sendBtn.png";
+import { View, StyleSheet, TextInput, Image, TouchableOpacity,Platform, KeyboardAvoidingView, NativeModules } from "react-native";
+import SendBtn from "../../assets/sendBtn.png";;
+
 
 export default function ChatLiveSendFeild() {
     const [sendText, setSendText] = useState("");
 
     const SendBtnOnClick = () => {
-        console.log("버튼 누름")
+        console.log("버튼누름");
     }
 
     useEffect(() => {
         // setText 바뀔때 밀림 방지
     }, [sendText])
-
+    
     return (
         <View style={styles.ChatSendInputView}>
-            <TextInput 
+            <TextInput
                 style={styles.ChatSendInput}
-                onChange= {e => setSendText(e.target.value)}
+                onChange={e => setSendText(e.target.value)}
             />
             <TouchableOpacity onPress={SendBtnOnClick}>
-                <Image 
+                <Image
                     source={SendBtn}
                     style={styles.ChatSendBtn}
                 />
-            </TouchableOpacity>           
+            </TouchableOpacity>
         </View>
     )
 }
@@ -34,6 +35,10 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
+        backgroundColor: "#fff",
+        width: "100%",
+        paddingTop: 13,
+        paddingBottom: 13
     },
     ChatSendInput: {
         backgroundColor: "#fff",
@@ -46,7 +51,7 @@ const styles = StyleSheet.create({
         outLineStyle: "none",
         outlineStyle: "none",
         paddingLeft: 15
-    } ,
+    },
     ChatSendBtn: {
         height: 30,
         width: 30
