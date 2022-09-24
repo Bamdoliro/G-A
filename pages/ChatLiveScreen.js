@@ -1,12 +1,14 @@
 import { View, StyleSheet, Platform, KeyboardAvoidingView, Text } from "react-native";
 import ChatLiveHeader from "../components/ChatLiveHeader/ChatLiveHeader";
 import ChatLiveSendFeild from "../components/ChatLiveSendFeild/ChatLiveSendFeild";
+import ChatLiveFelid from "../components/ChatLiveFeild/ChatLiveFeild";
 
 export default function ChatLiveScreen() {
 
     return (
         <View style={styles.ChatLiveSection} >
             <ChatLiveHeader />
+            <ChatLiveFelid />
             <KeyboardAvoidingView
                 style={styles.ChatKeyboardView}
                 behavior={Platform.OS == 'ios' ? "padding" : "position"}
@@ -28,7 +30,6 @@ export default function ChatLiveScreen() {
 const styles = StyleSheet.create({
     ChatLiveSection: {
         flex: 1,
-        backgroundColor: "#D4E0FF",
     },
     ChatKeyboardView: {
         flex: 1,
