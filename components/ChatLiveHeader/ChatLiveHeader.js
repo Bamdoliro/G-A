@@ -16,7 +16,7 @@ export default function ChatLiveHeader() {
                         style={styles.ArrowImg}
                     />
                     <Text style={styles.ChatTitle}>
-                        자이 강아지 산책 모임
+                        자이 강아지 산책 모임   
                     </Text>
                     <Text style={styles.NumberOfParticipants}>14</Text>
                 </View>
@@ -35,14 +35,14 @@ export default function ChatLiveHeader() {
 const styles = StyleSheet.create({
     LiveHeader: {
         backgroundColor: "#fff",
-        height: "100px",
+        height: "13%",
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20
     },
     HeaderContent: {
         display: "flex",
-        position: "relative",
-        top: "60px",
+        position: "realtive",
+        top: 70,
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
@@ -55,22 +55,22 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     ArrowImg: {
-        width: "13px",
-        height: "23px",
+        width: 10,
+        height: 20,
         marginRight: 15
     },
     ChatTitle: {
-        fontSize: "15px",
+        fontSize: 15,
         fontWeight: "bold",
     },
     NumberOfParticipants: {
-        fontSize: "15px",
+        fontSize: 13,
         fontWeight: "bold",
         color: "#777777",
         marginLeft: 5
     },
     MenuBtn: {
-        width: "20px",
-        height: "23px",
+        width: 20,
+        height: 23,
     }
 })
