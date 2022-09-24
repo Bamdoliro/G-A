@@ -5,7 +5,7 @@ import ChatLiveSendFeild from "../components/ChatLiveSendFeild/ChatLiveSendFeild
 export default function ChatLiveScreen() {
 
     return (
-        <View style={styles.ChatLiveFeild} >
+        <View style={styles.ChatLiveSection} >
             <ChatLiveHeader />
             <KeyboardAvoidingView
                 style={styles.ChatKeyboardView}
@@ -26,7 +26,7 @@ export default function ChatLiveScreen() {
 }
 
 const styles = StyleSheet.create({
-    ChatLiveFeild: {
+    ChatLiveSection: {
         flex: 1,
         backgroundColor: "#D4E0FF",
     },
