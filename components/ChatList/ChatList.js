@@ -1,6 +1,4 @@
 import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
-import axios from "axios";
-
 
 export default function ChatList({ IMG, MAIN_TEXT, SUB_TEXT, PARTICIPANT, DATE }) {
 
@@ -45,15 +43,15 @@ const styles = StyleSheet.create({
     ChatListContent: {
         flexDirection: "row",
         justifyContent: "space-between",
-        marginBottom: 16
+        marginBottom: 20,
     },
     ProfileAndTitle: {
         flexDirection: "row",
         alignItems: "center"
     },
     ChatProfileImg: {
-        width: "40px",
-        height: "40px",
+        width: 40,
+        height: 40,
         borderRadius: 7,
     },
     ChatSetText: {
