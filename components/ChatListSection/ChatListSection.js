@@ -3,6 +3,21 @@ import ChatList from "../ChatList/ChatList";
 import ChatListData from "../../data/ChatList.json"
 
 export default function ChatListSection() {
+    async function getChatListData() {
+        try {
+            const response = await axios.get('http://3.39.41.34/v2/api-docs/chat/', {
+                params: {
+                    // 파라마터 값
+                }
+            });
+            console.log(response);
+        } catch (error) {
+            // 응답 실패
+            console.log(error)
+        }
+    }
+
+
     return (
         <ScrollView style={styles.ScrollSection}>
             <ChatList

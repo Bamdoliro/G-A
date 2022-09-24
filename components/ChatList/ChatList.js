@@ -1,4 +1,6 @@
 import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
+import axios from "axios";
+
 
 export default function ChatList({ IMG, MAIN_TEXT, SUB_TEXT, PARTICIPANT, DATE }) {
 
