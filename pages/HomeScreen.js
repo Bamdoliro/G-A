@@ -1,11 +1,11 @@
 import { View, Text } from 'react-native';
 
-function Home() {
+function HomeScreen() {
     return (
         <View>
-            <Text>Home</Text>
+            <Text>HomeScreen</Text>
         </View>
     );
 }
 
-export default Home;
+export default HomeScreen;

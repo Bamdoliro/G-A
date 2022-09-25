@@ -1,11 +1,11 @@
 import { View, Text } from 'react-native';
 
-function Community() {
+function CommunityScreen() {
     return (
         <View>
-            <Text>Community</Text>
+            <Text>CommunityScreen</Text>
         </View>
     );
 }
 
-export default Community;
+export default CommunityScreen;

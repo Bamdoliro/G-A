@@ -1,11 +1,11 @@
 import { View, Text } from 'react-native';
 
-function Profile() {
+function ProfileScreen() {
     return (
         <View>
-            <Text>Profile</Text>
+            <Text>ProfileScreen</Text>
         </View>
     );
 }
 
-export default Profile;
+export default ProfileScreen;
