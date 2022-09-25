@@ -41,13 +41,12 @@ const styles = StyleSheet.create({
     },
     HeaderContent: {
         display: "flex",
-        position: "realtive",
-        top: 70,
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
         paddingLeft: 35,
-        paddingRight: 35
+        paddingRight: 35,
+        marginTop: 60
     },
     HeaderSetText: {
         display: "flex",
