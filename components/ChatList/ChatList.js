@@ -1,33 +1,41 @@
-import { View, StyleSheet, Image, Text } from "react-native";
+import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
 
-export default function ChatList({IMG ,MAIN_TEXT, SUB_TEXT, PARTICIPANT, DATE}) {
+export default function ChatList({ IMG, MAIN_TEXT, SUB_TEXT, PARTICIPANT, DATE }) {
+
+    const ChatListOnClick = () => {
+        // 백엔드 들어오면 수정하겠음
+        console.log("클릭함")
+    }
+
     return (
-        <View style={styles.ChatListContent}>
-            <View style={styles.ProfileAndTitle}>
-                <Image
-                    style={styles.ChatProfileImg}
-                    source={{uri: IMG}}
-                />
-                <View style={styles.ChatSetText}>
-                    <View style={styles.ChatSetMainText}>
-                        <Text style={styles.ChatMainText}>
-                            {MAIN_TEXT}
-                        </Text>
-                        <Text style={styles.NumberOfParticipants}>
-                            {PARTICIPANT}
+        <TouchableOpacity style={styles.TouchScreen} onPressOut={ChatListOnClick}>
+            <View style={styles.ChatListContent}>                
+                <View style={styles.ProfileAndTitle}>
+                    <Image
+                        style={styles.ChatProfileImg}
+                        source={{ uri: IMG }}
+                    />
+                    <View style={styles.ChatSetText}>
+                        <View style={styles.ChatSetMainText}>
+                            <Text style={styles.ChatMainText}>
+                                {MAIN_TEXT}
+                            </Text>
+                            <Text style={styles.NumberOfParticipants}>
+                                {PARTICIPANT}
+                            </Text>
+                        </View>
+                        <Text style={styles.ChatSubText}>
+                            {SUB_TEXT}
                         </Text>
                     </View>
-                    <Text style={styles.ChatSubText}>
-                        {SUB_TEXT}
+                </View>
+                <View>
+                    <Text style={styles.ChatDate}>
+                        {DATE}
                     </Text>
                 </View>
             </View>
-            <View>
-                <Text style={styles.ChatDate}>
-                    {DATE}
-                </Text>
-            </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 
@@ -35,15 +43,15 @@ const styles = StyleSheet.create({
     ChatListContent: {
         flexDirection: "row",
         justifyContent: "space-between",
-        marginBottom: 12
+        marginBottom: 20,
     },
     ProfileAndTitle: {
         flexDirection: "row",
         alignItems: "center"
     },
     ChatProfileImg: {
-        width: "40px",
-        height: "40px",
+        width: 40,
+        height: 40,
         borderRadius: 7,
     },
     ChatSetText: {
