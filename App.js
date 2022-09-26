@@ -5,7 +5,6 @@ import ChatLiveScreen from "./pages/ChatLiveScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import LoginScreen from './pages/LoginScreen';
 import TabNavigation from './TabNavigation';
 
 const Stack = createNativeStackNavigator();
@@ -21,10 +20,6 @@ export default function App() {
         <Stack.Screen 
           name="TabNavigation"
           component={TabNavigation}
-        />
-        <Stack.Screen 
-          name="LoginScreen"
-          component={LoginScreen} 
         />
       </Stack.Navigator>
     </NavigationContainer>
