@@ -3,6 +3,7 @@ import ChatList from "../ChatList/ChatList";
 import ChatListData from "../../data/ChatList.json"
 
 export default function ChatListSection() {
+
     return (
         <ScrollView style={styles.ScrollSection}>
             <ChatList
@@ -19,7 +20,7 @@ export default function ChatListSection() {
 const styles = StyleSheet.create({
     ScrollSection: {
         width: "100%",
-        flex: 1,
         flexDirection: "column",
+        padding: 20,
     }
 })
