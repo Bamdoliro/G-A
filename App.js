@@ -12,15 +12,14 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="TabNavigation"
+      <Stack.Navigator
         screenOptions={{
           headerShown: false
         }}
       >
-        <Stack.Screen 
-          name="TabNavigation"
-          component={TabNavigation}
-        />
+        <Stack.Screen name="TabNavigation" component={TabNavigation} />
+        <Stack.Screen name="ChatScreen" component={ChatScreen} />
+        <Stack.Screen name="ChatLiveScreen" component={ChatLiveScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

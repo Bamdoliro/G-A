@@ -3,11 +3,11 @@ import ChatLiveFeild from "../components/ChatLiveFeild/ChatLiveFeild";
 import ChatLiveHeader from "../components/ChatLiveHeader/ChatLiveHeader";
 import ChatLiveSendFeild from "../components/ChatLiveSendFeild/ChatLiveSendFeild";
 
-export default function ChatLiveScreen() {
+export default function ChatLiveScreen( {navigation} ) {
 
     return (
         <View style={styles.ChatLiveSection} >
-            <ChatLiveHeader style={{flex: 1}} />
+            <ChatLiveHeader style={{flex: 1}} navigation={navigation} />
             <ChatLiveFeild flex={{flex:1}}/>
             <KeyboardAvoidingView
                 style={styles.ChatKeyboardView}

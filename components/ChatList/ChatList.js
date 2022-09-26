@@ -1,14 +1,17 @@
 import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
 
-export default function ChatList({ IMG, MAIN_TEXT, SUB_TEXT, PARTICIPANT, DATE }) {
+export default function ChatList({ IMG, MAIN_TEXT, SUB_TEXT, PARTICIPANT, DATE, navigation }) {
 
-    const ChatListOnClick = () => {
+    const ChatListOnClick = (navigation) => {
         // 백엔드 들어오면 수정하겠음
-        console.log("클릭함")
+        navigation.navigate('ChatLiveScreen');
     }
 
     return (
-        <TouchableOpacity style={styles.TouchScreen} onPressOut={ChatListOnClick}>
+        <TouchableOpacity 
+            style={styles.TouchScreen} 
+            onPressOut={() => ChatListOnClick(navigation)}
+        >
             <View style={styles.ChatListContent}>                
                 <View style={styles.ProfileAndTitle}>
                     <Image

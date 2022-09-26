@@ -1,20 +1,26 @@
-import { View, StyleSheet, Text, Image } from "react-native";
+import { View, StyleSheet, Text, Image, TouchableOpacity } from "react-native";
 import Arrow from "../../assets/arrow.png";
 import MenuBtn from "../../assets/menu_btn.png";
 
 // 시간 날때 클래스 명 좀 고칠께요 개발 빨리 하려다 보니 야매로 지었습니다..
 // 이미지는 SVG 가 따로 안넣어져서 아직 안넣음    
 
-export default function ChatLiveHeader() {
+export default function ChatLiveHeader({navigation}) {
+    const BeforeScreen = (navigation) => {
+        navigation.navigate('ChatScreen');
+    }
+
     return (
         <View style={styles.LiveHeader}>
             <View style={styles.HeaderContent}>
                 <View style={styles.HeaderSetText}>
                     {/* Arrow SVG 부분 */}
-                    <Image 
-                        source={Arrow}
-                        style={styles.ArrowImg}
-                    />
+                    <TouchableOpacity onPress={() => BeforeScreen(navigation)}>
+                        <Image 
+                            source={Arrow}
+                            style={styles.ArrowImg}
+                        />
+                    </TouchableOpacity>
                     <Text style={styles.ChatTitle}>
                         자이 강아지 산책 모임   
                     </Text>
@@ -35,7 +41,7 @@ export default function ChatLiveHeader() {
 const styles = StyleSheet.create({
     LiveHeader: {
         backgroundColor: "#fff",
-        height: "13%",
+        height: "15%",
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20
     },
