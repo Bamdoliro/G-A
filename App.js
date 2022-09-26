@@ -1,4 +1,7 @@
-import React from "react";
+import { StyleSheet, View } from "react-native";
+import LoginScreen from "./pages/LoginScreen";
+import ChatScreen from "./pages/ChatScreen";
+import ChatLiveScreen from "./pages/ChatLiveScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -27,3 +30,4 @@ export default function App() {
     </NavigationContainer>
   );
 };
+
