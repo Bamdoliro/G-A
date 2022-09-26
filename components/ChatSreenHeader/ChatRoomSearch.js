@@ -7,11 +7,11 @@ export default function ChatRoomSearch(){
 
     return (
       <View style={styles.SearchFrame}>
-        <Image 
+        <Image
           source={SearchIcon}
           style={styles.SearchIcon}
         />
-        <TextInput 
+        <TextInput
             style={styles.ChatRoomSearch}
             placeholder="공동체 채팅방 검색"
         />
@@ -23,12 +23,12 @@ const styles = StyleSheet.create({
     SearchFrame: {
         flexDirection: "row",
         alignItems: "center",
-        width: 280,
+        width: "80%",
         height: 35,
         borderRadius: 26,
         padding: 8,
         backgroundColor: "#F2F2F2",
-        marginTop: 15
+        marginTop: 20
     },
     SearchIcon: {
         width: 23,

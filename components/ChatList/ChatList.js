@@ -8,11 +8,11 @@ export default function ChatList({ IMG, MAIN_TEXT, SUB_TEXT, PARTICIPANT, DATE, 
     }
 
     return (
-        <TouchableOpacity 
-            style={styles.TouchScreen} 
+        <TouchableOpacity
+            style={styles.TouchScreen}
             onPressOut={() => ChatListOnClick(navigation)}
         >
-            <View style={styles.ChatListContent}>                
+            <View style={styles.ChatListContent}>
                 <View style={styles.ProfileAndTitle}>
                     <Image
                         style={styles.ChatProfileImg}
@@ -78,16 +78,16 @@ const styles = StyleSheet.create({
     NumberOfParticipants: {
         color: "#B1B1B1",
         fontSize: 12,
-        fontWeight: 500
+        fontWeight: "medium",
     },
     ChatSubText: {
         color: "#B1B1B1",
         fontSize: 12,
-        fontWeight: 500
+        fontWeight: "medium",
     },
     ChatDate: {
         color: "#B1B1B1",
         fontSize: 12,
-        fontWeight: 500,
+        fontWeight: "medium",
     }
 })

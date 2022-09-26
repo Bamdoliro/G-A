@@ -3,11 +3,11 @@ import Arrow from "../../assets/arrow.png";
 import MenuBtn from "../../assets/menu_btn.png";
 
 // 시간 날때 클래스 명 좀 고칠께요 개발 빨리 하려다 보니 야매로 지었습니다..
-// 이미지는 SVG 가 따로 안넣어져서 아직 안넣음    
+// 이미지는 SVG 가 따로 안넣어져서 아직 안넣음
 
 export default function ChatLiveHeader({navigation}) {
     const BeforeScreen = (navigation) => {
-        navigation.navigate('ChatScreen');
+        navigation.pop();
     }
 
     return (
@@ -16,13 +16,13 @@ export default function ChatLiveHeader({navigation}) {
                 <View style={styles.HeaderSetText}>
                     {/* Arrow SVG 부분 */}
                     <TouchableOpacity onPress={() => BeforeScreen(navigation)}>
-                        <Image 
+                        <Image
                             source={Arrow}
                             style={styles.ArrowImg}
                         />
                     </TouchableOpacity>
                     <Text style={styles.ChatTitle}>
-                        자이 강아지 산책 모임   
+                        자이 강아지 산책 모임
                     </Text>
                     <Text style={styles.NumberOfParticipants}>14</Text>
                 </View>

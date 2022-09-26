@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { View, StyleSheet, TextInput, Image, TouchableOpacity,Platform, KeyboardAvoidingView, NativeModules } from "react-native";
-import SendBtn from "../../assets/sendBtn.png";;
+import SendBtn from "../../assets/sendBtn.png";
 
 
 export default function ChatLiveSendFeild() {
@@ -13,12 +13,13 @@ export default function ChatLiveSendFeild() {
     useEffect(() => {
         // setText 바뀔때 밀림 방지
     }, [sendText])
-    
+
     return (
         <View style={styles.ChatSendInputView}>
             <TextInput
                 style={styles.ChatSendInput}
                 onChange={e => setSendText(e.target.value)}
+                autoFocus={true}
             />
             <TouchableOpacity onPress={SendBtnOnClick}>
                 <Image

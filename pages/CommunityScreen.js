@@ -1,9 +1,10 @@
 import { View, Text } from 'react-native';
+import SafeAreaView from "../components/SafeAreaView/SafeAreaView";
 
 export default function CommunityScreen() {
     return (
-        <View>
+        <SafeAreaView>
             <Text>CommunityScreen</Text>
-        </View>
+        </SafeAreaView>
     );
 }
