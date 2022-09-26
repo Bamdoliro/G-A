@@ -40,10 +40,15 @@ export default function ChatList({ IMG, MAIN_TEXT, SUB_TEXT, PARTICIPANT, DATE }
 }
 
 const styles = StyleSheet.create({
+    TouchScreen: {
+        marginBottom: 10
+    },
     ChatListContent: {
         flexDirection: "row",
         justifyContent: "space-between",
-        marginBottom: 20,
+        backgroundColor: "#fff",
+        padding: 16,
+        borderRadius: 16
     },
     ProfileAndTitle: {
         flexDirection: "row",
