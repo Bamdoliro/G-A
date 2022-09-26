@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "space-between",
         width: 280,
-        marginBottom: 20
+        marginTop: 5
     },
     SubHeaderTitle: {
         fontSize: 26,

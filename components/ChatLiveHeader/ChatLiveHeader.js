@@ -41,7 +41,7 @@ export default function ChatLiveHeader({navigation}) {
 const styles = StyleSheet.create({
     LiveHeader: {
         backgroundColor: "#fff",
-        height: "15%",
+        height: 110,
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20
     },

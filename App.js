@@ -13,6 +13,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
+        initialRouteName="TabNavigation"
         screenOptions={{
           headerShown: false
         }}
