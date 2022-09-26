@@ -1,6 +1,4 @@
-import React from "react";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
 import Home from './assets/NavigationBar/home.png';
 import HomeScreen from "./pages/HomeScreen";
 import CommunityScreen from "./pages/CommunityScreen";
