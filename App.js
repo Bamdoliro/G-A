@@ -5,7 +5,6 @@ import LoginScreen from "./pages/LoginScreen";
 import ChatScreen from "./pages/ChatScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Header from "./components/Header/Header";
 
 const Stack = createNativeStackNavigator();
 
@@ -19,7 +18,7 @@ export default function App() {
           }}
         >
           {/* <Stack.Screen name="Login" component={LoginScreen} /> */}
-          <Stack.Screen name="ChatList" component={Header} />
+          <Stack.Screen name="ChatScreen" component={ChatScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </View>
