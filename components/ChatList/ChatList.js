@@ -1,10 +1,10 @@
 import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
 
-export default function ChatList({ IMG, MAIN_TEXT, SUB_TEXT, PARTICIPANT, DATE, navigation }) {
+export default function ChatList({ IMG, name, SUB_TEXT, numberOfMembers, DATE, id, navigation }) {
 
     const ChatListOnClick = (navigation) => {
         // 백엔드 들어오면 수정하겠음
-        navigation.navigate('ChatLiveScreen');
+        navigation.navigate('ChatLiveScreen', {id: id, name: name, numberOfMembers: numberOfMembers});
     }
 
     return (
@@ -21,10 +21,10 @@ export default function ChatList({ IMG, MAIN_TEXT, SUB_TEXT, PARTICIPANT, DATE, 
                     <View style={styles.ChatSetText}>
                         <View style={styles.ChatSetMainText}>
                             <Text style={styles.ChatMainText}>
-                                {MAIN_TEXT}
+                                {name}
                             </Text>
                             <Text style={styles.NumberOfParticipants}>
-                                {PARTICIPANT}
+                                {numberOfMembers}
                             </Text>
                         </View>
                         <Text style={styles.ChatSubText}>

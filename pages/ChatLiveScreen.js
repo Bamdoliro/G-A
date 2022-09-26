@@ -5,13 +5,19 @@ import ChatLiveFeild from "../components/ChatLiveFeild/ChatLiveFeild";
 import ChatLiveHeader from "../components/ChatLiveHeader/ChatLiveHeader";
 import ChatLiveSendFeild from "../components/ChatLiveSendFeild/ChatLiveSendFeild";
 
-export default function ChatLiveScreen({navigation}) {
+export default function ChatLiveScreen({ route, navigation }) {
+    const { id, name, numberOfMembers } = route.params;
 
     return (
         <>
             <MyStatusBar barStyle="dark-content" backgroundColor="white"/>
             <SafeAreaView style={styles.ChatLiveSection}>
-                <ChatLiveHeader style={{flex: 1}} navigation={navigation}/>
+                <ChatLiveHeader
+                    style={{flex: 1}}
+                    navigation={navigation}
+                    name={name}
+                    numberOfMembers={numberOfMembers}
+                />
                 <ChatLiveFeild flex={{flex: 1}}/>
                 <KeyboardAvoidingView
                     style={styles.ChatKeyboardView}

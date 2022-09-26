@@ -5,6 +5,8 @@ import Logo from "../assets/img.png";
 import SafeAreaView from "../components/SafeAreaView/SafeAreaView";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import CustomButton from "../components/CustomButton/CustomButton";
+import axios from "axios";
+import {baseUrl} from "../api/urls";
 
 export default function LoginScreen({navigation}) {
     const [email, setEmail] = useState("");
@@ -12,8 +14,14 @@ export default function LoginScreen({navigation}) {
 
     const loginUser = async () => {
         try {
-            await AsyncStorage.setItem("access-token", email); // ㅎㅎ 나중에 수정하세욤
+            const response = await axios.post(`${baseUrl}/auth`, {
+                "email": email,
+                "password": password
+            });
+            await AsyncStorage.setItem("access-token", response.data.refreshToken);
             // socket io client connect and subscribe
+            setEmail("");
+            setPassword("");
             navigation.navigate("ChatScreen");
         } catch (e) {
             console.log(e);
@@ -27,12 +35,12 @@ export default function LoginScreen({navigation}) {
                 <CustomInput
                     placeholder="이메일 입력"
                     value={email}
-                    setValue={setEmail}
+                    setValue={email => setEmail(email)}
                 />
                 <CustomInput
                     placeholder="비밀번호 입력"
                     value={password}
-                    setValue={setPassword}
+                    setValue={password => setPassword(password)}
                     secureTextEntry={true}
                 />
                 <View style={styles.loginButton}>
