@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { Button, Image, StyleSheet, View } from "react-native";
 import CustomInput from "../components/CustomInput/CustomInput";
 import Logo from "../assets/img.png";
+import SafeAreaView from "../components/SafeAreaView/SafeAreaView";
 
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   return (
-    <View style={styles.root}>
+    <SafeAreaView style={styles.root}>
       <View style={styles.innerBox}>
         <Image source={Logo} style={styles.logo} resizeMode="contain" />
         <CustomInput
@@ -23,7 +24,7 @@ export default function LoginScreen() {
           secureTextEntry={true}
         />
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

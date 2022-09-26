@@ -11,6 +11,7 @@ import HomeScreen from "./pages/HomeScreen";
 import CommunityScreen from "./pages/CommunityScreen";
 import ChatScreen from "./pages/ChatScreen";
 import ProfileScreen from "./pages/ProfileScreen";
+import LoginScreen from "./pages/LoginScreen";
 import { Image } from "react-native";
 
 const Tab = createBottomTabNavigator();
@@ -42,7 +43,7 @@ export default function TabNavigation() {
                     <Image style={{height: 30, width: 30}} source={Chat} />
                 )
             }}/>
-            <Tab.Screen name="ProfileScreen" component={ProfileScreen} options={{
+            <Tab.Screen name="ProfileScreen" component={LoginScreen} options={{
                 tabBarIcon: ({ focused }) => focused ? (
                     <Image style={{height: 30, width: 30}} source={PersonFilled} />
                 ) : (
