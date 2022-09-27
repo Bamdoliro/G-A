@@ -2,7 +2,7 @@ import {FlatList, StyleSheet, View} from "react-native";
 import ChatLiveMyMessage from "./Message/ChatLiveMyMessage";
 import ChatLiveOtherMessage from "./Message/ChatLiveOtherMessage";
 
-export default function ChatLiveFelid({messageData}) {
+export default function ChatLiveField({messageData}) {
     let currentUserId = 1;
 
     return (
