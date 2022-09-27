@@ -1,18 +1,22 @@
-import { ScrollView, StyleSheet } from "react-native";
+import {ScrollView, StyleSheet} from "react-native";
 import ChatList from "../ChatList/ChatList";
 import ChatListData from "../../data/ChatList.json"
 
-export default function ChatListSection() {
+export default function ChatListSection({navigation, rooms}) {
 
     return (
         <ScrollView style={styles.ScrollSection}>
-            <ChatList
-                IMG = {ChatListData.row.IMG}
-                MAIN_TEXT = {ChatListData.row.MAIN_TEXT}
-                SUB_TEXT = {ChatListData.row.SUB_TEXT}
-                PARTICIPANT = {ChatListData.row.PARTICIPANT}
-                DATE = {ChatListData.row.DATE}
-            />
+            {rooms.map(r => (
+                <ChatList
+                    IMG={ChatListData.row.IMG}
+                    name={r.name}
+                    SUB_TEXT={"내용내용"}
+                    numberOfMembers={r.numberOfMembers}
+                    DATE={ChatListData.row.DATE}
+                    id={r.id}
+                    navigation={navigation}
+                />
+            ))}
         </ScrollView>
     )
 }

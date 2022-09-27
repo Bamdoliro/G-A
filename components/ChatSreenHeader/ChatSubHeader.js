@@ -20,8 +20,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
-        width: 280,
-        marginBottom: 20
+        width: "80%",
     },
     SubHeaderTitle: {
         fontSize: 26,

@@ -10,6 +10,7 @@ export default function CustomInput({ value, setValue, placeholder, secureTextEn
         placeholder={placeholder}
         style={styles.input}
         secureTextEntry={secureTextEntry}
+        autoCapitalize={"none"}
       />
     </View>
   );
