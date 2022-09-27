@@ -4,25 +4,20 @@ import ChatLiveOtherMessage from "../ChatLiveMessage/ChatLiveOtherMessage";
 import MessageData from "../../data/MessageData.json"
 import { useEffect, useState } from "react";
 
-export default function ChatLiveFelid() {
-    const [msgData, setMsgData] = useState([]);
-    let curreentUserId = 1;
-
-    useEffect(() => {
-        setMsgData(MessageData)
-    }, [])
+export default function ChatLiveFelid({messageData}) {
+    let currentUserId = 1;
 
     return (
         <View style={styles.ChatLiveFeild}>
-            <FlatList 
+            <FlatList
                 style={styles.list}
-                data={msgData}
+                data={messageData}
                 keyExtractor={item => item.userId}
                 renderItem={({item}) =>
-                    item.userId == curreentUserId ? (
-                        <ChatLiveMyMessage />
+                    item.userId === currentUserId ? (
+                        <ChatLiveMyMessage data={item}/>
                     ) : (
-                        <ChatLiveOtherMessage />
+                        <ChatLiveOtherMessage data={item} />
                     )
                 }
             />
@@ -33,8 +28,9 @@ export default function ChatLiveFelid() {
 const styles = StyleSheet.create({
     ChatLiveFeild: {
         backgroundColor: "#D4E0FF",
-        padding: 8,
+        padding: 10,
         paddingTop: 24,
+        paddingBottom: 20,
         flexGrow: 1
     },
     list: {

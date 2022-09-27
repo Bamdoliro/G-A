@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet } from "react-native"
 
-export default function ChatLiveMyMessage() {
+export default function ChatLiveMyMessage({data}) {
     return (
         <View style={styles.MyMessage}>
-            <Text style={styles.MessageText}>선포해라 작전명 청춘</Text>
+            <Text style={styles.MessageText}>{data.message}</Text>
         </View>
     )
 }
