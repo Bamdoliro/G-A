@@ -6,7 +6,6 @@ export default function ChatLiveFelid() {
     return (
         <ScrollView style={{height:100}}>
             <View style={styles.ChatLiveFeild}>
-                {/* 샌즈 왔다감ㅋ */}
                 <ChatNotification />
             </View>
         </ScrollView>
