@@ -4,6 +4,7 @@ import SafeAreaView from "../components/SafeAreaView/SafeAreaView";
 import ChatLiveFeild from "../components/ChatLiveFeild/ChatLiveFeild";
 import ChatLiveHeader from "../components/ChatLiveHeader/ChatLiveHeader";
 import ChatLiveSendFeild from "../components/ChatLiveSendFeild/ChatLiveSendFeild";
+import MessageData from "../data/MessageData.json";
 
 export default function ChatLiveScreen({ route, navigation }) {
     const { id, name, numberOfMembers } = route.params;
@@ -18,7 +19,10 @@ export default function ChatLiveScreen({ route, navigation }) {
                     name={name}
                     numberOfMembers={numberOfMembers}
                 />
-                <ChatLiveFeild flex={{flex: 1}}/>
+                <ChatLiveFeild
+                    flex={{flex: 1}}
+                    messageData={MessageData}
+                />
                 <KeyboardAvoidingView
                     style={styles.ChatKeyboardView}
                     behavior={Platform.OS == 'ios' ? "padding" : "position"}
