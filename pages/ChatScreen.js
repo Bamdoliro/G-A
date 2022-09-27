@@ -26,7 +26,6 @@ export default function ChatScreen({navigation}) {
             });
 
             setRooms([...response.data]);
-            console.log(rooms)
         } catch (e) {
             console.log(e);
         }

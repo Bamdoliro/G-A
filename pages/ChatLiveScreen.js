@@ -1,9 +1,9 @@
 import {View, StyleSheet, Platform, KeyboardAvoidingView, Text} from "react-native";
 import MyStatusBar from "../components/SafeAreaView/MyStatusBar";
 import SafeAreaView from "../components/SafeAreaView/SafeAreaView";
-import ChatLiveFeild from "../components/ChatLiveFeild/ChatLiveFeild";
+import ChatLiveField from "../components/ChatLiveField/ChatLiveField";
 import ChatLiveHeader from "../components/ChatLiveHeader/ChatLiveHeader";
-import ChatLiveSendFeild from "../components/ChatLiveSendFeild/ChatLiveSendFeild";
+import ChatLiveSendField from "../components/ChatLiveSendField/ChatLiveSendField";
 
 export default function ChatLiveScreen({ route, navigation }) {
     const { id, name, numberOfMembers } = route.params;
@@ -18,13 +18,13 @@ export default function ChatLiveScreen({ route, navigation }) {
                     name={name}
                     numberOfMembers={numberOfMembers}
                 />
-                <ChatLiveFeild flex={{flex: 1}}/>
+                <ChatLiveField flex={{flex: 1}}/>
                 <KeyboardAvoidingView
                     style={styles.ChatKeyboardView}
                     behavior={Platform.OS == 'ios' ? "padding" : "position"}
                     enabled
                 >
-                    <ChatLiveSendFeild style={styles.ChatLiveSendFeild}/>
+                    <ChatLiveSendField style={styles.ChatLiveSendField}/>
                 </KeyboardAvoidingView>
                 {
                     Platform.OS == 'ios' ? (

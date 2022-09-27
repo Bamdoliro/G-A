@@ -1,15 +1,15 @@
 import { StyleSheet, ScrollView } from "react-native";
 
-export default function ChatLiveFelid() {
+export default function ChatLiveField() {
     return (
-        <ScrollView style={styles.ChatLiveFeild}>
+        <ScrollView style={styles.ChatLiveField}>
 
         </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
-    ChatLiveFeild: {
+    ChatLiveField: {
         backgroundColor: "#D4E0FF",
         flexDirection:"column"
     }

@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         marginRight: 15
     },
     ChatTitle: {
-        fontSize: 15,
+        fontSize: 19,
         fontWeight: "bold",
     },
     NumberOfParticipants: {
