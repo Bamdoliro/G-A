@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         width: "100%",
         paddingTop: 13,
-        paddingBottom: 13
+        paddingBottom: 13,
     },
     ChatSendInput: {
         backgroundColor: "#fff",

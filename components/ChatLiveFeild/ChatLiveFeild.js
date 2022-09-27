@@ -1,17 +1,24 @@
 import { StyleSheet, ScrollView } from "react-native";
+import { View } from "react-native-web";
 import ChatNotification from '../ChatNotification/ChatNotification';
 
 export default function ChatLiveFelid() {
     return (
-        <ScrollView style={styles.ChatLiveFeild}>
-            <ChatNotification />
+        <ScrollView style={{height:100}}>
+            <View style={styles.ChatLiveFeild}>
+                {/* 샌즈 왔다감ㅋ */}
+                <ChatNotification />
+            </View>
         </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
     ChatLiveFeild: {
+        flexDirection: 'column',
         backgroundColor: "#D4E0FF",
-        flexDirection:"column"
+        position: 'relative',
+        alignItems: 'center',
+        paddingTop: 12
     }
 })
