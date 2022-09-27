@@ -1,6 +1,6 @@
 import { StyleSheet, Image, View, TextInput } from 'react-native';
 import { useState } from 'react';
-import SearchIcon from '../../assets/Search_Icon.png';
+import SearchIcon from '../../../../assets/Search_Icon.png';
 
 export default function ChatRoomSearch(){
   const [search, setSearch] = useState("");

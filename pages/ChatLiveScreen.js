@@ -1,9 +1,9 @@
 import {View, StyleSheet, Platform, KeyboardAvoidingView, Text} from "react-native";
-import MyStatusBar from "../components/SafeAreaView/MyStatusBar";
-import SafeAreaView from "../components/SafeAreaView/SafeAreaView";
-import ChatLiveField from "../components/ChatLiveField/ChatLiveField";
-import ChatLiveHeader from "../components/ChatLiveHeader/ChatLiveHeader";
-import ChatLiveSendField from "../components/ChatLiveSendField/ChatLiveSendField";
+import MyStatusBar from "../components/common/SafeAreaView/MyStatusBar";
+import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
+import ChatLiveField from "../components/Chat/ChatLive/ChatLiveField";
+import ChatLiveHeader from "../components/Chat/ChatLive/ChatLiveHeader";
+import ChatLiveSendField from "../components/Chat/ChatLive/ChatLiveSendField";
 
 export default function ChatLiveScreen({ route, navigation }) {
     const { id, name, numberOfMembers } = route.params;

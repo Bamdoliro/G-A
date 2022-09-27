@@ -1,6 +1,6 @@
 import { View, StyleSheet, Text, Image, TouchableOpacity } from "react-native";
-import Arrow from "../../assets/arrow.png";
-import MenuBtn from "../../assets/menu_btn.png";
+import Arrow from "../../../assets/arrow.png";
+import MenuBtn from "../../../assets/menu_btn.png";
 
 // 시간 날때 클래스 명 좀 고칠께요 개발 빨리 하려다 보니 야매로 지었습니다..
 // 이미지는 SVG 가 따로 안넣어져서 아직 안넣음

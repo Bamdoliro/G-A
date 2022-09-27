@@ -1,5 +1,5 @@
 import { View, Text } from 'react-native';
-import SafeAreaView from "../components/SafeAreaView/SafeAreaView";
+import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 
 export default function ProfileScreen() {
     return (

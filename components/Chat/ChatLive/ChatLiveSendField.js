@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {Image, StyleSheet, TextInput, TouchableOpacity, View} from "react-native";
-import SendBtn from "../../assets/sendBtn.png";
+import SendBtn from "../../../assets/sendBtn.png";
 
 
 export default function ChatLiveSendField() {

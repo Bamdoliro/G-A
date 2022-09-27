@@ -1,9 +1,7 @@
-import { StyleSheet, View } from "react-native";
-import LoginScreen from "./pages/LoginScreen";
-import ChatScreen from "./pages/ChatScreen";
+import ChatListScreen from "./pages/ChatListScreen";
 import ChatLiveScreen from "./pages/ChatLiveScreen";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import {NavigationContainer} from "@react-navigation/native";
+import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
 import TabNavigation from './TabNavigation';
 
@@ -19,7 +17,7 @@ export default function App() {
         }}
       >
         <Stack.Screen name="TabNavigation" component={TabNavigation} />
-        <Stack.Screen name="ChatScreen" component={ChatScreen} />
+        <Stack.Screen name="ChatListScreen" component={ChatListScreen} />
         <Stack.Screen name="ChatLiveScreen" component={ChatLiveScreen} />
       </Stack.Navigator>
     </NavigationContainer>
