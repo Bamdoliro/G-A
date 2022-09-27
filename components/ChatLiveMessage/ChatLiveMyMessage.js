@@ -1,0 +1,27 @@
+import { View, Text, StyleSheet } from "react-native"
+
+export default function ChatLiveMyMessage() {
+    return (
+        <View style={styles.MyMessage}>
+            <Text style={styles.MessageText}>선포해라 작전명 청춘</Text>
+        </View>
+    )
+}
+
+const styles = StyleSheet.create({
+    MyMessage: {
+        flexDirection: "row",
+        flex: 1,
+        alignSelf: "flex-end",
+        alignItems: "center",
+        backgroundColor: "#0D76FF",
+        padding: 9,
+        borderRadius: 20,
+        maxWidth: 170
+    },
+    MessageText: {
+        color: "#fff",
+        fontSize: 15,
+        textAlign: "center"
+    }
+})
