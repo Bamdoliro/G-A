@@ -7,7 +7,6 @@ import TabNavigation from './TabNavigation';
 import useSocket from "./hooks/useSocket";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {useEffect} from "react";
-import tokenStorage from "./utils/tokenStorage";
 
 const Stack = createNativeStackNavigator();
 
