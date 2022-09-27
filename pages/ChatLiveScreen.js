@@ -5,6 +5,7 @@ import ChatLiveField from "../components/Chat/ChatLive/ChatLiveField";
 import ChatLiveHeader from "../components/Chat/ChatLive/ChatLiveHeader";
 import ChatLiveSendField from "../components/Chat/ChatLive/ChatLiveSendField";
 import {useEffect, useState} from "react";
+import MessageData from "../data/MessageData.json";
 
 export default function ChatLiveScreen({route, navigation, socket}) {
     const {id, name, numberOfMembers} = route.params;
@@ -40,8 +41,11 @@ export default function ChatLiveScreen({route, navigation, socket}) {
                     name={name}
                     numberOfMembers={numberOfMembers}
                 />
-                <ChatLiveField flex={{flex: 1}}/>
 
+                <ChatLiveField
+                    flex={{flex: 1}}
+                    messageData={MessageData}
+                />
                 <KeyboardAvoidingView
                     style={styles.ChatKeyboardView}
                     behavior={Platform.OS === 'ios' ? "padding" : "position"}
