@@ -19,7 +19,6 @@ export default function LoginScreen({navigation}) {
                 "password": password
             });
             await AsyncStorage.setItem("access-token", response.data.refreshToken);
-            // socket io client connect and subscribe
             setEmail("");
             setPassword("");
             navigation.navigate("ChatListScreen");

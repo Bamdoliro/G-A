@@ -14,6 +14,7 @@ export default function ChatListSection({navigation, rooms}) {
                     numberOfMembers={r.numberOfMembers}
                     DATE={ChatListData.row.DATE}
                     id={r.id}
+                    key={r.id}
                     navigation={navigation}
                 />
             ))}

@@ -3,11 +3,12 @@ import {Image, StyleSheet, TextInput, TouchableOpacity, View} from "react-native
 import SendBtn from "../../../assets/sendBtn.png";
 
 
-export default function ChatLiveSendField() {
+export default function ChatLiveSendField({sendMessage}) {
     const [message, setMessage] = useState("");
 
     const SendBtnOnClick = () => {
-        console.log("버튼누름");
+        sendMessage(message);
+        setMessage("");
     }
 
     useEffect(() => {
@@ -18,7 +19,8 @@ export default function ChatLiveSendField() {
         <View style={styles.ChatSendInputView}>
             <TextInput
                 style={styles.ChatSendInput}
-                onChange={message => setMessage(message)}
+                value={message}
+                onChangeText={message => setMessage(message)}
                 autoFocus={true}
             />
             <TouchableOpacity onPress={SendBtnOnClick}>

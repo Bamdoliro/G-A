@@ -1,12 +1,34 @@
-import {View, StyleSheet, Platform, KeyboardAvoidingView, Text} from "react-native";
+import {KeyboardAvoidingView, Platform, StyleSheet, View} from "react-native";
 import MyStatusBar from "../components/common/SafeAreaView/MyStatusBar";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import ChatLiveField from "../components/Chat/ChatLive/ChatLiveField";
 import ChatLiveHeader from "../components/Chat/ChatLive/ChatLiveHeader";
 import ChatLiveSendField from "../components/Chat/ChatLive/ChatLiveSendField";
+import {useEffect, useState} from "react";
 
-export default function ChatLiveScreen({ route, navigation }) {
-    const { id, name, numberOfMembers } = route.params;
+export default function ChatLiveScreen({route, navigation, socket}) {
+    const {id, name, numberOfMembers} = route.params;
+    const [messages, setMessages] = useState([]);
+
+    const sendMessage = (message) => {
+        const data = {
+            roomId: id,
+            messageType: "USER",
+            message: message,
+        };
+
+        socket.current.emit("message", data);
+    };
+
+    useEffect(() => {
+        socket.current.on("message", data => {
+            setMessages(oldDate => [...oldDate, data])
+        });
+
+        socket.current.on("error", err => {
+            console.log(err)
+        })
+    }, []);
 
     return (
         <>
@@ -19,15 +41,19 @@ export default function ChatLiveScreen({ route, navigation }) {
                     numberOfMembers={numberOfMembers}
                 />
                 <ChatLiveField flex={{flex: 1}}/>
+
                 <KeyboardAvoidingView
                     style={styles.ChatKeyboardView}
-                    behavior={Platform.OS == 'ios' ? "padding" : "position"}
+                    behavior={Platform.OS === 'ios' ? "padding" : "position"}
                     enabled
                 >
-                    <ChatLiveSendField style={styles.ChatLiveSendField}/>
+                    <ChatLiveSendField
+                        sendMessage={sendMessage}
+                    />
                 </KeyboardAvoidingView>
+
                 {
-                    Platform.OS == 'ios' ? (
+                    Platform.OS === 'ios' ? (
                         <View style={styles.FooterEmpty}>
                             {/* IOS 아래 공백 */}
                         </View>
