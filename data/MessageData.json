@@ -1,8 +1,9 @@
-{
-    "row": {
-        "message": "string",
+[
+    {
+        "message": "하이",
         "messageType": "USER",
         "sentAt": "string",
-        "username": "string"
+        "username": "string",
+        "userId": 1
     }
-}
+]
