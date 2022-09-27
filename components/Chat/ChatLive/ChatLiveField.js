@@ -1,14 +1,12 @@
-import { StyleSheet, Text, FlatList, View } from "react-native";
-import ChatLiveMyMessage from "../ChatLiveMessage/ChatLiveMyMessage";
-import ChatLiveOtherMessage from "../ChatLiveMessage/ChatLiveOtherMessage";
-import MessageData from "../../data/MessageData.json"
-import { useEffect, useState } from "react";
+import {FlatList, StyleSheet, View} from "react-native";
+import ChatLiveMyMessage from "./Message/ChatLiveMyMessage";
+import ChatLiveOtherMessage from "./Message/ChatLiveOtherMessage";
 
 export default function ChatLiveFelid({messageData}) {
     let currentUserId = 1;
 
     return (
-        <View style={styles.ChatLiveFeild}>
+        <View style={styles.ChatLiveField}>
             <FlatList
                 style={styles.list}
                 data={messageData}
@@ -26,7 +24,7 @@ export default function ChatLiveFelid({messageData}) {
 }
 
 const styles = StyleSheet.create({
-    ChatLiveFeild: {
+    ChatLiveField: {
         backgroundColor: "#D4E0FF",
         padding: 10,
         paddingTop: 24,

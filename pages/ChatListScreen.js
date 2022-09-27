@@ -1,14 +1,14 @@
 import {StyleSheet} from "react-native";
-import ChatScreenHeader from "../components/ChatSreenHeader/ChatScreenHeader";
-import ChatListSection from "../components/ChatListSection/ChatListSection";
-import SafeAreaView from "../components/SafeAreaView/SafeAreaView";
-import MyStatusBar from "../components/SafeAreaView/MyStatusBar";
+import ChatScreenHeader from "../components/Chat/ChatList/ChatScreenHeader/ChatScreenHeader";
+import ChatListSection from "../components/Chat/ChatList/ChatListSection";
+import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
+import MyStatusBar from "../components/common/SafeAreaView/MyStatusBar";
 import {useEffect, useState} from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import {baseUrl} from "../api/urls";
 
-export default function ChatScreen({navigation}) {
+export default function ChatListScreen({navigation}) {
 
     const [rooms, setRooms] = useState([]);
 
@@ -26,7 +26,6 @@ export default function ChatScreen({navigation}) {
             });
 
             setRooms([...response.data]);
-            console.log(rooms)
         } catch (e) {
             console.log(e);
         }

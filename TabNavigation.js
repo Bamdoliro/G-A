@@ -9,7 +9,7 @@ import Person from "./assets/bottom/person.png";
 import PersonFilled from "./assets/bottom/person-filled.png";
 import HomeScreen from "./pages/HomeScreen";
 import CommunityScreen from "./pages/CommunityScreen";
-import ChatScreen from "./pages/ChatScreen";
+import ChatListScreen from "./pages/ChatListScreen";
 import ProfileScreen from "./pages/ProfileScreen";
 import LoginScreen from "./pages/LoginScreen";
 import { Image } from "react-native";
@@ -36,7 +36,7 @@ export default function TabNavigation() {
                     <Image style={{height: 30, width: 30}} source={Community} />
                 )
             }}/>
-            <Tab.Screen name="ChatScreen" component={ChatScreen} options={{
+            <Tab.Screen name="ChatListScreen" component={ChatListScreen} options={{
                 tabBarIcon: ({ focused }) => focused ? (
                     <Image style={{height: 30, width: 30}} source={ChatFilled} />
                 ) : (

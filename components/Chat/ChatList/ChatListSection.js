@@ -1,6 +1,6 @@
 import {ScrollView, StyleSheet} from "react-native";
-import ChatList from "../ChatList/ChatList";
-import ChatListData from "../../data/ChatList.json"
+import ChatList from "./ChatList";
+import ChatListData from "../../../data/ChatList.json"
 
 export default function ChatListSection({navigation, rooms}) {
 
@@ -14,6 +14,7 @@ export default function ChatListSection({navigation, rooms}) {
                     numberOfMembers={r.numberOfMembers}
                     DATE={ChatListData.row.DATE}
                     id={r.id}
+                    key={r.id}
                     navigation={navigation}
                 />
             ))}

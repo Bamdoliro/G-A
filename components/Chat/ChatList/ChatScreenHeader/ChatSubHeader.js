@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, Image } from "react-native";
-import BellIcon from "../../assets/Bell_Icon.png"
+import BellIcon from "../../../../assets/Bell_Icon.png"
 
 export default function ChatSubHeader() {
     return (

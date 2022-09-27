@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import {Image, StyleSheet, View} from "react-native";
-import CustomInput from "../components/CustomInput/CustomInput";
+import CustomInput from "../components/common/CustomInput/CustomInput";
 import Logo from "../assets/img.png";
-import SafeAreaView from "../components/SafeAreaView/SafeAreaView";
+import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import CustomButton from "../components/CustomButton/CustomButton";
+import CustomButton from "../components/common/CustomButton/CustomButton";
 import axios from "axios";
 import {baseUrl} from "../api/urls";
 
@@ -19,10 +19,9 @@ export default function LoginScreen({navigation}) {
                 "password": password
             });
             await AsyncStorage.setItem("access-token", response.data.refreshToken);
-            // socket io client connect and subscribe
             setEmail("");
             setPassword("");
-            navigation.navigate("ChatScreen");
+            navigation.navigate("ChatListScreen");
         } catch (e) {
             console.log(e);
         }
