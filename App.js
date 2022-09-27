@@ -19,7 +19,7 @@ export default function App() {
       >
         <Stack.Screen 
           name="TabNavigation"
-          component={TabNavigation}
+          component={ChatLiveScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

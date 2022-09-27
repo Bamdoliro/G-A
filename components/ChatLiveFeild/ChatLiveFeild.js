@@ -1,9 +1,10 @@
 import { StyleSheet, ScrollView } from "react-native";
+import ChatNotification from '../ChatNotification/ChatNotification';
 
 export default function ChatLiveFelid() {
     return (
         <ScrollView style={styles.ChatLiveFeild}>
-
+            <ChatNotification />
         </ScrollView>
     )
 }
