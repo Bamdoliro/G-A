@@ -1,7 +1,12 @@
 import { View, StyleSheet, Image, Text } from "react-native";
+import { componentDidUpdate } from 'react-dom';
 import GatiLogo from '../../assets/gatiLogo.png'
 
 export default function ChatNotification(){
+    setTimeout(() => {
+        deleteMessage(text);
+    }, 7500);
+
     return (
         <View style={styles.container}>
             <Image source={GatiLogo} style={styles.logoImage} />
@@ -12,6 +17,7 @@ export default function ChatNotification(){
         </View>
     )
 }
+
 
 const styles = StyleSheet.create({
     container: {
