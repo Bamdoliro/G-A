@@ -1,6 +1,8 @@
 {
     "row": {
-        "MSG": "님 방가 방가",
-        "DATE": "2022-09-27"
+        "message": "string",
+        "messageType": "USER",
+        "sentAt": "string",
+        "username": "string"
     }
 }
