@@ -21,7 +21,8 @@ export default function ChatLiveSendField({sendMessage}) {
                 style={styles.ChatSendInput}
                 value={message}
                 onChangeText={message => setMessage(message)}
-                autoFocus={true}
+                autoFocus={false}
+                autoCorrect={false}
             />
             <TouchableOpacity onPress={SendBtnOnClick}>
                 <Image
@@ -38,10 +39,9 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#fff",
         width: "100%",
         paddingTop: 13,
-        paddingBottom: 13
+        paddingBottom: 13,
     },
     ChatSendInput: {
         width: "75%",

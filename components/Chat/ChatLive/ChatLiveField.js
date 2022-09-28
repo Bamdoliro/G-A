@@ -18,7 +18,7 @@ export default function ChatLiveField({messageData}) {
             <FlatList
                 showsVerticalScrollIndicator={false}
                 showsHorizontalScrollIndicator={false}
-                contentContainerStyle={{paddingBottom: 90}}
+                contentContainerStyle={{paddingBottom: 30, paddingTop: 30}}
                 style={styles.list}
                 data={messageData}
                 keyExtractor={item => item.userId}
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#D4E0FF",
         flexGrow: 1,
         paddingLeft: 12,
-        paddingRight: 12
+        paddingRight: 12,
     },
     list: {
 
