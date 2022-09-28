@@ -5,21 +5,28 @@ import ChatLiveField from "../components/Chat/ChatLive/ChatLiveField";
 import ChatLiveHeader from "../components/Chat/ChatLive/ChatLiveHeader";
 import ChatLiveSendField from "../components/Chat/ChatLive/ChatLiveSendField";
 import {useEffect, useState} from "react";
-import MessageData from "../data/MessageData.json";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import axios from "axios";
+import {baseUrl} from "../api/urls";
+import jwtDecode from "jwt-decode";
 
 export default function ChatLiveScreen({route, navigation, socket}) {
     const {id, name, numberOfMembers} = route.params;
     const [messages, setMessages] = useState([]);
+    const [currentUserId, setCurrentUserId] = useState(0);
 
     const sendMessage = (message) => {
-        const data = {
-            roomId: id,
-            messageType: "USER",
-            message: message,
-        };
+        if (message.length > 0) {
+            const data = {
+                roomId: id,
+                messageType: "USER",
+                message: message,
+            };
 
-        socket.current.emit("message", data);
+            socket.current.emit("message", data);
+        }
     };
+
 
     useEffect(() => {
         socket.current.on("message", data => {
@@ -30,6 +37,32 @@ export default function ChatLiveScreen({route, navigation, socket}) {
             console.log(err)
         })
     }, []);
+
+
+    useEffect(() => {
+        navigation.addListener('focus', getMessages);
+        navigation.addListener('focus', setCurrentUser);
+    }, [navigation]);
+
+    const setCurrentUser = async () => {
+        const token = await AsyncStorage.getItem("access-token");
+        setCurrentUserId(jwtDecode(token).userId)
+    }
+
+    const getMessages = async () => {
+        const accessToken = await AsyncStorage.getItem("access-token");
+        try {
+            const response = await axios.get(`${baseUrl}/chat/${id}?sort=id,desc`, {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            });
+
+            setMessages([...response.data.reverse()]);
+        } catch (e) {
+            console.log(e);
+        }
+    };
 
     return (
         <>
@@ -44,7 +77,8 @@ export default function ChatLiveScreen({route, navigation, socket}) {
 
                 <ChatLiveField
                     flex={{flex: 1}}
-                    messageData={MessageData}
+                    messageData={messages}
+                    currentUserId={currentUserId}
                 />
                 <KeyboardAvoidingView
                     style={styles.ChatKeyboardView}

@@ -2,8 +2,7 @@ import {FlatList, StyleSheet, View} from "react-native";
 import ChatLiveMyMessage from "./Message/ChatLiveMyMessage";
 import ChatLiveOtherMessage from "./Message/ChatLiveOtherMessage";
 
-export default function ChatLiveField({messageData}) {
-    let currentUserId = 1;
+export default function ChatLiveField({messageData, currentUserId}) {
 
     return (
         <View style={styles.ChatLiveField}>
@@ -13,12 +12,12 @@ export default function ChatLiveField({messageData}) {
                 contentContainerStyle={{paddingBottom: 170}}
                 style={styles.list}
                 data={messageData}
-                keyExtractor={item => item.userId}
+                keyExtractor={(item, index) => index.toString()}
                 renderItem={({item}) =>
                     item.userId === currentUserId ? (
                         <ChatLiveMyMessage data={item}/>
                     ) : (
-                        <ChatLiveOtherMessage data={item} />
+                        <ChatLiveOtherMessage data={item}/>
                     )
                 }
             />
@@ -34,7 +33,5 @@ const styles = StyleSheet.create({
         paddingBottom: 20,
         flexGrow: 1
     },
-    list: {
-
-    }
+    list: {}
 })
