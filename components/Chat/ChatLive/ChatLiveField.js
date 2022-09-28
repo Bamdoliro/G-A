@@ -1,37 +1,45 @@
-import {FlatList, StyleSheet, View} from "react-native";
+import { FlatList, StyleSheet, ScrollView } from "react-native";
+import { useRef } from "react";
 import ChatLiveMyMessage from "./Message/ChatLiveMyMessage";
 import ChatLiveOtherMessage from "./Message/ChatLiveOtherMessage";
 
-export default function ChatLiveField({messageData, currentUserId}) {
+export default function ChatLiveField({ messageData }) {
+    const scrollViewRef = useRef();
+    let currentUserId = 1;
 
     return (
-        <View style={styles.ChatLiveField}>
+        <ScrollView
+            showsVerticalScrollIndicator={false}
+            showsHorizontalScrollIndicator={false}
+            style={styles.ChatLiveField}
+            ref={scrollViewRef}
+            onContentSizeChange={() => scrollViewRef.current.scrollToEnd({ animated: true })}
+        >
             <FlatList
                 showsVerticalScrollIndicator={false}
                 showsHorizontalScrollIndicator={false}
-                contentContainerStyle={{paddingBottom: 170}}
+                contentContainerStyle={{ paddingBottom: 30, paddingTop: 30, justifyContent: 'flex-end' }}
                 style={styles.list}
                 data={messageData}
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={({item}) =>
                     item.userId === currentUserId ? (
-                        <ChatLiveMyMessage data={item}/>
+                        <ChatLiveMyMessage data={item} />
                     ) : (
                         <ChatLiveOtherMessage data={item}/>
                     )
                 }
             />
-        </View>
+        </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
     ChatLiveField: {
         backgroundColor: "#D4E0FF",
-        padding: 10,
-        paddingTop: 24,
-        paddingBottom: 20,
-        flexGrow: 1
+        flexGrow: 1,
+        paddingLeft: 12,
+        paddingRight: 12,
     },
     list: {}
 })
