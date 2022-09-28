@@ -3,9 +3,8 @@ import { useRef } from "react";
 import ChatLiveMyMessage from "./Message/ChatLiveMyMessage";
 import ChatLiveOtherMessage from "./Message/ChatLiveOtherMessage";
 
-export default function ChatLiveField({ messageData }) {
+export default function ChatLiveField({ messageData, currentUserId }) {
     const scrollViewRef = useRef();
-    let currentUserId = 1;
 
     return (
         <ScrollView
