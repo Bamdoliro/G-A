@@ -119,6 +119,7 @@ export default function ChatLiveScreen({ route, navigation, socket }) {
                         <ChatLiveField
                             style={{ flex: 1 }}
                             messageData={MessageData}
+                            currentUserId={currentUserId}
                         />
                     </TouchableWithoutFeedback>
                     <ChatLiveSendField
