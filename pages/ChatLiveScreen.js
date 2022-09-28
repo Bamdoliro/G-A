@@ -7,7 +7,7 @@ import ChatLiveSendField from "../components/Chat/ChatLive/ChatLiveSendField";
 import {useEffect, useState} from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
-import {baseUrl} from "../api/urls";
+import {aiUrl, baseUrl} from "../api/urls";
 import jwtDecode from "jwt-decode";
 import Toast from "react-native-toast-message";
 import {toastConfig} from "../components/common/Toast/ToastConfig";
@@ -26,13 +26,30 @@ export default function ChatLiveScreen({route, navigation, socket}) {
             };
 
             socket.current.emit("message", data);
-            Toast.show({
-                type: 'chatNotification',
-                text1: '머라구여?',
-                text2: message+' 라구여?ㅋㅋ'
-            })
+            showChatNotification(message);
         }
     };
+
+    const showChatNotification = async (message) => {
+        // const r = await axios.get(aiUrl, {
+        //     params: {
+        //         msg: message
+        //     }
+        // });
+
+        const r = {
+            data: '경고,나보다걔가좋니? ㅋㅋ'
+        }
+
+        if (r.data !== null) {
+            let result = r.data.split(',')
+            Toast.show({
+                type: 'chatNotification',
+                text1: result[0],
+                text2: result[1]
+            })
+        }
+    }
 
 
     useEffect(() => {
