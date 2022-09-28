@@ -9,7 +9,6 @@ import axios from "axios";
 import {baseUrl} from "../api/urls";
 
 export default function ChatListScreen({navigation}) {
-
     const [rooms, setRooms] = useState([]);
 
     useEffect(() => {

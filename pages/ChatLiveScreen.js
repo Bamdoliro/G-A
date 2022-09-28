@@ -4,22 +4,54 @@ import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import ChatLiveField from "../components/Chat/ChatLive/ChatLiveField";
 import ChatLiveHeader from "../components/Chat/ChatLive/ChatLiveHeader";
 import ChatLiveSendField from "../components/Chat/ChatLive/ChatLiveSendField";
-import { useEffect, useState } from "react";
 import MessageData from "../data/MessageData.json";
+import {useEffect, useState} from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import axios from "axios";
+import {aiUrl, baseUrl} from "../api/urls";
+import jwtDecode from "jwt-decode";
+import Toast from "react-native-toast-message";
+import {toastConfig} from "../components/common/Toast/ToastConfig";
 
 export default function ChatLiveScreen({ route, navigation, socket }) {
     const { id, name, numberOfMembers } = route.params;
     const [messages, setMessages] = useState([]);
+    const [currentUserId, setCurrentUserId] = useState(0);
 
     const sendMessage = (message) => {
-        const data = {
-            roomId: id,
-            messageType: "USER",
-            message: message,
-        };
+        if (message.length > 0) {
+            const data = {
+                roomId: id,
+                messageType: "USER",
+                message: message,
+            };
 
-        socket.current.emit("message", data);
+            socket.current.emit("message", data);
+            showChatNotification(message);
+        }
     };
+
+    const showChatNotification = async (message) => {
+        // const r = await axios.get(aiUrl, {
+        //     params: {
+        //         msg: message
+        //     }
+        // });
+
+        const r = {
+            data: '경고,나보다걔가좋니? ㅋㅋ'
+        }
+
+        if (r.data !== null) {
+            let result = r.data.split(',')
+            Toast.show({
+                type: 'chatNotification',
+                text1: result[0],
+                text2: result[1]
+            })
+        }
+    }
+
 
     useEffect(() => {
         socket.current.on("message", data => {
@@ -42,6 +74,31 @@ export default function ChatLiveScreen({ route, navigation, socket }) {
     }, []);
 
     const [statusBarHeight, setStatusBarHeight] = useState(0);
+
+    useEffect(() => {
+        navigation.addListener('focus', getMessages);
+        navigation.addListener('focus', setCurrentUser);
+    }, [navigation]);
+
+    const setCurrentUser = async () => {
+        const token = await AsyncStorage.getItem("access-token");
+        setCurrentUserId(jwtDecode(token).userId)
+    }
+
+    const getMessages = async () => {
+        const accessToken = await AsyncStorage.getItem("access-token");
+        try {
+            const response = await axios.get(`${baseUrl}/chat/${id}?sort=id,desc`, {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            });
+
+            setMessages([...response.data.reverse()]);
+        } catch (e) {
+            console.log(e);
+        }
+    };
 
     return (
         <>
@@ -69,6 +126,7 @@ export default function ChatLiveScreen({ route, navigation, socket }) {
                     />
                 </KeyboardAvoidingView>
             </SafeAreaView>
+            <Toast config={toastConfig} />
         </>
     )
 }

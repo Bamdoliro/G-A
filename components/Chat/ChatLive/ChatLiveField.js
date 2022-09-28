@@ -21,12 +21,12 @@ export default function ChatLiveField({ messageData }) {
                 contentContainerStyle={{ paddingBottom: 30, paddingTop: 30, justifyContent: 'flex-end' }}
                 style={styles.list}
                 data={messageData}
-                keyExtractor={item => item.userId}
-                renderItem={({ item }) =>
+                keyExtractor={(item, index) => index.toString()}
+                renderItem={({item}) =>
                     item.userId === currentUserId ? (
                         <ChatLiveMyMessage data={item} />
                     ) : (
-                        <ChatLiveOtherMessage data={item} />
+                        <ChatLiveOtherMessage data={item}/>
                     )
                 }
             />
@@ -41,7 +41,5 @@ const styles = StyleSheet.create({
         paddingLeft: 12,
         paddingRight: 12,
     },
-    list: {
-
-    }
+    list: {}
 })
