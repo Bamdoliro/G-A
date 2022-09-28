@@ -1,4 +1,4 @@
-import { KeyboardAvoidingView, Platform, StyleSheet, NativeModules, View } from "react-native";
+import { KeyboardAvoidingView, Platform, StyleSheet, NativeModules, TouchableWithoutFeedback, Keyboard, View } from "react-native";
 import MyStatusBar from "../components/common/SafeAreaView/MyStatusBar";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import ChatLiveField from "../components/Chat/ChatLive/ChatLiveField";
@@ -50,7 +50,7 @@ export default function ChatLiveScreen({ route, navigation, socket }) {
                 <KeyboardAvoidingView
                     style={styles.ChatKeyboardView}
                     behavior={Platform.OS === "ios" ? "padding" : "height"}
-                    keyboardVerticalOffset={statusBarHeight+20}
+                    keyboardVerticalOffset={Platform.OS === "ios" ? statusBarHeight : statusBarHeight+20}
                 >
                     <ChatLiveHeader
                         style={{ flex: 1 }}
@@ -58,10 +58,12 @@ export default function ChatLiveScreen({ route, navigation, socket }) {
                         name={name}
                         numberOfMembers={numberOfMembers}
                     />
-                    <ChatLiveField
-                        flex={{ flex: 1 }}
-                        messageData={MessageData}
-                    />
+                    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                        <ChatLiveField
+                            style={{ flex: 1 }}
+                            messageData={MessageData}
+                        />
+                    </TouchableWithoutFeedback>
                     <ChatLiveSendField
                         sendMessage={sendMessage}
                     />

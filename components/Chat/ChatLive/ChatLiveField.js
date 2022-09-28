@@ -1,30 +1,30 @@
-import {FlatList, StyleSheet, ScrollView} from "react-native";
+import { FlatList, StyleSheet, ScrollView } from "react-native";
 import { useRef } from "react";
 import ChatLiveMyMessage from "./Message/ChatLiveMyMessage";
 import ChatLiveOtherMessage from "./Message/ChatLiveOtherMessage";
 
-export default function ChatLiveField({messageData}) {
+export default function ChatLiveField({ messageData }) {
     const scrollViewRef = useRef();
     let currentUserId = 1;
 
     return (
         <ScrollView
             showsVerticalScrollIndicator={false}
-            showsHorizontalScrollIndicator={false} 
+            showsHorizontalScrollIndicator={false}
             style={styles.ChatLiveField}
             ref={scrollViewRef}
-            onContentSizeChange={()=>scrollViewRef.current.scrollToEnd({animated:true})}
+            onContentSizeChange={() => scrollViewRef.current.scrollToEnd({ animated: true })}
         >
             <FlatList
                 showsVerticalScrollIndicator={false}
                 showsHorizontalScrollIndicator={false}
-                contentContainerStyle={{paddingBottom: 30, paddingTop: 30}}
+                contentContainerStyle={{ paddingBottom: 30, paddingTop: 30, justifyContent: 'flex-end' }}
                 style={styles.list}
                 data={messageData}
                 keyExtractor={item => item.userId}
-                renderItem={({item}) =>
+                renderItem={({ item }) =>
                     item.userId === currentUserId ? (
-                        <ChatLiveMyMessage data={item}/>
+                        <ChatLiveMyMessage data={item} />
                     ) : (
                         <ChatLiveOtherMessage data={item} />
                     )

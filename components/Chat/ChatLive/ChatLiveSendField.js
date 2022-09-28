@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
         width: "100%",
         paddingTop: 13,
         paddingBottom: 13,
+        marginTop: "auto"
     },
     ChatSendInput: {
         width: "75%",
