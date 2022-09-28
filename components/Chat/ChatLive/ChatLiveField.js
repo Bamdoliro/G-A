@@ -8,6 +8,7 @@ export default function ChatLiveField({messageData}) {
     return (
         <View style={styles.ChatLiveField}>
             <FlatList
+                contentContainerStyle={{paddingBottom: 170}}
                 style={styles.list}
                 data={messageData}
                 keyExtractor={item => item.userId}
