@@ -27,6 +27,20 @@ export default function LoginScreen({navigation}) {
         }
     }
 
+    const logoutUser = async () => {
+        try {
+            const accessToken = await AsyncStorage.getItem("access-token");
+            const response = await axios.delete(`${baseUrl}/auth`, {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            });
+            await AsyncStorage.removeItem("access-token");
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
     return (
         <SafeAreaView style={styles.root}>
             <View style={styles.innerBox}>
@@ -46,6 +60,12 @@ export default function LoginScreen({navigation}) {
                     <CustomButton
                         title="로그인"
                         onPress={loginUser}
+                    />
+                </View>
+                <View style={styles.loginButton}>
+                    <CustomButton
+                        title="로그아웃"
+                        onPress={logoutUser}
                     />
                 </View>
             </View>
