@@ -118,7 +118,7 @@ export default function ChatLiveScreen({ route, navigation, socket }) {
                     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                         <ChatLiveField
                             style={{ flex: 1 }}
-                            messageData={MessageData}
+                            messageData={messages}
                             currentUserId={currentUserId}
                         />
                     </TouchableWithoutFeedback>
