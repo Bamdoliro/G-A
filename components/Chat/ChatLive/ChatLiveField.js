@@ -29,10 +29,9 @@ export default function ChatLiveField({messageData}) {
 const styles = StyleSheet.create({
     ChatLiveField: {
         backgroundColor: "#D4E0FF",
-        padding: 10,
-        paddingTop: 24,
-        paddingBottom: 20,
-        flexGrow: 1
+        flexGrow: 1,
+        paddingLeft: 12,
+        paddingRight: 12
     },
     list: {
 

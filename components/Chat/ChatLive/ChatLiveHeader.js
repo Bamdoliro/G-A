@@ -42,8 +42,8 @@ const styles = StyleSheet.create({
     LiveHeader: {
         backgroundColor: "#fff",
         height: 110,
-        borderBottomLeftRadius: 20,
-        borderBottomRightRadius: 20
+        borderBottomLeftRadius: 15,
+        borderBottomRightRadius: 15
     },
     HeaderContent: {
         display: "flex",
