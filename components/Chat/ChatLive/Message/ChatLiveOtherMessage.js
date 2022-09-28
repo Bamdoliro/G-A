@@ -22,6 +22,6 @@ const styles = StyleSheet.create({
     MessageText: {
         color: "#000",
         fontSize: 15,
-        textAlign: "center"
+        textAlign: "left"
     }
 })
