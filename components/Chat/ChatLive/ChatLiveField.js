@@ -8,6 +8,8 @@ export default function ChatLiveField({messageData}) {
     return (
         <View style={styles.ChatLiveField}>
             <FlatList
+                showsVerticalScrollIndicator={false}
+                showsHorizontalScrollIndicator={false}
                 contentContainerStyle={{paddingBottom: 170}}
                 style={styles.list}
                 data={messageData}
