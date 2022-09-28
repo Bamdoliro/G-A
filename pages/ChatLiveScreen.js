@@ -49,8 +49,8 @@ export default function ChatLiveScreen({ route, navigation, socket }) {
             <SafeAreaView style={styles.ChatLiveSection}>
                 <KeyboardAvoidingView
                     style={styles.ChatKeyboardView}
-                    behavior={"padding"}
-                    keyboardVerticalOffset={statusBarHeight}
+                    behavior={Platform.OS === "ios" ? "padding" : "height"}
+                    keyboardVerticalOffset={statusBarHeight+20}
                 >
                     <ChatLiveHeader
                         style={{ flex: 1 }}
