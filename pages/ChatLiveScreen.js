@@ -9,6 +9,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import {baseUrl} from "../api/urls";
 import jwtDecode from "jwt-decode";
+import Toast from "react-native-toast-message";
+import {toastConfig} from "../components/common/Toast/ToastConfig";
 
 export default function ChatLiveScreen({route, navigation, socket}) {
     const {id, name, numberOfMembers} = route.params;
@@ -24,6 +26,11 @@ export default function ChatLiveScreen({route, navigation, socket}) {
             };
 
             socket.current.emit("message", data);
+            Toast.show({
+                type: 'chatNotification',
+                text1: '머라구여?',
+                text2: message+' 라구여?ㅋㅋ'
+            })
         }
     };
 
@@ -98,6 +105,7 @@ export default function ChatLiveScreen({route, navigation, socket}) {
                     ) : ""
                 }
             </SafeAreaView>
+            <Toast config={toastConfig} />
         </>
     )
 }
