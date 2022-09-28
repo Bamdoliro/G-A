@@ -1,10 +1,16 @@
-import { KeyboardAvoidingView, Platform, StyleSheet, NativeModules, TouchableWithoutFeedback, Keyboard, View } from "react-native";
+import {
+    Keyboard,
+    KeyboardAvoidingView,
+    NativeModules,
+    Platform,
+    StyleSheet,
+    TouchableWithoutFeedback
+} from "react-native";
 import MyStatusBar from "../components/common/SafeAreaView/MyStatusBar";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import ChatLiveField from "../components/Chat/ChatLive/ChatLiveField";
 import ChatLiveHeader from "../components/Chat/ChatLive/ChatLiveHeader";
 import ChatLiveSendField from "../components/Chat/ChatLive/ChatLiveSendField";
-import MessageData from "../data/MessageData.json";
 import {useEffect, useState} from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
@@ -32,17 +38,13 @@ export default function ChatLiveScreen({ route, navigation, socket }) {
     };
 
     const showChatNotification = async (message) => {
-        // const r = await axios.get(aiUrl, {
-        //     params: {
-        //         msg: message
-        //     }
-        // });
+        const r = await axios.get(aiUrl, {
+            params: {
+                msg: message
+            }
+        });
 
-        const r = {
-            data: '경고,나보다걔가좋니? ㅋㅋ'
-        }
-
-        if (r.data !== null) {
+        if (r.data !== "0") {
             let result = r.data.split(',')
             Toast.show({
                 type: 'chatNotification',
