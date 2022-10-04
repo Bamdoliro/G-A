@@ -3,13 +3,17 @@ import MyCommunity from "./MyCommunity";
 
 export default function MyCommunities() {
     return (
-        <View style={styles.MyCommunities}>
-            {/*  */}
+        <View>
             <View style={styles.MyCommunitiesTitle}>
                 <Text style={styles.MyCommunitiesH1}>내 커뮤니티</Text>
-                <Text onPress={() => {alert('asdf')}} style={styles.MyCommunitiesShowMore}>더보기...</Text>
+                <Text onPress={() => {alert('더보기가 눌림')}} style={styles.MyCommunitiesShowMore}>더보기...</Text>
             </View>
-            <ScrollView horizontal style={styles.MyCommunitiesScrollView}>
+            <ScrollView 
+                horizontal = {true}
+                style={styles.MyCommunitiesScrollView}
+            >
+                <MyCommunity />
+                <MyCommunity />
                 <MyCommunity />
                 <MyCommunity />
             </ScrollView>
@@ -19,7 +23,7 @@ export default function MyCommunities() {
 
 const styles = StyleSheet.create({
     MyCommunitiesScrollView: {
-        marginLeft: 20
+        paddingLeft: 20
     },
     MyCommunitiesTitle: {
         flexDirection: 'row',
@@ -30,11 +34,11 @@ const styles = StyleSheet.create({
         paddingRight: 30
     },
     MyCommunitiesH1: {
-        fontSize: 16,
+        fontSize: 18,
         fontWeight: 'bold'
     },
     MyCommunitiesShowMore: {
-        fontSize: 10,
+        fontSize: 14,
         color: '#0D76FF'
     }
 });
