@@ -24,7 +24,6 @@ export default function App() {
 
     return (
         <NavigationContainer>
-            <MainBanner />
             <Stack.Navigator
                 initialRouteName="TabNavigation"
                 screenOptions={{
