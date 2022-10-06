@@ -1,35 +1,40 @@
-import {ScrollView, Image, Text, View, Dimensions, StyleSheet} from 'react-native';
+import react from 'react';
+import { ScrollView, Image, Text, View, Dimensions, StyleSheet } from 'react-native';
+import { SliderBox } from 'react-native-image-slider-box';
+import { Component } from 'react/cjs/react.production.min';
 import GatiLogoWhite from "../../../assets/gatiLogo_White.png";
+import SliderBackground from "../../../assets/sliderBackground.png";
 
-export default function MainBanner() {
-      return (
-          <ScrollView
-              pagingEnabled={true}
-              horizontal={true}
-              showsHorizontalScrollIndicator = {true}
-              style={styles.container}
-          >
-              <View style={styles.bannerContent1}>
-                  <Text style={styles.titleText}>
-                      지금 뜨고 있는
-                  </Text>
-                  <Text style={styles.titleText}>
-                      Gati를 확인해 보세요!
-                  </Text>
-                  <Image source={GatiLogoWhite} style={logoImage}/>
-              </View>
-              <View style={styles.bannerContent2}>
-                  <Text style={styles.titleText}>
-                      자이 강아지 산책 모임
-                  </Text>
-              </View>
-              <View style={styles.bannerContent3}>
-                  <Text style={styles.titleText}>
-                      매주 목요일 흰빨래 세탁
-                  </Text>
-              </View>
-          </ScrollView>
-      );
+class MainBanner extends Component {
+    render () {
+        this.state = {
+            images: [
+                SliderBackground,
+                SliderBackground,
+                SliderBackground
+            ],
+            text: [
+                '지금 뜨고 있는 Gati를 확인 해 보세요!',
+                '자이 강아지산책 모임',
+                '매주 목요일 흰빨래 세탁'
+            ],
+            currentIndex: 0
+        };
+        return (
+            <View style={styles.container}>
+                <Text style={titleText}>{this.state.text[this.state.currentIndex]}</Text> 
+                <Image source={GatiLogoWhite} style={logoImage}/>
+                <SliderBox 
+                  images={this.state.images} 
+                  title={this.state.text}
+                  style={styles.bannerContent}
+                  currentImageEmitter={ i => this.setState({currentIndex: i}) }
+                  autoplay
+                  circleLoop
+                />
+            </View>
+        );
+    }
 }
 
 let screenWidth = Dimensions.get('window').width;
@@ -40,24 +45,7 @@ const styles = StyleSheet.create({
       flex: 1,
       flexDirection: 'row',
     },
-    bannerContent1: {
-        backgroundColor: "#170055",
-        flex: 1,
-        width: screenWidth,
-        height: screenHeight,
-        justifyContent: 'center',
-        alignItems: 'flex-start'
-    },
-    bannerContent2: {
-        backgroundColor: "#3E00FF",
-        flex: 1,
-        width: screenWidth,
-        height: screenHeight,
-        justifyContent: 'center',
-        alignItems: 'flex-start'
-    },
-    bannerContent3: {
-        backgroundColor: "#AE00FB",
+    bannerContent: {
         flex: 1,
         width: screenWidth,
         height: screenHeight,
