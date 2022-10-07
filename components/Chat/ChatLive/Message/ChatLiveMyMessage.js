@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
         padding: 9,
         borderRadius: 20,
         maxWidth: 170,
-        marginBottom: 10
+        marginBottom: 7,
+        marginTop: 7
     },
     MessageText: {
         color: "#fff",
