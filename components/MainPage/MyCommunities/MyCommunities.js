@@ -22,9 +22,6 @@ export default function MyCommunities() {
 }
 
 const styles = StyleSheet.create({
-    MyCommunitiesScrollView: {
-        paddingLeft: 20
-    },
     MyCommunitiesTitle: {
         flexDirection: 'row',
         justifyContent: 'space-between',

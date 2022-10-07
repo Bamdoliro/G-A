@@ -8,7 +8,7 @@ function sliderTouch(index) {
 
 export default function MainBanner() {
     return(
-        <View>
+        <View style={styles.MainBannerContainer}>
             <SliderBox
                 images={[
                     require("../../../assets/sliderBackground.png"),
@@ -29,8 +29,9 @@ export default function MainBanner() {
                     borderRadius: 15,
                     marginHorizontal: 4,
                 }}
-                ImageComponentStyle={{borderRadius: 15, width: '98%', marginTop: 5}}
+                ImageComponentStyle={{borderRadius: 18, width: '98%', marginTop: 5}}
                 autoplay
+                autoplayInterval={15000}
                 circleLoop
             />
         </View>
@@ -38,4 +39,7 @@ export default function MainBanner() {
 }
 
 const styles = StyleSheet.create({
+    MainBannerContainer: {
+        marginBottom: 30 
+    }
 })
