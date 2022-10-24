@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
         width: 360,
         height: 150,
         borderRadius: 12,
+        marginBottom: 15
     },
     PostImg: {
         width: 120,
