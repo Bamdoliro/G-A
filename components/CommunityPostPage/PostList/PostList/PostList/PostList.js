@@ -4,10 +4,10 @@ import ChatImg from "../../../../../assets/chat.png"
 import LikeImg from "../../../../../assets/heart.png"
 import OptionImg from "../../../../../assets/option.png"
 
-export default function PostList({Title, Explanation, ChatOfNumber, LikeOfNumber}) {
+export default function PostList({ Title, Explanation, ChatOfNumber, LikeOfNumber }) {
     return (
         <View style={styles.PostList}>
-            <Image 
+            <Image
                 style={styles.PostImg}
                 source={PostImg}
             />
@@ -20,7 +20,7 @@ export default function PostList({Title, Explanation, ChatOfNumber, LikeOfNumber
                     <View style={styles.ReactionContent}>
                         <View style={styles.PostChat}>
                             <TouchableOpacity>
-                                <Image 
+                                <Image
                                     source={ChatImg}
                                     style={styles.ChatImg}
                                 />
@@ -31,7 +31,7 @@ export default function PostList({Title, Explanation, ChatOfNumber, LikeOfNumber
                         </View>
                         <View style={styles.PostLike}>
                             <TouchableOpacity>
-                                <Image 
+                                <Image
                                     source={LikeImg}
                                     style={styles.LikeImg}
                                 />
@@ -41,12 +41,19 @@ export default function PostList({Title, Explanation, ChatOfNumber, LikeOfNumber
                             </Text>
                         </View>
                     </View>
-                    <TouchableOpacity>
-                        <Image
-                            source={OptionImg}
-                            style={styles.OptionImg}
-                        />
-                    </TouchableOpacity>
+                    <View style={styles.OptionArea}>
+                        <TouchableOpacity style={styles.OptionBtn}>
+                            <Image
+                                source={OptionImg}
+                                style={styles.OptionImg}
+                            />
+                        </TouchableOpacity>
+                        <View style={styles.Option}>
+                            <Text style={styles.OptionItem}>수정</Text>
+                            <Text style={styles.OptionItem}>삭제</Text>
+                        </View>
+                    </View>
+
                 </View>
             </View>
         </View>
@@ -62,7 +69,7 @@ const styles = StyleSheet.create({
         width: 360,
         height: 150,
         borderRadius: 12,
-        marginBottom: 15
+        marginBottom: 15,
     },
     PostImg: {
         width: 120,
@@ -116,8 +123,24 @@ const styles = StyleSheet.create({
         width: 20,
         marginRight: 5
     },
+    OptionBtn: {
+        marginBottom: 10
+    },
     OptionImg: {
         width: 25,
         height: 25
+    },
+    Option: {
+        position: "absolute",
+        right: 10,
+        top: 30,
+        borderWidth: 1,
+        width: 75,
+        padding: 4,
+        borderRadius: 12,
+    },
+    OptionItem: {
+        textAlign: "center",
+        marginBottom: 5
     }
 })
