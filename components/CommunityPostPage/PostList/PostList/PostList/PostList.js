@@ -41,17 +41,26 @@ export default function PostList({ Title, Explanation, ChatOfNumber, LikeOfNumbe
                             </Text>
                         </View>
                     </View>
+
                     <View style={styles.OptionArea}>
+
                         <TouchableOpacity style={styles.OptionBtn}>
                             <Image
                                 source={OptionImg}
                                 style={styles.OptionImg}
                             />
                         </TouchableOpacity>
+
                         <View style={styles.Option}>
-                            <Text style={styles.OptionItem}>수정</Text>
-                            <Text style={styles.OptionItem}>삭제</Text>
+                            <TouchableOpacity style={styles.CorrectionItem}>
+                                <Text style={styles.OptionItem}>수정</Text>
+                            </TouchableOpacity>
+                            <View style={styles.OptionLine}></View>
+                            <TouchableOpacity style={styles.DeleteItem}>
+                                <Text style={styles.OptionItem}>삭제</Text>
+                            </TouchableOpacity>
                         </View>
+
                     </View>
 
                 </View>
@@ -133,14 +142,28 @@ const styles = StyleSheet.create({
     Option: {
         position: "absolute",
         right: 10,
-        top: 30,
+        top: -60,
         borderWidth: 1,
         width: 75,
         padding: 4,
         borderRadius: 12,
+        backgroundColor: "#fff"
     },
     OptionItem: {
         textAlign: "center",
-        marginBottom: 5
+    },
+    CorrectionItem: {
+        width: 65,
+        padding: 4,
+        marginBottom: 2
+    },
+    DeleteItem: {
+        width: 65,
+        padding: 4,
+        marginTop: 2
+    },
+    OptionLine: {
+        width: 65,
+        borderBottomWidth: 1
     }
 })

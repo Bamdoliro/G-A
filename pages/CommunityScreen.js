@@ -30,5 +30,5 @@ export default function CommunityScreen() {
 const styles = StyleSheet.create({
     CommunityScreen: {
         alignItems: "center"
-    }
+    },
 })
