@@ -1,10 +1,10 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
-import { Menu, MenuItem, MenuDivider } from 'react-native-material-menu';
-import PostImg from "../../../../../assets/post_img.png"
-import ChatImg from "../../../../../assets/chat.png"
-import LikeImg from "../../../../../assets/heart.png"
-import OptionImg from "../../../../../assets/option.png"
+import { Menu, MenuItem } from 'react-native-material-menu';
+import PostImg from "../../../assets/post_img.png"
+import ChatImg from "../../../assets/chat.png"
+import LikeImg from "../../../assets/heart.png"
+import OptionImg from "../../../assets/option.png"
 
 export default function PostList({ Title, Explanation, ChatOfNumber, LikeOfNumber }) {
 
