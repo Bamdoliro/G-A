@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     loginButton: {
-        width: "80%",
+        width: "87%",
         height: 32,
         alignItems: "center",
     },
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     subArea: {
-        width: '84%',
+        width: '87%',
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
@@ -138,6 +138,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     keepButton: {
+        marginRight: 8,
         width: 14,
         height: 14,
         borderWidth: 2,
