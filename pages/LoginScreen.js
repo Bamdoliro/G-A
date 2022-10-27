@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Image, StyleSheet, View} from "react-native";
+import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import CustomInput from "../components/common/CustomInput/CustomInput";
 import Logo from "../assets/img.png";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
@@ -56,16 +56,25 @@ export default function LoginScreen({navigation}) {
                     setValue={password => setPassword(password)}
                     secureTextEntry={true}
                 />
+                <View style={styles.subArea}>
+                    <TouchableOpacity style={styles.keepCheck}>
+                        <View style={styles.keepButton}></View>
+                        <Text style={styles.subText}>로그인 상태 유지</Text>
+                    </TouchableOpacity>
+                    <View style={styles.findButtons}>
+                        <TouchableOpacity>
+                            <Text style={styles.subText}>회원가입</Text>
+                        </TouchableOpacity>
+                        <Text> | </Text>
+                        <TouchableOpacity>
+                            <Text style={styles.subText}>아이디, 비밀번호 찾기</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
                 <View style={styles.loginButton}>
                     <CustomButton
                         title="로그인"
                         onPress={loginUser}
-                    />
-                </View>
-                <View style={styles.loginButton}>
-                    <CustomButton
-                        title="로그아웃"
-                        onPress={logoutUser}
                     />
                 </View>
             </View>
@@ -82,7 +91,8 @@ const styles = StyleSheet.create({
         width: "84%",
 
         backgroundColor: "white",
-        borderRadius: 30,
+        borderTopLeftRadius: 30,
+        borderTopRightRadius: 30,
 
         shadowOffset: {
             width: 0,
@@ -96,8 +106,8 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     loginButton: {
-        width: "90%",
-        height: 30,
+        width: "80%",
+        height: 32,
         alignItems: "center",
     },
 
@@ -112,4 +122,26 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
+    subArea: {
+        width: '84%',
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    subText: {
+        fontSize: 10
+    },
+    findButtons: {
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    keepCheck: {
+        flexDirection: 'row'
+    },
+    keepButton: {
+        width: 14,
+        height: 14,
+        borderWidth: 2,
+        borderColor: '#0D76FF',
+        borderRadius: 4
+    }
 });
