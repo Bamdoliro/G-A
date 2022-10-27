@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
 import { Menu, MenuItem, MenuDivider } from 'react-native-material-menu';
 import PostImg from "../../../../../assets/post_img.png"
 import ChatImg from "../../../../../assets/chat.png"
@@ -6,6 +7,13 @@ import LikeImg from "../../../../../assets/heart.png"
 import OptionImg from "../../../../../assets/option.png"
 
 export default function PostList({ Title, Explanation, ChatOfNumber, LikeOfNumber }) {
+
+    const [visible, setVisible] = useState(false);
+
+    const hideMenu = () => setVisible(false);
+
+    const showMenu = () => setVisible(true);
+
     return (
         <TouchableOpacity style={styles.PostList}>
             <Image
@@ -41,17 +49,21 @@ export default function PostList({ Title, Explanation, ChatOfNumber, LikeOfNumbe
                         </View>
                     </View>
 
-                    <View style={styles.OptionArea}>
 
-                        <TouchableOpacity style={styles.OptionBtn}>
-                            <Image
-                                source={OptionImg}
-                                style={styles.OptionImg}
-                            />
-                        </TouchableOpacity>
-
-                        
-
+                    <View style={styles.Option}>
+                        <Menu
+                            style={styles.OptionMenu}
+                            visible={visible}
+                            anchor={
+                                <TouchableOpacity onPress={showMenu}>
+                                    <Image source={OptionImg} style={styles.OptionImg} />
+                                </TouchableOpacity>
+                            }
+                            onRequestClose={hideMenu}
+                        >
+                            <MenuItem onPress={hideMenu} textStyle={{textAlign: "center", fontSize: 16}} pressColor="#fff">수정</MenuItem>
+                            <MenuItem onPress={hideMenu} textStyle={{textAlign: "center", fontSize: 16}} pressColor="#fff">삭제</MenuItem>
+                        </Menu>
                     </View>
                 </View>
             </View>
@@ -122,8 +134,8 @@ const styles = StyleSheet.create({
         width: 20,
         marginRight: 5
     },
-    OptionBtn: {
-        marginBottom: 10
+    OptionMenu:{
+        borderRadius: 16,
     },
     OptionImg: {
         width: 25,
