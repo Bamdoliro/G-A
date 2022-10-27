@@ -6,7 +6,7 @@ import OptionImg from "../../../../../assets/option.png"
 
 export default function PostList({ Title, Explanation, ChatOfNumber, LikeOfNumber }) {
     return (
-        <View style={styles.PostList}>
+        <TouchableOpacity style={styles.PostList}>
             <Image
                 style={styles.PostImg}
                 source={PostImg}
@@ -19,12 +19,10 @@ export default function PostList({ Title, Explanation, ChatOfNumber, LikeOfNumbe
                 <View style={styles.PostSideBar}>
                     <View style={styles.ReactionContent}>
                         <View style={styles.PostChat}>
-                            <TouchableOpacity>
-                                <Image
-                                    source={ChatImg}
-                                    style={styles.ChatImg}
-                                />
-                            </TouchableOpacity>
+                            <Image
+                                source={ChatImg}
+                                style={styles.ChatImg}
+                            />
                             <Text style={styles.ChatOfNumber}>
                                 {ChatOfNumber}
                             </Text>
@@ -62,10 +60,9 @@ export default function PostList({ Title, Explanation, ChatOfNumber, LikeOfNumbe
                         </View>
 
                     </View>
-
                 </View>
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 
