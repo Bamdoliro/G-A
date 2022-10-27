@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity, Alert } from "react-native";
 import { Menu, MenuItem } from 'react-native-material-menu';
 import React, { useState } from "react";
 import PostImg from "../../../assets/post_img.png"
@@ -14,6 +14,10 @@ export default function GatiPostList({ Title, HumanOfNumber, Date }) {
     const hideMenu = () => setVisible(false);
 
     const showMenu = () => setVisible(true);
+
+    const EnterGatiPost = () => {
+        alert("참여하기 누름")
+    }
 
     return (
         <TouchableOpacity style={styles.PostList}>
@@ -43,6 +47,7 @@ export default function GatiPostList({ Title, HumanOfNumber, Date }) {
                     <View style={styles.GatiEnterBtnArea}>
                         <CustomButton
                             title="참여하기"
+                            onPress={EnterGatiPost}
                         />
                     </View>
                     <View style={styles.Option}>
