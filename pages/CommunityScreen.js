@@ -17,6 +17,8 @@ export default function CommunityScreen() {
                 />
                 <GatiPostList
                     Title="세탁기 빨래 본인 것만 가져가 주세요..."
+                    HumanOfNumber={10}
+                    Date="05/23 ~ 06/23"
                 />
             </ScrollView>
         </SafeAreaView>
