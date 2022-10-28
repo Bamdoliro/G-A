@@ -1,5 +1,5 @@
 import { View, StyleSheet, Image } from "react-native";
-import PlusIcon from "../../assets/plus.png"
+import PlusIcon from "../../../assets/plus.png"
 
 export default function AddPostBtn() {
     return (

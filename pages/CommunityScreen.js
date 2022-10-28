@@ -1,5 +1,5 @@
 import { Text, ScrollView } from 'react-native';
-import AddPostBtn from '../components/AddPostBtn/AddPostBtn';
+import AddPostBtn from '../components/common/AddPostBtn/AddPostBtn';
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 
 export default function CommunityScreen() {
