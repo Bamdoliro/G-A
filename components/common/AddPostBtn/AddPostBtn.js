@@ -1,14 +1,17 @@
-import { View, StyleSheet, Image } from "react-native";
+import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
 import PlusIcon from "../../../assets/plus.png"
 
-export default function AddPostBtn() {
+export default function AddPostBtn( {onPress} ) {
     return (
-        <View style={styles.AddPostBtn}>
+        <TouchableOpacity 
+            style={styles.AddPostBtn}
+            onPress={onPress}
+        >
             <Image
                 source={PlusIcon}
                 style={styles.PlusIcon}
             />
-        </View>
+        </TouchableOpacity>
     )
 }
 
