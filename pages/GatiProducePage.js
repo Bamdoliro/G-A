@@ -1,12 +1,18 @@
 import { View, StyleSheet, TouchableOpacity, Image, Text } from "react-native";
 import ArrowIcon from "../assets/arrow.png"
+import CameraIcon from "../assets/camera.png"
 
-export default function GatiProducePage() {
+export default function GatiProducePage({navigation}) {
+
+    const BeforeScreen = (navigation) => {
+        navigation.pop();
+    }
+
     return (
         <View style={styles.GatiProduceContainer}>
             {/* Header 부분 */}
             <View style={styles.GatiProduceHeader}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={BeforeScreen}>
                     <Image
                         source={ArrowIcon}
                         style={styles.ArrowIcon}
@@ -23,7 +29,10 @@ export default function GatiProducePage() {
             </View>
             {/* 사진 */}
             <View style={styles.UploadImgContent}>
-
+                <Image 
+                    source={CameraIcon}
+                    style={styles.CameraIcon}
+                />
             </View>
         </View>
     )
@@ -32,7 +41,8 @@ export default function GatiProducePage() {
 const styles = StyleSheet.create({
     GatiProduceContainer: {
         flex: 1,
-        alignItems: "center"
+        alignItems: "center",
+        backgroundColor: "#fff"
     },
     GatiProduceHeader: {
         flexDirection: "row",
@@ -54,6 +64,16 @@ const styles = StyleSheet.create({
         color: "#0D76FF"
     },
     UploadImgContent: {
-
+        width: 300,
+        height: 200,
+        borderRadius: 12,
+        backgroundColor: "#F2F2F2",
+        marginTop: 30,
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    CameraIcon: {
+        width: 60,
+        height: 60
     }
 })
