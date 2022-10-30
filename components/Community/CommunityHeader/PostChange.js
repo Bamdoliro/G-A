@@ -1,26 +1,55 @@
-import { StyleSheet, TouchableOpacity, View, Text } from 'react-native';
+import { StyleSheet, TouchableOpacity, View, Text, useState } from 'react-native';
 
 export default function PostChange(){
+    label,
+    values,
+    selectedValue={CommunityPost},
+    setSelectedValue={SetCommunityPost}
+
+    const [CommunityPost, SetCommunityPost] = useState("게시글");
+
     return (
         <View>
-            <TouchableOpacity
-                onPress={() => console.log("게시글 클릭됨")}
-            >
-                <LinearGradient style={styles.container} colors={['#0D76FF', '#5D42FF']}>
-                    <Text>게시글</Text>
-                </LinearGradient>
-            </TouchableOpacity>
-            <TouchableOpacity
-                onPress={() => console.log("가티 클릭됨")}
-            >
-                <LinearGradient style={styles.container} colors={['#0D76FF', '#5D42FF']}>
-                    <Text>가티</Text>
-                </LinearGradient>
-            </TouchableOpacity>
+            {values.map((value) => (
+                <TouchableOpacity
+                    key={value}
+                    onPress={() => setSelectedValue(value)}
+                    style={[
+                        styles.postChangeBtn,
+                        selectedValue === value && styles.selectedBtn,
+                    ]}
+                >
+                <Text
+                    style={[
+                        styles.buttonText,
+                        selectedValue === value && styles.selectedText,
+                    ]}
+                >
+                    {value}
+                </Text>
+                </TouchableOpacity>
+            ))}
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    
+    postChangeBtn: {
+        paddingVertical: 8,
+        width: 157,
+        height: 34,
+        backgroundColor: "#FFFFFF",
+        borderRadius: 27,
+    },
+    selectedBtn: {
+        backgroundColor: "#0D76FF",
+    },
+    buttonText: {
+        fontSize: 15,
+        fontWeight: 700,
+        color: "#999999",
+    },
+    selectedText: {
+        color: "#FFFFFF",
+    }
 })

@@ -6,7 +6,7 @@ export default function CommunityScreen() {
     return (
         <SafeAreaView>
             <Text>CommunityScreen</Text>
-            <CommunityHeader />
+            <CommunityHeader joinMembers={125}/>
         </SafeAreaView>
     );
 }
