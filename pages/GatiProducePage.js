@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     },
     UploadImgContent: {
         width: 300,
-        height: 200,
+        height: 130,
         borderRadius: 12,
         backgroundColor: "#F2F2F2",
         marginTop: 30,
