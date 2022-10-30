@@ -11,7 +11,7 @@ export default function MenuBar(){
             />
         </View>
     );
-};
+}
 
 const styles = StyleSheet.create({
     mainToggleIcon: {

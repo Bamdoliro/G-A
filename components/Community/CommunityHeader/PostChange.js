@@ -9,33 +9,40 @@ export default function PostChange(){
     const [CommunityPost, SetCommunityPost] = useState("게시글");
 
     return (
-        <View>
-            {values.map((value) => (
-                <TouchableOpacity
-                    key={value}
-                    onPress={() => setSelectedValue(value)}
-                    style={[
-                        styles.postChangeBtn,
-                        selectedValue === value && styles.selectedBtn,
-                    ]}
-                >
-                <Text
-                    style={[
-                        styles.buttonText,
-                        selectedValue === value && styles.selectedText,
-                    ]}
-                >
-                    {value}
-                </Text>
-                </TouchableOpacity>
-            ))}
+        <View style={{ flex: 1 }}>
+            <View style={styles.Buttons}>
+                {values.map((value) => (
+                    <TouchableOpacity
+                        key={value}
+                        onPress={() => setSelectedValue(value)}
+                        style={[
+                            styles.postChangeBtn,
+                            selectedValue === value && styles.selectedBtn,
+                        ]}
+                    >
+                    <Text
+                        style={[
+                            styles.buttonText,
+                            selectedValue === value && styles.selectedText,
+                        ]}
+                    >
+                        {value}
+                    </Text>
+                    </TouchableOpacity>
+                ))}
+            </View>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
+    Buttons: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+    },
     postChangeBtn: {
         paddingVertical: 8,
+        marginHorizontal: 15,
         width: 157,
         height: 34,
         backgroundColor: "#FFFFFF",

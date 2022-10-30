@@ -7,10 +7,10 @@ import arrowDownIcon from '../../../assets/Arrow_Down_Icon.png';
 
 export default function CommunityHeader(props){
     return (
-        <View>
-            <View style={styles.communitySum}>
+        <View style={styles.communityHeader}>
+            <View style={styles.communityHeaderTop}>
                 <MenuBar />
-                <View>
+                <View style={styles.communitySum}> // 부산 소프트웨어마고 ~ ... 참여 중입니다! 부분
                     <View style={styles.communityName}>
                         <Text>
                             부산 소프트웨어마고
@@ -45,14 +45,39 @@ export default function CommunityHeader(props){
 };
 
 const styles = StyleSheet.create({
-    communityHeaderContainer: {
+    communityHeader: {
+        width: "100%",
+        height: 232,
+        backgroundColor: "#FFFFFF",
+        marginBottom: 48,
+        shadowColor: "#000000",
+        shadowOffset: {
+            width: 0,
+            height: 1
+        },
+        shadowOpacity: 0.18,
+        shadowRadius: 1,
+        elevation: 1
+    },
 
+    communityHeaderTop: {
+        flexDirection: 'row',
+        justifyContent: 'space-around'
     },
 
     communitySum: {
-    
-        communityName: {
+        flexDirection: 'column',
+        alignItems: 'center',
 
+        communityName: {
+            flexDirection: 'row',
+            justifyContent: 'center',
+
+            communityNameText: {
+                color: "#000000",
+                fontSize: 20,
+                fontWeight: 700
+            },
             arrowDownIcon: {
                 width: 20,
                 height: 20,
@@ -74,7 +99,7 @@ const styles = StyleSheet.create({
             color: "000000",
             backgroundColor: "F2F2F2",
             width: 324,
-            height: 46,
+            height: 46
         },
 
         pencilIcon: {
