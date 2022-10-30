@@ -1,7 +1,6 @@
 import { StyleSheet, TouchableOpacity, View, Text, useState } from 'react-native';
 
 export default function PostChange(){
-    label,
     values,
     selectedValue={CommunityPost},
     setSelectedValue={SetCommunityPost}

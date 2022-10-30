@@ -37,7 +37,6 @@ export default function CommunityHeader(props){
                 />
             </View>
             <PostChange
-                label="PostChangeBtn"
                 values={["게시글", "가티"]}
             />
         </View>
