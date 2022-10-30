@@ -21,6 +21,10 @@ export default function GatiProducePage() {
                     </Text>
                 </TouchableOpacity>
             </View>
+            {/* 사진 */}
+            <View style={styles.UploadImgContent}>
+
+            </View>
         </View>
     )
 }
@@ -28,14 +32,14 @@ export default function GatiProducePage() {
 const styles = StyleSheet.create({
     GatiProduceContainer: {
         flex: 1,
+        alignItems: "center"
     },
     GatiProduceHeader: {
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
         marginTop: 60,
-        paddingLeft: 35,
-        paddingRight: 35,
+        width: 300
     },
     ArrowIcon: {
         width: 10,
@@ -48,5 +52,8 @@ const styles = StyleSheet.create({
     CompletionText: {
         fontSize: 15,
         color: "#0D76FF"
+    },
+    UploadImgContent: {
+
     }
 })
