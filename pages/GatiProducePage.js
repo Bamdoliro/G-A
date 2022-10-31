@@ -1,4 +1,4 @@
-import { View, StyleSheet, TouchableOpacity, Image, Text } from "react-native";
+import { View, StyleSheet, TouchableOpacity, Image, Text, TextInput } from "react-native";
 import ArrowIcon from "../assets/arrow.png"
 import CameraIcon from "../assets/camera.png"
 
@@ -32,6 +32,13 @@ export default function GatiProducePage({navigation}) {
                 <Image 
                     source={CameraIcon}
                     style={styles.CameraIcon}
+                />
+            </View>
+            {/* 공동체 이름 */}
+            <View style={styles.GatiNameInputFrame}>
+                <Text style={styles.GatiInputTitle}>공동체 이름</Text>
+                <TextInput
+                    style={styles.GatiNameInput}
                 />
             </View>
         </View>
@@ -75,5 +82,20 @@ const styles = StyleSheet.create({
     CameraIcon: {
         width: 60,
         height: 60
+    },
+    GatiNameInputFrame: {
+        borderBottomWidth: 2,
+        borderColor: "#0D76FF",
+        marginTop: 20
+    },
+    GatiNameInput: {
+        width: 300,
+        height: 25,
+        fontSize: 18
+    },
+    GatiInputTitle: {
+        fontSize: 18,
+        color: "#999999",
+        fontWeight: "bold"
     }
 })
