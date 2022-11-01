@@ -1,4 +1,5 @@
-import { View, StyleSheet, TouchableOpacity, Image, Text, TextInput, Button } from "react-native";
+import { View, StyleSheet, TouchableOpacity, Image, Text, TextInput } from "react-native";
+import OptionBtn from "../components/common/OptionBtn/OptionBtn";
 import ArrowIcon from "../assets/arrow.png"
 import CameraIcon from "../assets/camera.png"
 
@@ -47,15 +48,10 @@ export default function GatiProducePage({navigation}) {
                     공개/비공개 설정
                 </Text>
                 <View style={styles.OptionBtnArea}>
-                    {/* common 으로 바꿔야 함 */}
-                    <TouchableOpacity style={styles.OptionBtn}>
-                        <Text style={styles.OptionBtnTitleText}>
-                            공개
-                        </Text>
-                        <Text style={styles.OptionBtnSubText}>
-                            사용자 모두가 공동체에 참여 할 수 있습니다!
-                        </Text>
-                    </TouchableOpacity>
+                    <OptionBtn 
+                        Title="공개"
+                        SubTitle="사용자 모두가 공동체에 참여 할 수 있습니다!"
+                    />
                 </View>
             </View>
         </View>
@@ -129,27 +125,4 @@ const styles = StyleSheet.create({
     OptionBtnArea: {
         width: 300
     },
-    // 옵션 버튼
-    OptionBtn: {
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "center",
-        height: 50,
-        backgroundColor: "#0D76FF",
-        borderRadius: 10,
-        paddingLeft: 5,
-        paddingRight: 5,
-        marginTop: 10
-    },
-    OptionBtnTitleText: {
-        fontSize: 20,
-        color: "#fff",
-        fontWeight: "bold"
-    },
-    OptionBtnSubText: {
-        color: "#fff",
-        fontWeight: "bold",
-        marginLeft: 10,
-        fontSize: 13
-    }
 })
