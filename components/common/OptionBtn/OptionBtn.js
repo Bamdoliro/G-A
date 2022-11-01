@@ -3,12 +3,19 @@ import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
 export default function OptionBtn({Title, SubTitle}) {
     return (
         <TouchableOpacity style={styles.OptionBtn}>
-            <Text style={styles.OptionBtnTitleText}>
-                {Title}
-            </Text>
-            <Text style={styles.OptionBtnSubText}>
-                {SubTitle}
-            </Text>
+            <View style={styles.TitleTextFrame}>
+                <Text style={styles.OptionBtnTitleText}>
+                    {Title}
+                </Text>
+            </View>
+            <View style={styles.SubTextFrame}>
+                <Text 
+                    style={styles.OptionBtnSubText}
+                    numberOfLines={2}
+                >
+                    {SubTitle}
+                </Text>
+            </View>
         </TouchableOpacity>
     )
 }
@@ -25,15 +32,23 @@ const styles = StyleSheet.create({
         paddingRight: 5,
         marginTop: 10
     },
+    TitleTextFrame: {
+        width: 70,
+    },
     OptionBtnTitleText: {
-        fontSize: 20,
+        fontSize: 18,
         color: "#fff",
-        fontWeight: "bold"
+        fontWeight: "bold",
+        marginRight: 20,
+    },
+    SubTextFrame: {
+        width: 200,
+        textAlign: "left"
     },
     OptionBtnSubText: {
         color: "#fff",
         fontWeight: "bold",
-        marginLeft: 10,
-        fontSize: 13
+        fontSize: 13,
+        width: 200,
     }
 })

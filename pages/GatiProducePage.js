@@ -52,6 +52,10 @@ export default function GatiProducePage({navigation}) {
                         Title="공개"
                         SubTitle="사용자 모두가 공동체에 참여 할 수 있습니다!"
                     />
+                    <OptionBtn 
+                        Title="비공개"
+                        SubTitle="사용자는 비밀번호를 입력 한 후 입장 할 수 있습니다!"
+                    />
                 </View>
             </View>
         </View>
