@@ -48,13 +48,15 @@ export default function GatiProducePage({navigation}) {
                     공개/비공개 설정
                 </Text>
                 <View style={styles.OptionBtnArea}>
-                    <OptionBtn 
+                    <OptionBtn
                         Title="공개"
                         SubTitle="사용자 모두가 공동체에 참여 할 수 있습니다!"
+                        Focus={true}
                     />
                     <OptionBtn 
                         Title="비공개"
                         SubTitle="사용자는 비밀번호를 입력 한 후 입장 할 수 있습니다!"
+                        Focus={false}
                     />
                 </View>
             </View>

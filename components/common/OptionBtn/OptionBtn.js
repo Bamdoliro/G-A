@@ -1,8 +1,8 @@
 import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
 
-export default function OptionBtn({Title, SubTitle}) {
+export default function OptionBtn({Title, SubTitle, Focus}) {
     return (
-        <TouchableOpacity style={styles.OptionBtn}>
+        <TouchableOpacity style={[{backgroundColor: Focus ? "#0D76FF" : "#C4C4C4" }, styles.OptionBtn]}>
             <View style={styles.TitleTextFrame}>
                 <Text style={styles.OptionBtnTitleText}>
                     {Title}
@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         height: 50,
-        backgroundColor: "#0D76FF",
         borderRadius: 10,
         paddingLeft: 5,
         paddingRight: 5,
