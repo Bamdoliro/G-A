@@ -11,6 +11,7 @@ import {baseUrl} from "../api/urls";
 export default function LoginScreen({navigation}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [keepLogin, setKeepLogin] = useState(false);
 
     const loginUser = async () => {
         try {
@@ -57,8 +58,13 @@ export default function LoginScreen({navigation}) {
                     secureTextEntry={true}
                 />
                 <View style={styles.subArea}>
-                    <TouchableOpacity style={styles.keepCheck}>
-                        <View style={styles.keepButton}></View>
+                    <TouchableOpacity
+                        style={styles.keepCheck}
+                        onPress={() => setKeepLogin(cur => !cur)}
+                    >
+                        <View style={keepLogin ? styles.keepButtonTrue : styles.keepButtonFalse}>
+                            {keepLogin ? <View style={styles.keepButtonIcon} ></View> : null}
+                        </View>
                         <Text style={styles.subText}>로그인 상태 유지</Text>
                     </TouchableOpacity>
                     <View style={styles.findButtons}>
@@ -137,12 +143,29 @@ const styles = StyleSheet.create({
     keepCheck: {
         flexDirection: 'row'
     },
-    keepButton: {
+    keepButtonFalse: {
         marginRight: 8,
         width: 14,
         height: 14,
         borderWidth: 2,
         borderColor: '#0D76FF',
         borderRadius: 4
+    },
+    keepButtonTrue: {
+        marginRight: 8,
+        width: 14,
+        height: 14,
+        borderWidth: 2,
+        borderColor: '#0D76FF',
+        borderRadius: 4,
+        backgroundColor: '#0D76FF',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    keepButtonIcon: {
+        width: 5,
+        height: 5,
+        borderRadius: 6,
+        backgroundColor: 'white'
     }
 });
