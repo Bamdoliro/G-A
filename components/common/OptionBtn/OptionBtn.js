@@ -1,8 +1,19 @@
 import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
 
-export default function OptionBtn({Title, SubTitle, Focus}) {
+export default function OptionBtn({Title, SubTitle, Focus, setPrivatePublict, Option}) {
+    const PublicOnClick = () => {
+        setPrivatePublict(true)
+    }
+
+    const PrivateOnClick = () => {
+        setPrivatePublict(false)
+    }
+
     return (
-        <TouchableOpacity style={[{backgroundColor: Focus ? "#0D76FF" : "#C4C4C4" }, styles.OptionBtn]}>
+        <TouchableOpacity 
+            style={[{backgroundColor: Focus ? "#0D76FF" : "#C4C4C4" }, styles.OptionBtn]}
+            onPress={Option == "public" ? PublicOnClick : PrivateOnClick}
+        >
             <View style={styles.TitleTextFrame}>
                 <Text style={styles.OptionBtnTitleText}>
                     {Title}

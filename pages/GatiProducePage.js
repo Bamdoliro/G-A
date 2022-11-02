@@ -2,8 +2,11 @@ import { View, StyleSheet, TouchableOpacity, Image, Text, TextInput } from "reac
 import OptionBtn from "../components/common/OptionBtn/OptionBtn";
 import ArrowIcon from "../assets/arrow.png"
 import CameraIcon from "../assets/camera.png"
+import { useState } from "react";
 
 export default function GatiProducePage({navigation}) {
+
+    const [isPrivatePublic, setPrivatePublict] = useState(true);
 
     const BeforeScreen = (navigation) => {
         navigation.pop();
@@ -51,12 +54,16 @@ export default function GatiProducePage({navigation}) {
                     <OptionBtn
                         Title="공개"
                         SubTitle="사용자 모두가 공동체에 참여 할 수 있습니다!"
-                        Focus={true}
+                        Focus={isPrivatePublic}
+                        setPrivatePublict={setPrivatePublict}
+                        Option="public"
                     />
                     <OptionBtn 
                         Title="비공개"
                         SubTitle="사용자는 비밀번호를 입력 한 후 입장 할 수 있습니다!"
-                        Focus={false}
+                        Focus={!isPrivatePublic}
+                        setPrivatePublict={setPrivatePublict}
+                        Option="private"
                     />
                 </View>
             </View>
