@@ -68,7 +68,9 @@ export default function LoginScreen({navigation}) {
                         <Text style={styles.subText}>로그인 상태 유지</Text>
                     </TouchableOpacity>
                     <View style={styles.findButtons}>
-                        <TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('SignUpScreen')}
+                        >
                             <Text style={styles.subText}>회원가입</Text>
                         </TouchableOpacity>
                         <Text> | </Text>

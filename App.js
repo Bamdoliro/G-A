@@ -7,6 +7,7 @@ import TabNavigation from './TabNavigation';
 import useSocket from "./hooks/useSocket";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {useEffect} from "react";
+import SignUpScreen from "./pages/SignUpScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +36,7 @@ export default function App() {
                 <Stack.Screen name="ChatLiveScreen">
                     {props => <ChatLiveScreen {...props} socket={socket} />}
                 </Stack.Screen>
+                <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );
