@@ -2,11 +2,16 @@ import { View, StyleSheet, TouchableOpacity, Image, Text, TextInput } from "reac
 import OptionBtn from "../components/common/OptionBtn/OptionBtn";
 import ArrowIcon from "../assets/arrow.png"
 import CameraIcon from "../assets/camera.png"
+import HumanIcon from "../assets/human_blue.png"
+import ArrowGrayIcon from "../assets/arrow_gray.png";
+import ModalDropdown from 'react-native-modal-dropdown';
 import { useState } from "react";
 
-export default function GatiProducePage({navigation}) {
+export default function GatiProducePage({ navigation }) {
 
     const [isPrivatePublic, setPrivatePublict] = useState(true);
+    const [isNumberOfPeople, setNumberOfPeople] = useState("25");
+
 
     const BeforeScreen = (navigation) => {
         navigation.pop();
@@ -33,7 +38,7 @@ export default function GatiProducePage({navigation}) {
             </View>
             {/* 사진 */}
             <View style={styles.UploadImgContent}>
-                <Image 
+                <Image
                     source={CameraIcon}
                     style={styles.CameraIcon}
                 />
@@ -58,7 +63,7 @@ export default function GatiProducePage({navigation}) {
                         setPrivatePublict={setPrivatePublict}
                         Option="public"
                     />
-                    <OptionBtn 
+                    <OptionBtn
                         Title="비공개"
                         SubTitle="사용자는 비밀번호를 입력 한 후 입장 할 수 있습니다!"
                         Focus={!isPrivatePublic}
@@ -67,6 +72,27 @@ export default function GatiProducePage({navigation}) {
                     />
                 </View>
             </View>
+            {/* 인원수 */}
+            <View style={styles.NumberOfPeopleArea}>
+                <Text style={styles.NumberOfPeopleTitle}>
+                    인원수
+                </Text>
+                <View style={{flexDirection: "row", alignItems: "center"}}>
+                    <Image
+                        source={HumanIcon}
+                        style={styles.HumanIcon}
+                    />
+                    <View style={styles.NumberOfPeopleFrame}>
+                        <TextInput
+                            style={styles.NumberOfPeopleInput}
+                            value={isNumberOfPeople}
+                            onChangeText={(text) => setNumberOfPeople(text)}
+                            keyboardType="number-pad"
+                        />
+                    </View>
+                </View>
+            </View>
+
         </View>
     )
 }
@@ -127,8 +153,8 @@ const styles = StyleSheet.create({
     // 옵션 버튼 부분
     PrivatePublicOption: {
         width: 300,
-        height: 100,
-        marginTop: 30
+        height: 150,
+        marginTop: 30,
     },
     PrivatePublicOptionTitle: {
         fontSize: 18,
@@ -136,6 +162,36 @@ const styles = StyleSheet.create({
         fontWeight: "bold"
     },
     OptionBtnArea: {
-        width: 300
+        width: 300,
     },
+    NumberOfPeopleTitle: {
+        fontSize: 18,
+        color: "#999999",
+        fontWeight: "bold"
+    },
+    NumberOfPeopleArea: {
+        width: 300,
+        marginTop: 10,
+    },
+    NumberOfPeopleFrame: {
+        flexDirection: "row",
+        alignItems: "center",
+        borderWidth: 2,
+        borderColor: "#0D76FF",
+        width: 85,
+        height: 35,
+        paddingLeft: 10,
+        paddingRight: 10,
+        marginTop: 5,
+        borderRadius: 12,
+        marginLeft: 10
+    },
+    NumberOfPeopleInput: {
+        width: "100%",
+        height: "100%"
+    },
+    HumanIcon: {
+        width: 25,
+        height: 25
+    }
 })
