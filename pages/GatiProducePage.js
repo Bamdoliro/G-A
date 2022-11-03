@@ -88,6 +88,16 @@ export default function GatiProducePage({ navigation }) {
                     </View>
                 </View>
                 {/* 공동체 소개 */}
+                <View style={styles.GatiIntroduction}>
+                    <Text style={styles.GatiIntroductionTitle}>
+                        공동체 소개
+                    </Text>
+                    <TextInput
+                        multiline={true}
+                        numberOfLines={10}
+                        style={styles.GatiIntroductionInput}
+                    />
+                </View>
             </View>
         </ScrollView>
     )
@@ -190,7 +200,21 @@ const styles = StyleSheet.create({
         height: 25
     },
     // 공동체 소개
-    GatiIntroduceContent: {
-
+    GatiIntroduction: {
+        width: 300,
+        marginTop: 10
+    },
+    GatiIntroductionTitle: {
+        fontSize: 18,
+        color: "#999999",
+        fontWeight: "bold"
+    },
+    GatiIntroductionInput: {
+        backgroundColor: "#F2F2F2",
+        borderRadius: 12,
+        height: 200,
+        padding: 16,
+        marginTop: 5,
+        marginBottom: 30
     }
 })
