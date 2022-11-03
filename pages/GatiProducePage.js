@@ -6,11 +6,13 @@ import { ScrollView } from "react-native";
 
 import NumberInput from "../components/common/NumberOfPeopleInput/NumberOfPeopleInput";
 import UploadImgContent from "../components/common/UploadImgContent/UploadImgContent";
+import GatiIntroduction from "../components/common/GatiIntroduction/GatiIntroduction";
 
 export default function GatiProducePage({ navigation }) {
 
     const [isPrivatePublic, setPrivatePublict] = useState(true);
     const [isNumberOfPeople, setNumberOfPeople] = useState("25");
+    const [isIntroduction , setIntroduction] = useState("")
 
     return (
         <ScrollView style={styles.GatiProduceContainer}>
@@ -78,10 +80,10 @@ export default function GatiProducePage({ navigation }) {
                     <Text style={styles.GatiIntroductionTitle}>
                         공동체 소개
                     </Text>
-                    <TextInput
-                        multiline={true}
-                        numberOfLines={10}
-                        style={styles.GatiIntroductionInput}
+                    {/* 가티 소개글 */}
+                    <GatiIntroduction 
+                        setIntroduction={setIntroduction}
+                        isIntroduction={isIntroduction}
                     />
                 </View>
             </View>
@@ -162,12 +164,4 @@ const styles = StyleSheet.create({
         color: "#999999",
         fontWeight: "bold"
     },
-    GatiIntroductionInput: {
-        backgroundColor: "#F2F2F2",
-        borderRadius: 12,
-        height: 200,
-        padding: 16,
-        marginTop: 5,
-        marginBottom: 30
-    }
 })
