@@ -4,97 +4,99 @@ import ArrowIcon from "../assets/arrow.png"
 import CameraIcon from "../assets/camera.png"
 import HumanIcon from "../assets/human_blue.png"
 import { useState } from "react";
+import { ScrollView } from "react-native";
 
-export default function GatiProducePage({navigation}) {
+export default function GatiProducePage({ navigation }) {
 
     const [isPrivatePublic, setPrivatePublict] = useState(true);
     const [isNumberOfPeople, setNumberOfPeople] = useState("25");
 
     return (
-        <View style={styles.GatiProduceContainer}>
-            {/* Header 부분 */}
-            <View style={styles.GatiProduceHeader}>
-                <TouchableOpacity onPress={() => navigation.pop()}>
-                    <Image
-                        source={ArrowIcon}
-                        style={styles.ArrowIcon}
-                    />
-                </TouchableOpacity>
-                <Text style={styles.GatiTitleText}>
-                    공동체 생성
-                </Text>
-                <TouchableOpacity>
-                    <Text style={styles.CompletionText}>
-                        완료
+        <ScrollView style={styles.GatiProduceContainer}>
+            <View style={{flex:1, alignItems: "center"}}>
+                {/* Header 부분 */}
+                <View style={styles.GatiProduceHeader}>
+                    <TouchableOpacity onPress={() => navigation.pop()}>
+                        <Image
+                            source={ArrowIcon}
+                            style={styles.ArrowIcon}
+                        />
+                    </TouchableOpacity>
+                    <Text style={styles.GatiTitleText}>
+                        공동체 생성
                     </Text>
-                </TouchableOpacity>
-            </View>
-            {/* 사진 */}
-            <View style={styles.UploadImgContent}>
-                <Image
-                    source={CameraIcon}
-                    style={styles.CameraIcon}
-                />
-            </View>
-            {/* 공동체 이름 */}
-            <View style={styles.GatiNameInputFrame}>
-                <Text style={styles.GatiInputTitle}>공동체 이름</Text>
-                <TextInput
-                    style={styles.GatiNameInput}
-                />
-            </View>
-            {/* 공개 비공개 설정 */}
-            <View style={styles.PrivatePublicOption}>
-                <Text style={styles.PrivatePublicOptionTitle}>
-                    공개/비공개 설정
-                </Text>
-                <View style={styles.OptionBtnArea}>
-                    <OptionBtn
-                        Title="공개"
-                        SubTitle="사용자 모두가 공동체에 참여 할 수 있습니다!"
-                        Focus={isPrivatePublic}
-                        setPrivatePublict={setPrivatePublict}
-                        Option="public"
-                    />
-                    <OptionBtn
-                        Title="비공개"
-                        SubTitle="사용자는 비밀번호를 입력 한 후 입장 할 수 있습니다!"
-                        Focus={!isPrivatePublic}
-                        setPrivatePublict={setPrivatePublict}
-                        Option="private"
+                    <TouchableOpacity>
+                        <Text style={styles.CompletionText}>
+                            완료
+                        </Text>
+                    </TouchableOpacity>
+                </View>
+                {/* 사진 */}
+                <View style={styles.UploadImgContent}>
+                    <Image
+                        source={CameraIcon}
+                        style={styles.CameraIcon}
                     />
                 </View>
-            </View>
-            {/* 인원수 */}
-            <View style={styles.NumberOfPeopleArea}>
-                <Text style={styles.NumberOfPeopleTitle}>
-                    인원수
-                </Text>
-                <View style={{flexDirection: "row", alignItems: "center"}}>
-                    <Image
-                        source={HumanIcon}
-                        style={styles.HumanIcon}
+                {/* 공동체 이름 */}
+                <View style={styles.GatiNameInputFrame}>
+                    <Text style={styles.GatiInputTitle}>공동체 이름</Text>
+                    <TextInput
+                        style={styles.GatiNameInput}
                     />
-                    <View style={styles.NumberOfPeopleFrame}>
-                        <TextInput
-                            style={styles.NumberOfPeopleInput}
-                            value={isNumberOfPeople}
-                            onChangeText={(text) => setNumberOfPeople(text)}
-                            keyboardType="number-pad"
+                </View>
+                {/* 공개 비공개 설정 */}
+                <View style={styles.PrivatePublicOption}>
+                    <Text style={styles.PrivatePublicOptionTitle}>
+                        공개/비공개 설정
+                    </Text>
+                    <View style={styles.OptionBtnArea}>
+                        <OptionBtn
+                            Title="공개"
+                            SubTitle="사용자 모두가 공동체에 참여 할 수 있습니다!"
+                            Focus={isPrivatePublic}
+                            setPrivatePublict={setPrivatePublict}
+                            Option="public"
+                        />
+                        <OptionBtn
+                            Title="비공개"
+                            SubTitle="사용자는 비밀번호를 입력 한 후 입장 할 수 있습니다!"
+                            Focus={!isPrivatePublic}
+                            setPrivatePublict={setPrivatePublict}
+                            Option="private"
                         />
                     </View>
                 </View>
+                {/* 인원수 */}
+                <View style={styles.NumberOfPeopleArea}>
+                    <Text style={styles.NumberOfPeopleTitle}>
+                        인원수
+                    </Text>
+                    <View style={{ flexDirection: "row", alignItems: "center" }}>
+                        <Image
+                            source={HumanIcon}
+                            style={styles.HumanIcon}
+                        />
+                        <View style={styles.NumberOfPeopleFrame}>
+                            <TextInput
+                                style={styles.NumberOfPeopleInput}
+                                value={isNumberOfPeople}
+                                onChangeText={(text) => setNumberOfPeople(text)}
+                                keyboardType="number-pad"
+                            />
+                        </View>
+                    </View>
+                </View>
+                {/* 공동체 소개 */}
             </View>
-            
-        </View>
+        </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
     GatiProduceContainer: {
-        flex: 1,
-        alignItems: "center",
-        backgroundColor: "#fff"
+        flexGrow: 1,
+        backgroundColor: "#fff",
     },
     GatiProduceHeader: {
         flexDirection: "row",
@@ -186,5 +188,9 @@ const styles = StyleSheet.create({
     HumanIcon: {
         width: 25,
         height: 25
+    },
+    // 공동체 소개
+    GatiIntroduceContent: {
+
     }
 })
