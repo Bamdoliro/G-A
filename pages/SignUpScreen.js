@@ -8,8 +8,8 @@ export default function SignUpScreen({ navigation }) {
     const [password, setPassword] = useState("");
     const [repassword, setRepassword] = useState("");
     const [name, setName] = useState("");
-    const [acceptTerms, setAcceptTerms] = useState(false);
-    const [keepLogin, setKeepLogin] = useState(false);
+    const [termsService, setTermsService] = useState(false);
+    const [termsPrivacy, setTermsPrivacy] = useState(false);
 
     return (
         <SafeAreaView style={styles.root}>
@@ -45,35 +45,39 @@ export default function SignUpScreen({ navigation }) {
                     <Text>/</Text>
                     <TextInput placeholder="DD" />
                 </View>
-                <View style={styles.gender}>
-                    <Text>성별</Text>
+                <View style={styles.genderContainer}>
+                    <Text style={styles.gender}>성별</Text>
                     <View style={styles.genderSelects}>
                         <TouchableOpacity>
-                            <Text>여자</Text>
+                            <Text
+                                style={styles.genderOption}
+                            >여자</Text>
                         </TouchableOpacity>
                         <TouchableOpacity>
-                            <Text>남자</Text>
+                            <Text
+                                style={styles.genderOption}
+                            >남자</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
-                <View>
+                <View style={styles.terms}>
                     <TouchableOpacity
-                        style={styles.keepCheck}
-                        onPress={() => setAcceptTerms(cur => !cur)}
+                        style={[styles.termsCheck, styles.termsService]}
+                        onPress={() => setTermsService(cur => !cur)}
                     >
-                        <View style={keepLogin ? styles.keepButtonTrue : styles.keepButtonFalse}>
-                            {acceptTerms ? <View style={styles.keepButtonIcon} ></View> : null}
+                        <View style={termsService ? styles.termsButtonTrue : styles.termsButtonFalse}>
+                            {termsService ? <View style={styles.termsButtonIcon} ></View> : null}
                         </View>
-                        <Text style={styles.subText}>로그인 상태 유지</Text>
+                        <Text style={styles.subText}>기타 이용약관 동의</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        style={styles.keepCheck}
-                        onPress={() => setKeepLogin(cur => !cur)}
+                        style={[styles.termsCheck, styles.termsPrivacy]}
+                        onPress={() => setTermsPrivacy(cur => !cur)}
                     >
-                        <View style={keepLogin ? styles.keepButtonTrue : styles.keepButtonFalse}>
-                            {keepLogin ? <View style={styles.keepButtonIcon} ></View> : null}
+                        <View style={termsPrivacy ? styles.termsButtonTrue : styles.termsButtonFalse}>
+                            {termsPrivacy ? <View style={styles.termsButtonIcon} ></View> : null}
                         </View>
-                        <Text style={styles.subText}>로그인 상태 유지</Text>
+                        <Text style={styles.subText}>개인정보 수집 및 이용 동의</Text>
                     </TouchableOpacity>
                 </View>
 
@@ -114,13 +118,58 @@ const styles = StyleSheet.create({
     },
     birthday: {
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginBottom: 10
+    },
+    genderContainer: {
+        alignItems: 'center',
+        marginBottom: 24
     },
     gender: {
-        alignItems: 'center'
+        fontWeight: 'bold',
+        color: '#999999',
+        marginBottom: 5
     },
     genderSelects: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+    },
+    genderOption: {
+        paddingVertical: 2,
+        paddingHorizontal: 14,
+        backgroundColor: '#0D76FF',
+        color: 'white',
+        borderRadius: 14,
+        marginHorizontal: 4
+    },
+    subText: {
+        fontSize: 10
+    },
+    termsCheck: {
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    termsButtonFalse: {
+        marginRight: 3,
+        width: 14,
+        height: 14,
+        borderWidth: 2,
+        borderColor: '#0D76FF',
+        borderRadius: 4
+    },
+    termsButtonTrue: {
+        marginRight: 3,
+        width: 14,
+        height: 14,
+        borderRadius: 4,
+        backgroundColor: '#0D76FF',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    termsButtonIcon: {
+        width: 5,
+        height: 5,
+        borderRadius: 6,
+        backgroundColor: 'white'
     },
     root: {
         flex: 1,
@@ -128,4 +177,13 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
+    terms: {
+        flexDirection: 'row',
+    },
+    termsService: {
+        marginRight: 20
+    },
+    termsPrivacy: {
+        marginLeft: 20
+    }
 });

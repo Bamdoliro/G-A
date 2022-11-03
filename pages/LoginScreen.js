@@ -143,10 +143,11 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     keepCheck: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        alignItems: 'center'
     },
     keepButtonFalse: {
-        marginRight: 8,
+        marginRight: 3,
         width: 14,
         height: 14,
         borderWidth: 2,
@@ -154,11 +155,9 @@ const styles = StyleSheet.create({
         borderRadius: 4
     },
     keepButtonTrue: {
-        marginRight: 8,
+        marginRight: 3,
         width: 14,
         height: 14,
-        borderWidth: 2,
-        borderColor: '#0D76FF',
         borderRadius: 4,
         backgroundColor: '#0D76FF',
         justifyContent: 'center',
