@@ -1,11 +1,11 @@
 import { View, StyleSheet, TouchableOpacity, Image, Text, TextInput } from "react-native";
 import OptionBtn from "../components/common/OptionBtn/OptionBtn";
 import ArrowIcon from "../assets/arrow.png"
-import CameraIcon from "../assets/camera.png"
 import { useState } from "react";
 import { ScrollView } from "react-native";
 
 import NumberInput from "../components/common/NumberOfPeopleInput/NumberOfPeopleInput";
+import UploadImgContent from "../components/common/UploadImgContent/UploadImgContent";
 
 export default function GatiProducePage({ navigation }) {
 
@@ -33,12 +33,7 @@ export default function GatiProducePage({ navigation }) {
                     </TouchableOpacity>
                 </View>
                 {/* 사진 */}
-                <View style={styles.UploadImgContent}>
-                    <Image
-                        source={CameraIcon}
-                        style={styles.CameraIcon}
-                    />
-                </View>
+                <UploadImgContent />
                 {/* 공동체 이름 */}
                 <View style={styles.GatiNameInputFrame}>
                     <Text style={styles.GatiInputTitle}>공동체 이름</Text>
@@ -117,19 +112,6 @@ const styles = StyleSheet.create({
     CompletionText: {
         fontSize: 15,
         color: "#0D76FF"
-    },
-    UploadImgContent: {
-        width: 300,
-        height: 130,
-        borderRadius: 12,
-        backgroundColor: "#F2F2F2",
-        marginTop: 30,
-        alignItems: "center",
-        justifyContent: "center"
-    },
-    CameraIcon: {
-        width: 60,
-        height: 60
     },
     GatiNameInputFrame: {
         borderBottomWidth: 2,
