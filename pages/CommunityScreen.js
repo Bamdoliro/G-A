@@ -4,7 +4,7 @@ import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 
 export default function CommunityScreen({ navigation }) {
     const ClickAddPostBtn = () => {
-        navigation.navigate('GatiProducePage')
+        navigation.navigate('GatiProduceScreen')
     }
 
     return (

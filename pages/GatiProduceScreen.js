@@ -1,14 +1,16 @@
-import { View, StyleSheet, TouchableOpacity, Image, Text, TextInput } from "react-native";
+import { View, StyleSheet, TouchableOpacity, Image, Text, TextInput, ScrollView } from "react-native";
 import OptionBtn from "../components/common/OptionBtn/OptionBtn";
 import ArrowIcon from "../assets/arrow.png"
 import { useState } from "react";
-import { ScrollView } from "react-native";
 
 import NumberInput from "../components/common/NumberOfPeopleInput/NumberOfPeopleInput";
 import UploadImgContent from "../components/common/UploadImgContent/UploadImgContent";
 import GatiIntroduction from "../components/common/GatiIntroduction/GatiIntroduction";
 
-export default function GatiProducePage({ navigation }) {
+{/* 사진 클릭 이벤트 넣어줘야 함 */}
+
+
+export default function GatiProduceScreen({ navigation }) {
 
     const [isPrivatePublic, setPrivatePublict] = useState(true);
     const [isNumberOfPeople, setNumberOfPeople] = useState("25");
@@ -35,6 +37,7 @@ export default function GatiProducePage({ navigation }) {
                     </TouchableOpacity>
                 </View>
                 {/* 사진 */}
+                {/* 클릭 이벤트 넣어줘야 함 */}
                 <UploadImgContent />
                 {/* 공동체 이름 */}
                 <View style={styles.GatiNameInputFrame}>
