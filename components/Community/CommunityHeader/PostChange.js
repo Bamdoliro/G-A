@@ -1,22 +1,15 @@
 import { StyleSheet, TouchableOpacity, View, Text, useState } from 'react-native';
 
-export default function PostChange(){
-    // values,
-    // selectedValue={CommunityPost},
-    // setSelectedValue={SetCommunityPost}
+export default function PostChange(values){
 
     const [CommunityPost, SetCommunityPost] = useState("게시글");
-
-    SetCommunityPost(() => {
-        CommunityPost = "게시글";
-    });
 
     return (
         <View style={{ flex: 1 }}>
             <View style={styles.Buttons}>
                     <TouchableOpacity // 게시글 버튼
-                        key={value}
-                        onPress={() => SetCommunityPost()}
+                        key={values[0]}
+                        onPress={() => SetCommunityPost(cur => cur === "게시글" ? "가티" : "게시글")}
                         style={[
                             styles.postChangeBtn,
                             CommunityPost === "게시글" ? styles.selectedBtn : null
@@ -28,13 +21,13 @@ export default function PostChange(){
                             CommunityPost === "게시글" ? styles.selectedText : null
                         ]}
                     >
-                        {value}
+                        {values[0]}
                     </Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity // 가티 버튼
-                        key={value}
-                        onPress={() => SetCommunityPost(value)}
+                        key={values[1]}
+                        onPress={() => SetCommunityPost(cur => cur === "게시글" ? "가티" : "게시글")}
                         style={[
                             styles.postChangeBtn,
                             CommunityPost === "가티" ? styles.selectedBtn : null
@@ -46,7 +39,7 @@ export default function PostChange(){
                             CommunityPost === "가티" ? styles.selectedText : null
                         ]}
                     >
-                        {value}
+                        {values[1]}
                     </Text>
                     </TouchableOpacity>
             </View>
