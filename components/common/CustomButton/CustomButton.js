@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         justifyContent: "center",
         marginBottom: 10,
-        marginTop: 15
     },
     button: {
         width: "100%",

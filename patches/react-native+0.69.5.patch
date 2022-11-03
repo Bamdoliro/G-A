@@ -1,5 +1,5 @@
 diff --git a/node_modules/react-native/index.js b/node_modules/react-native/index.js
-index d59ba34..75f0858 100644
+index d59ba34..1da61b2 100644
 --- a/node_modules/react-native/index.js
 +++ b/node_modules/react-native/index.js
 @@ -87,16 +87,16 @@ import typeof Vibration from './Libraries/Vibration/Vibration';
@@ -124,7 +124,7 @@ index d59ba34..75f0858 100644
      );
      return require('./Libraries/PushNotificationIOS/PushNotificationIOS');
    },
-@@ -435,32 +435,23 @@ module.exports = {
+@@ -435,32 +435,16 @@ module.exports = {
    },
    // Deprecated Prop Types
    get ColorPropType(): $FlowFixMe {
@@ -133,42 +133,35 @@ index d59ba34..75f0858 100644
 -      'ColorPropType has been removed from React Native. Migrate to ' +
 -        "ColorPropType exported from 'deprecated-react-native-prop-types'.",
 -    );
-+    console.warn('');
-+    return require('deprecated-react-native-prop-types').ColorPropType;
++    return require("deprecated-react-native-prop-types").ColorPropType
    },
-+
    get EdgeInsetsPropType(): $FlowFixMe {
 -    invariant(
 -      false,
 -      'EdgeInsetsPropType has been removed from React Native. Migrate to ' +
 -        "EdgeInsetsPropType exported from 'deprecated-react-native-prop-types'.",
 -    );
-+    console.warn('');
-+    return require('deprecated-react-native-prop-types').EdgeInsetsPropType;
++    return require("deprecated-react-native-prop-types").EdgeInsetsPropType
    },
-+
    get PointPropType(): $FlowFixMe {
 -    invariant(
 -      false,
 -      'PointPropType has been removed from React Native. Migrate to ' +
 -        "PointPropType exported from 'deprecated-react-native-prop-types'.",
 -    );
-+    console.warn('');
-+    return require('deprecated-react-native-prop-types').PointPropType;
++    return require("deprecated-react-native-prop-types").PointPropType
    },
-+
    get ViewPropTypes(): $FlowFixMe {
 -    invariant(
 -      false,
 -      'ViewPropTypes has been removed from React Native. Migrate to ' +
 -        "ViewPropTypes exported from 'deprecated-react-native-prop-types'.",
 -    );
-+    console.warn('');
-+    return require('deprecated-react-native-prop-types').ViewPropTypes;
++    return require("deprecated-react-native-prop-types").ViewPropTypes
    },
  };
  
-@@ -475,8 +466,8 @@ if (__DEV__) {
+@@ -475,8 +459,8 @@ if (__DEV__) {
        invariant(
          false,
          'ART has been removed from React Native. ' +
@@ -179,7 +172,7 @@ index d59ba34..75f0858 100644
        );
      },
    });
-@@ -491,8 +482,8 @@ if (__DEV__) {
+@@ -491,8 +475,8 @@ if (__DEV__) {
        invariant(
          false,
          'ListView has been removed from React Native. ' +
@@ -190,7 +183,7 @@ index d59ba34..75f0858 100644
        );
      },
    });
-@@ -507,8 +498,8 @@ if (__DEV__) {
+@@ -507,8 +491,8 @@ if (__DEV__) {
        invariant(
          false,
          'SwipeableListView has been removed from React Native. ' +
@@ -201,7 +194,7 @@ index d59ba34..75f0858 100644
        );
      },
    });
-@@ -523,8 +514,8 @@ if (__DEV__) {
+@@ -523,8 +507,8 @@ if (__DEV__) {
        invariant(
          false,
          'WebView has been removed from React Native. ' +
@@ -212,7 +205,7 @@ index d59ba34..75f0858 100644
        );
      },
    });
-@@ -539,8 +530,8 @@ if (__DEV__) {
+@@ -539,8 +523,8 @@ if (__DEV__) {
        invariant(
          false,
          'NetInfo has been removed from React Native. ' +
@@ -223,7 +216,7 @@ index d59ba34..75f0858 100644
        );
      },
    });
-@@ -555,8 +546,8 @@ if (__DEV__) {
+@@ -555,8 +539,8 @@ if (__DEV__) {
        invariant(
          false,
          'CameraRoll has been removed from React Native. ' +
@@ -234,7 +227,7 @@ index d59ba34..75f0858 100644
        );
      },
    });
-@@ -571,9 +562,9 @@ if (__DEV__) {
+@@ -571,9 +555,9 @@ if (__DEV__) {
        invariant(
          false,
          'ImageStore has been removed from React Native. ' +
@@ -247,7 +240,7 @@ index d59ba34..75f0858 100644
        );
      },
    });
-@@ -588,8 +579,8 @@ if (__DEV__) {
+@@ -588,8 +572,8 @@ if (__DEV__) {
        invariant(
          false,
          'ImageEditor has been removed from React Native. ' +
@@ -258,7 +251,7 @@ index d59ba34..75f0858 100644
        );
      },
    });
-@@ -604,8 +595,8 @@ if (__DEV__) {
+@@ -604,8 +588,8 @@ if (__DEV__) {
        invariant(
          false,
          'TimePickerAndroid has been removed from React Native. ' +
@@ -269,7 +262,7 @@ index d59ba34..75f0858 100644
        );
      },
    });
-@@ -620,8 +611,8 @@ if (__DEV__) {
+@@ -620,8 +604,8 @@ if (__DEV__) {
        invariant(
          false,
          'ToolbarAndroid has been removed from React Native. ' +
@@ -280,7 +273,7 @@ index d59ba34..75f0858 100644
        );
      },
    });
-@@ -636,8 +627,8 @@ if (__DEV__) {
+@@ -636,8 +620,8 @@ if (__DEV__) {
        invariant(
          false,
          'ViewPagerAndroid has been removed from React Native. ' +
@@ -291,7 +284,7 @@ index d59ba34..75f0858 100644
        );
      },
    });
-@@ -652,8 +643,8 @@ if (__DEV__) {
+@@ -652,8 +636,8 @@ if (__DEV__) {
        invariant(
          false,
          'CheckBox has been removed from React Native. ' +
@@ -302,7 +295,7 @@ index d59ba34..75f0858 100644
        );
      },
    });
-@@ -668,8 +659,8 @@ if (__DEV__) {
+@@ -668,8 +652,8 @@ if (__DEV__) {
        invariant(
          false,
          'SegmentedControlIOS has been removed from React Native. ' +
@@ -313,7 +306,7 @@ index d59ba34..75f0858 100644
        );
      },
    });
-@@ -684,8 +675,8 @@ if (__DEV__) {
+@@ -684,8 +668,8 @@ if (__DEV__) {
        invariant(
          false,
          'StatusBarIOS has been removed from React Native. ' +
@@ -324,7 +317,7 @@ index d59ba34..75f0858 100644
        );
      },
    });
-@@ -700,8 +691,8 @@ if (__DEV__) {
+@@ -700,8 +684,8 @@ if (__DEV__) {
        invariant(
          false,
          'PickerIOS has been removed from React Native. ' +
@@ -335,7 +328,7 @@ index d59ba34..75f0858 100644
        );
      },
    });
-@@ -716,8 +707,8 @@ if (__DEV__) {
+@@ -716,8 +700,8 @@ if (__DEV__) {
        invariant(
          false,
          'Picker has been removed from React Native. ' +
@@ -346,7 +339,7 @@ index d59ba34..75f0858 100644
        );
      },
    });
-@@ -731,8 +722,8 @@ if (__DEV__) {
+@@ -731,8 +715,8 @@ if (__DEV__) {
        invariant(
          false,
          'DatePickerAndroid has been removed from React Native. ' +
