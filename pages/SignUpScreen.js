@@ -39,12 +39,18 @@ export default function SignUpScreen({ navigation }) {
                     secureTextEntry={true}
                 />
                 <View style={styles.birthday}>
-                    <Text>생년월일</Text>
-                    <TextInput placeholder="YYYY" />
-                    <Text>/</Text>
-                    <TextInput placeholder="MM" />
-                    <Text>/</Text>
-                    <TextInput placeholder="DD" />
+                    <Text style={[styles.birthdayText, styles.birthdayTitle]}>생년월일</Text>
+                    <TextInput placeholder="YYYY" style={styles.birthdayInput}
+                        placeholderTextColor='white'
+                    />
+                    <Text style={styles.birthdayText}>/</Text>
+                    <TextInput placeholder="MM" style={styles.birthdayInput}
+                        placeholderTextColor='white'
+                    />
+                    <Text style={styles.birthdayText}>/</Text>
+                    <TextInput placeholder="DD" style={styles.birthdayInput}
+                        placeholderTextColor='white'
+                    />
                 </View>
                 <View style={styles.genderContainer}>
                     <Text style={styles.gender}>성별</Text>
@@ -121,6 +127,23 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         marginBottom: 10
+    },
+    birthdayText: {
+        fontWeight: 'bold',
+        fontSize: 14,
+        color: '#999999',
+        marginHorizontal: 2
+    },
+    birthdayTitle: {
+        marginRight: 12
+    },
+    birthdayInput: {
+        paddingLeft: 8,
+        paddingRight: 24,
+        backgroundColor: '#BEC9E6',
+        borderRadius: 5,
+        color: 'white',
+        fontWeight: 'bold'
     },
     genderContainer: {
         alignItems: 'center',
