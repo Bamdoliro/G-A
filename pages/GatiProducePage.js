@@ -3,25 +3,18 @@ import OptionBtn from "../components/common/OptionBtn/OptionBtn";
 import ArrowIcon from "../assets/arrow.png"
 import CameraIcon from "../assets/camera.png"
 import HumanIcon from "../assets/human_blue.png"
-import ArrowGrayIcon from "../assets/arrow_gray.png";
-import ModalDropdown from 'react-native-modal-dropdown';
 import { useState } from "react";
 
-export default function GatiProducePage({ navigation }) {
+export default function GatiProducePage({navigation}) {
 
     const [isPrivatePublic, setPrivatePublict] = useState(true);
     const [isNumberOfPeople, setNumberOfPeople] = useState("25");
-
-
-    const BeforeScreen = (navigation) => {
-        navigation.pop();
-    }
 
     return (
         <View style={styles.GatiProduceContainer}>
             {/* Header 부분 */}
             <View style={styles.GatiProduceHeader}>
-                <TouchableOpacity onPress={BeforeScreen}>
+                <TouchableOpacity onPress={() => navigation.pop()}>
                     <Image
                         source={ArrowIcon}
                         style={styles.ArrowIcon}
@@ -92,7 +85,7 @@ export default function GatiProducePage({ navigation }) {
                     </View>
                 </View>
             </View>
-
+            
         </View>
     )
 }
