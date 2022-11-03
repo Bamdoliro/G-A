@@ -2,9 +2,10 @@ import { View, StyleSheet, TouchableOpacity, Image, Text, TextInput } from "reac
 import OptionBtn from "../components/common/OptionBtn/OptionBtn";
 import ArrowIcon from "../assets/arrow.png"
 import CameraIcon from "../assets/camera.png"
-import HumanIcon from "../assets/human_blue.png"
 import { useState } from "react";
 import { ScrollView } from "react-native";
+
+import NumberInput from "../components/common/NumberOfPeopleInput/NumberOfPeopleInput";
 
 export default function GatiProducePage({ navigation }) {
 
@@ -72,20 +73,10 @@ export default function GatiProducePage({ navigation }) {
                     <Text style={styles.NumberOfPeopleTitle}>
                         인원수
                     </Text>
-                    <View style={{ flexDirection: "row", alignItems: "center" }}>
-                        <Image
-                            source={HumanIcon}
-                            style={styles.HumanIcon}
-                        />
-                        <View style={styles.NumberOfPeopleFrame}>
-                            <TextInput
-                                style={styles.NumberOfPeopleInput}
-                                value={isNumberOfPeople}
-                                onChangeText={(text) => setNumberOfPeople(text)}
-                                keyboardType="number-pad"
-                            />
-                        </View>
-                    </View>
+                    <NumberInput 
+                        setNumberOfPeople={setNumberOfPeople}
+                        isNumberOfPeople={isNumberOfPeople}
+                    />
                 </View>
                 {/* 공동체 소개 */}
                 <View style={styles.GatiIntroduction}>
@@ -150,6 +141,7 @@ const styles = StyleSheet.create({
         height: 28,
         fontSize: 18
     },
+    // 인원수 부분
     GatiInputTitle: {
         fontSize: 18,
         color: "#999999",
@@ -177,27 +169,6 @@ const styles = StyleSheet.create({
     NumberOfPeopleArea: {
         width: 300,
         marginTop: 10,
-    },
-    NumberOfPeopleFrame: {
-        flexDirection: "row",
-        alignItems: "center",
-        borderWidth: 2,
-        borderColor: "#0D76FF",
-        width: 85,
-        height: 35,
-        paddingLeft: 10,
-        paddingRight: 10,
-        marginTop: 5,
-        borderRadius: 12,
-        marginLeft: 10
-    },
-    NumberOfPeopleInput: {
-        width: "100%",
-        height: "100%"
-    },
-    HumanIcon: {
-        width: 25,
-        height: 25
     },
     // 공동체 소개
     GatiIntroduction: {
