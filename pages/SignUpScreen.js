@@ -3,6 +3,7 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-nativ
 import CustomInput from "../components/common/CustomInput/CustomInput";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import CustomButton from "../components/common/CustomButton/CustomButton";
+
 export default function SignUpScreen({ navigation }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -80,9 +81,9 @@ export default function SignUpScreen({ navigation }) {
                         <Text style={styles.subText}>개인정보 수집 및 이용 동의</Text>
                     </TouchableOpacity>
                 </View>
-
                 <View style={styles.signUpButton}>
                     <CustomButton
+                        onPress={() => navigation.navigate('EmailAuthScreen')}
                         title="회원가입"
                     />
                 </View>
