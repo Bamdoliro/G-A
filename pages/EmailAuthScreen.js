@@ -4,11 +4,15 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, View, Image } from "reac
 import gatiLogo from "../assets/gatiLogo_White.png";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import CustomButton from "../components/common/CustomButton/CustomButton";
+import Close from '../assets/close.png';
 
 export default function EmailAuthScreen() {
     return (
         <SafeAreaView style={styles.root}>
             <View style={styles.innerBox}>
+                <Image style={styles.close} source={Close} 
+                    onPress={() => navigation.goBack()}
+                />
                 <Text style={styles.title}>
                     이메일을{"\n"}인증 해 주세요!
                 </Text>
@@ -54,6 +58,13 @@ const styles = StyleSheet.create({
         width: "87%",
         height: 32,
         alignItems: "center",
+    },
+    close: {
+        position: 'absolute',
+        top: '3%',
+        left: '6%',
+        width: 42,
+        height: 42
     },
     logo: {
         bottom: "5%",

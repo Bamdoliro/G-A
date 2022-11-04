@@ -1,8 +1,10 @@
 import React, { useRef, useState } from "react";
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+
 import CustomInput from "../components/common/CustomInput/CustomInput";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import CustomButton from "../components/common/CustomButton/CustomButton";
+import Close from '../assets/close.png';
 
 export default function SignUpScreen({ navigation }) {
     const [email, setEmail] = useState("");
@@ -23,6 +25,10 @@ export default function SignUpScreen({ navigation }) {
     return (
         <SafeAreaView style={styles.root}>
             <View style={styles.innerBox}>
+                <Image style={styles.close} source={Close} 
+                    onPress={() => navigation.goBack()}
+                />
+                <Text style={styles.title}>회원가입</Text>
                 <CustomInput
                     placeholder="이메일 입력"
                     value={email}
@@ -163,6 +169,19 @@ const styles = StyleSheet.create({
 
         alignItems: "center",
         justifyContent: "center",
+    },
+    title: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: '#0D76FF',
+        marginBottom: 42
+    },
+    close: {
+        position: 'absolute',
+        top: '3%',
+        left: '6%',
+        width: 42,
+        height: 42
     },
     signUpButton: {
         width: "87%",
