@@ -15,6 +15,9 @@ export default function SignUpScreen({ navigation }) {
     return (
         <SafeAreaView style={styles.root}>
             <View style={styles.innerBox}>
+                <Text style={styles.SignUpTitle}>
+                    회원가입
+                </Text>
                 <CustomInput
                     placeholder="이메일 입력"
                     value={email}
@@ -55,14 +58,14 @@ export default function SignUpScreen({ navigation }) {
                 <View style={styles.genderContainer}>
                     <Text style={styles.gender}>성별</Text>
                     <View style={styles.genderSelects}>
-                        <TouchableOpacity>
+                        <TouchableOpacity style={styles.genderOption}>
                             <Text
-                                style={styles.genderOption}
+                                style={styles.genderOptionText}
                             >여자</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity>
+                        <TouchableOpacity style={styles.genderOption}>
                             <Text
-                                style={styles.genderOption}
+                                style={styles.genderOptionText}
                             >남자</Text>
                         </TouchableOpacity>
                     </View>
@@ -99,13 +102,19 @@ export default function SignUpScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+    SignUpTitle: {
+        position: "relative",
+        bottom: 35,
+        fontSize: 24,
+        color: "#0D76FF",
+        fontWeight: "bold"
+    },
     innerBox: {
         height: "70%",
         width: "84%",
 
         backgroundColor: "white",
-        borderTopLeftRadius: 30,
-        borderTopRightRadius: 30,
+        borderRadius: 30,
 
         shadowOffset: {
             width: 0,
@@ -158,12 +167,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     genderOption: {
-        paddingVertical: 2,
+        paddingVertical: 5,
         paddingHorizontal: 14,
         backgroundColor: '#0D76FF',
+        marginHorizontal: 4,
+        borderRadius: 12
+    },
+    genderOptionText: {
         color: 'white',
-        borderRadius: 14,
-        marginHorizontal: 4
     },
     subText: {
         fontSize: 10
