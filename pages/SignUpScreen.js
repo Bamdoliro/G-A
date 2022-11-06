@@ -44,6 +44,7 @@ export default function SignUpScreen({ navigation }) {
                     value={password}
                     setValue={password => setPassword(password)}
                     secureTextEntry={true}
+                    ref={passwordRef}
                     onSubmitEditing={() => {
                         repasswordRef.current.focus();
                     }}
@@ -55,6 +56,7 @@ export default function SignUpScreen({ navigation }) {
                     value={repassword}
                     setValue={repassword => setRepassword(repassword)}
                     secureTextEntry={true}
+                    ref={repasswordRef}
                     onSubmitEditing={() => {
                         nameRef.current.focus();
                     }}
@@ -65,6 +67,7 @@ export default function SignUpScreen({ navigation }) {
                     placeholder="이름"
                     value={name}
                     setValue={name => setName(name)}
+                    ref={nameRef}
                     onSubmitEditing={() => {
                         birthYearRef.current.focus();
                     }}
@@ -76,6 +79,7 @@ export default function SignUpScreen({ navigation }) {
                     <TextInput placeholder="YYYY" style={styles.birthdayYearInput}
                         placeholderTextColor='white'
                         maxLength={4}
+                        ref={birthYearRef}
                         onSubmitEditing={() => {
                             birthMonthRef.current.focus();
                         }}
@@ -205,7 +209,6 @@ const styles = StyleSheet.create({
     birthdayYearInput: {
         paddingLeft: 8,
         width: 68,
-        paddingRight: 24,
         backgroundColor: '#BEC9E6',
         borderRadius: 5,
         color: 'white',
