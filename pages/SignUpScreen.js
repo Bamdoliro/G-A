@@ -250,7 +250,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 14,
         backgroundColor: '#0D76FF',
         marginHorizontal: 4,
-        borderRadius: 12
+        borderRadius: 999,
+        color: 'white'
     },
     genderOptionText: {
         color: 'white',
