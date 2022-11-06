@@ -1,5 +1,6 @@
 import ChatListScreen from "./pages/ChatListScreen";
 import ChatLiveScreen from "./pages/ChatLiveScreen";
+import GatiProduceScreen from "./pages/GatiProduceScreen";
 import {NavigationContainer} from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
@@ -34,6 +35,7 @@ export default function App() {
             >
                 <Stack.Screen name="TabNavigation" component={TabNavigation}/>
                 <Stack.Screen name="ChatListScreen" component={ChatListScreen}/>
+                <Stack.Screen name="GatiProduceScreen" component={GatiProduceScreen}/>
                 <Stack.Screen name="ChatLiveScreen">
                     {props => <ChatLiveScreen {...props} socket={socket} />}
                 </Stack.Screen>
