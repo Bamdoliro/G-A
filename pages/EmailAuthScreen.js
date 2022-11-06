@@ -42,8 +42,7 @@ const styles = StyleSheet.create({
         width: "84%",
 
         backgroundColor: "white",
-        borderTopLeftRadius: 30,
-        borderTopRightRadius: 30,
+        borderRadius: 30,
 
         shadowOffset: {
             width: 0,
@@ -81,12 +80,12 @@ const styles = StyleSheet.create({
         borderTopWidth: 1,
         borderBottomWidth: 1,
         borderColor: '#0D76FF',
-        marginTop: 20,
+        marginTop: 30,
     },
     resendMailText: {
         color: '#0D76FF',
         fontSize: 10,
-        textAlign: 'center'
+        textAlign: 'center',
     },
     title: {
         fontSize: 30,

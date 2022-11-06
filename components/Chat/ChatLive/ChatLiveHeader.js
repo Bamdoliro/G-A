@@ -43,22 +43,22 @@ export default function ChatLiveHeader({ name, numberOfMembers, navigation }) {
 const styles = StyleSheet.create({
     ChatLiveHeader: {
         height: 100,
-        backgroundColor: "#D4E0FF"
+        backgroundColor: "#D4E0FF",
     },
     LiveHeader: {
         backgroundColor: "#fff",
         height: 100,
         borderBottomLeftRadius: 15,
         borderBottomRightRadius: 15,
+        alignItems: "center"
     },
     HeaderContent: {
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
-        paddingLeft: 35,
-        paddingRight: 35,
-        marginTop: 60
+        marginTop: 60,
+        width: 300
     },
     HeaderSetText: {
         display: "flex",

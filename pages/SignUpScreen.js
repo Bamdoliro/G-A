@@ -158,13 +158,19 @@ export default function SignUpScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+    SignUpTitle: {
+        position: "relative",
+        bottom: 35,
+        fontSize: 24,
+        color: "#0D76FF",
+        fontWeight: "bold"
+    },
     innerBox: {
         height: "70%",
         width: "84%",
 
         backgroundColor: "white",
-        borderTopLeftRadius: 30,
-        borderTopRightRadius: 30,
+        borderRadius: 30,
 
         shadowOffset: {
             width: 0,
@@ -240,12 +246,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     genderOption: {
-        paddingVertical: 2,
+        paddingVertical: 5,
         paddingHorizontal: 14,
         backgroundColor: '#0D76FF',
+        marginHorizontal: 4,
+        borderRadius: 12
+    },
+    genderOptionText: {
         color: 'white',
-        borderRadius: 14,
-        marginHorizontal: 4
     },
     subText: {
         fontSize: 10

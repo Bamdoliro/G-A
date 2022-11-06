@@ -99,8 +99,7 @@ const styles = StyleSheet.create({
         width: "84%",
 
         backgroundColor: "white",
-        borderTopLeftRadius: 30,
-        borderTopRightRadius: 30,
+        borderRadius: 30,
 
         shadowOffset: {
             width: 0,
