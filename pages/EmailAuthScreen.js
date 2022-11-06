@@ -6,13 +6,16 @@ import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import CustomButton from "../components/common/CustomButton/CustomButton";
 import Close from '../assets/close.png';
 
-export default function EmailAuthScreen() {
+export default function EmailAuthScreen({navigation}) {
     return (
         <SafeAreaView style={styles.root}>
             <View style={styles.innerBox}>
-                <Image style={styles.close} source={Close} 
-                    onPress={() => navigation.goBack()}
-                />
+                <TouchableOpacity
+                        onPress={() => navigation.pop()}
+                        style={styles.closeBtn} 
+                >
+                    <Image style={styles.close} source={Close} />
+                </TouchableOpacity>
                 <Text style={styles.title}>
                     이메일을{"\n"}인증 해 주세요!
                 </Text>
@@ -59,10 +62,12 @@ const styles = StyleSheet.create({
         height: 32,
         alignItems: "center",
     },
-    close: {
+    closeBtn: {
         position: 'absolute',
         top: '3%',
         left: '6%',
+    },
+    close: {
         width: 42,
         height: 42
     },

@@ -25,9 +25,12 @@ export default function SignUpScreen({ navigation }) {
     return (
         <SafeAreaView style={styles.root}>
             <View style={styles.innerBox}>
-                <Image style={styles.close} source={Close} 
-                    onPress={() => navigation.goBack()}
-                />
+                <TouchableOpacity
+                    onPress={() => navigation.pop()}
+                    style={styles.closeBtn}
+                >
+                    <Image style={styles.close} source={Close} />
+                </TouchableOpacity>
                 <Text style={styles.title}>회원가입</Text>
                 <CustomInput
                     placeholder="이메일 입력"
@@ -111,14 +114,14 @@ export default function SignUpScreen({ navigation }) {
                             onPress={() => setGender('F')}
                         >
                             <Text
-                                style={[styles.genderOption, gender === 'F' ? {backgroundColor: '#0D76FF'} : {backgroundColor: '#C4C4C4'}]}
+                                style={[styles.genderOption, gender === 'F' ? { backgroundColor: '#0D76FF' } : { backgroundColor: '#C4C4C4' }]}
                             >여자</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
                             onPress={() => setGender('M')}
                         >
                             <Text
-                                style={[styles.genderOption, gender === 'M' ? {backgroundColor: '#0D76FF'} : {backgroundColor: '#C4C4C4'}]}
+                                style={[styles.genderOption, gender === 'M' ? { backgroundColor: '#0D76FF' } : { backgroundColor: '#C4C4C4' }]}
                             >남자</Text>
                         </TouchableOpacity>
                     </View>
@@ -180,10 +183,12 @@ const styles = StyleSheet.create({
         color: '#0D76FF',
         marginBottom: 42
     },
-    close: {
+    closeBtn: {
         position: 'absolute',
         top: '3%',
         left: '6%',
+    },
+    close: {
         width: 42,
         height: 42
     },
