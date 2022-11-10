@@ -1,14 +1,13 @@
 import { View, StyleSheet, TouchableOpacity, Image, Text, TextInput, ScrollView } from "react-native";
 import OptionBtn from "../components/common/OptionBtn/OptionBtn";
-import ArrowIcon from "../assets/arrow.png"
 import { useState } from "react";
 
+import GatiHeader from "../components/common/GatiHeader/GatiHeader";
 import NumberInput from "../components/common/NumberOfPeopleInput/NumberOfPeopleInput";
 import UploadImgContent from "../components/common/UploadImgContent/UploadImgContent";
 import GatiIntroduction from "../components/common/GatiIntroduction/GatiIntroduction";
 
 {/* 사진 클릭 이벤트 넣어줘야 함 */}
-
 
 export default function GatiProduceScreen({ navigation }) {
 
@@ -20,22 +19,10 @@ export default function GatiProduceScreen({ navigation }) {
         <ScrollView style={styles.GatiProduceContainer}>
             <View style={{flex:1, alignItems: "center"}}>
                 {/* Header 부분 */}
-                <View style={styles.GatiProduceHeader}>
-                    <TouchableOpacity onPress={() => navigation.pop()}>
-                        <Image
-                            source={ArrowIcon}
-                            style={styles.ArrowIcon}
-                        />
-                    </TouchableOpacity>
-                    <Text style={styles.GatiTitleText}>
-                        공동체 생성
-                    </Text>
-                    <TouchableOpacity>
-                        <Text style={styles.CompletionText}>
-                            완료
-                        </Text>
-                    </TouchableOpacity>
-                </View>
+                <GatiHeader 
+                    HeaderTitle="공동체 생성"
+                    navigation={navigation}
+                />
                 {/* 사진 */}
                 {/* 클릭 이벤트 넣어줘야 함 */}
                 <UploadImgContent />
@@ -98,25 +85,6 @@ const styles = StyleSheet.create({
     GatiProduceContainer: {
         flexGrow: 1,
         backgroundColor: "#fff",
-    },
-    GatiProduceHeader: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        marginTop: 60,
-        width: 300
-    },
-    ArrowIcon: {
-        width: 10,
-        height: 20,
-    },
-    GatiTitleText: {
-        fontSize: 19,
-        fontWeight: "bold",
-    },
-    CompletionText: {
-        fontSize: 15,
-        color: "#0D76FF"
     },
     GatiNameInputFrame: {
         borderBottomWidth: 2,
