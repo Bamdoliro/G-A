@@ -5,7 +5,6 @@ import CommunityHeader from "../components/Community/CommunityHeader/CommunityHe
 export default function CommunityScreen() {
     return (
         <SafeAreaView>
-            <Text>CommunityScreen</Text>
             <CommunityHeader joinMembers={"125"}/>
         </SafeAreaView>
     );

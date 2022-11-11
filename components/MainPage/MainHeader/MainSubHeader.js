@@ -25,7 +25,6 @@ export default function MainSubHeader() {
 const styles = StyleSheet.create({
     MainSubHeader: {
         flexDirection: "row",
-        alignItems: "center",
         justifyContent: "space-between",
         width: "80%",
     },
