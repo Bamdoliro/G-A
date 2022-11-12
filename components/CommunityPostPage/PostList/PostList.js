@@ -1,57 +1,73 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
-import PostImg from "../../../../assets/post_img.png"
-import ChatImg from "../../../../assets/chat.png"
-import LikeImg from "../../../../assets/heart.png"
-import OptionImg from "../../../../assets/option.png"
+import React, { useState } from "react";
+import { Menu, MenuItem } from 'react-native-material-menu';
+import PostImg from "../../../assets/post_img.png"
+import ChatImg from "../../../assets/chat.png"
+import LikeImg from "../../../assets/heart.png"
+import OptionImg from "../../../assets/option.png"
 
-export default function PostList() {
+export default function PostList({ Title, Explanation, ChatOfNumber, LikeOfNumber }) {
+
+    const [visible, setVisible] = useState(false);
+
+    const hideMenu = () => setVisible(false);
+
+    const showMenu = () => setVisible(true);
+
     return (
-        <View style={styles.PostList}>
-            <Image 
+        <TouchableOpacity style={styles.PostList}>
+            <Image
                 style={styles.PostImg}
                 source={PostImg}
             />
             <View style={styles.PostContentArea}>
-                <Text style={styles.TitleText} numberOfLines={1} ellipsizeMode="tail">세탁기 빨래 본인 것만 가져가 주세요...</Text>
-                <Text style={styles.SubTitleText} numberOfLines={2} ellipsizeMode="tail">
-                    요즘에 세탁물 분실 사례가 너무 많은데 
-                    본인 빨래만 가져가고 본인 빨래가 아니다
-                    싶으면 세탁실에 다시 돌려 놓아 주세요...
+                <Text style={styles.TitleText} numberOfLines={2} ellipsizeMode="tail">{Title}</Text>
+                <Text style={styles.Explanation} numberOfLines={2} ellipsizeMode="tail">
+                    {Explanation}
                 </Text>
                 <View style={styles.PostSideBar}>
                     <View style={styles.ReactionContent}>
                         <View style={styles.PostChat}>
-                            <TouchableOpacity>
-                                <Image 
-                                    source={ChatImg}
-                                    style={styles.ChatImg}
-                                />
-                            </TouchableOpacity>
+                            <Image
+                                source={ChatImg}
+                                style={styles.ChatImg}
+                            />
                             <Text style={styles.ChatOfNumber}>
-                                10
+                                {ChatOfNumber}
                             </Text>
                         </View>
                         <View style={styles.PostLike}>
                             <TouchableOpacity>
-                                <Image 
+                                <Image
                                     source={LikeImg}
                                     style={styles.LikeImg}
                                 />
                             </TouchableOpacity>
                             <Text style={styles.LikeOfNumber}>
-                                10
+                                {LikeOfNumber}
                             </Text>
                         </View>
                     </View>
-                    <TouchableOpacity>
-                        <Image
-                            source={OptionImg}
-                            style={styles.OptionImg}
-                        />
-                    </TouchableOpacity>
+
+
+                    <View style={styles.Option}>
+                        <Menu
+                            style={styles.OptionMenu}
+                            visible={visible}
+                            anchor={
+                                <TouchableOpacity onPress={showMenu}>
+                                    <Image source={OptionImg} style={styles.OptionImg} />
+                                </TouchableOpacity>
+                            }
+                            onRequestClose={hideMenu}
+                        >
+                            <MenuItem onPress={hideMenu} textStyle={{textAlign: "center", fontSize: 16}} pressColor="#fff">수정</MenuItem>
+                            <MenuItem onPress={hideMenu} textStyle={{textAlign: "center", fontSize: 16}} pressColor="#fff">삭제</MenuItem>
+                        </Menu>
+                    </View>
                 </View>
             </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 
@@ -62,12 +78,13 @@ const styles = StyleSheet.create({
         borderColor: "#E2E2E2",
         backgroundColor: "#fff",
         width: 360,
-        height: 130,
+        height: 150,
         borderRadius: 12,
+        marginBottom: 15,
     },
     PostImg: {
         width: 120,
-        height: 130,
+        height: 150,
         borderTopLeftRadius: 12,
         borderBottomLeftRadius: 12
     },
@@ -81,7 +98,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: "bold"
     },
-    SubTitleText: {
+    Explanation: {
         fontSize: 12,
         marginTop: 10,
     },
@@ -117,8 +134,11 @@ const styles = StyleSheet.create({
         width: 20,
         marginRight: 5
     },
+    OptionMenu:{
+        borderRadius: 16,
+    },
     OptionImg: {
         width: 25,
         height: 25
-    }
+    },
 })
