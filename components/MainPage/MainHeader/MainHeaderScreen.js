@@ -14,7 +14,6 @@ export default function MainHeaderScreen() {
 const styles = StyleSheet.create({
     HeaderFrame: {
         flexDirection: "column",
-        justifyContent: "center",
         alignItems: "center",
         height: 125,
         width: "100%",

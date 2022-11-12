@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         borderRadius: 26,
         padding: 8,
         backgroundColor: "#F2F2F2",
-        marginTop: 20
+        marginTop: 10
     },
     SearchIcon: {
         width: 23,

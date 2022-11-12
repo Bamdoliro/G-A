@@ -1,5 +1,5 @@
 import { StyleSheet, TextInput, Image, View, Text } from 'react-native';
-import NotificationBar from '../CommunityHeader/NotificationBar';
+import ArrowIcon from "../../../assets/arrow_down.png"
 import pencilIcon from '../../../assets/Pencil_Icon.png';
 import BellIcon from "../../../assets/Bell_Icon.png"
 import ToggleIcon from "../../../assets/main_toggle.png"
@@ -12,6 +12,21 @@ export default function CommunityHeader(){
                     source={ToggleIcon}
                     style={{width: 25, height: 25}}
                 />
+                <View style={styles.CommunityInfo}>
+                    <View style={{flexDirection: "column", alignItems: "center"}}>
+                        <Text style={styles.CommunityTitle}>
+                            부산 소프트웨어 마이스터고
+                        </Text>
+                        <View style={{flexDirection: "row"}}>
+                            <Text style={{color: "#0D76FF"}}>
+                                125 
+                            </Text>
+                            <Text>
+                                명이 참여 중 입니다!
+                            </Text>
+                        </View>
+                    </View>
+                </View>
                 <Image
                     source={BellIcon}
                     style={{width: 25, height: 25}}
@@ -21,9 +36,6 @@ export default function CommunityHeader(){
                 <Image
                     source={pencilIcon}
                     style={styles.pencilIcon}
-                />
-                <TextInput
-                    style={styles.CommunityDetail}
                 />
             </View>
         </View>
@@ -36,7 +48,6 @@ const styles = StyleSheet.create({
         height: 125,
         width: "100%",
         alignItems: "center",
-        justifyContent: "center",
         backgroundColor: "#FFFFFF",
         marginBottom: 48,
         shadowColor: "#000000",
@@ -56,17 +67,10 @@ const styles = StyleSheet.create({
         alignItems: "center",
         width: "80%",
         height: 35,
-        borderRadius: 26,
         padding: 8,
         backgroundColor: "#F2F2F2",
-        marginTop: 20
-    },
-    CommunityDetail: {
-        color: "000000",
-        backgroundColor: "F2F2F2",
-        width: "80%",
-        height: 46,
-        textAlign: "left",
+        borderRadius: 8,
+        marginTop: 10
     },
     pencilIcon: {
         position: "absolute",
@@ -80,6 +84,12 @@ const styles = StyleSheet.create({
     HeaderContent: {
         flexDirection: "row",
         width: "80%",
+        height: 50,
+        alignItems: "center",
         justifyContent: "space-between"
+    },
+    CommunityTitle: {
+        fontSize: 17,
+        fontWeight: "bold"
     }
 })
