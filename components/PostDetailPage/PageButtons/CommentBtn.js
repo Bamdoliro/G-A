@@ -1,5 +1,5 @@
 import { Image, TouchableOpacity } from 'react-native';
-import CommentBtn from '../../assets/comment.png';
+import CommentBtn from '../../../assets/comment.png';
 
 export default function CommentBtn() {
     return (

@@ -1,5 +1,5 @@
 import {Text, View, StyleSheet } from 'react-native';
-import UserProfile from './PostContent/UserProfile';
+import UserProfile from '../PostContent/UserProfile';
 
 export default function PostCommentList(ContentOfPostContent, userName, sentTime, profileImage) {
     return (

@@ -1,6 +1,6 @@
 import { Image, useState, TouchableOpacity } from 'react-native';
-import heart from '../../assets/heart.png';
-import filledHeart from '../../assets/heart-filled.png';
+import heart from '../../../assets/heart.png';
+import filledHeart from '../../../assets/heart-filled.png';
 
 export default function LikeBtn() {
     

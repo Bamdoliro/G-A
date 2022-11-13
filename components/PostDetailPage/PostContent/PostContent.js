@@ -1,12 +1,12 @@
 import {Text, ScrollView, Image, View, StyleSheet } from 'react-native';
 import UserProfile from '../PostDetailPage/UserProfile';
-import GoBackBtn from '../GoBackBtn';
-import PostMainContent from './PostMainContent';
-import ViewMenu from '../ViewMenu';
-import LikeBtn from '../LikeBtn';
+import GoBackBtn from '../PageButtons/GoBackBtn';
+import PostMainContent from '../PostContent/PostMainContent';
+import ViewMenu from '../PageButtons/ViewMenu';
+import LikeBtn from '../PageButtons/LikeBtn';
 import CommentBtn from '../PageButtons/CommentBtn';
-import GrayCircle from '../../assets/grayCommonCircle.png';
-import PostImage from '../../assets/PostImage.png';
+import GrayCircle from '../../../assets/grayCommonCircle.png';
+import PostImage from '../../../assets/PostImage.png';
 
 export default function PostContent() {
     return (

@@ -1,4 +1,5 @@
-import { StyleSheet, TouchableOpacity, View, Text, useState } from 'react-native';
+import { StyleSheet, TouchableOpacity, View, Text } from 'react-native';
+import React, { useState } from 'react';
 
 export default function PostChange(values){
 
@@ -7,7 +8,7 @@ export default function PostChange(values){
     return (
         <View style={{ flex: 1 }}>
             <View style={styles.Buttons}>
-                    <TouchableOpacity // 게시글 버튼
+                    <TouchableOpacity
                         key={values[0]}
                         onPress={() => SetCommunityPost(cur => cur === "게시글" ? "가티" : "게시글")}
                         style={[
@@ -25,7 +26,7 @@ export default function PostChange(values){
                     </Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity // 가티 버튼
+                    <TouchableOpacity
                         key={values[1]}
                         onPress={() => SetCommunityPost(cur => cur === "게시글" ? "가티" : "게시글")}
                         style={[

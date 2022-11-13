@@ -1,6 +1,6 @@
 import { ScrollView, View } from 'react-native';
-import GrayCircle from '../../assets/grayCommonCircle.png';
-import PostCommentList from './PostCommentList';
+import GrayCircle from '../../../assets/grayCommonCircle.png';
+import PostCommentList from '../PostComment/PostCommentList';
 
 export default function PostComments() {
     return (

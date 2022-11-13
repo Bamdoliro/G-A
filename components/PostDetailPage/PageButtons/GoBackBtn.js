@@ -1,5 +1,5 @@
 import { Image, TouchableOpacity } from 'react-native';
-import arrowLeft from '../../assets/arrow.png';
+import arrowLeft from '../../../assets/arrow.png';
 
 export default function GoBackBtn() {
     return (

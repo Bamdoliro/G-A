@@ -1,5 +1,5 @@
 import { Image, TouchableOpacity } from 'react-native';
-import ViewMenu from '../../assets/viewMenuIcon.png';
+import ViewMenu from '../../../assets/viewMenuIcon.png';
 
 export default function ViewMenu() { 
     return (

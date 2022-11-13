@@ -10,7 +10,7 @@ export default function CommunityHeader(props){
         <View style={styles.communityHeader}>
             <View style={styles.communityHeaderTop}>
                 <MenuBar />
-                <View style={styles.communitySum}> // 부산 소프트웨어마고 ~ ... 참여 중입니다! 부분
+                <View style={styles.communitySum}>
                     <View style={styles.communityName}>
                         <Text>
                             부산 소프트웨어마고
