@@ -1,10 +1,10 @@
-import { ScrollView, View } from 'react-native';
+import { StyleSheet, ScrollView, View } from 'react-native';
 import GrayCircle from '../../../assets/grayCommonCircle.png';
 import PostCommentList from '../PostComment/PostCommentList';
 
 export default function PostComments() {
     return (
-        <ScrollView>
+        <ScrollView style={styles.postCommentsPart}>
             <PostCommentList 
                 ContentOfPostContent="게시글 댓글"
                 userName="오만과 편견"
@@ -26,3 +26,10 @@ export default function PostComments() {
         </ScrollView>
     );
 }
+
+const styles = StyleSheet.create({
+    postCommentsPart: {
+        backgroundColor: '#F2F2F2',
+        flex: 1
+    }
+})

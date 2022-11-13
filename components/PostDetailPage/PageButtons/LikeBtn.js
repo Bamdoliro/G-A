@@ -1,14 +1,15 @@
-import { Image, useState, TouchableOpacity } from 'react-native';
+import { Image, TouchableOpacity } from 'react-native';
+import { useState } from 'react';
 import heart from '../../../assets/heart.png';
 import filledHeart from '../../../assets/heart-filled.png';
 
 export default function LikeBtn() {
     
-    const [LikeBtn, SetLikeBtn] = useState(true);
+    const [LikeBtn, setLikeBtn] = useState(true);
 
     return (
         <TouchableOpacity
-            onPress={() => SetLikeBtn(cur => cur === true ? false : true)}
+            onPress={() => setLikeBtn(cur => cur === true ? false : true)}
         >
             <Image
                 source={LikeBtn === true ? heart : filledHeart}

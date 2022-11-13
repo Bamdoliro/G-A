@@ -1,5 +1,5 @@
 import { Image, TouchableOpacity } from 'react-native';
-import CommentBtn from '../../../assets/comment.png';
+import CommentBtnIcon from '../../../assets/comment.png';
 
 export default function CommentBtn() {
     return (
@@ -7,7 +7,7 @@ export default function CommentBtn() {
             onPress={() => console.log('댓글 버튼 클릭됨')}
         >
             <Image 
-                source={CommentBtn} 
+                source={CommentBtnIcon} 
                 style={{ width: 23, height: 23 }}
             />
         </TouchableOpacity>

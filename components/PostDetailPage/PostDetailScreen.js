@@ -4,10 +4,8 @@ import PostComments from './PostComment/PostComments';
 
 export default function PostDetailScreen() {
     return (
-        <View>
-            <View>
-                <PostContent />
-            </View>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <PostContent />
             <PostComments />
         </View>
     );

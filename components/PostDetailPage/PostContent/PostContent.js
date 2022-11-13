@@ -1,24 +1,29 @@
 import {Text, ScrollView, Image, View, StyleSheet } from 'react-native';
-import UserProfile from '../PostDetailPage/UserProfile';
-import GoBackBtn from '../PageButtons/GoBackBtn';
-import PostMainContent from '../PostContent/PostMainContent';
-import ViewMenu from '../PageButtons/ViewMenu';
-import LikeBtn from '../PageButtons/LikeBtn';
-import CommentBtn from '../PageButtons/CommentBtn';
+
 import GrayCircle from '../../../assets/grayCommonCircle.png';
 import PostImage from '../../../assets/PostImage.png';
 
+import GoBackBtn from '../PageButtons/GoBackBtn';
+import LikeBtn from '../PageButtons/LikeBtn';
+import CommentBtn from '../PageButtons/CommentBtn';
+
+import PostMainContent from '../PostContent/PostMainContent';
+import UserProfile from '../PostContent/UserProfile';
+import ViewMenu from '../PageButtons/ViewMenu';
+
+
 export default function PostContent() {
     return (
-        <View>
+        <View style={styles.postContentPart}>
             <View style={styles.postContentTop}>
-                <GoBackBtn />
-                <UserProfile 
+                <GoBackBtn style={{ marginRight: 23 }} />
+                <UserProfile    
+                    style={{ marginLeft: 14 }}
                     profileImage={GrayCircle}
                     userName="2215 최태영"
                     sentTime={20}
                 />
-                <ViewMenu />
+                <ViewMenu style={{ marginLeft: 31 }}/>
             </View>
             <View>
                 <PostMainContent 
@@ -28,10 +33,22 @@ export default function PostContent() {
                     postImage={PostImage}
                 />
             </View>
-            <View>
+            <View style={{ flexDirection: 'row' }}>
                 <LikeBtn />
                 <CommentBtn />
             </View>
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    postContentPart: {
+        flex: 2,
+        flexDirection: 'column'
+    },
+
+    postContentTop: {
+        flexDirection: 'row',
+        justifyContent: 'center'
+    }
+})
