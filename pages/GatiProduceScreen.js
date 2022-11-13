@@ -65,6 +65,7 @@ export default function GatiProduceScreen({ navigation }) {
                             Focus={!isPrivatePublic}
                             setPrivatePublict={setPrivatePublict}
                             Option="private"
+                            onPress={() => navigation.navigate('PinScreen')}
                         />
                     </View>
                 </View>

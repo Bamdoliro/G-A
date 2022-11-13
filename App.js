@@ -10,6 +10,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import {useEffect} from "react";
 import SignUpScreen from "./pages/SignUpScreen";
 import EmailAuthScreen from "./pages/EmailAuthScreen";
+import PinScreen from "./pages/PinScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -41,6 +42,7 @@ export default function App() {
                 </Stack.Screen>
                 <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
                 <Stack.Screen name="EmailAuthScreen" component={EmailAuthScreen} />
+                <Stack.Screen name="PinScreen" component={PinScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );
