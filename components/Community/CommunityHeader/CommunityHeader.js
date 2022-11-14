@@ -1,41 +1,60 @@
-import { StyleSheet, TextInput, Image, View, Text } from 'react-native';
+import { StyleSheet, TextInput, Image, View, Text, TouchableOpacity } from 'react-native';
 import ArrowIcon from "../../../assets/arrow_down.png"
 import pencilIcon from '../../../assets/Pencil_Icon.png';
 import BellIcon from "../../../assets/Bell_Icon.png"
 import ToggleIcon from "../../../assets/main_toggle.png"
 
-export default function CommunityHeader(){
+import ChoiceButton from '../../../components/common/ChoiceBtn/ChoiceButton';
+import { useState } from 'react';
+
+export default function CommunityHeader() {
+    const [isChoiceBtn, setChoiceBtn] = useState(true);
+
     return (
-        <View style={styles.CommunityHeader}>
-            <View style={styles.HeaderContent}>
-                <Image 
-                    source={ToggleIcon}
-                    style={{width: 25, height: 25}}
-                />
-                <View style={styles.CommunityInfo}>
-                    <View style={{flexDirection: "column", alignItems: "center"}}>
-                        <Text style={styles.CommunityTitle}>
-                            부산 소프트웨어 마이스터고
-                        </Text>
-                        <View style={{flexDirection: "row"}}>
-                            <Text style={{color: "#0D76FF"}}>
-                                125 
+        <View style={{alignItems: "center"}}>
+            <View style={styles.CommunityHeader}>
+                <View style={styles.HeaderContent}>
+                    <Image
+                        source={ToggleIcon}
+                        style={{ width: 25, height: 25 }}
+                    />
+                    <View style={styles.CommunityInfo}>
+                        <View style={{ flexDirection: "column", alignItems: "center" }}>
+                            <Text style={styles.CommunityTitle}>
+                                부산 소프트웨어 마이스터고
                             </Text>
-                            <Text>
-                                명이 참여 중 입니다!
-                            </Text>
+                            <View style={{ flexDirection: "row" }}>
+                                <Text style={{ color: "#0D76FF" }}>
+                                    125
+                                </Text>
+                                <Text>
+                                    명이 참여 중 입니다!
+                                </Text>
+                            </View>
                         </View>
                     </View>
+                    <Image
+                        source={BellIcon}
+                        style={{ width: 25, height: 25 }}
+                    />
                 </View>
-                <Image
-                    source={BellIcon}
-                    style={{width: 25, height: 25}}
-                />
+                <View style={styles.CommunityDetailFrame}>
+                    <Image
+                        source={pencilIcon}
+                        style={styles.pencilIcon}
+                    />
+                </View>
             </View>
-            <View style={styles.CommunityDetailFrame}>
-                <Image
-                    source={pencilIcon}
-                    style={styles.pencilIcon}
+            <View style={styles.CommunityChoiceArea}>
+                <ChoiceButton 
+                    title="게시물"
+                    isChoiceBtn={!isChoiceBtn}
+                    setChoiceBtn={setChoiceBtn}
+                />
+                <ChoiceButton 
+                    title="가티"
+                    isChoiceBtn={isChoiceBtn}
+                    setChoiceBtn={setChoiceBtn}
                 />
             </View>
         </View>
@@ -49,7 +68,7 @@ const styles = StyleSheet.create({
         width: "100%",
         alignItems: "center",
         backgroundColor: "#FFFFFF",
-        marginBottom: 48,
+        marginBottom: 10,
         shadowColor: "#000000",
         shadowOffset: {
             width: 0,
@@ -58,8 +77,6 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.18,
         shadowRadius: 1,
         elevation: 1,
-        borderBottomLeftRadius: 18,
-        borderBottomRightRadius: 18
     },
 
     CommunityDetailFrame: {
@@ -91,5 +108,11 @@ const styles = StyleSheet.create({
     CommunityTitle: {
         fontSize: 17,
         fontWeight: "bold"
-    }
+    },
+    // CommunityChoiceArea
+    CommunityChoiceArea: {
+        width: "80%",
+        flexDirection: "row",
+        justifyContent: "space-between"
+    },
 })
