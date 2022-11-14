@@ -7,9 +7,9 @@ import GatiPostList from '../components/CommunityPostPage/GatiPostList/GatiPostL
 
 export default function CommunityScreen() {
     return (
-        <SafeAreaView style={styles.CommunityScreen}>
+        <SafeAreaView>
             <CommunityHeader joinMembers={"125"}/>
-            <ScrollView>
+            <ScrollView contentContainerStyle={{alignItems: "center"}}>
                 <PostList
                     Title="세탁기 빨래 본인 것만 가져가 주세요..."
                     Explanation="요즘에 세탁물 분실 사례가 너무 많은데 
@@ -29,7 +29,4 @@ export default function CommunityScreen() {
 }
 
 const styles = StyleSheet.create({
-    CommunityScreen: {
-        alignItems: "center"
-    },
 })
