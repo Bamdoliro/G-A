@@ -25,12 +25,13 @@ export default function MainSubHeader() {
 const styles = StyleSheet.create({
     MainSubHeader: {
         flexDirection: "row",
-        alignItems: "center",
         justifyContent: "space-between",
+        alignItems: "center",
         width: "80%",
+        height: 50
     },
     MainSubHeaderTitle: {
-        fontSize: 26,
+        fontSize: 25,
         fontWeight: "bold",
         paddingLeft: 10
     },

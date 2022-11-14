@@ -1,11 +1,14 @@
 import { ScrollView, StyleSheet } from "react-native";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
+import CommunityHeader from "../components/Community/CommunityHeader/CommunityHeader";
+
 import PostList from '../components/CommunityPostPage/PostList/PostList';
 import GatiPostList from '../components/CommunityPostPage/GatiPostList/GatiPostList';
 
 export default function CommunityScreen() {
     return (
         <SafeAreaView style={styles.CommunityScreen}>
+            <CommunityHeader joinMembers={"125"}/>
             <ScrollView>
                 <PostList
                     Title="세탁기 빨래 본인 것만 가져가 주세요..."
