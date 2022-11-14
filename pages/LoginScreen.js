@@ -6,7 +6,7 @@ import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import CustomButton from "../components/common/CustomButton/CustomButton";
 import axios from "axios";
-import {baseUrl} from "../api/urls";
+import {baseUrl} from "../utils/api/urls";
 
 export default function LoginScreen({navigation, checkIsLoggedIn}) {
     const [email, setEmail] = useState("");

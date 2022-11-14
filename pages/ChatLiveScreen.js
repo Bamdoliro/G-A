@@ -14,7 +14,7 @@ import ChatLiveSendField from "../components/Chat/ChatLive/ChatLiveSendField";
 import {useEffect, useState} from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
-import {aiUrl, baseUrl} from "../api/urls";
+import {aiUrl, baseUrl} from "../utils/api/urls";
 import jwtDecode from "jwt-decode";
 import Toast from "react-native-toast-message";
 import {toastConfig} from "../components/common/Toast/ToastConfig";
