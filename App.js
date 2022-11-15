@@ -9,6 +9,9 @@ import {useEffect, useState} from "react";
 import LoginScreen from "./pages/LoginScreen";
 import {QueryClient, QueryClientProvider} from "react-query";
 import {getAccessToken} from "./utils/getToken";
+import SignUpScreen from "./pages/SignUpScreen";
+import EmailAuthScreen from "./pages/EmailAuthScreen";
+
 
 const Stack = createNativeStackNavigator();
 const queryClient = new QueryClient();
@@ -54,6 +57,8 @@ export default function App() {
                             <Stack.Screen name="LoginScreen">
                                 {props => <LoginScreen {...props} setLogin={setLoginToken}/>}
                             </Stack.Screen>
+                            <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
+                            <Stack.Screen name="EmailAuthScreen" component={EmailAuthScreen} />
                         </>
                     }
                 </Stack.Navigator>
