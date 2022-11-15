@@ -1,16 +1,17 @@
 import ChatListScreen from "./pages/ChatListScreen";
 import ChatLiveScreen from "./pages/ChatLiveScreen";
-import {NavigationContainer} from "@react-navigation/native";
-import {createNativeStackNavigator} from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import TabNavigation from './TabNavigation';
 import useSocket from "./hooks/useSocket";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import LoginScreen from "./pages/LoginScreen";
-import {QueryClient, QueryClientProvider} from "react-query";
-import {getAccessToken} from "./utils/getToken";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { getAccessToken } from "./utils/getToken";
 import SignUpScreen from "./pages/SignUpScreen";
 import EmailAuthScreen from "./pages/EmailAuthScreen";
+import PostDetailScreen from "./pages/PostDetailScreen";
 
 
 const Stack = createNativeStackNavigator();
@@ -46,16 +47,17 @@ export default function App() {
                 >
                     {login ?
                         <>
-                            <Stack.Screen name="TabNavigation" component={TabNavigation}/>
-                            <Stack.Screen name="ChatListScreen" component={ChatListScreen}/>
+                            {/* <Stack.Screen name="TabNavigation" component={TabNavigation} />
+                            <Stack.Screen name="ChatListScreen" component={ChatListScreen} />
                             <Stack.Screen name="ChatLiveScreen">
-                                {props => <ChatLiveScreen {...props} socket={socket}/>}
-                            </Stack.Screen>
+                                {props => <ChatLiveScreen {...props} socket={socket} />}
+                            </Stack.Screen> */}
+                            <Stack.Screen name="PostDetailScreen" component={PostDetailScreen} />
                         </>
                         :
                         <>
                             <Stack.Screen name="LoginScreen">
-                                {props => <LoginScreen {...props} setLogin={setLoginToken}/>}
+                                {props => <LoginScreen {...props} setLogin={setLoginToken} />}
                             </Stack.Screen>
                             <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
                             <Stack.Screen name="EmailAuthScreen" component={EmailAuthScreen} />
