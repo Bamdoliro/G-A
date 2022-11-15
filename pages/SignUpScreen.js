@@ -112,16 +112,18 @@ export default function SignUpScreen({ navigation }) {
                     <View style={styles.genderSelects}>
                         <TouchableOpacity
                             onPress={() => setGender('F')}
+                            style={[styles.genderOption, gender === 'F' ? { backgroundColor: '#0D76FF' } : { backgroundColor: '#C4C4C4' }]}
                         >
                             <Text
-                                style={[styles.genderOption, gender === 'F' ? { backgroundColor: '#0D76FF' } : { backgroundColor: '#C4C4C4' }]}
+                                style={styles.genderOptionText}
                             >여자</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
                             onPress={() => setGender('M')}
+                            style={[styles.genderOption, gender === 'M' ? { backgroundColor: '#0D76FF' } : { backgroundColor: '#C4C4C4' }]}
                         >
                             <Text
-                                style={[styles.genderOption, gender === 'M' ? { backgroundColor: '#0D76FF' } : { backgroundColor: '#C4C4C4' }]}
+                                style={styles.genderOptionText}
                             >남자</Text>
                         </TouchableOpacity>
                     </View>
@@ -246,18 +248,19 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     genderOption: {
-        paddingVertical: 5,
-        paddingHorizontal: 14,
         backgroundColor: '#0D76FF',
         marginHorizontal: 4,
-        borderRadius: 999,
-        color: 'white'
+        borderRadius: 30,
     },
     genderOptionText: {
+        paddingVertical: 5,
+        paddingHorizontal: 14,
         color: 'white',
+        fontWeight: 'bold',
     },
     subText: {
-        fontSize: 10
+        color: '#636363',
+        fontSize: 10,
     },
     termsCheck: {
         flexDirection: 'row',
