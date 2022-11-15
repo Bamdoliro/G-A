@@ -5,42 +5,22 @@ import Logo from "../assets/img.png";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import CustomButton from "../components/common/CustomButton/CustomButton";
-import axios from "axios";
-import {baseUrl} from "../utils/api/urls";
+import {useMutation} from "react-query";
+import {login} from "../utils/api/auth";
 
-export default function LoginScreen({navigation, checkIsLoggedIn}) {
+export default function LoginScreen({navigation, setLogin}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const loginUser = async () => {
-        try {
-            const response = await axios.post(`${baseUrl}/auth`, {
-                "email": email,
-                "password": password
-            });
-            await AsyncStorage.setItem("access-token", response.data.refreshToken);
+    const {mutate} = useMutation(login, {
+        onSuccess: async (data) => {
+            await AsyncStorage.setItem("access-token", data.refreshToken);
+            await AsyncStorage.setItem("refresh-token", data.refreshToken);
             setEmail("");
             setPassword("");
-            checkIsLoggedIn();
-            navigation.navigate("ChatListScreen");
-        } catch (e) {
-            console.log(e);
-        }
-    }
-
-    const logoutUser = async () => {
-        try {
-            const accessToken = await AsyncStorage.getItem("access-token");
-            await AsyncStorage.removeItem("access-token");
-            const response = await axios.delete(`${baseUrl}/auth`, {
-                headers: {
-                    Authorization: `Bearer ${accessToken}`,
-                },
-            });
-        } catch (e) {
-            console.log(e);
-        }
-    }
+            setLogin();
+        },
+    })
 
     return (
         <SafeAreaView style={styles.root}>
@@ -60,13 +40,10 @@ export default function LoginScreen({navigation, checkIsLoggedIn}) {
                 <View style={styles.loginButton}>
                     <CustomButton
                         title="로그인"
-                        onPress={loginUser}
-                    />
-                </View>
-                <View style={styles.loginButton}>
-                    <CustomButton
-                        title="로그아웃"
-                        onPress={logoutUser}
+                        onPress={() => mutate({
+                            email: email,
+                            password: password
+                        })}
                     />
                 </View>
             </View>
