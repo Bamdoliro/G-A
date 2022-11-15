@@ -1,8 +1,10 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import React, { useRef, useState } from "react";
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+
 import CustomInput from "../components/common/CustomInput/CustomInput";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import CustomButton from "../components/common/CustomButton/CustomButton";
+import Close from '../assets/close.png';
 
 export default function SignUpScreen({ navigation }) {
     const [email, setEmail] = useState("");
@@ -11,59 +13,115 @@ export default function SignUpScreen({ navigation }) {
     const [name, setName] = useState("");
     const [termsService, setTermsService] = useState(false);
     const [termsPrivacy, setTermsPrivacy] = useState(false);
+    const [gender, setGender] = useState(null);
+
+    const passwordRef = useRef(null);
+    const repasswordRef = useRef(null);
+    const nameRef = useRef(null);
+    const birthYearRef = useRef(null);
+    const birthMonthRef = useRef(null);
+    const birthDayRef = useRef(null);
 
     return (
         <SafeAreaView style={styles.root}>
             <View style={styles.innerBox}>
-                <Text style={styles.SignUpTitle}>
-                    회원가입
-                </Text>
+                <TouchableOpacity
+                    onPress={() => navigation.pop()}
+                    style={styles.closeBtn}
+                >
+                    <Image style={styles.close} source={Close} />
+                </TouchableOpacity>
+                <Text style={styles.title}>회원가입</Text>
                 <CustomInput
                     placeholder="이메일 입력"
                     value={email}
                     setValue={email => setEmail(email)}
+                    onSubmitEditing={() => {
+                        passwordRef.current.focus();
+                    }}
+                    returnKeyType="next"
+                    blurOnSubmit={false}
                 />
                 <CustomInput
                     placeholder="비밀번호 입력"
                     value={password}
                     setValue={password => setPassword(password)}
                     secureTextEntry={true}
+                    ref={passwordRef}
+                    onSubmitEditing={() => {
+                        repasswordRef.current.focus();
+                    }}
+                    returnKeyType="next"
+                    blurOnSubmit={false}
                 />
                 <CustomInput
                     placeholder="비밀번호 재입력"
                     value={repassword}
                     setValue={repassword => setRepassword(repassword)}
                     secureTextEntry={true}
+                    ref={repasswordRef}
+                    onSubmitEditing={() => {
+                        nameRef.current.focus();
+                    }}
+                    returnKeyType="next"
+                    blurOnSubmit={false}
                 />
                 <CustomInput
                     placeholder="이름"
                     value={name}
                     setValue={name => setName(name)}
-                    secureTextEntry={true}
+                    ref={nameRef}
+                    onSubmitEditing={() => {
+                        birthYearRef.current.focus();
+                    }}
+                    returnKeyType="next"
+                    blurOnSubmit={false}
                 />
                 <View style={styles.birthday}>
                     <Text style={[styles.birthdayText, styles.birthdayTitle]}>생년월일</Text>
-                    <TextInput placeholder="YYYY" style={styles.birthdayInput}
+                    <TextInput placeholder="YYYY" style={styles.birthdayYearInput}
                         placeholderTextColor='white'
+                        maxLength={4}
+                        ref={birthYearRef}
+                        onSubmitEditing={() => {
+                            birthMonthRef.current.focus();
+                        }}
+                        returnKeyType="next"
+                        blurOnSubmit={false}
                     />
                     <Text style={styles.birthdayText}>/</Text>
-                    <TextInput placeholder="MM" style={styles.birthdayInput}
+                    <TextInput placeholder="MM" style={styles.birthdayMonthDayInput}
                         placeholderTextColor='white'
+                        ref={birthMonthRef}
+                        maxLength={2}
+                        onSubmitEditing={() => {
+                            birthDayRef.current.focus();
+                        }}
+                        returnKeyType="next"
+                        blurOnSubmit={false}
                     />
                     <Text style={styles.birthdayText}>/</Text>
-                    <TextInput placeholder="DD" style={styles.birthdayInput}
+                    <TextInput placeholder="DD" style={styles.birthdayMonthDayInput}
                         placeholderTextColor='white'
+                        ref={birthDayRef}
+                        maxLength={2}
                     />
                 </View>
                 <View style={styles.genderContainer}>
                     <Text style={styles.gender}>성별</Text>
                     <View style={styles.genderSelects}>
-                        <TouchableOpacity style={styles.genderOption}>
+                        <TouchableOpacity
+                            onPress={() => setGender('F')}
+                            style={[styles.genderOption, gender === 'F' ? { backgroundColor: '#0D76FF' } : { backgroundColor: '#C4C4C4' }]}
+                        >
                             <Text
                                 style={styles.genderOptionText}
                             >여자</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={styles.genderOption}>
+                        <TouchableOpacity
+                            onPress={() => setGender('M')}
+                            style={[styles.genderOption, gender === 'M' ? { backgroundColor: '#0D76FF' } : { backgroundColor: '#C4C4C4' }]}
+                        >
                             <Text
                                 style={styles.genderOptionText}
                             >남자</Text>
@@ -127,6 +185,21 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
     },
+    title: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: '#0D76FF',
+        marginBottom: 42
+    },
+    closeBtn: {
+        position: 'absolute',
+        top: '3%',
+        left: '6%',
+    },
+    close: {
+        width: 42,
+        height: 42
+    },
     signUpButton: {
         width: "87%",
         height: 32,
@@ -146,9 +219,17 @@ const styles = StyleSheet.create({
     birthdayTitle: {
         marginRight: 12
     },
-    birthdayInput: {
+    birthdayYearInput: {
         paddingLeft: 8,
-        paddingRight: 24,
+        width: 68,
+        backgroundColor: '#BEC9E6',
+        borderRadius: 5,
+        color: 'white',
+        fontWeight: 'bold'
+    },
+    birthdayMonthDayInput: {
+        paddingLeft: 8,
+        width: 52,
         backgroundColor: '#BEC9E6',
         borderRadius: 5,
         color: 'white',
@@ -167,17 +248,19 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
     },
     genderOption: {
-        paddingVertical: 5,
-        paddingHorizontal: 14,
         backgroundColor: '#0D76FF',
         marginHorizontal: 4,
-        borderRadius: 12
+        borderRadius: 30,
     },
     genderOptionText: {
+        paddingVertical: 5,
+        paddingHorizontal: 14,
         color: 'white',
+        fontWeight: 'bold',
     },
     subText: {
-        fontSize: 10
+        color: '#636363',
+        fontSize: 10,
     },
     termsCheck: {
         flexDirection: 'row',

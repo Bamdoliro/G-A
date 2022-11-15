@@ -1,7 +1,7 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { StyleSheet, TextInput, View } from "react-native";
 
-export default function CustomInput({ value, setValue, placeholder, secureTextEntry }) {
+const CustomInput = forwardRef(({ value, setValue, placeholder, secureTextEntry, onSubmitEditing, returnKeyType, blurOnSubmit }, ref) => {
   return (
     <View style={styles.container}>
       <TextInput
@@ -11,10 +11,16 @@ export default function CustomInput({ value, setValue, placeholder, secureTextEn
         style={styles.input}
         secureTextEntry={secureTextEntry}
         autoCapitalize={"none"}
+        onSubmitEditing={onSubmitEditing}
+        returnKeyType={returnKeyType}
+        blurOnSubmit={blurOnSubmit}
+        ref={ref}
       />
     </View>
   );
-}
+});
+
+export default CustomInput;
 
 const styles = StyleSheet.create({
   container: {

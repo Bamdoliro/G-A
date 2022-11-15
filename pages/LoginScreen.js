@@ -73,7 +73,7 @@ export default function LoginScreen({navigation}) {
                         >
                             <Text style={styles.subText}>회원가입</Text>
                         </TouchableOpacity>
-                        <Text> | </Text>
+                        <Text style={styles.subText}> | </Text>
                         <TouchableOpacity>
                             <Text style={styles.subText}>아이디, 비밀번호 찾기</Text>
                         </TouchableOpacity>
@@ -135,7 +135,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     subText: {
-        fontSize: 10
+        color: '#636363',
+        fontSize: 10,
     },
     findButtons: {
         flexDirection: 'row',
