@@ -1,27 +1,38 @@
-import React, { useRef, useState } from "react";
-import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import React, {useRef, useState} from "react";
+import {Image, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 
 import CustomInput from "../components/common/CustomInput/CustomInput";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import CustomButton from "../components/common/CustomButton/CustomButton";
 import Close from '../assets/close.png';
+import {useMutation} from "react-query";
+import {join} from "../utils/api/user";
 
-export default function SignUpScreen({ navigation }) {
+export default function SignUpScreen({navigation}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [repassword, setRepassword] = useState("");
+    const [rePassword, setRePassword] = useState("");
     const [name, setName] = useState("");
     const [termsService, setTermsService] = useState(false);
     const [termsPrivacy, setTermsPrivacy] = useState(false);
     const [gender, setGender] = useState(null);
+    const [birthYear, setBirthYear] = useState(null);
+    const [birthMonth, setBirthMonth] = useState(null);
+    const [birthDay, setBirthDay] = useState(null);
 
     const passwordRef = useRef(null);
-    const repasswordRef = useRef(null);
+    const rePasswordRef = useRef(null);
     const nameRef = useRef(null);
     const birthYearRef = useRef(null);
     const birthMonthRef = useRef(null);
     const birthDayRef = useRef(null);
 
+    const {mutate} = useMutation(join, {
+        onSuccess: async () => {
+            // navigation.navigate('EmailAuthScreen')
+            navigation.navigate('LoginScreen')
+        }
+    })
     return (
         <SafeAreaView style={styles.root}>
             <View style={styles.innerBox}>
@@ -29,7 +40,7 @@ export default function SignUpScreen({ navigation }) {
                     onPress={() => navigation.pop()}
                     style={styles.closeBtn}
                 >
-                    <Image style={styles.close} source={Close} />
+                    <Image style={styles.close} source={Close}/>
                 </TouchableOpacity>
                 <Text style={styles.title}>회원가입</Text>
                 <CustomInput
@@ -49,17 +60,17 @@ export default function SignUpScreen({ navigation }) {
                     secureTextEntry={true}
                     ref={passwordRef}
                     onSubmitEditing={() => {
-                        repasswordRef.current.focus();
+                        rePasswordRef.current.focus();
                     }}
                     returnKeyType="next"
                     blurOnSubmit={false}
                 />
                 <CustomInput
                     placeholder="비밀번호 재입력"
-                    value={repassword}
-                    setValue={repassword => setRepassword(repassword)}
+                    value={rePassword}
+                    setValue={repassword => setRePassword(repassword)}
                     secureTextEntry={true}
-                    ref={repasswordRef}
+                    ref={rePasswordRef}
                     onSubmitEditing={() => {
                         nameRef.current.focus();
                     }}
@@ -80,47 +91,53 @@ export default function SignUpScreen({ navigation }) {
                 <View style={styles.birthday}>
                     <Text style={[styles.birthdayText, styles.birthdayTitle]}>생년월일</Text>
                     <TextInput placeholder="YYYY" style={styles.birthdayYearInput}
-                        placeholderTextColor='white'
-                        maxLength={4}
-                        ref={birthYearRef}
-                        onSubmitEditing={() => {
-                            birthMonthRef.current.focus();
-                        }}
-                        returnKeyType="next"
-                        blurOnSubmit={false}
+                               placeholderTextColor='white'
+                               maxLength={4}
+                               value={birthYear}
+                               onChangeText={year => setBirthYear(year)}
+                               ref={birthYearRef}
+                               onSubmitEditing={() => {
+                                   birthMonthRef.current.focus();
+                               }}
+                               returnKeyType="next"
+                               blurOnSubmit={false}
                     />
                     <Text style={styles.birthdayText}>/</Text>
                     <TextInput placeholder="MM" style={styles.birthdayMonthDayInput}
-                        placeholderTextColor='white'
-                        ref={birthMonthRef}
-                        maxLength={2}
-                        onSubmitEditing={() => {
-                            birthDayRef.current.focus();
-                        }}
-                        returnKeyType="next"
-                        blurOnSubmit={false}
+                               placeholderTextColor='white'
+                               value={birthMonth}
+                               onChangeText={month => setBirthMonth(month)}
+                               ref={birthMonthRef}
+                               maxLength={2}
+                               onSubmitEditing={() => {
+                                   birthDayRef.current.focus();
+                               }}
+                               returnKeyType="next"
+                               blurOnSubmit={false}
                     />
                     <Text style={styles.birthdayText}>/</Text>
                     <TextInput placeholder="DD" style={styles.birthdayMonthDayInput}
-                        placeholderTextColor='white'
-                        ref={birthDayRef}
-                        maxLength={2}
+                               placeholderTextColor='white'
+                               value={birthDay}
+                               onChangeText={day => setBirthDay(day)}
+                               ref={birthDayRef}
+                               maxLength={2}
                     />
                 </View>
                 <View style={styles.genderContainer}>
                     <Text style={styles.gender}>성별</Text>
                     <View style={styles.genderSelects}>
                         <TouchableOpacity
-                            onPress={() => setGender('F')}
-                            style={[styles.genderOption, gender === 'F' ? { backgroundColor: '#0D76FF' } : { backgroundColor: '#C4C4C4' }]}
+                            onPress={() => setGender('FEMALE')}
+                            style={[styles.genderOption, gender === 'FEMALE' ? {backgroundColor: '#0D76FF'} : {backgroundColor: '#C4C4C4'}]}
                         >
                             <Text
                                 style={styles.genderOptionText}
                             >여자</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
-                            onPress={() => setGender('M')}
-                            style={[styles.genderOption, gender === 'M' ? { backgroundColor: '#0D76FF' } : { backgroundColor: '#C4C4C4' }]}
+                            onPress={() => setGender('MALE')}
+                            style={[styles.genderOption, gender === 'MALE' ? {backgroundColor: '#0D76FF'} : {backgroundColor: '#C4C4C4'}]}
                         >
                             <Text
                                 style={styles.genderOptionText}
@@ -134,7 +151,7 @@ export default function SignUpScreen({ navigation }) {
                         onPress={() => setTermsService(cur => !cur)}
                     >
                         <View style={termsService ? styles.termsButtonTrue : styles.termsButtonFalse}>
-                            {termsService ? <View style={styles.termsButtonIcon} ></View> : null}
+                            {termsService ? <View style={styles.termsButtonIcon}></View> : null}
                         </View>
                         <Text style={styles.subText}>기타 이용약관 동의</Text>
                     </TouchableOpacity>
@@ -143,14 +160,28 @@ export default function SignUpScreen({ navigation }) {
                         onPress={() => setTermsPrivacy(cur => !cur)}
                     >
                         <View style={termsPrivacy ? styles.termsButtonTrue : styles.termsButtonFalse}>
-                            {termsPrivacy ? <View style={styles.termsButtonIcon} ></View> : null}
+                            {termsPrivacy ? <View style={styles.termsButtonIcon}></View> : null}
                         </View>
                         <Text style={styles.subText}>개인정보 수집 및 이용 동의</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={styles.signUpButton}>
                     <CustomButton
-                        onPress={() => navigation.navigate('EmailAuthScreen')}
+                        onPress={() => {
+                            if (rePassword === password) {
+                                mutate({
+                                    email: email,
+                                    password: password,
+                                    name: name,
+                                    gender: gender,
+                                    birthYear: birthYear,
+                                    birthMonth: birthMonth,
+                                    birthDay: birthDay
+                                })
+                            } else {
+                                alert('비밀번호가 다릅니다')
+                            }
+                        }}
                         title="회원가입"
                     />
                 </View>
