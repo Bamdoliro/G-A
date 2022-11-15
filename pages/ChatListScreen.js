@@ -6,7 +6,7 @@ import MyStatusBar from "../components/common/SafeAreaView/MyStatusBar";
 import {useEffect, useState} from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
-import {baseUrl} from "../api/urls";
+import {baseUrl} from "../utils/api/urls";
 
 export default function ChatListScreen({navigation}) {
     const [rooms, setRooms] = useState([]);

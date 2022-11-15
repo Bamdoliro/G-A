@@ -1,6 +1,6 @@
 import {useEffect, useRef} from "react";
 import io from "socket.io-client";
-import {socketUrl} from "../api/urls";
+import {socketUrl} from "../utils/api/urls";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const useSocket = () => {

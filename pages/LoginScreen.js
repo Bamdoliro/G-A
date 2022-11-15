@@ -6,9 +6,9 @@ import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import CustomButton from "../components/common/CustomButton/CustomButton";
 import axios from "axios";
-import {baseUrl} from "../api/urls";
+import {baseUrl} from "../utils/api/urls";
 
-export default function LoginScreen({navigation}) {
+export default function LoginScreen({navigation, checkIsLoggedIn}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -21,6 +21,7 @@ export default function LoginScreen({navigation}) {
             await AsyncStorage.setItem("access-token", response.data.refreshToken);
             setEmail("");
             setPassword("");
+            checkIsLoggedIn();
             navigation.navigate("ChatListScreen");
         } catch (e) {
             console.log(e);
@@ -30,12 +31,12 @@ export default function LoginScreen({navigation}) {
     const logoutUser = async () => {
         try {
             const accessToken = await AsyncStorage.getItem("access-token");
+            await AsyncStorage.removeItem("access-token");
             const response = await axios.delete(`${baseUrl}/auth`, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },
             });
-            await AsyncStorage.removeItem("access-token");
         } catch (e) {
             console.log(e);
         }

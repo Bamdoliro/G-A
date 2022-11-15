@@ -43,7 +43,7 @@ export default function TabNavigation() {
                     <Image style={{height: 30, width: 30}} source={Chat} />
                 )
             }}/>
-            <Tab.Screen name="ProfileScreen" component={LoginScreen} options={{
+            <Tab.Screen name="ProfileScreen" component={ProfileScreen} options={{
                 tabBarIcon: ({ focused }) => focused ? (
                     <Image style={{height: 30, width: 30}} source={PersonFilled} />
                 ) : (
