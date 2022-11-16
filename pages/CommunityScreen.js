@@ -10,14 +10,11 @@ export default function CommunityScreen({ navigation }) {
 
     return (
         <SafeAreaView>
-            {/* <ScrollView>
-                <Text>CommunityScreen</Text>
-            </ScrollView>
+            {/* <GatiOptionScreen /> */}
             <AddPostBtn
                 onPress={ClickAddPostBtn}
                 navigation={navigation}
-            /> */}
-            <GatiOptionScreen />
+            />
         </SafeAreaView>
     );
 }

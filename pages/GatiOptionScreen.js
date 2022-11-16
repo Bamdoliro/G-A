@@ -67,9 +67,8 @@ export default function GatiOptionScreen() {
 
 const styles = StyleSheet.create({
     GatiOptionScreen: {
-        flex: 1,
-        borderWidth: 1,
-        alignItems: "center"
+        alignItems: "center",
+        backgroundColor: "#fff"
     },
     // input 부분
     GatiNameInputFrame: {
