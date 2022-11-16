@@ -1,18 +1,17 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Home from './assets/bottom/home.png';
-import HomeFilled from "./assets/bottom/home-filled.png";
-import Chat from "./assets/bottom/chat.png";
-import ChatFilled from "./assets/bottom/chat-filled.png";
-import Community from "./assets/bottom/community.png";
-import CommunityFilled from "./assets/bottom/community-filled.png";
-import Person from "./assets/bottom/person.png";
-import PersonFilled from "./assets/bottom/person-filled.png";
-import HomeScreen from "./pages/HomeScreen";
-import CommunityScreen from "./pages/CommunityScreen";
-import ChatListScreen from "./pages/ChatListScreen";
-import ProfileScreen from "./pages/ProfileScreen";
-import LoginScreen from "./pages/LoginScreen";
-import { Image } from "react-native";
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import Home from '../assets/bottom/home.png';
+import HomeFilled from "../assets/bottom/home-filled.png";
+import Chat from "../assets/bottom/chat.png";
+import ChatFilled from "../assets/bottom/chat-filled.png";
+import Community from "../assets/bottom/community.png";
+import CommunityFilled from "../assets/bottom/community-filled.png";
+import Person from "../assets/bottom/person.png";
+import PersonFilled from "../assets/bottom/person-filled.png";
+import HomeScreen from "../screens/HomeScreen";
+import CommunityScreen from "../screens/CommunityScreen";
+import ChatListScreen from "../screens/ChatListScreen";
+import ProfileScreen from "../screens/ProfileScreen";
+import {Image} from "react-native";
 
 const Tab = createBottomTabNavigator();
 

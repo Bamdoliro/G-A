@@ -40,6 +40,6 @@ export default function MainBanner() {
 
 const styles = StyleSheet.create({
     MainBannerContainer: {
-        marginBottom: 30 
+        marginBottom: 30
     }
 })

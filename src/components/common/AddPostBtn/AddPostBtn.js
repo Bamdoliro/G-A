@@ -3,7 +3,7 @@ import PlusIcon from "../../../assets/plus.png"
 
 export default function AddPostBtn( {onPress} ) {
     return (
-        <TouchableOpacity 
+        <TouchableOpacity
             style={styles.AddPostBtn}
             onPress={onPress}
         >

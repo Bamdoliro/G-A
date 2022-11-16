@@ -73,7 +73,7 @@ export default function GatiProduceScreen({ navigation }) {
                     <Text style={styles.NumberOfPeopleTitle}>
                         인원수
                     </Text>
-                    <NumberInput 
+                    <NumberInput
                         setNumberOfPeople={setNumberOfPeople}
                         isNumberOfPeople={isNumberOfPeople}
                     />
@@ -84,7 +84,7 @@ export default function GatiProduceScreen({ navigation }) {
                         공동체 소개
                     </Text>
                     {/* 가티 소개글 */}
-                    <GatiIntroduction 
+                    <GatiIntroduction
                         setIntroduction={setIntroduction}
                         isIntroduction={isIntroduction}
                     />

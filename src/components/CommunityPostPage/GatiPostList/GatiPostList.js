@@ -5,7 +5,7 @@ import PostImg from "../../../assets/post_img.png"
 import OptionImg from "../../../assets/option.png"
 import HumanIcon from "../../../assets/human_info.png"
 import CalendarIcon from "../../../assets/calendar.png"
-import CustomButton from "../../../components/common/CustomButton/CustomButton";
+import CustomButton from "../../common/CustomButton/CustomButton";
 
 export default function GatiPostList({ Title, HumanOfNumber, Date }) {
 

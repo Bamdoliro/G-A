@@ -4,7 +4,7 @@ import pencilIcon from '../../../assets/Pencil_Icon.png';
 import BellIcon from "../../../assets/Bell_Icon.png"
 import ToggleIcon from "../../../assets/main_toggle.png"
 
-import ChoiceButton from '../../../components/common/ChoiceBtn/ChoiceButton';
+import ChoiceButton from '../../common/ChoiceBtn/ChoiceButton';
 import { useState } from 'react';
 
 export default function CommunityHeader() {
@@ -46,12 +46,12 @@ export default function CommunityHeader() {
                 </View>
             </View>
             <View style={styles.CommunityChoiceArea}>
-                <ChoiceButton 
+                <ChoiceButton
                     title="게시물"
                     isChoiceBtn={!isChoiceBtn}
                     setChoiceBtn={setChoiceBtn}
                 />
-                <ChoiceButton 
+                <ChoiceButton
                     title="가티"
                     isChoiceBtn={isChoiceBtn}
                     setChoiceBtn={setChoiceBtn}

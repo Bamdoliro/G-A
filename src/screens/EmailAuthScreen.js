@@ -12,7 +12,7 @@ export default function EmailAuthScreen({navigation}) {
             <View style={styles.innerBox}>
                 <TouchableOpacity
                         onPress={() => navigation.pop()}
-                        style={styles.closeBtn} 
+                        style={styles.closeBtn}
                 >
                     <Image style={styles.close} source={Close} />
                 </TouchableOpacity>
