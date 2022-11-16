@@ -96,7 +96,6 @@ const styles = StyleSheet.create({
         height: 28,
         fontSize: 18
     },
-    // 인원수 부분
     GatiInputTitle: {
         fontSize: 18,
         color: "#999999",
