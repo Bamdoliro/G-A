@@ -18,6 +18,7 @@ import {aiUrl, baseUrl} from "../utils/api/urls";
 import jwtDecode from "jwt-decode";
 import Toast from "react-native-toast-message";
 import {toastConfig} from "../components/common/Toast/ToastConfig";
+import {getMessages} from "../utils/api/chat";
 
 export default function ChatLiveScreen({ route, navigation, socket }) {
     const { id, name, numberOfMembers } = route.params;
@@ -63,7 +64,7 @@ export default function ChatLiveScreen({ route, navigation, socket }) {
         socket.current.on("error", err => {
             console.log(err)
         })
-    }, []);
+    }, [socket]);
 
     // 키보드
 
@@ -78,7 +79,7 @@ export default function ChatLiveScreen({ route, navigation, socket }) {
     const [statusBarHeight, setStatusBarHeight] = useState(0);
 
     useEffect(() => {
-        navigation.addListener('focus', getMessages);
+        navigation.addListener('focus', getMessagesHistory);
         navigation.addListener('focus', setCurrentUser);
     }, [navigation]);
 
@@ -87,19 +88,9 @@ export default function ChatLiveScreen({ route, navigation, socket }) {
         setCurrentUserId(jwtDecode(token).userId)
     }
 
-    const getMessages = async () => {
-        const accessToken = await AsyncStorage.getItem("access-token");
-        try {
-            const response = await axios.get(`${baseUrl}/chat/${id}?sort=id,desc`, {
-                headers: {
-                    Authorization: `Bearer ${accessToken}`,
-                },
-            });
-
-            setMessages([...response.data.reverse()]);
-        } catch (e) {
-            console.log(e);
-        }
+    const getMessagesHistory = async () => {
+        const data = await getMessages(id);
+        setMessages(data.reverse())
     };
 
     return (

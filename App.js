@@ -8,7 +8,7 @@ import useSocket from "./hooks/useSocket";
 import {useEffect, useState} from "react";
 import LoginScreen from "./pages/LoginScreen";
 import {QueryClient, QueryClientProvider} from "react-query";
-import {getAccessToken} from "./utils/getToken";
+import {getAccessToken} from "./utils/storage/token";
 import SignUpScreen from "./pages/SignUpScreen";
 import EmailAuthScreen from "./pages/EmailAuthScreen";
 

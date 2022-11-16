@@ -6,7 +6,7 @@ export default function ChatListSection({navigation, rooms}) {
 
     return (
         <ScrollView style={styles.ScrollSection}>
-            {rooms.map(r => (
+            {rooms?.map(r => (
                 <ChatList
                     IMG={ChatListData.row.IMG}
                     name={r.name}
