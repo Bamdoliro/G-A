@@ -20,7 +20,7 @@ export default function GatiPostList({ Title, HumanOfNumber, Date }) {
     }
 
     return (
-        <TouchableOpacity style={styles.PostList}>
+        <View style={styles.PostList}>
             <Image
                 style={styles.PostImg}
                 source={PostImg}
@@ -67,7 +67,7 @@ export default function GatiPostList({ Title, HumanOfNumber, Date }) {
                     </View>
                 </View>
             </View>
-        </TouchableOpacity>
+        </View>
     )
 }
 

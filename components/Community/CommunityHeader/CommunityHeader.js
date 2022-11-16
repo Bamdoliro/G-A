@@ -7,9 +7,7 @@ import ToggleIcon from "../../../assets/main_toggle.png"
 import ChoiceButton from '../../../components/common/ChoiceBtn/ChoiceButton';
 import { useState } from 'react';
 
-export default function CommunityHeader() {
-    const [isChoiceBtn, setChoiceBtn] = useState(true);
-
+export default function CommunityHeader({isChoiceBtn, setChoiceBtn}) {
     return (
         <View style={{alignItems: "center"}}>
             <View style={styles.CommunityHeader}>
@@ -113,6 +111,7 @@ const styles = StyleSheet.create({
     CommunityChoiceArea: {
         width: "80%",
         flexDirection: "row",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        marginBottom: 20
     },
 })
