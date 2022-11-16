@@ -14,7 +14,6 @@ import EmailAuthScreen from "./src/screens/EmailAuthScreen";
 import MainNavigation from "./src/routes/MainNavigation";
 import AuthNavigation from "./src/routes/AuthNavigation";
 
-
 const Stack = createNativeStackNavigator();
 const queryClient = new QueryClient();
 
