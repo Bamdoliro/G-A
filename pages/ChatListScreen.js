@@ -7,28 +7,15 @@ import {useEffect, useState} from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import {baseUrl} from "../utils/api/urls";
+import {useQuery} from "react-query";
+import {getRooms} from "../utils/api/chat";
 
 export default function ChatListScreen({navigation}) {
-    const [rooms, setRooms] = useState([]);
+    const {data} = useQuery('getRooms', getRooms)
 
     useEffect(() => {
-        navigation.addListener('focus', getRooms);
+        // navigation.addListener('focus', getRooms);
     }, [navigation]);
-
-    const getRooms = async () => {
-        const accessToken = await AsyncStorage.getItem("access-token");
-        try {
-            const response = await axios.get(`${baseUrl}/chat`, {
-                headers: {
-                    Authorization: `Bearer ${accessToken}`,
-                },
-            });
-
-            setRooms([...response.data]);
-        } catch (e) {
-            console.log(e);
-        }
-    };
 
     return (
         <>
@@ -37,7 +24,7 @@ export default function ChatListScreen({navigation}) {
                 <ChatScreenHeader/>
                 <ChatListSection
                     navigation={navigation}
-                    rooms={rooms}
+                    rooms={data}
                 />
             </SafeAreaView>
         </>

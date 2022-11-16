@@ -10,6 +10,7 @@ export default function CommunityScreen() {
     // useState 로 props 보내서 페이지 체인지하는 코드 짯는데 요부분
     // 코드 리뷰좀 부탁드려요 - 석진 -
     const [isChoiceBtn, setChoiceBtn] = useState(true);
+
     return (
         <SafeAreaView>
             <CommunityHeader
@@ -25,5 +26,4 @@ export default function CommunityScreen() {
     );
 }
 
-const styles = StyleSheet.create({
-})
+const styles = StyleSheet.create({})

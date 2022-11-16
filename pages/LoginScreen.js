@@ -1,46 +1,27 @@
 import React, {useState} from "react";
-import {Image, StyleSheet, View} from "react-native";
+import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import CustomInput from "../components/common/CustomInput/CustomInput";
 import Logo from "../assets/img.png";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import CustomButton from "../components/common/CustomButton/CustomButton";
-import axios from "axios";
-import {baseUrl} from "../utils/api/urls";
+import {useMutation} from "react-query";
+import {login} from "../utils/api/auth";
 
-export default function LoginScreen({navigation, checkIsLoggedIn}) {
+export default function LoginScreen({navigation, setLogin}) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [keepLogin, setKeepLogin] = useState(false);
 
-    const loginUser = async () => {
-        try {
-            const response = await axios.post(`${baseUrl}/auth`, {
-                "email": email,
-                "password": password
-            });
-            await AsyncStorage.setItem("access-token", response.data.refreshToken);
+    const {mutate} = useMutation(login, {
+        onSuccess: async (data) => {
+            await AsyncStorage.setItem("access-token", data.refreshToken);
+            await AsyncStorage.setItem("refresh-token", data.refreshToken);
             setEmail("");
             setPassword("");
-            checkIsLoggedIn();
-            navigation.navigate("ChatListScreen");
-        } catch (e) {
-            console.log(e);
-        }
-    }
-
-    const logoutUser = async () => {
-        try {
-            const accessToken = await AsyncStorage.getItem("access-token");
-            await AsyncStorage.removeItem("access-token");
-            const response = await axios.delete(`${baseUrl}/auth`, {
-                headers: {
-                    Authorization: `Bearer ${accessToken}`,
-                },
-            });
-        } catch (e) {
-            console.log(e);
-        }
-    }
+            setLogin();
+        },
+    })
 
     return (
         <SafeAreaView style={styles.root}>
@@ -57,16 +38,35 @@ export default function LoginScreen({navigation, checkIsLoggedIn}) {
                     setValue={password => setPassword(password)}
                     secureTextEntry={true}
                 />
-                <View style={styles.loginButton}>
-                    <CustomButton
-                        title="로그인"
-                        onPress={loginUser}
-                    />
+                <View style={styles.subArea}>
+                    <TouchableOpacity
+                        style={styles.keepCheck}
+                        onPress={() => setKeepLogin(cur => !cur)}
+                    >
+                        <View style={keepLogin ? styles.keepButtonTrue : styles.keepButtonFalse}>
+                            {keepLogin ? <View style={styles.keepButtonIcon} ></View> : null}
+                        </View>
+                        <Text style={styles.subText}>로그인 상태 유지</Text>
+                    </TouchableOpacity>
+                    <View style={styles.findButtons}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate('SignUpScreen')}
+                        >
+                            <Text style={styles.subText}>회원가입</Text>
+                        </TouchableOpacity>
+                        <Text style={styles.subText}> | </Text>
+                        <TouchableOpacity>
+                            <Text style={styles.subText}>아이디, 비밀번호 찾기</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
                 <View style={styles.loginButton}>
                     <CustomButton
-                        title="로그아웃"
-                        onPress={logoutUser}
+                        title="로그인"
+                        onPress={() => mutate({
+                            email: email,
+                            password: password
+                        })}
                     />
                 </View>
             </View>
@@ -97,8 +97,8 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     loginButton: {
-        width: "90%",
-        height: 30,
+        width: "87%",
+        height: 32,
         alignItems: "center",
     },
 
@@ -113,4 +113,44 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
     },
+    subArea: {
+        width: '87%',
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    subText: {
+        color: '#636363',
+        fontSize: 10,
+    },
+    findButtons: {
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    keepCheck: {
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    keepButtonFalse: {
+        marginRight: 3,
+        width: 14,
+        height: 14,
+        borderWidth: 2,
+        borderColor: '#0D76FF',
+        borderRadius: 4
+    },
+    keepButtonTrue: {
+        marginRight: 3,
+        width: 14,
+        height: 14,
+        borderRadius: 4,
+        backgroundColor: '#0D76FF',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    keepButtonIcon: {
+        width: 5,
+        height: 5,
+        borderRadius: 6,
+        backgroundColor: 'white'
+    }
 });
