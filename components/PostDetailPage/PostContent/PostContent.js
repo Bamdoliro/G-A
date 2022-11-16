@@ -16,14 +16,13 @@ export default function PostContent() {
     return (
         <View style={styles.postContentPart}>
             <View style={styles.postContentTop}>
-                <GoBackBtn style={{ marginRight: 23 }} />
+                <GoBackBtn style={{ marginLeft: 23 }} />
                 <UserProfile    
-                    style={{ marginLeft: 14 }}
                     profileImage={GrayCircle}
                     userName="2215 최태영"
                     sentTime={20}
                 />
-                <ViewMenu style={{ marginLeft: 31 }}/>
+                <ViewMenu style={{ marginRight: 31 }}/>
             </View>
             <View>
                 <PostMainContent 
@@ -44,7 +43,8 @@ export default function PostContent() {
 const styles = StyleSheet.create({
     postContentPart: {
         flex: 2,
-        flexDirection: 'column'
+        flexDirection: 'column',
+        marginTop: 10
     },
 
     postContentTop: {

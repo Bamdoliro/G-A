@@ -31,12 +31,11 @@ const styles = StyleSheet.create({
     },
 
     userNameText: {
-        fontWeight: 700,
+        fontWeight: 'bold',
         fontSize: 18
     },
 
     sentTimeText: {
-        fontWeight: 500,
         fontSize: 9
     }
 })
