@@ -1,5 +1,6 @@
 import ChatListScreen from "./pages/ChatListScreen";
 import ChatLiveScreen from "./pages/ChatLiveScreen";
+import GatiProduceScreen from "./pages/GatiProduceScreen";
 import {NavigationContainer} from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
@@ -7,6 +8,8 @@ import TabNavigation from './TabNavigation';
 import useSocket from "./hooks/useSocket";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {useEffect} from "react";
+import SignUpScreen from "./pages/SignUpScreen";
+import EmailAuthScreen from "./pages/EmailAuthScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -32,9 +35,12 @@ export default function App() {
             >
                 <Stack.Screen name="TabNavigation" component={TabNavigation}/>
                 <Stack.Screen name="ChatListScreen" component={ChatListScreen}/>
+                <Stack.Screen name="GatiProduceScreen" component={GatiProduceScreen}/>
                 <Stack.Screen name="ChatLiveScreen">
                     {props => <ChatLiveScreen {...props} socket={socket} />}
                 </Stack.Screen>
+                <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
+                <Stack.Screen name="EmailAuthScreen" component={EmailAuthScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );
