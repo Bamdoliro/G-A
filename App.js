@@ -1,48 +1,50 @@
-import ChatListScreen from "./pages/ChatListScreen";
-import ChatLiveScreen from "./pages/ChatLiveScreen";
-import GatiProduceScreen from "./pages/GatiProduceScreen";
 import {NavigationContainer} from "@react-navigation/native";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
-
-import TabNavigation from './TabNavigation';
-import useSocket from "./hooks/useSocket";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import {useEffect} from "react";
-import SignUpScreen from "./pages/SignUpScreen";
-import EmailAuthScreen from "./pages/EmailAuthScreen";
+import useSocket from "./src/hooks/useSocket";
+import {useEffect, useState} from "react";
+import {QueryClient, QueryClientProvider} from "react-query";
+import {getAccessToken} from "./src/utils/storage/token";
+import MainNavigation from "./src/routes/MainNavigation";
+import AuthNavigation from "./src/routes/AuthNavigation";
 
 const Stack = createNativeStackNavigator();
+const queryClient = new QueryClient();
 
 export default function App() {
+    const [login, setLogin] = useState(null);
     const socket = useSocket();
 
+    const setLoginToken = async () => {
+        setLogin(await getAccessToken());
+    }
+
     const subscribeChat = async () => {
-        if (await AsyncStorage.getItem("access-token")) {
+        if (await getAccessToken()) {
             socket.current.emit("subscribe");
         }
     }
+
     useEffect(() => {
+        setLoginToken();
         subscribeChat();
     }, [socket]);
 
     return (
-        <NavigationContainer>
-            <Stack.Navigator
-                initialRouteName="TabNavigation"
-                screenOptions={{
-                    headerShown: false
-                }}
-            >
-                <Stack.Screen name="TabNavigation" component={TabNavigation}/>
-                <Stack.Screen name="ChatListScreen" component={ChatListScreen}/>
-                <Stack.Screen name="GatiProduceScreen" component={GatiProduceScreen}/>
-                <Stack.Screen name="ChatLiveScreen">
-                    {props => <ChatLiveScreen {...props} socket={socket} />}
-                </Stack.Screen>
-                <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
-                <Stack.Screen name="EmailAuthScreen" component={EmailAuthScreen} />
-            </Stack.Navigator>
-        </NavigationContainer>
+        <QueryClientProvider client={queryClient}>
+            <NavigationContainer>
+                {login ?
+                    <MainNavigation
+                        Stack={Stack}
+                        socket={socket}
+                    />
+                    :
+                    <AuthNavigation
+                        Stack={Stack}
+                        setLoginToken={setLoginToken()}
+                    />
+                }
+            </NavigationContainer>
+        </QueryClientProvider>
     );
 };
 
