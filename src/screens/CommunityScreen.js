@@ -14,7 +14,7 @@ export default function CommunityScreen({navigation}) {
 
     return (
         <SafeAreaView>
-            <CommunityPostModifyScreen />
+            <CommunityReportScreen />
         </SafeAreaView>
     );
 }

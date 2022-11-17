@@ -21,6 +21,9 @@ export default function CommunityReportScreen() { // '채팅_공지작성' 페�
                     </Text>
                 </TouchableOpacity>
             </View>
+            <View>
+                <Text style={styles.PostWritingText}>글 쓰기</Text>
+            </View>
             <GatiIntroduction />
         </View>
     )
@@ -52,5 +55,10 @@ const styles = StyleSheet.create({
     CompletionText: {
         fontSize: 15,
         color: "#0D76FF"
+    },
+
+    PostWritingText: {
+        fontSize: 15,
+        color: '#999999'
     }
 })

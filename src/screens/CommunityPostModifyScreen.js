@@ -21,6 +21,9 @@ export default function CommunityPostModifyScreen() { // '채팅2_공지수정' 
                     </Text>
                 </TouchableOpacity>
             </View>
+            <View>
+                <Text style={styles.ReportReasonText}>글 쓰기</Text>
+            </View>
             <GatiIntroduction />
         </View>
     )
@@ -45,10 +48,12 @@ const styles = StyleSheet.create({
         width: 10,
         height: 20,
     },
+
     GatiTitleText: {
         fontSize: 19,
         fontWeight: "bold",
     },
+
     CompletionText: {
         fontSize: 15,
         color: "#0D76FF"

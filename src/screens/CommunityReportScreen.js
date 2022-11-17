@@ -21,6 +21,9 @@ export default function CommunityReportScreen() { // '공동체_신고하기' �
                     </Text>
                 </TouchableOpacity>
             </View>
+            <View>
+                <Text style={styles.ReportReasonText}>신고 사유</Text>
+            </View>
             <GatiIntroduction />
         </View>
     )
@@ -45,12 +48,19 @@ const styles = StyleSheet.create({
         width: 10,
         height: 20,
     },
+
     GatiTitleText: {
         fontSize: 19,
         fontWeight: "bold",
     },
+
     CompletionText: {
         fontSize: 15,
         color: "#0D76FF"
+    },
+
+    ReportReasonText: {
+        fontSize: 15,
+        color: '#999999'
     }
 })
