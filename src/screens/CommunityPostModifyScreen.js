@@ -22,7 +22,7 @@ export default function CommunityPostModifyScreen() { // '채팅2_공지수정' 
                 </TouchableOpacity>
             </View>
             <View>
-                <Text style={styles.ReportReasonText}>글 쓰기</Text>
+                <Text style={styles.PostWritingText}>글 쓰기</Text>
             </View>
             <GatiIntroduction />
         </View>
@@ -57,5 +57,11 @@ const styles = StyleSheet.create({
     CompletionText: {
         fontSize: 15,
         color: "#0D76FF"
+    },
+
+    
+    PostWritingText: {
+        fontSize: 15,
+        color: '#999999'
     }
 })
