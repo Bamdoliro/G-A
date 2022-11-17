@@ -3,10 +3,7 @@ import ChatScreenHeader from "../components/Chat/ChatList/ChatScreenHeader/ChatS
 import ChatListSection from "../components/Chat/ChatList/ChatListSection";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import MyStatusBar from "../components/common/SafeAreaView/MyStatusBar";
-import {useEffect, useState} from "react";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import axios from "axios";
-import {baseUrl} from "../utils/api/urls";
+import {useEffect} from "react";
 import {useQuery} from "react-query";
 import {getRooms} from "../utils/api/chat";
 

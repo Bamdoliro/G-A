@@ -21,6 +21,7 @@ export default function CommunityScreen({navigation}) {
                     싶으면 세탁실에 다시 돌려 놓아 주세요..."
                     ChatOfNumber={10}
                     LikeOfNumber={10}
+                    navigation={navigation}
                 />
                 <GatiPostList
                     Title="세탁기 빨래 본인 것만 가져가 주세요..."

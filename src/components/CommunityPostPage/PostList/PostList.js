@@ -6,7 +6,7 @@ import ChatImg from "../../../assets/chat.png"
 import LikeImg from "../../../assets/heart.png"
 import OptionImg from "../../../assets/option.png"
 
-export default function PostList({ Title, Explanation, ChatOfNumber, LikeOfNumber }) {
+export default function PostList({ Title, Explanation, ChatOfNumber, LikeOfNumber, navigation }) {
 
     const [visible, setVisible] = useState(false);
 
@@ -15,7 +15,10 @@ export default function PostList({ Title, Explanation, ChatOfNumber, LikeOfNumbe
     const showMenu = () => setVisible(true);
 
     return (
-        <TouchableOpacity style={styles.PostList}>
+        <TouchableOpacity
+            style={styles.PostList}
+            onPress={() => navigation.navigate('PostDetailScreen')}
+        >
             <Image
                 style={styles.PostImg}
                 source={PostImg}
