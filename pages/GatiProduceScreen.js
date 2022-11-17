@@ -12,8 +12,8 @@ import GatiIntroduction from "../components/common/GatiIntroduction/GatiIntroduc
 
 export default function GatiProduceScreen({ navigation }) {
 
-    const [isPrivatePublic, setPrivatePublict] = useState(true);
-    const [isNumberOfPeople, setNumberOfPeople] = useState("25");
+    const [isPublic, setPublic] = useState(true);
+    const [numberOfPeople, setNumberOfPeople] = useState("25");
     const [isIntroduction, setIntroduction] = useState("")
 
     return (
@@ -26,7 +26,7 @@ export default function GatiProduceScreen({ navigation }) {
                         navigation={navigation}
                     />
                     {/* 사진 */}
-                    {/* 클릭 이벤트 넣어줘야 함 */}
+                    {/* TODO :: 클릭 이벤트 넣어줘야 함 */}
                     <UploadImgContent />
                     {/* 공동체 이름 */}
                     <View style={styles.GatiNameInputFrame}>
@@ -44,15 +44,15 @@ export default function GatiProduceScreen({ navigation }) {
                             <OptionBtn
                                 Title="공개"
                                 SubTitle="사용자 모두가 공동체에 참여 할 수 있습니다!"
-                                Focus={isPrivatePublic}
-                                setPrivatePublict={setPrivatePublict}
+                                Focus={isPublic}
+                                setPublic={setPublic}
                                 Option="public"
                             />
                             <OptionBtn
                                 Title="비공개"
                                 SubTitle="사용자는 비밀번호를 입력 한 후 입장 할 수 있습니다!"
-                                Focus={!isPrivatePublic}
-                                setPrivatePublict={setPrivatePublict}
+                                Focus={!isPublic}
+                                setPublic={setPublic}
                                 Option="private"
                             />
                         </View>
@@ -64,7 +64,7 @@ export default function GatiProduceScreen({ navigation }) {
                         </Text>
                         <NumberInput
                             setNumberOfPeople={setNumberOfPeople}
-                            isNumberOfPeople={isNumberOfPeople}
+                            numberOfPeople={numberOfPeople}
                         />
                     </View>
                     {/* 공동체 소개 */}

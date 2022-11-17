@@ -5,8 +5,8 @@ import NumberInput from "../components/common/NumberOfPeopleInput/NumberOfPeople
 import OptionBtn from "../components/common/OptionBtn/OptionBtn";
 
 export default function GatiOptionScreen() {
-    const [isNumberOfPeople, setNumberOfPeople] = useState("25");
-    const [isPrivatePublic, setPrivatePublict] = useState(true);
+    const [numberOfPeople, setNumberOfPeople] = useState("25");
+    const [isPublic, setPublic] = useState(true);
 
     const TestAlert = (AlertMsg) => {
         alert(AlertMsg);
@@ -29,7 +29,7 @@ export default function GatiOptionScreen() {
                 </Text>
                 <NumberInput
                     setNumberOfPeople={setNumberOfPeople}
-                    isNumberOfPeople={isNumberOfPeople}
+                    numberOfPeople={numberOfPeople}
                 />
             </View>
             <View style={styles.PrivatePublicOption}>
@@ -40,15 +40,15 @@ export default function GatiOptionScreen() {
                     <OptionBtn
                         Title="공개"
                         SubTitle="사용자 모두가 공동체에 참여 할 수 있습니다!"
-                        Focus={isPrivatePublic}
-                        setPrivatePublict={setPrivatePublict}
+                        Focus={isPublic}
+                        setPublic={setPublic}
                         Option="public"
                     />
                     <OptionBtn
                         Title="비공개"
                         SubTitle="사용자는 비밀번호를 입력 한 후 입장 할 수 있습니다!"
-                        Focus={!isPrivatePublic}
-                        setPrivatePublict={setPrivatePublict}
+                        Focus={!isPublic}
+                        setPublic={setPublic}
                         Option="private"
                     />
                 </View>

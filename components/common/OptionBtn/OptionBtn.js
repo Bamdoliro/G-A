@@ -1,12 +1,12 @@
 import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
 
-export default function OptionBtn({Title, SubTitle, Focus, setPrivatePublict, Option}) {
+export default function OptionBtn({Title, SubTitle, Focus, setPublic, Option}) {
     const PublicOnClick = () => {
-        setPrivatePublict(true)
+        setPublic(true)
     }
 
     const PrivateOnClick = () => {
-        setPrivatePublict(false)
+        setPublic(false)
     }
 
     return (

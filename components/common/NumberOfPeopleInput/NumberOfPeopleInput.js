@@ -1,7 +1,7 @@
 import {View, TextInput, Image, StyleSheet} from "react-native"
 import HumanIcon from "../../../assets/human_blue.png"
 
-export default function NumberOfPeopleInput({setNumberOfPeople, isNumberOfPeople}) {
+export default function NumberOfPeopleInput({setNumberOfPeople, numberOfPeople}) {
     return (
         <View style={{ flexDirection: "row", alignItems: "center" }}>
             <Image
@@ -11,7 +11,7 @@ export default function NumberOfPeopleInput({setNumberOfPeople, isNumberOfPeople
             <View style={styles.NumberOfPeopleFrame}>
                 <TextInput
                     style={styles.NumberOfPeopleInput}
-                    value={isNumberOfPeople}
+                    value={numberOfPeople}
                     onChangeText={(text) => setNumberOfPeople(text)}
                     keyboardType="number-pad"
                 />
