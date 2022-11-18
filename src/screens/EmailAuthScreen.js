@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, TextInput, TouchableOpacity, View, Image } from "react-native";
 
-import gatiLogo from "../assets/gatiLogo_White.png";
+import gatiLogo from "../assets/WhiteGati.png";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import CustomButton from "../components/common/CustomButton/CustomButton";
 import Close from '../assets/close.png';

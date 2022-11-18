@@ -5,13 +5,12 @@ import PostImg from "../../../assets/post_img.png"
 import ChatImg from "../../../assets/chat.png"
 import LikeImg from "../../../assets/heart.png"
 import OptionImg from "../../../assets/option.png"
+import {useNavigation} from "@react-navigation/native";
 
-export default function PostList({ Title, Explanation, numberOfComment, numberOfLike, navigation }) {
-
+export default function PostList({ Title, Explanation, numberOfComment, numberOfLike }) {
+    const navigation = useNavigation();
     const [visible, setVisible] = useState(false);
-
     const hideMenu = () => setVisible(false);
-
     const showMenu = () => setVisible(true);
 
     return (

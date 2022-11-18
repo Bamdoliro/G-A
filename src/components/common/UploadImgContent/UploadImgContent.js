@@ -14,11 +14,10 @@ export default function UploadImgContent() {
 
 const styles = StyleSheet.create({
     UploadImgContent: {
-        width: 300,
+        width: "100%",
         height: 130,
         borderRadius: 12,
         backgroundColor: "#F2F2F2",
-        marginTop: 30,
         alignItems: "center",
         justifyContent: "center"
     },
