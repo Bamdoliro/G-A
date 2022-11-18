@@ -1,44 +1,33 @@
-import { useState } from "react";
-import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import ArrowIcon from "../assets/arrow.png"
+import {useState} from "react";
+import {Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import Delete from '../assets/delete.png'
+import Header from "../components/common/Header/Header";
 
-export default function PinScreen({ navigation }) {
+export default function PinScreen({navigation}) {
     const [pinCount, setPinCount] = useState('');
     const handleInputPin = pin => {
-        if(pinCount.length >= 4) return;
+        if (pinCount.length >= 4) return;
         setPinCount(curPin => curPin + pin);
     }
     const onClickEnter = () => {
-        if(pinCount.length < 4) return;
+        if (pinCount.length < 4) return;
         console.log(pinCount);
     }
 
     return (
         <SafeAreaView style={styles.pinField}>
-
-            <View style={styles.header}>
-                <TouchableOpacity onPress={() => navigation.pop()}>
-                    <Image
-                        source={ArrowIcon}
-                        style={styles.ArrowIcon}
-                    />
-                </TouchableOpacity>
-                <Text style={styles.title}>PIN 설정</Text>
-                <Image
-                    source={ArrowIcon}
-                    style={[styles.ArrowIcon, {opacity: 0}]}
-                />
-            </View>
-
+            <Header
+                title="PIN 설정"
+                style={{paddingHorizontal: 30, paddingTop: 30}}
+            />
             <View style={styles.pinShow}>
                 <View style={styles.pinDots}>
-                    <View style={pinCount.length > 0 ? styles.pinDotInputed : styles.pinDotUnInputed}/>
-                    <View style={pinCount.length > 1 ? styles.pinDotInputed : styles.pinDotUnInputed}/>
-                    <View style={pinCount.length > 2 ? styles.pinDotInputed : styles.pinDotUnInputed}/>
-                    <View style={pinCount.length > 3 ? styles.pinDotInputed : styles.pinDotUnInputed}/>
+                    <View style={pinCount.length > 0 ? styles.pinDotInputted : styles.pinDotUnInputted}/>
+                    <View style={pinCount.length > 1 ? styles.pinDotInputted : styles.pinDotUnInputted}/>
+                    <View style={pinCount.length > 2 ? styles.pinDotInputted : styles.pinDotUnInputted}/>
+                    <View style={pinCount.length > 3 ? styles.pinDotInputted : styles.pinDotUnInputted}/>
                 </View>
-                <Text style={styles.pinShowText}>PIN번호 네자리를 입력하세요.</Text>
+                <Text style={styles.pinShowText}>PIN 번호 네자리를 입력하세요.</Text>
             </View>
 
             <View style={styles.pinInput}>
@@ -107,7 +96,7 @@ export default function PinScreen({ navigation }) {
                         style={styles.pinInputColumn}
                         onPressIn={() => setPinCount(curPin => curPin.slice(0, curPin.length - 1))}
                     >
-                        <Image source={Delete} />
+                        <Image source={Delete}/>
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.pinInputColumn}
@@ -132,22 +121,7 @@ const styles = StyleSheet.create({
     pinField: {
         flex: 1,
         alignItems: 'center',
-    },
-    header: {
-        marginTop: 60,
-        width: '100%',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        paddingHorizontal: 32
-    },
-    title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-    },
-    ArrowIcon: {
-        width: 10,
-        height: 20,
+        backgroundColor: "#fff"
     },
     pinShow: {
         alignItems: 'center',
@@ -164,13 +138,13 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         marginBottom: 16
     },
-    pinDotInputed: {
+    pinDotInputted: {
         width: 14,
         height: 14,
         backgroundColor: '#0D76FF',
         borderRadius: 999
     },
-    pinDotUnInputed: {
+    pinDotUnInputted: {
         width: 14,
         height: 14,
         backgroundColor: '#999999',
