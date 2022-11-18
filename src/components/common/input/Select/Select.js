@@ -1,22 +1,14 @@
 import { Text,TouchableOpacity, StyleSheet } from "react-native";
 
-export default function ChoiceButton({title, isChoiceBtn, setChoiceBtn}) {
-
-    const GatiOnClick = () => {
-        setChoiceBtn(true)
-    }
-
-    const PostOnClick = () => {
-        setChoiceBtn(false)
-    }
+export default function ChoiceButton({text, selected, onPress}) {
 
     return (
-        <TouchableOpacity 
+        <TouchableOpacity
             style={isChoiceBtn ? styles.ChoiceBtn : styles.NotChoiceBtn}
-            onPress={title == "게시물" ? PostOnClick : GatiOnClick}    
+            onPress={title == "게시물" ? PostOnClick : GatiOnClick}
         >
             <Text style={{ color: "#fff", fontSize: 17, fontWeight: "bold" }}>
-                {title}
+                {text}
             </Text>
         </TouchableOpacity>
     )

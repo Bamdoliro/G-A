@@ -44,7 +44,7 @@ export default function LoginScreen({navigation, setLogin}) {
                         onPress={() => setKeepLogin(cur => !cur)}
                     >
                         <View style={keepLogin ? styles.keepButtonTrue : styles.keepButtonFalse}>
-                            {keepLogin ? <View style={styles.keepButtonIcon} ></View> : null}
+                            {keepLogin ? <View style={styles.keepButtonIcon}></View> : null}
                         </View>
                         <Text style={styles.subText}>로그인 상태 유지</Text>
                     </TouchableOpacity>
@@ -60,15 +60,14 @@ export default function LoginScreen({navigation, setLogin}) {
                         </TouchableOpacity>
                     </View>
                 </View>
-                <View style={styles.loginButton}>
-                    <CustomButton
-                        title="로그인"
-                        onPress={() => mutate({
-                            email: email,
-                            password: password
-                        })}
-                    />
-                </View>
+                <CustomButton
+                    title="로그인"
+                    onPress={() => mutate({
+                        email: email,
+                        password: password
+                    })}
+                    style={styles.loginButton}
+                />
             </View>
         </SafeAreaView>
     );
@@ -99,9 +98,8 @@ const styles = StyleSheet.create({
     loginButton: {
         width: "87%",
         height: 32,
-        alignItems: "center",
+        marginTop: 20,
     },
-
     logo: {
         bottom: "5%",
         width: "100%",

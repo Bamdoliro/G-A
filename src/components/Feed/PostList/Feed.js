@@ -1,13 +1,13 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { Menu, MenuItem } from 'react-native-material-menu';
-import PostImg from "../../../assets/post_img.png"
+import coverImage from "../../../assets/feedImage.png";
 import ChatImg from "../../../assets/chat.png"
 import LikeImg from "../../../assets/heart.png"
 import OptionImg from "../../../assets/option.png"
 import {useNavigation} from "@react-navigation/native";
 
-export default function PostList({ Title, Explanation, numberOfComment, numberOfLike }) {
+export default function PostList({ Title, Explanation, numberOfComment, numberOfLikes }) {
     const navigation = useNavigation();
     const [visible, setVisible] = useState(false);
     const hideMenu = () => setVisible(false);
@@ -20,7 +20,7 @@ export default function PostList({ Title, Explanation, numberOfComment, numberOf
         >
             <Image
                 style={styles.PostImg}
-                source={PostImg}
+                source={coverImage}
             />
             <View style={styles.PostContentArea}>
                 <Text style={styles.TitleText} numberOfLines={2} ellipsizeMode="tail">{Title}</Text>
@@ -46,7 +46,7 @@ export default function PostList({ Title, Explanation, numberOfComment, numberOf
                                 />
                             </TouchableOpacity>
                             <Text style={styles.numberOfLike}>
-                                {numberOfLike}
+                                {numberOfLikes}
                             </Text>
                         </View>
                     </View>
