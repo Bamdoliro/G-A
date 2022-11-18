@@ -46,7 +46,7 @@ export default function TabNavigation() {
                 tabBarIcon: ({focused}) => focused ? (
                     <Image style={{height: 30, width: 30}} source={PersonFilled}/>
                 ) : (
-                    <Image styele={{height: 30, width: 30}} source={Person}/>
+                    <Image style={{height: 30, width: 30}} source={Person}/>
                 )
             }}/>
         </Tab.Navigator>
