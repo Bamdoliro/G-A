@@ -10,7 +10,6 @@ export default function MainHeader({child, style}) {
             />
         </View>
     )
-        ;
 };
 
 const styles = StyleSheet.create({

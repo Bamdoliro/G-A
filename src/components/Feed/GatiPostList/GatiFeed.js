@@ -1,150 +1,82 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity, Alert } from "react-native";
-import { Menu, MenuItem } from 'react-native-material-menu';
-import React, { useState } from "react";
-import PostImg from "../../../assets/post_img.png"
-import OptionImg from "../../../assets/option.png"
-import HumanIcon from "../../../assets/human_info.png"
-import CalendarIcon from "../../../assets/calendar.png"
+import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import React from "react";
+import {useNavigation} from "@react-navigation/native";
+import coverImage from "../../../assets/feedImage.png"
 import CustomButton from "../../common/button/CustomButton/CustomButton";
+import Tag from "./Tag";
 
-export default function GatiPostList({ Title, numberOfPeople, Date }) {
-
-    const [visible, setVisible] = useState(false);
-
-    const hideMenu = () => setVisible(false);
-
-    const showMenu = () => setVisible(true);
-
-    const EnterGatiPost = () => {
+export default function GatiFeed({id, capacity, title, content, startDate, endDate}) {
+    const navigation = useNavigation();
+    const joinGati = () => {
         alert("참여하기 누름")
     }
+    const changeToPeriod = () => startDate.substring(5) + " ~ " + endDate.substring(5)
 
     return (
-        <View style={styles.PostList}>
-            <Image
-                style={styles.PostImg}
-                source={PostImg}
-            />
-            <View style={styles.PostContentArea}>
-                <Text style={styles.TitleText} numberOfLines={2} ellipsizeMode="tail">{Title}</Text>
-                <View style={styles.PostInfo}>
-                    <View style={styles.HumanArea}>
-                        <Image
-                            source={HumanIcon}
-                            style={styles.HumanIcon}
-                        />
-                        <Text style={styles.HumanOfNumber}>{numberOfPeople}</Text>
-                    </View>
-                    <View style={styles.CalendarArea}>
-                        <Image
-                            source={CalendarIcon}
-                            style={styles.CalendarIcon}
-                        />
-                        <Text style={styles.CalendarOfDate}>{Date}</Text>
-                    </View>
+        <View
+            style={styles.container}
+        >
+            <TouchableOpacity
+                onPress={() => navigation.navigate('PostDetailScreen')}
+            >
+                <Image
+                    style={styles.coverImage}
+                    source={coverImage}
+                    resizeMethod="scale"
+                />
+            </TouchableOpacity>
+            <View style={styles.informationArea}>
+                <Text style={styles.title} numberOfLines={2} ellipsizeMode="tail">{title}</Text>
+                <Text style={styles.content} numberOfLines={2} ellipsizeMode="tail">
+                    {content}
+                </Text>
+                <View style={styles.tags}>
+                    <Tag text={`${capacity}명`}/>
+                    <Tag text={changeToPeriod()}/>
                 </View>
-                <View style={styles.PostSideBar}>
-                    <View style={styles.GatiEnterBtnArea}>
-                        <CustomButton
-                            title="참여하기"
-                            onPress={EnterGatiPost}
-                        />
-                    </View>
-                    <View style={styles.Option}>
-                        <Menu
-                            style={styles.OptionMenu}
-                            visible={visible}
-                            anchor={
-                                <TouchableOpacity onPress={showMenu}>
-                                    <Image source={OptionImg} style={styles.OptionImg} />
-                                </TouchableOpacity>
-                            }
-                            onRequestClose={hideMenu}
-                        >
-                            <MenuItem onPress={hideMenu} textStyle={{ textAlign: "center", fontSize: 16 }} pressColor="#fff">수정</MenuItem>
-                            <MenuItem onPress={hideMenu} textStyle={{ textAlign: "center", fontSize: 16 }} pressColor="#fff">삭제</MenuItem>
-                        </Menu>
-                    </View>
-                </View>
+                <CustomButton
+                    title="참여하기"
+                    onPress={joinGati}
+                    style={styles.button}
+                />
             </View>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    PostList: {
-        flexDirection: "row",
+    container: {
         borderWidth: 1,
         borderColor: "#E2E2E2",
-        backgroundColor: "#fff",
-        width: 360,
-        height: 150,
+        backgroundColor: "#fcfcfc",
+        width: "100%",
         borderRadius: 12,
         marginBottom: 15,
     },
-    PostImg: {
-        width: 120,
+    coverImage: {
+        width: "100%",
         height: 150,
-        borderTopLeftRadius: 12,
-        borderBottomLeftRadius: 12
+        borderRadius: 12,
     },
-    PostContentArea: {
-        marginLeft: 10,
-        width: 220,
-        paddingBottom: 10,
-        paddingTop: 10
+    informationArea: {
+        paddingVertical: 12,
+        paddingHorizontal: 10,
     },
-    TitleText: {
-        fontSize: 18,
+    title: {
+        fontSize: 16,
         fontWeight: "bold"
     },
-    PostInfo: {
+    content: {
+        color: "#858585",
+        fontSize: 13,
+        marginTop: 5,
+    },
+    tags: {
+        marginTop: 15,
         flexDirection: "row",
-        marginTop: 10
     },
-    HumanArea: {
-        flexDirection: "row",
-        alignItems: "center",
-    },
-    HumanOfNumber: {
-        color: "#0D76FF",
-        fontWeight: "bold",
-        paddingLeft: 5
-    },
-    HumanIcon: {
-        width: 25,
-        height: 25
-    },
-    CalendarArea: {
-        flexDirection: "row",
-        alignItems: "center",
-        paddingLeft: 10
-    },
-    CalendarOfDate: {
-        color: "#0D76FF",
-        fontWeight: "bold",
-        paddingLeft: 5
-    },
-    CalendarIcon: {
-        width: 25,
-        height: 25
-    },
-    PostSideBar: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-        position: "relative",
-        top: 20
-    },
-    GatiEnterBtnArea: {
-        flexDirection: "row",
-        width: 135,
-        height: 25
-    },
-    OptionMenu: {
-        borderRadius: 16,
-    },
-    OptionImg: {
-        width: 25,
-        height: 25
-    },
+    button: {
+        borderRadius: 6,
+        marginTop: 10,
+    }
 })
