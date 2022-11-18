@@ -27,7 +27,7 @@ export default function ProduceCommunityScreen({navigation}) {
                 />
                 <ScrollView>
                     {/* 사진 */}
-                    {/* 클릭 이벤트 넣어줘야 함 */}
+                    {/* TODO :: 클릭 이벤트 넣어줘야 함 */}
                     <UploadImgContent/>
                     <InputFrame
                         title="이름"

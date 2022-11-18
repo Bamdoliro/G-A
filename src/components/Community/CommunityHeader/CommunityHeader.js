@@ -1,28 +1,33 @@
-import { StyleSheet, TextInput, Image, View, Text, TouchableOpacity } from 'react-native';
-import ArrowIcon from "../../../assets/arrow_down.png"
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import pencilIcon from '../../../assets/Pencil_Icon.png';
 import BellIcon from "../../../assets/Bell_Icon.png"
 import ToggleIcon from "../../../assets/main_toggle.png"
 
 import ChoiceButton from '../../common/ChoiceBtn/ChoiceButton';
-import { useState } from 'react';
+import {useNavigation} from "@react-navigation/native";
 
 export default function CommunityHeader({isChoiceBtn, setChoiceBtn}) {
+    const navigation = useNavigation();
+
     return (
         <View style={{alignItems: "center"}}>
             <View style={styles.CommunityHeader}>
                 <View style={styles.HeaderContent}>
-                    <Image
-                        source={ToggleIcon}
-                        style={{ width: 25, height: 25 }}
-                    />
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('CommunitySettingScreen')}
+                    >
+                        <Image
+                            source={ToggleIcon}
+                            style={{width: 25, height: 25}}
+                        />
+                    </TouchableOpacity>
                     <View style={styles.CommunityInfo}>
-                        <View style={{ flexDirection: "column", alignItems: "center" }}>
+                        <View style={{flexDirection: "column", alignItems: "center"}}>
                             <Text style={styles.CommunityTitle}>
                                 부산 소프트웨어 마이스터고
                             </Text>
-                            <View style={{ flexDirection: "row" }}>
-                                <Text style={{ color: "#0D76FF" }}>
+                            <View style={{flexDirection: "row"}}>
+                                <Text style={{color: "#0D76FF"}}>
                                     125
                                 </Text>
                                 <Text>
@@ -33,7 +38,7 @@ export default function CommunityHeader({isChoiceBtn, setChoiceBtn}) {
                     </View>
                     <Image
                         source={BellIcon}
-                        style={{ width: 25, height: 25 }}
+                        style={{width: 25, height: 25}}
                     />
                 </View>
                 <View style={styles.CommunityDetailFrame}>

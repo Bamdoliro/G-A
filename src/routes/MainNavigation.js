@@ -5,6 +5,7 @@ import PostDetailScreen from "../screens/PostDetailScreen";
 import WriteGatiScreen from "../screens/Post/write/WriteGatiScreen";
 import WritePostScreen from "../screens/Post/write/WritePostScreen";
 import ProduceCommunityScreen from "../screens/ProduceCommunityScreen";
+import CommunitySettingScreen from "../screens/CommunitySettingScreen";
 
 
 export default function MainNavigation({Stack, socket}) {
@@ -25,6 +26,7 @@ export default function MainNavigation({Stack, socket}) {
             <Stack.Screen name="WritePostScreen" component={WritePostScreen}/>
             <Stack.Screen name="WriteGatiScreen" component={WriteGatiScreen}/>
             <Stack.Screen name="ProduceCommunityScreen" component={ProduceCommunityScreen}/>
+            <Stack.Screen name="CommunitySettingScreen" component={CommunitySettingScreen}/>
         </Stack.Navigator>
     )
 };
