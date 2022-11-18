@@ -1,13 +1,16 @@
-import { Text,TouchableOpacity, StyleSheet } from "react-native";
+import {Text, TouchableOpacity, StyleSheet, View} from "react-native";
 
-export default function ChoiceButton({text, selected, onPress}) {
+export default function Select({text, selected, onPress}) {
 
     return (
         <TouchableOpacity
-            style={isChoiceBtn ? styles.ChoiceBtn : styles.NotChoiceBtn}
-            onPress={title == "게시물" ? PostOnClick : GatiOnClick}
+            style={styles.container}
+            onPress={onPress}
         >
-            <Text style={{ color: "#fff", fontSize: 17, fontWeight: "bold" }}>
+            {selected &&
+                <View style={styles.blueCircle}/>
+            }
+            <Text style={[styles.text, selected && styles.text.selected]}>
                 {text}
             </Text>
         </TouchableOpacity>
@@ -15,22 +18,24 @@ export default function ChoiceButton({text, selected, onPress}) {
 }
 
 const styles = StyleSheet.create({
-    ChoiceBtn: {
+    container: {
         flexDirection: "row",
         alignItems: "center",
-        width: 140,
-        height: 40,
-        borderRadius: 20,
-        backgroundColor: "#0D76FF",
-        paddingLeft: 20
+        marginRight: 10,
     },
-    NotChoiceBtn: {
-        flexDirection: "row",
-        alignItems: "center",
-        width: 140,
-        height: 40,
-        borderRadius: 20,
-        backgroundColor: "#999999",
-        paddingLeft: 20
-    }
+    blueCircle: {
+        width: 5,
+        height: 5,
+        borderRadius: "50%",
+        backgroundColor: "#0D76FF",
+        marginRight: 5,
+    },
+    text: {
+        fontSize: 15,
+        color: "#818181",
+        selected: {
+            color: "#000",
+            fontWeight: "500",
+        }
+    },
 })
