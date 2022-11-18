@@ -14,7 +14,7 @@ export default function CommunityHeader({isChoiceBtn, setChoiceBtn}) {
             <View style={styles.CommunityHeader}>
                 <View style={styles.HeaderContent}>
                     <TouchableOpacity
-                        onPress={() => navigation.navigate('GatiOptionScreen')}
+                        onPress={() => navigation.navigate('CommunitySettingScreen')}
                     >
                         <Image
                             source={ToggleIcon}
