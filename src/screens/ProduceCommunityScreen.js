@@ -8,9 +8,10 @@ import Header from "../components/common/Header/Header";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import InputFrame from "../components/common/InputFrame/InputFrame";
 import PublicScopeArea from "../components/Community/create/PublicScopeArea";
+import BasicInput from "../components/common/BasicInput/BasicInput";
 
 export default function ProduceCommunityScreen({navigation}) {
-
+    const [name, setName] = useState("");
     const [isPublic, setIsPublic] = useState(true);
     const [numberOfPeople, setNumberOfPeople] = useState("25");
     const [introduction, setIntroduction] = useState("")
@@ -31,8 +32,9 @@ export default function ProduceCommunityScreen({navigation}) {
                     <InputFrame
                         title="이름"
                         child={
-                            <TextInput
-                                style={styles.nameInput}
+                            <BasicInput
+                                value={name}
+                                setValue={setName}
                             />
                         }
                     />
@@ -72,11 +74,5 @@ const styles = StyleSheet.create({
     container: {
         padding: 30,
         backgroundColor: "#fff",
-    },
-    nameInput: {
-        borderBottomWidth: 2,
-        borderColor: "#0D76FF",
-        height: 28,
-        fontSize: 18
     },
 })
