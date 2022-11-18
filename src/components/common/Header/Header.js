@@ -2,24 +2,24 @@ import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import ArrowIcon from "../../../assets/arrow.png";
 import {useNavigation} from "@react-navigation/native";
 
-export default function Header({title, buttonText, buttonOnPress}) {
+export default function Header({title, buttonText, buttonOnPress, style}) {
     const navigation = useNavigation()
 
     return (
-        <View style={styles.GatiProduceHeader}>
+        <View style={[styles.container, style]}>
             <TouchableOpacity onPress={() => navigation.pop()}>
                 <Image
                     source={ArrowIcon}
                     style={styles.ArrowIcon}
                 />
             </TouchableOpacity>
-            <Text style={styles.GatiTitleText}>
+            <Text style={styles.title}>
                 {title}
             </Text>
             <TouchableOpacity
                 onPress={buttonOnPress}
             >
-                <Text style={styles.CompletionText}>
+                <Text style={styles.buttonText}>
                     {buttonText}
                 </Text>
             </TouchableOpacity>
@@ -28,7 +28,7 @@ export default function Header({title, buttonText, buttonOnPress}) {
 }
 
 const styles = StyleSheet.create({
-    GatiProduceHeader: {
+    container: {
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
@@ -39,17 +39,12 @@ const styles = StyleSheet.create({
         width: 10,
         height: 20,
     },
-    GatiTitleText: {
+    title: {
         fontSize: 19,
         fontWeight: "bold",
     },
-    CompletionText: {
+    buttonText: {
         fontSize: 15,
         color: "#0D76FF"
     },
-
-    PostWritingText: {
-        fontSize: 15,
-        color: '#999999'
-    }
 })
