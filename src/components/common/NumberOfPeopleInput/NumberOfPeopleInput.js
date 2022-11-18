@@ -2,7 +2,7 @@ import {Image, StyleSheet, View} from "react-native"
 import HumanIcon from "../../../assets/human_blue.png"
 import FrameInput from "../FrameInput/FrameInput";
 
-export default function NumberOfPeopleInput({setNumberOfPeople, isNumberOfPeople}) {
+export default function NumberOfPeopleInput({setNumberOfPeople, numberOfPeople}) {
     return (
         <View style={{flexDirection: "row", alignItems: "center"}}>
             <Image
@@ -10,7 +10,7 @@ export default function NumberOfPeopleInput({setNumberOfPeople, isNumberOfPeople
                 style={styles.HumanIcon}
             />
             <FrameInput
-                value={isNumberOfPeople}
+                value={numberOfPeople}
                 setValue={setNumberOfPeople}
                 keyboardType="number-pad"
             />
