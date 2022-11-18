@@ -2,17 +2,21 @@ import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import ArrowIcon from "../../../assets/arrow.png";
 import {useNavigation} from "@react-navigation/native";
 
-export default function Header({title, buttonText, buttonOnPress, style}) {
+export default function Header({title, buttonText, buttonOnPress, allowBack = true, style}) {
     const navigation = useNavigation()
 
     return (
         <View style={[styles.container, style]}>
-            <TouchableOpacity onPress={() => navigation.pop()}>
-                <Image
-                    source={ArrowIcon}
-                    style={styles.ArrowIcon}
-                />
-            </TouchableOpacity>
+            {allowBack ?
+                <TouchableOpacity onPress={() => navigation.pop()}>
+                    <Image
+                        source={ArrowIcon}
+                        style={styles.ArrowIcon}
+                    />
+                </TouchableOpacity>
+                :
+                <View style={styles.ArrowIcon}/>
+            }
             <Text style={styles.title}>
                 {title}
             </Text>

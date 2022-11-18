@@ -28,7 +28,10 @@ export default function ProfileScreen() {
         <SafeAreaView style={styles.root}>
             <Header
                 title="설정"
+                buttonText="저장"
+                buttonOnPress={() => {}}
                 style={styles.header}
+                allowBack={false}
             />
             <View style={styles.profileWrapper}>
                 <View style={styles.profile}>
