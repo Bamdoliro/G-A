@@ -1,45 +1,27 @@
-import {View, TextInput, Image, StyleSheet} from "react-native"
+import {Image, StyleSheet, View} from "react-native"
 import HumanIcon from "../../../assets/human_blue.png"
+import FrameInput from "../FrameInput/FrameInput";
 
 export default function NumberOfPeopleInput({setNumberOfPeople, isNumberOfPeople}) {
     return (
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
+        <View style={{flexDirection: "row", alignItems: "center"}}>
             <Image
                 source={HumanIcon}
                 style={styles.HumanIcon}
             />
-            <View style={styles.NumberOfPeopleFrame}>
-                <TextInput
-                    style={styles.NumberOfPeopleInput}
-                    value={isNumberOfPeople}
-                    onChangeText={(text) => setNumberOfPeople(text)}
-                    keyboardType="number-pad"
-                />
-            </View>
+            <FrameInput
+                value={isNumberOfPeople}
+                setValue={setNumberOfPeople}
+                keyboardType="number-pad"
+            />
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    NumberOfPeopleFrame: {
-        flexDirection: "row",
-        alignItems: "center",
-        borderWidth: 2,
-        borderColor: "#0D76FF",
-        width: 85,
-        height: 35,
-        paddingLeft: 10,
-        paddingRight: 10,
-        marginTop: 5,
-        borderRadius: 12,
-        marginLeft: 10
-    },
-    NumberOfPeopleInput: {
-        width: "100%",
-        height: "100%"
-    },
     HumanIcon: {
-        width: 25,
-        height: 25
+        width: 30,
+        height: 25,
+        marginRight: 10,
     },
 })

@@ -2,7 +2,7 @@ import { View, StyleSheet } from "react-native";
 import PostList from "../PostList/PostList";
 import PostListData from "../../../data/PostListData.json"
 
-export default function PostFrame({navigation}) {
+export default function PostFrame() {
     return (
         <View style={styles.PostFrame}>
             {
@@ -13,7 +13,6 @@ export default function PostFrame({navigation}) {
                         Explanation={data.explanation}
                         numberOfComment={data.numberOfComment}
                         numberOfLike={data.numberOfLike}
-                        navigation={navigation}
                     />
                 )
                 )

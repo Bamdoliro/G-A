@@ -33,8 +33,8 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "center",
         width: "100%",
+        marginBottom: 30,
     },
-
     ArrowIcon: {
         width: 10,
         height: 20,
