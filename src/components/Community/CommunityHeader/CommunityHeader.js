@@ -1,62 +1,44 @@
 import {StyleSheet, Text, View} from 'react-native';
 import community from "../../../data/CummunityData.json";
-import Bell from "../../common/Bell/Bell";
 import DownArrow from "../../common/DownArrow/DownArrow";
+import MainHeader from "../../common/MainHeader/MainHeader";
 
 export default function CommunityHeader() {
 
     return (
-        <View style={styles.container}>
-            <View style={styles.numberOfPeople}>
-                <View style={styles.numberOfPeople.blueCircle}/>
-                <Text style={styles.numberOfPeople.text}>
-                    {community.numberOfPeople}명
-                </Text>
-            </View>
-            <View style={styles.name}>
-                <Text style={styles.name.text}>
-                    {community.name}
-                </Text>
-                <DownArrow
-                    onPress={() => {
-                    }}
-                />
-            </View>
+        <MainHeader
+            child={
+                <>
+                    <View style={styles.numberOfPeople}>
+                        <View style={styles.numberOfPeople.blueCircle}/>
+                        <Text style={styles.numberOfPeople.text}>
+                            {community.numberOfPeople}명
+                        </Text>
+                    </View>
+                    <View style={styles.name}>
+                        <Text style={styles.name.text}>
+                            {community.name}
+                        </Text>
+                        <DownArrow
+                            onPress={() => {
+                            }}
+                        />
+                    </View>
 
-            <Text style={styles.introduction}>
-                {community.introduction}
-            </Text>
-            <Bell
-                style={styles.bell}
-            />
-        </View>
+                    <Text style={styles.introduction}>
+                        {community.introduction}
+                    </Text>
+                </>
+            }
+            style={styles.container}
+        />
     )
-        ;
 };
 
 const styles = StyleSheet.create({
     container: {
-        position: "relative",
-        width: "100%",
-        height: 125,
         flexDirection: "column",
         justifyContent: "flex-end",
-        backgroundColor: "#FFFFFF",
-        paddingHorizontal: 30,
-        paddingVertical: 20,
-        marginBottom: 10,
-        borderBottomLeftRadius: 18,
-        borderBottomRightRadius: 18,
-
-        // shadow
-        shadowColor: "#000000",
-        shadowOffset: {
-            width: 0,
-            height: 1
-        },
-        shadowOpacity: 0.18,
-        shadowRadius: 1,
-        elevation: 1,
     },
     numberOfPeople: {
         flexDirection: "row",
