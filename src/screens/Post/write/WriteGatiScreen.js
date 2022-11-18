@@ -56,7 +56,7 @@ export default function WriteGatiScreen({navigation}) {
                         child={
                             <NumberInput
                                 setNumberOfPeople={setNumberOfPeople}
-                                isNumberOfPeople={numberOfPeople}
+                                numberOfPeople={numberOfPeople}
                             />
                         }
                     />

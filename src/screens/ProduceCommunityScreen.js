@@ -52,7 +52,7 @@ export default function ProduceCommunityScreen({navigation}) {
                         child={
                             <NumberInput
                                 setNumberOfPeople={setNumberOfPeople}
-                                isNumberOfPeople={numberOfPeople}
+                                numberOfPeople={numberOfPeople}
                             />
                         }
                     />
