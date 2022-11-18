@@ -15,8 +15,7 @@ export default function MenuBar(){
 
 const styles = StyleSheet.create({
     mainToggleIcon: {
-        width: 35,
-        height: 35,
-        marginLeft: 31
+        width: 25,
+        height: 25,
     }
 })

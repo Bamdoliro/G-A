@@ -1,122 +1,77 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import pencilIcon from '../../../assets/Pencil_Icon.png';
-import BellIcon from "../../../assets/Bell_Icon.png"
-import ToggleIcon from "../../../assets/main_toggle.png"
+import {StyleSheet, Text, View} from 'react-native';
+import community from "../../../data/CummunityData.json";
+import DownArrow from "../../common/icon/DownArrow/DownArrow";
+import MainHeader from "../../common/header/MainHeader/MainHeader";
 
-import ChoiceButton from '../../common/ChoiceBtn/ChoiceButton';
-import {useNavigation} from "@react-navigation/native";
-
-export default function CommunityHeader({isChoiceBtn, setChoiceBtn}) {
-    const navigation = useNavigation();
+export default function CommunityHeader() {
 
     return (
-        <View style={{alignItems: "center"}}>
-            <View style={styles.CommunityHeader}>
-                <View style={styles.HeaderContent}>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('CommunitySettingScreen')}
-                    >
-                        <Image
-                            source={ToggleIcon}
-                            style={{width: 25, height: 25}}
-                        />
-                    </TouchableOpacity>
-                    <View style={styles.CommunityInfo}>
-                        <View style={{flexDirection: "column", alignItems: "center"}}>
-                            <Text style={styles.CommunityTitle}>
-                                부산 소프트웨어 마이스터고
-                            </Text>
-                            <View style={{flexDirection: "row"}}>
-                                <Text style={{color: "#0D76FF"}}>
-                                    125
-                                </Text>
-                                <Text>
-                                    명이 참여 중 입니다!
-                                </Text>
-                            </View>
-                        </View>
+        <MainHeader
+            child={
+                <>
+                    <View style={styles.numberOfPeople}>
+                        <View style={styles.numberOfPeople.blueCircle}/>
+                        <Text style={styles.numberOfPeople.text}>
+                            {community.numberOfPeople}명
+                        </Text>
                     </View>
-                    <Image
-                        source={BellIcon}
-                        style={{width: 25, height: 25}}
-                    />
-                </View>
-                <View style={styles.CommunityDetailFrame}>
-                    <Image
-                        source={pencilIcon}
-                        style={styles.pencilIcon}
-                    />
-                </View>
-            </View>
-            <View style={styles.CommunityChoiceArea}>
-                <ChoiceButton
-                    title="게시물"
-                    isChoiceBtn={!isChoiceBtn}
-                    setChoiceBtn={setChoiceBtn}
-                />
-                <ChoiceButton
-                    title="가티"
-                    isChoiceBtn={isChoiceBtn}
-                    setChoiceBtn={setChoiceBtn}
-                />
-            </View>
-        </View>
-    );
+                    <View style={styles.name}>
+                        <Text style={styles.name.text}>
+                            {community.name}
+                        </Text>
+                        <DownArrow
+                            onPress={() => {
+                            }}
+                        />
+                    </View>
+
+                    <Text style={styles.introduction}>
+                        {community.introduction}
+                    </Text>
+                </>
+            }
+            style={styles.container}
+        />
+    )
 };
 
 const styles = StyleSheet.create({
-    CommunityHeader: {
+    container: {
         flexDirection: "column",
-        height: 125,
-        width: "100%",
+        justifyContent: "flex-end",
+    },
+    numberOfPeople: {
+        flexDirection: "row",
         alignItems: "center",
-        backgroundColor: "#FFFFFF",
-        marginBottom: 10,
-        shadowColor: "#000000",
-        shadowOffset: {
-            width: 0,
-            height: 1
+        blueCircle: {
+            borderRadius: "50%",
+            backgroundColor: "#0D76FF",
+            width: 8,
+            height: 8,
+            marginRight: 5,
         },
-        shadowOpacity: 0.18,
-        shadowRadius: 1,
-        elevation: 1,
+        text: {
+            color: "#0D76FF",
+            fontSize: 15,
+        }
     },
-
-    CommunityDetailFrame: {
+    name: {
         flexDirection: "row",
         alignItems: "center",
-        width: "80%",
-        height: 35,
-        padding: 8,
-        backgroundColor: "#F2F2F2",
-        borderRadius: 8,
-        marginTop: 10
+        marginBottom: 5,
+        text: {
+            fontSize: 25,
+            fontWeight: "bold",
+            marginRight: 5,
+        }
     },
-    pencilIcon: {
+    introduction: {
+        color: "#535353",
+        fontSize: 15,
+    },
+    bell: {
         position: "absolute",
-        right: 0,
-        bottom: 0,
-        width: 10,
-        height: 10,
-        margin: 10
-    },
-    // Header Content
-    HeaderContent: {
-        flexDirection: "row",
-        width: "80%",
-        height: 50,
-        alignItems: "center",
-        justifyContent: "space-between"
-    },
-    CommunityTitle: {
-        fontSize: 17,
-        fontWeight: "bold"
-    },
-    // CommunityChoiceArea
-    CommunityChoiceArea: {
-        width: "80%",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        marginBottom: 20
+        right: 20,
+        top: 35,
     },
 })

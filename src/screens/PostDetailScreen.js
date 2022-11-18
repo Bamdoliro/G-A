@@ -1,6 +1,6 @@
 import SafeAreaView from '../components/common/SafeAreaView/SafeAreaView';
-import PostDetail from "../components/Post/detail/PostDetail";
-import PostDetailHeader from "../components/Post/detail/PostDetailHeader";
+import PostDetail from "../components/Feed/detail/PostDetail";
+import PostDetailHeader from "../components/Feed/detail/PostDetailHeader";
 
 const PostDetailScreen = ({navigation}) => {
 

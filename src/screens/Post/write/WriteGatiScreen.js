@@ -1,14 +1,14 @@
 import SafeAreaView from "../../../components/common/SafeAreaView/SafeAreaView";
-import Header from "../../../components/common/Header/Header";
+import LightHeader from "../../../components/common/header/LightHeader/LightHeader";
 import {ScrollView, StyleSheet, View} from "react-native";
-import UploadImgContent from "../../../components/common/UploadImgContent/UploadImgContent";
-import TextArea from "../../../components/common/TextArea/TextArea";
-import InputFrame from "../../../components/common/InputFrame/InputFrame";
-import NumberInput from "../../../components/common/NumberOfPeopleInput/NumberOfPeopleInput";
+import ImageInput from "../../../components/common/input/ImageInput/ImageInput";
+import TextArea from "../../../components/common/input/TextArea/TextArea";
+import InputFrame from "../../../components/common/frame/InputFrame/InputFrame";
+import NumberInput from "../../../components/common/input/NumberOfPeopleInput/NumberOfPeopleInput";
 import {useState} from "react";
-import BasicInput from "../../../components/common/BasicInput/BasicInput";
-import PeriodInput from "../../../components/common/PeriodInput/PeriodInput";
-import FrameInput from "../../../components/common/FrameInput/FrameInput";
+import BasicInput from "../../../components/common/input/BasicInput/BasicInput";
+import PeriodInput from "../../../components/common/input/PeriodInput/PeriodInput";
+import FrameInput from "../../../components/common/input/FrameInput/FrameInput";
 
 export default function WriteGatiScreen({navigation}) {
     const [title, setTitle] = useState("");
@@ -22,7 +22,7 @@ export default function WriteGatiScreen({navigation}) {
     return (
         <SafeAreaView>
             <View style={styles.container}>
-                <Header
+                <LightHeader
                     title="가티 글 쓰기"
                     buttonText="완료"
                     buttonOnPress={() => {
@@ -31,7 +31,7 @@ export default function WriteGatiScreen({navigation}) {
                 <ScrollView>
                     {/* 사진 */}
                     {/* 클릭 이벤트 넣어줘야 함 */}
-                    <UploadImgContent/>
+                    <ImageInput/>
                     <InputFrame
                         title="제목"
                         child={

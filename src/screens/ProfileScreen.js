@@ -5,8 +5,8 @@ import axios from "axios";
 import {baseUrl} from "../utils/api/urls";
 import ProfileImage from '../assets/profile_image.png';
 import {useState} from 'react';
-import Header from "../components/common/Header/Header";
-import Toggle from "../components/common/Toggle/Toggle";
+import LightHeader from "../components/common/header/LightHeader/LightHeader";
+import Toggle from "../components/common/input/Toggle/Toggle";
 
 export default function ProfileScreen() {
     const [isNoticeAllow, setIsNoticeAllow] = useState(false);
@@ -26,9 +26,12 @@ export default function ProfileScreen() {
 
     return (
         <SafeAreaView style={styles.root}>
-            <Header
+            <LightHeader
                 title="설정"
+                buttonText="저장"
+                buttonOnPress={() => {}}
                 style={styles.header}
+                allowBack={false}
             />
             <View style={styles.profileWrapper}>
                 <View style={styles.profile}>

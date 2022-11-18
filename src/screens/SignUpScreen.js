@@ -1,9 +1,9 @@
 import React, {useRef, useState} from "react";
 import {Image, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 
-import CustomInput from "../components/common/CustomInput/CustomInput";
+import CustomInput from "../components/common/input/CustomInput/CustomInput";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
-import CustomButton from "../components/common/CustomButton/CustomButton";
+import CustomButton from "../components/common/button/CustomButton/CustomButton";
 import Close from '../assets/close.png';
 import {useMutation} from "react-query";
 import {join} from "../utils/api/user";
@@ -165,26 +165,25 @@ export default function SignUpScreen({navigation}) {
                         <Text style={styles.subText}>개인정보 수집 및 이용 동의</Text>
                     </TouchableOpacity>
                 </View>
-                <View style={styles.signUpButton}>
-                    <CustomButton
-                        onPress={() => {
-                            if (rePassword === password) {
-                                mutate({
-                                    email: email,
-                                    password: password,
-                                    name: name,
-                                    gender: gender,
-                                    birthYear: birthYear,
-                                    birthMonth: birthMonth,
-                                    birthDay: birthDay
-                                })
-                            } else {
-                                alert('비밀번호가 다릅니다')
-                            }
-                        }}
-                        title="회원가입"
-                    />
-                </View>
+                <CustomButton
+                    onPress={() => {
+                        if (rePassword === password) {
+                            mutate({
+                                email: email,
+                                password: password,
+                                name: name,
+                                gender: gender,
+                                birthYear: birthYear,
+                                birthMonth: birthMonth,
+                                birthDay: birthDay
+                            })
+                        } else {
+                            alert('비밀번호가 다릅니다')
+                        }
+                    }}
+                    title="회원가입"
+                    style={styles.signUpButton}
+                />
             </View>
         </SafeAreaView>
     );
@@ -234,7 +233,7 @@ const styles = StyleSheet.create({
     signUpButton: {
         width: "87%",
         height: 32,
-        alignItems: "center",
+        marginTop: 20,
     },
     birthday: {
         flexDirection: 'row',

@@ -1,11 +1,11 @@
 import SafeAreaView from "../../../components/common/SafeAreaView/SafeAreaView";
-import Header from "../../../components/common/Header/Header";
+import LightHeader from "../../../components/common/header/LightHeader/LightHeader";
 import {ScrollView, StyleSheet, View} from "react-native";
-import UploadImgContent from "../../../components/common/UploadImgContent/UploadImgContent";
-import TextArea from "../../../components/common/TextArea/TextArea";
-import InputFrame from "../../../components/common/InputFrame/InputFrame";
+import ImageInput from "../../../components/common/input/ImageInput/ImageInput";
+import TextArea from "../../../components/common/input/TextArea/TextArea";
+import InputFrame from "../../../components/common/frame/InputFrame/InputFrame";
 import {useState} from "react";
-import BasicInput from "../../../components/common/BasicInput/BasicInput";
+import BasicInput from "../../../components/common/input/BasicInput/BasicInput";
 
 export default function WritePostScreen() {
     const [title, setTitle] = useState("");
@@ -14,7 +14,7 @@ export default function WritePostScreen() {
     return (
         <SafeAreaView>
             <View style={styles.container}>
-                <Header
+                <LightHeader
                     title="가티 글 쓰기"
                     buttonText="완료"
                     buttonOnPress={() => {
@@ -23,7 +23,7 @@ export default function WritePostScreen() {
                 <ScrollView>
                     {/* 사진 */}
                     {/* 클릭 이벤트 넣어줘야 함 */}
-                    <UploadImgContent/>
+                    <ImageInput/>
                     <InputFrame
                         title="제목"
                         child={

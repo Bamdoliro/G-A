@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, TextInput, TouchableOpacity, View, Image } from "react-native";
+import React from "react";
+import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 
-import gatiLogo from "../assets/WhiteGati.png";
+import BlackGati from "../assets/BlackGati.png";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
-import CustomButton from "../components/common/CustomButton/CustomButton";
+import CustomButton from "../components/common/button/CustomButton/CustomButton";
 import Close from '../assets/close.png';
 
 export default function EmailAuthScreen({navigation}) {
@@ -11,21 +11,21 @@ export default function EmailAuthScreen({navigation}) {
         <SafeAreaView style={styles.root}>
             <View style={styles.innerBox}>
                 <TouchableOpacity
-                        onPress={() => navigation.pop()}
-                        style={styles.closeBtn}
+                    onPress={() => navigation.pop()}
+                    style={styles.closeBtn}
                 >
-                    <Image style={styles.close} source={Close} />
+                    <Image style={styles.close} source={Close}/>
                 </TouchableOpacity>
                 <Text style={styles.title}>
                     이메일을{"\n"}인증 해 주세요!
                 </Text>
-                <Image source={gatiLogo} style={styles.logo} resizeMode="contain" tintColor="black" />
-                <View style={styles.sendMailButton}>
-                    <CustomButton
-                        onPress={() => { }}
-                        title="인증 메일을 보냅니다!"
-                    />
-                </View>
+                <Image source={BlackGati} style={styles.logo} resizeMode="contain"/>
+                <CustomButton
+                    onPress={() => {
+                    }}
+                    title="인증 메일을 보냅니다!"
+                    style={styles.sendMailButton}
+                />
                 <TouchableOpacity
                     style={styles.resendMail}
                 >
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     sendMailButton: {
         width: "87%",
         height: 32,
-        alignItems: "center",
+        marginTop: 20,
     },
     closeBtn: {
         position: 'absolute',
@@ -71,8 +71,8 @@ const styles = StyleSheet.create({
         height: 42
     },
     logo: {
-        bottom: "5%",
-        width: 118,
+        bottom: "1%",
+        width: 138,
         height: "46%",
     },
     resendMail: {

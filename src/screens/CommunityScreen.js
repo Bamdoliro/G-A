@@ -1,29 +1,35 @@
-import {ScrollView, StyleSheet} from "react-native";
+import {ScrollView, StyleSheet, View} from "react-native";
 import {useState} from "react";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import CommunityHeader from "../components/Community/CommunityHeader/CommunityHeader";
-import GatiFrame from "../components/CommunityPostPage/ListFrame/GatiFrame";
-import PostFrame from "../components/CommunityPostPage/ListFrame/PostFrame";
-import PlusButton from "../components/common/PlusButton/PlusButton";
-import GatiButton from "../components/common/GatiButton/GatiButton";
+import GatiFeedFrame from "../components/Feed/ListFrame/GatiFeedFrame";
+import FeedFrame from "../components/Feed/ListFrame/FeedFrame";
+import PlusButton from "../components/common/button/PlusButton/PlusButton";
+import GatiButton from "../components/common/button/GatiButton/GatiButton";
+import Category from "../components/Community/Category/Category";
 
 export default function CommunityScreen({navigation}) {
-    // useState 로 props 보내서 페이지 체인지하는 코드 짯는데 요부분
-    // 코드 리뷰좀 부탁드려요 - 석진 -
-    const [isChoiceBtn, setChoiceBtn] = useState(true);
+    const [category, setCategory] = useState("FEED");
 
     return (
         <SafeAreaView>
-            <CommunityHeader
-                isChoiceBtn={isChoiceBtn}
-                setChoiceBtn={setChoiceBtn}
-            />
-            <ScrollView contentContainerStyle={{alignItems: "center"}}>
-                {
-                    isChoiceBtn ? <GatiFrame/> : <PostFrame/>
-                }
-            </ScrollView>
-            {isChoiceBtn ?
+            <CommunityHeader/>
+            <View
+                style={styles.contents}
+            >
+                <Category
+                    category={category}
+                    setCategory={setCategory}
+                />
+                <ScrollView
+                    showsVerticalScrollIndicator={false}
+                >
+                    {
+                        category === "GATI" ? <GatiFeedFrame/> : <FeedFrame/>
+                    }
+                </ScrollView>
+            </View>
+            {category === "GATI" ?
                 <GatiButton
                     onPress={() => navigation.navigate('WriteGatiScreen')}
                 />
@@ -36,4 +42,8 @@ export default function CommunityScreen({navigation}) {
     );
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    contents: {
+        paddingHorizontal: 30,
+    }
+})

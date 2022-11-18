@@ -1,14 +1,14 @@
 import {ScrollView, StyleSheet, View} from "react-native";
 import {useState} from "react";
 
-import NumberInput from "../components/common/NumberOfPeopleInput/NumberOfPeopleInput";
-import UploadImgContent from "../components/common/UploadImgContent/UploadImgContent";
-import TextArea from "../components/common/TextArea/TextArea";
-import Header from "../components/common/Header/Header";
+import NumberInput from "../components/common/input/NumberOfPeopleInput/NumberOfPeopleInput";
+import ImageInput from "../components/common/input/ImageInput/ImageInput";
+import TextArea from "../components/common/input/TextArea/TextArea";
+import LightHeader from "../components/common/header/LightHeader/LightHeader";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
-import InputFrame from "../components/common/InputFrame/InputFrame";
+import InputFrame from "../components/common/frame/InputFrame/InputFrame";
 import PublicScopeArea from "../components/Community/create/PublicScopeArea";
-import BasicInput from "../components/common/BasicInput/BasicInput";
+import BasicInput from "../components/common/input/BasicInput/BasicInput";
 
 export default function ProduceCommunityScreen({navigation}) {
     const [name, setName] = useState("");
@@ -19,7 +19,7 @@ export default function ProduceCommunityScreen({navigation}) {
     return (
         <SafeAreaView>
             <View style={styles.container}>
-                <Header
+                <LightHeader
                     title="공동체 생성"
                     buttonText="완료"
                     buttonOnPress={() => {
@@ -28,7 +28,7 @@ export default function ProduceCommunityScreen({navigation}) {
                 <ScrollView>
                     {/* 사진 */}
                     {/* TODO :: 클릭 이벤트 넣어줘야 함 */}
-                    <UploadImgContent/>
+                    <ImageInput/>
                     <InputFrame
                         title="이름"
                         child={
