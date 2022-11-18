@@ -4,7 +4,7 @@ import PlusIcon from "../../../assets/plus.png"
 export default function AddPostBtn( {onPress} ) {
     return (
         <TouchableOpacity
-            style={styles.AddPostBtn}
+            style={styles.container}
             onPress={onPress}
         >
             <Image
@@ -16,7 +16,7 @@ export default function AddPostBtn( {onPress} ) {
 }
 
 const styles = StyleSheet.create({
-    AddPostBtn: {
+    container: {
         borderRadius: 14,
         width: 60,
         height: 60,

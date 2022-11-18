@@ -6,7 +6,7 @@ import ChatImg from "../../../assets/chat.png"
 import LikeImg from "../../../assets/heart.png"
 import OptionImg from "../../../assets/option.png"
 
-export default function PostList({ Title, Explanation, ChatOfNumber, LikeOfNumber, navigation }) {
+export default function PostList({ Title, Explanation, numberOfComment, numberOfLike, navigation }) {
 
     const [visible, setVisible] = useState(false);
 
@@ -36,7 +36,7 @@ export default function PostList({ Title, Explanation, ChatOfNumber, LikeOfNumbe
                                 style={styles.ChatImg}
                             />
                             <Text style={styles.ChatOfNumber}>
-                                {ChatOfNumber}
+                                {numberOfComment}
                             </Text>
                         </View>
                         <View style={styles.PostLike}>
@@ -46,8 +46,8 @@ export default function PostList({ Title, Explanation, ChatOfNumber, LikeOfNumbe
                                     style={styles.LikeImg}
                                 />
                             </TouchableOpacity>
-                            <Text style={styles.LikeOfNumber}>
-                                {LikeOfNumber}
+                            <Text style={styles.numberOfLike}>
+                                {numberOfLike}
                             </Text>
                         </View>
                     </View>

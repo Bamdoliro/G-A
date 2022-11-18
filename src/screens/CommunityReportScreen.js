@@ -5,22 +5,13 @@ import GatiIntroduction from '../components/common/GatiIntroduction/GatiIntroduc
 export default function CommunityReportScreen() { // '공동체_신고하기' 페이지
     return (
         <View style={styles.GatiProduceContainer}>
-            <View style={styles.GatiProduceHeader}>
-                <TouchableOpacity onPress={() => navigation.pop()}>
-                    <Image
-                        source={ArrowIcon}
-                        style={styles.ArrowIcon}
-                    />
-                </TouchableOpacity>
-                <Text style={styles.GatiTitleText}>
-                    신고
-                </Text>
-                <TouchableOpacity>
-                    <Text style={styles.CompletionText}>
-                        완료
-                    </Text>
-                </TouchableOpacity>
-            </View>
+            <Header
+                title="신고"
+                buttonText="완료"
+                buttonOnPress={() => {
+                    // 버튼 눌렀을 때 이벤트 추가하기 
+                }}
+            />
             <View>
                 <Text style={styles.ReportReasonText}>신고 사유</Text>
             </View>
@@ -34,33 +25,5 @@ const styles = StyleSheet.create({
         flexGrow: 1,
         backgroundColor: "#fff",
         alignItems: 'center'
-    },
-
-    GatiProduceHeader: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        marginTop: 60,
-        width: 300
-    },
-
-    ArrowIcon: {
-        width: 10,
-        height: 20,
-    },
-
-    GatiTitleText: {
-        fontSize: 19,
-        fontWeight: "bold",
-    },
-
-    CompletionText: {
-        fontSize: 15,
-        color: "#0D76FF"
-    },
-
-    ReportReasonText: {
-        fontSize: 15,
-        color: '#999999'
     }
 })
