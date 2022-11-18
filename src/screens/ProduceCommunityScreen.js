@@ -60,6 +60,7 @@ export default function ProduceCommunityScreen({navigation}) {
                         title="공동체 소개"
                         child={
                             <TextArea
+                                content={introduction}
                                 setContent={setIntroduction}
                             />
                         }

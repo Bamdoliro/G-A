@@ -1,7 +1,7 @@
 import {Image, StyleSheet, TextInput, View} from "react-native";
 import GrayGati from "../../../assets/GrayGati.png";
 
-export default function TextArea({setContent}) {
+export default function TextArea({content, setContent}) {
     return (
         <View style={styles.container}>
             <Image source={GrayGati} style={styles.logo}/>
@@ -9,6 +9,7 @@ export default function TextArea({setContent}) {
                 multiline={true}
                 numberOfLines={10}
                 style={styles.input}
+                value={content}
                 onChangeText={(text) => setContent(text)}
             >
             </TextInput>
