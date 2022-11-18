@@ -1,4 +1,4 @@
-import {ScrollView, StyleSheet, TextInput, View} from "react-native";
+import {ScrollView, StyleSheet, View} from "react-native";
 import {useState} from "react";
 
 import NumberInput from "../components/common/NumberOfPeopleInput/NumberOfPeopleInput";
