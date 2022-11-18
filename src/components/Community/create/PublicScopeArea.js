@@ -1,4 +1,4 @@
-import Option from "../../common/Option/Option";
+import Option from "../../common/input/Option/Option";
 import {StyleSheet, View} from "react-native";
 
 export default function PublicScopeArea({isPublic, setIsPublic}) {

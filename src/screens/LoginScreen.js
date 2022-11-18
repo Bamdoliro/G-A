@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import CustomInput from "../components/common/CustomInput/CustomInput";
+import CustomInput from "../components/common/input/CustomInput/CustomInput";
 import Logo from "../assets/img.png";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import CustomButton from "../components/common/CustomButton/CustomButton";
+import CustomButton from "../components/common/button/CustomButton/CustomButton";
 import {useMutation} from "react-query";
 import {login} from "../utils/api/auth";
 

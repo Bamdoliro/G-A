@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View} from 'react-native';
 import community from "../../../data/CummunityData.json";
-import DownArrow from "../../common/DownArrow/DownArrow";
-import MainHeader from "../../common/MainHeader/MainHeader";
+import DownArrow from "../../common/icon/DownArrow/DownArrow";
+import MainHeader from "../../common/header/MainHeader/MainHeader";
 
 export default function CommunityHeader() {
 

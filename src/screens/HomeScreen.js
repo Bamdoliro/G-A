@@ -1,14 +1,14 @@
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
-import MyCommunities from "../components/MainPage/MyCommunities/MyCommunities";
-import MainBanner from '../components/MainPage/MainBanner/MainBanner';
-import MainHeaderScreen from "../components/MainPage/MainHeader/MainHeaderScreen"
-import PlusButton from "../components/common/PlusButton/PlusButton";
+import MyCommunities from "../components/Home/MyCommunities/MyCommunities";
+import Banner from '../components/Home/Banner/Banner';
+import HomeHeader from "../components/Home/HomeHeader/HomeHeader"
+import PlusButton from "../components/common/button/PlusButton/PlusButton";
 
 export default function HomeScreen({navigation}) {
     return (
         <SafeAreaView>
-            <MainHeaderScreen/>
-            <MainBanner/>
+            <HomeHeader/>
+            <Banner/>
             <MyCommunities/>
             <PlusButton
                 onPress={() => navigation.navigate('ProduceCommunityScreen')}

@@ -1,10 +1,10 @@
 import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {useState} from "react";
-import NumberInput from "../components/common/NumberOfPeopleInput/NumberOfPeopleInput"
-import Header from "../components/common/Header/Header";
+import NumberInput from "../components/common/input/NumberOfPeopleInput/NumberOfPeopleInput"
+import LightHeader from "../components/common/header/LightHeader/LightHeader";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
-import InputFrame from "../components/common/InputFrame/InputFrame";
-import BasicInput from "../components/common/BasicInput/BasicInput";
+import InputFrame from "../components/common/frame/InputFrame/InputFrame";
+import BasicInput from "../components/common/input/BasicInput/BasicInput";
 import PublicScopeArea from "../components/Community/create/PublicScopeArea";
 
 export default function CommunitySettingScreen() {
@@ -15,7 +15,7 @@ export default function CommunitySettingScreen() {
     return (
         <SafeAreaView>
             <View style={styles.container}>
-                <Header
+                <LightHeader
                     title="공동체 설정"
                     buttonText="완료"
                     buttonOnPress={() => {

@@ -3,7 +3,7 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, View, Image } from "reac
 
 import gatiLogo from "../assets/WhiteGati.png";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
-import CustomButton from "../components/common/CustomButton/CustomButton";
+import CustomButton from "../components/common/button/CustomButton/CustomButton";
 import Close from '../assets/close.png';
 
 export default function EmailAuthScreen({navigation}) {

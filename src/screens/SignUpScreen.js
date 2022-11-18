@@ -1,9 +1,9 @@
 import React, {useRef, useState} from "react";
 import {Image, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 
-import CustomInput from "../components/common/CustomInput/CustomInput";
+import CustomInput from "../components/common/input/CustomInput/CustomInput";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
-import CustomButton from "../components/common/CustomButton/CustomButton";
+import CustomButton from "../components/common/button/CustomButton/CustomButton";
 import Close from '../assets/close.png';
 import {useMutation} from "react-query";
 import {join} from "../utils/api/user";

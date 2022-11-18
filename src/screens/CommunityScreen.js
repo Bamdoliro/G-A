@@ -2,10 +2,10 @@ import {ScrollView, StyleSheet} from "react-native";
 import {useState} from "react";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import CommunityHeader from "../components/Community/CommunityHeader/CommunityHeader";
-import GatiFrame from "../components/CommunityPostPage/ListFrame/GatiFrame";
-import PostFrame from "../components/CommunityPostPage/ListFrame/PostFrame";
-import PlusButton from "../components/common/PlusButton/PlusButton";
-import GatiButton from "../components/common/GatiButton/GatiButton";
+import GatiFrame from "../components/Feed/ListFrame/GatiFrame";
+import PostFrame from "../components/Feed/ListFrame/PostFrame";
+import PlusButton from "../components/common/button/PlusButton/PlusButton";
+import GatiButton from "../components/common/button/GatiButton/GatiButton";
 
 export default function CommunityScreen({navigation}) {
     const [isChoiceBtn, setChoiceBtn] = useState(true);
