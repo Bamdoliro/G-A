@@ -2,6 +2,9 @@ import ChatLiveScreen from "../screens/ChatLiveScreen";
 import ChatListScreen from "../screens/ChatListScreen";
 import TabNavigation from "./TabNavigation";
 import PostDetailScreen from "../screens/PostDetailScreen";
+import WriteGatiScreen from "../screens/Post/write/WriteGatiScreen";
+import WritePostScreen from "../screens/Post/write/WritePostScreen";
+import ProduceCommunityScreen from "../screens/ProduceCommunityScreen";
 
 
 export default function MainNavigation({Stack, socket}) {
@@ -19,6 +22,9 @@ export default function MainNavigation({Stack, socket}) {
                 {props => <ChatLiveScreen {...props} socket={socket}/>}
             </Stack.Screen>
             <Stack.Screen name="PostDetailScreen" component={PostDetailScreen}/>
+            <Stack.Screen name="WritePostScreen" component={WritePostScreen}/>
+            <Stack.Screen name="WriteGatiScreen" component={WriteGatiScreen}/>
+            <Stack.Screen name="ProduceCommunityScreen" component={ProduceCommunityScreen}/>
         </Stack.Navigator>
     )
 };

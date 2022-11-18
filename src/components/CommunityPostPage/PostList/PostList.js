@@ -5,13 +5,12 @@ import PostImg from "../../../assets/post_img.png"
 import ChatImg from "../../../assets/chat.png"
 import LikeImg from "../../../assets/heart.png"
 import OptionImg from "../../../assets/option.png"
+import {useNavigation} from "@react-navigation/native";
 
-export default function PostList({ Title, Explanation, ChatOfNumber, LikeOfNumber, navigation }) {
-
+export default function PostList({ Title, Explanation, numberOfComment, numberOfLike }) {
+    const navigation = useNavigation();
     const [visible, setVisible] = useState(false);
-
     const hideMenu = () => setVisible(false);
-
     const showMenu = () => setVisible(true);
 
     return (
@@ -36,7 +35,7 @@ export default function PostList({ Title, Explanation, ChatOfNumber, LikeOfNumbe
                                 style={styles.ChatImg}
                             />
                             <Text style={styles.ChatOfNumber}>
-                                {ChatOfNumber}
+                                {numberOfComment}
                             </Text>
                         </View>
                         <View style={styles.PostLike}>
@@ -46,8 +45,8 @@ export default function PostList({ Title, Explanation, ChatOfNumber, LikeOfNumbe
                                     style={styles.LikeImg}
                                 />
                             </TouchableOpacity>
-                            <Text style={styles.LikeOfNumber}>
-                                {LikeOfNumber}
+                            <Text style={styles.numberOfLike}>
+                                {numberOfLike}
                             </Text>
                         </View>
                     </View>

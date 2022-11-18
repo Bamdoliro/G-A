@@ -7,7 +7,7 @@ import HumanIcon from "../../../assets/human_info.png"
 import CalendarIcon from "../../../assets/calendar.png"
 import CustomButton from "../../common/CustomButton/CustomButton";
 
-export default function GatiPostList({ Title, HumanOfNumber, Date }) {
+export default function GatiPostList({ Title, numberOfPeople, Date }) {
 
     const [visible, setVisible] = useState(false);
 
@@ -20,7 +20,7 @@ export default function GatiPostList({ Title, HumanOfNumber, Date }) {
     }
 
     return (
-        <TouchableOpacity style={styles.PostList}>
+        <View style={styles.PostList}>
             <Image
                 style={styles.PostImg}
                 source={PostImg}
@@ -33,7 +33,7 @@ export default function GatiPostList({ Title, HumanOfNumber, Date }) {
                             source={HumanIcon}
                             style={styles.HumanIcon}
                         />
-                        <Text style={styles.HumanOfNumber}>{HumanOfNumber}</Text>
+                        <Text style={styles.HumanOfNumber}>{numberOfPeople}</Text>
                     </View>
                     <View style={styles.CalendarArea}>
                         <Image
@@ -67,7 +67,7 @@ export default function GatiPostList({ Title, HumanOfNumber, Date }) {
                     </View>
                 </View>
             </View>
-        </TouchableOpacity>
+        </View>
     )
 }
 

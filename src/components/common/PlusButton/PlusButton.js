@@ -1,10 +1,10 @@
-import { View, StyleSheet, Image, TouchableOpacity } from "react-native";
+import {Image, StyleSheet, TouchableOpacity} from "react-native";
 import PlusIcon from "../../../assets/plus.png"
 
-export default function AddPostBtn( {onPress} ) {
+export default function PlusButton({onPress} ) {
     return (
         <TouchableOpacity
-            style={styles.AddPostBtn}
+            style={styles.container}
             onPress={onPress}
         >
             <Image
@@ -16,7 +16,7 @@ export default function AddPostBtn( {onPress} ) {
 }
 
 const styles = StyleSheet.create({
-    AddPostBtn: {
+    container: {
         borderRadius: 14,
         width: 60,
         height: 60,
