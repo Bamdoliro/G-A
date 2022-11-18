@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     },
     bell: {
         position: "absolute",
-        right: 20,
-        top: 35,
+        right: 30,
+        top: 22.5,
     },
 })

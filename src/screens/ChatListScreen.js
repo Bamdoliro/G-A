@@ -1,5 +1,5 @@
 import {StyleSheet} from "react-native";
-import ChatScreenHeader from "../components/Chat/ChatList/ChatScreenHeader/ChatScreenHeader";
+import ChatScreenHeader from "../components/Chat/ChatList/ChatScreenHeader";
 import ChatListSection from "../components/Chat/ChatList/ChatListSection";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import MyStatusBar from "../components/common/SafeAreaView/MyStatusBar";
