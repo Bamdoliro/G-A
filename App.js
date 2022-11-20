@@ -6,6 +6,7 @@ import {QueryClient, QueryClientProvider} from "react-query";
 import {getAccessToken} from "./src/utils/storage/token";
 import MainNavigation from "./src/routes/MainNavigation";
 import AuthNavigation from "./src/routes/AuthNavigation";
+import {BottomSheetModalProvider} from "@gorhom/bottom-sheet";
 
 const Stack = createNativeStackNavigator();
 const queryClient = new QueryClient();
@@ -31,19 +32,21 @@ export default function App() {
 
     return (
         <QueryClientProvider client={queryClient}>
-            <NavigationContainer>
-                {login ?
-                    <MainNavigation
-                        Stack={Stack}
-                        socket={socket}
-                    />
-                    :
-                    <AuthNavigation
-                        Stack={Stack}
-                        setLoginToken={setLoginToken()}
-                    />
-                }
-            </NavigationContainer>
+            <BottomSheetModalProvider>
+                <NavigationContainer>
+                    {login ?
+                        <MainNavigation
+                            Stack={Stack}
+                            socket={socket}
+                        />
+                        :
+                        <AuthNavigation
+                            Stack={Stack}
+                            setLoginToken={setLoginToken()}
+                        />
+                    }
+                </NavigationContainer>
+            </BottomSheetModalProvider>
         </QueryClientProvider>
     );
 };

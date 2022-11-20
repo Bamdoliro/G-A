@@ -3,7 +3,7 @@ import community from "../../../data/CummunityData.json";
 import DownArrow from "../../common/icon/DownArrow/DownArrow";
 import MainHeader from "../../common/header/MainHeader/MainHeader";
 
-export default function CommunityHeader() {
+export default function CommunityHeader({setChangeCommunityModalIsOpen}) {
 
     return (
         <MainHeader
@@ -20,8 +20,7 @@ export default function CommunityHeader() {
                             {community.name}
                         </Text>
                         <DownArrow
-                            onPress={() => {
-                            }}
+                            onPress={() => setChangeCommunityModalIsOpen(true)}
                         />
                     </View>
 
