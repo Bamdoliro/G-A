@@ -26,6 +26,6 @@ const styles = StyleSheet.create({
     ScrollSection: {
         width: "100%",
         flexDirection: "column",
-        padding: 20,
+        paddingHorizontal: 30,
     }
 })
