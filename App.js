@@ -21,7 +21,7 @@ export default function App() {
 
     const subscribeChat = async () => {
         if (await getAccessToken()) {
-            socket.current.emit("subscribe");
+            socket.current?.emit("subscribe");
         }
     }
 
@@ -37,12 +37,13 @@ export default function App() {
                     {login ?
                         <MainNavigation
                             Stack={Stack}
+                            setLogout={() => setLogin("")}
                             socket={socket}
                         />
                         :
                         <AuthNavigation
                             Stack={Stack}
-                            setLoginToken={setLoginToken()}
+                            setLogin={() => setLoginToken()}
                         />
                     }
                 </NavigationContainer>

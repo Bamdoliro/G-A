@@ -14,14 +14,14 @@ import ChatLiveSendField from "../components/Chat/ChatLive/ChatLiveSendField";
 import {useEffect, useState} from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
-import {aiUrl, baseUrl} from "../utils/api/urls";
+import {aiUrl} from "../utils/api/urls";
 import jwtDecode from "jwt-decode";
 import Toast from "react-native-toast-message";
 import {toastConfig} from "../components/common/Toast/ToastConfig";
 import {getMessages} from "../utils/api/chat";
 
-export default function ChatLiveScreen({ route, navigation, socket }) {
-    const { id, name, numberOfMembers } = route.params;
+export default function ChatLiveScreen({route, navigation, socket}) {
+    const {id, name, numberOfMembers} = route.params;
     const [messages, setMessages] = useState([]);
     const [currentUserId, setCurrentUserId] = useState(0);
 
@@ -33,8 +33,9 @@ export default function ChatLiveScreen({ route, navigation, socket }) {
                 message: message,
             };
 
-            socket.current.emit("message", data);
-            showChatNotification(message);
+            socket.current?.emit("message", data);
+            // TODO :: AI server 구축시 추가
+            // showChatNotification(message);
         }
     };
 
@@ -55,20 +56,19 @@ export default function ChatLiveScreen({ route, navigation, socket }) {
         }
     }
 
-
     useEffect(() => {
-        socket.current.on("message", data => {
+        socket.current?.on("message", data => {
             setMessages(oldDate => [...oldDate, data])
         });
 
-        socket.current.on("error", err => {
+        socket.current?.on("error", err => {
             console.log(err)
         })
     }, [socket]);
 
     // 키보드
 
-    const { StatusBarManager } = NativeModules;
+    const {StatusBarManager} = NativeModules;
 
     useEffect(() => {
         Platform.OS == 'ios' ? StatusBarManager.getHeight((statusBarFrameData) => {
@@ -95,22 +95,22 @@ export default function ChatLiveScreen({ route, navigation, socket }) {
 
     return (
         <>
-            <MyStatusBar barStyle="dark-content" backgroundColor="white" />
+            <MyStatusBar barStyle="dark-content" backgroundColor="white"/>
             <SafeAreaView style={styles.ChatLiveSection}>
                 <KeyboardAvoidingView
                     style={styles.ChatKeyboardView}
                     behavior={Platform.OS === "ios" ? "padding" : "height"}
-                    keyboardVerticalOffset={Platform.OS === "ios" ? statusBarHeight : statusBarHeight+20}
+                    keyboardVerticalOffset={Platform.OS === "ios" ? statusBarHeight : statusBarHeight + 20}
                 >
                     <ChatLiveHeader
-                        style={{ flex: 1 }}
+                        style={{flex: 1}}
                         navigation={navigation}
                         name={name}
                         numberOfMembers={numberOfMembers}
                     />
                     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                         <ChatLiveField
-                            style={{ flex: 1 }}
+                            style={{flex: 1}}
                             messageData={messages}
                             currentUserId={currentUserId}
                         />
@@ -120,7 +120,7 @@ export default function ChatLiveScreen({ route, navigation, socket }) {
                     />
                 </KeyboardAvoidingView>
             </SafeAreaView>
-            <Toast config={toastConfig} />
+            <Toast config={toastConfig}/>
         </>
     )
 }

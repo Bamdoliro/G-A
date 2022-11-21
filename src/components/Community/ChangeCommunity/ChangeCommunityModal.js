@@ -61,8 +61,9 @@ export default function ChangeCommunityModal({isOpen, setIsOpen}) {
                 style={[styles.container, {paddingBottom: bottom ? bottom + 15 : 30}]}
                 onLayout={handleContentLayout}
             >
-                {data.myCommunityList.map(c => (
+                {data.myCommunityList.map((c, index) => (
                     <Community
+                        key={index}
                         id={c.id}
                         name={c.name}
                         coverImage={c.coverImage}

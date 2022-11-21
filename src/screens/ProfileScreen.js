@@ -7,18 +7,21 @@ import ProfileImage from '../assets/profile_image.png';
 import {useState} from 'react';
 import LightHeader from "../components/common/header/LightHeader/LightHeader";
 import Toggle from "../components/common/input/Toggle/Toggle";
+import {deleteAccessToken, deleteRefreshToken} from "../utils/storage/token";
 
-export default function ProfileScreen() {
+export default function ProfileScreen({setLogout}) {
     const [isNoticeAllow, setIsNoticeAllow] = useState(false);
     const logoutUser = async () => {
         try {
             const accessToken = await AsyncStorage.getItem("access-token");
-            await AsyncStorage.removeItem("access-token");
             const response = await axios.delete(`${baseUrl}/auth`, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`,
                 },
             });
+            await deleteAccessToken();
+            await deleteRefreshToken();
+            setLogout();
         } catch (e) {
             console.log(e);
         }
