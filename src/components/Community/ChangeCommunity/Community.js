@@ -1,9 +1,8 @@
 import {Image, StyleSheet, Text, View} from "react-native";
 
-export default function Community({id, name, coverImage}) {
-    const current = 1;
+export default function Community({id, name, coverImage, current}) {
     return (
-        <View style={[styles.container, current === id ? styles.current : null]}>
+        <View style={[styles.container, current ? styles.current : null]}>
             <Image source={{uri: coverImage}} style={styles.image}/>
             <Text style={styles.name}>{name}</Text>
         </View>

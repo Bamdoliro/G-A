@@ -4,7 +4,6 @@ import {
     BottomSheetBackdrop,
     BottomSheetModal,
     BottomSheetScrollView,
-    BottomSheetView,
     useBottomSheetDynamicSnapPoints,
 } from "@gorhom/bottom-sheet";
 import {useSafeAreaInsets} from "react-native-safe-area-context";
@@ -18,6 +17,7 @@ export default function ChangeCommunityModal({isOpen, setIsOpen}) {
     const {animatedHandleHeight, animatedSnapPoints, animatedContentHeight, handleContentLayout} =
         useBottomSheetDynamicSnapPoints(initialSnapPoints);
     const {bottom} = useSafeAreaInsets();
+    const current = 1;
 
     useEffect(() => {
         if (isOpen) {
@@ -41,10 +41,6 @@ export default function ChangeCommunityModal({isOpen, setIsOpen}) {
         []
     );
 
-    const confirm = () => {
-        hideChangeCommunityModal();
-    };
-
     const handleDismiss = useCallback(() => {
         hideChangeCommunityModal();
     }, []);
@@ -63,7 +59,6 @@ export default function ChangeCommunityModal({isOpen, setIsOpen}) {
         >
             <BottomSheetScrollView
                 style={[styles.container, {paddingBottom: bottom ? bottom + 15 : 30}]}
-                contentContainerStyle={styles.scrollViewStyle}
                 onLayout={handleContentLayout}
             >
                 {data.myCommunityList.map(c => (
@@ -71,6 +66,7 @@ export default function ChangeCommunityModal({isOpen, setIsOpen}) {
                         id={c.id}
                         name={c.name}
                         coverImage={c.coverImage}
+                        current = {c.id === current}
                     />
                 ))}
             </BottomSheetScrollView>
