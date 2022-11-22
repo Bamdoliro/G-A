@@ -1,77 +1,63 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import ArrowIcon from "../../../assets/arrow.png";
 import OptionIcon from "../../../assets/option.png";
+import {useNavigation} from "@react-navigation/native";
 
-const PostDetailHeader = ({navigation}) => {
+const PostDetailHeader = () => {
+    const navigation = useNavigation();
     return (
-        <View style={styles.PostDetailHeaderContainer}>
-            <View style={styles.PostDetailHeaderArrowContainer}>
-                <View style={styles.PostDetailHeaderDisplayChildFlex}/>
-                <View style={styles.PostDetailHeaderDisplayFlex}>
-                    <View style={styles.PostDetailHeaderDisplayChildFlex}/>
-                    <TouchableOpacity
-                        onPress={() => navigation.pop()}
-                    >
-                    <Image source={ArrowIcon} style={styles.PostDetailBackArrow}/>
-                    </TouchableOpacity>
-                    <View style={styles.PostDetailHeaderDisplayChildFlex}/>
-                </View>
-                <View style={styles.PostDetailHeaderDisplayChildFlex}/>
-            </View>
-            <View style={styles.PostDetailHeaderProfile}>
-                {/* <Image source={} /> */}
-                <View style={styles.PostDetailHeaderProfileImage}/>
-                <View>
-                    <Text style={styles.PostDetailHeaderProfileName}>2215 최태영</Text>
-                    <Text style={styles.PostDetailHeaderProfileTime}>20분 전</Text>
+        <View style={styles.container}>
+            <View style={styles.left}>
+                <TouchableOpacity onPress={() => navigation.pop()}>
+                    <Image
+                        source={ArrowIcon}
+                        style={styles.ArrowIcon}
+                    />
+                </TouchableOpacity>
+                <View style={styles.PostDetailHeaderProfile}>
+                    {/* <Image source={} /> */}
+                    <View style={styles.PostDetailHeaderProfileImage}/>
+                    <View>
+                        <Text style={styles.PostDetailHeaderProfileName}>2215 최태영</Text>
+                        <Text style={styles.PostDetailHeaderProfileTime}>20분 전</Text>
+                    </View>
                 </View>
             </View>
-            <View style={styles.PostDetailHeaderOptionContainer}>
-                <Image source={OptionIcon} style={styles.PostDetailHeaderOption}/>
-            </View>
+            <Image source={OptionIcon} style={styles.PostDetailHeaderOption}/>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    PostDetailHeaderContainer: {
+    container: {
         display: 'flex',
-        height: 40,
         width: '100%',
-        // justifyContent: 'space-between',
-        alignContent: 'center',
-        flexDirection: 'row'
-    },
-    PostDetailHeaderArrowContainer: {
-        width: 60,
-        display: 'flex',
+        paddingVertical: 7,
+        paddingHorizontal: 30,
+        justifyContent: "space-between",
+        alignItems: 'center',
         flexDirection: 'row',
-        alignContent: 'center',
-        justifyContent: 'center',
-        textAlign: 'center',
     },
-    PostDetailHeaderDisplayFlex: {
-        display: 'flex'
+    left: {
+        flexDirection: "row",
+        alignItems: "center",
     },
-    PostDetailHeaderDisplayChildFlex: {
-        flex: '1'
-    },
-    PostDetailBackArrow: {
+    ArrowIcon: {
         width: 10,
-        height: 17,
+        height: 20,
+        marginRight: 15,
     },
     PostDetailHeaderProfile: {
         display: 'flex',
         flexDirection: 'row',
-        width: 150,
-        justifyContent: 'space-between',
         alignItems: 'center',
     },
     PostDetailHeaderProfileImage: {
         width: 40,
         height: 40,
         backgroundColor: '#D9D9D9',
-        borderRadius: 30
+        borderRadius: 30,
+        marginRight: 5,
     },
     PostDetailHeaderProfileFont: {
         display: 'flex',
@@ -85,17 +71,9 @@ const styles = StyleSheet.create({
     PostDetailHeaderProfileTime: {
         fontWeight: '500',
         fontSize: 12,
-        lineHeight: 11,
-    },
-    PostDetailHeaderOptionContainer: {
-        display: 'flex',
-        alignContent: 'center',
-        justifyContent: 'center',
-        width: 50,
-        marginLeft: 'auto'
     },
     PostDetailHeaderOption: {
-        width: 8,
+        width: 25,
         height: 25
     }
 })

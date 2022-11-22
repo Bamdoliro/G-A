@@ -10,7 +10,7 @@ import MyStatusBar from "../components/common/SafeAreaView/MyStatusBar";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import ChatLiveField from "../components/Chat/ChatLive/ChatLiveField";
 import ChatLiveHeader from "../components/Chat/ChatLive/ChatLiveHeader";
-import ChatLiveSendField from "../components/Chat/ChatLive/ChatLiveSendField";
+import SendField from "../components/common/input/SendField/SendField";
 import {useEffect, useState} from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
@@ -115,7 +115,7 @@ export default function ChatLiveScreen({route, navigation, socket}) {
                             currentUserId={currentUserId}
                         />
                     </TouchableWithoutFeedback>
-                    <ChatLiveSendField
+                    <SendField
                         sendMessage={sendMessage}
                     />
                 </KeyboardAvoidingView>

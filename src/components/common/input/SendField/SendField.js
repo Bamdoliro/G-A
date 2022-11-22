@@ -1,9 +1,9 @@
 import {useEffect, useState} from "react";
 import {Image, StyleSheet, TextInput, TouchableOpacity, View} from "react-native";
-import SendBtn from "../../../assets/sendBtn.png";
+import SendBtn from "../../../../assets/sendBtn.png";
 
 
-export default function ChatLiveSendField({sendMessage}) {
+export default function SendField({sendMessage}) {
     const [message, setMessage] = useState("");
 
     const SendBtnOnClick = () => {
@@ -43,7 +43,9 @@ const styles = StyleSheet.create({
         paddingTop: 13,
         paddingBottom: 13,
         marginTop: "auto",
-        backgroundColor: "#fff"
+        backgroundColor: "#fff",
+        borderTopColor: "#f4f4f4",
+        borderTopWidth: 1,
     },
     ChatSendInput: {
         width: "75%",
