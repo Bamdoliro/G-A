@@ -1,4 +1,4 @@
-import {ScrollView, StyleSheet, View} from "react-native";
+import {StyleSheet, View} from "react-native";
 import {useState} from "react";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import CommunityHeader from "../components/Community/CommunityHeader/CommunityHeader";
@@ -25,13 +25,9 @@ export default function CommunityScreen({navigation}) {
                     category={category}
                     setCategory={setCategory}
                 />
-                <ScrollView
-                    showsVerticalScrollIndicator={false}
-                >
-                    {
-                        category === "GATI" ? <GatiFeedFrame/> : <FeedFrame/>
-                    }
-                </ScrollView>
+                {
+                    category === "GATI" ? <GatiFeedFrame/> : <FeedFrame/>
+                }
             </View>
             {category === "GATI" ?
                 <GatiButton
