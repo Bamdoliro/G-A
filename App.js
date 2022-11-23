@@ -7,6 +7,7 @@ import { getAccessToken } from "./src/utils/storage/token";
 import MainNavigation from "./src/routes/MainNavigation";
 import AuthNavigation from "./src/routes/AuthNavigation";
 import SplashScreen from "./src/screens/SplashScreen";
+import {BottomSheetModalProvider} from "@gorhom/bottom-sheet";
 
 const Stack = createNativeStackNavigator();
 const queryClient = new QueryClient();
@@ -21,7 +22,7 @@ export default function App() {
 
     const subscribeChat = async () => {
         if (await getAccessToken()) {
-            socket.current.emit("subscribe");
+            socket.current?.emit("subscribe");
         }
     }
 
@@ -45,6 +46,7 @@ export default function App() {
                     {login ?
                         <MainNavigation
                             Stack={Stack}
+                            setLogout={() => setLogin("")}
                             socket={socket}
                         />
                         :
