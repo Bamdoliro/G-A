@@ -6,6 +6,7 @@ import {QueryClient, QueryClientProvider} from "react-query";
 import {getAccessToken} from "./src/utils/storage/token";
 import MainNavigation from "./src/routes/MainNavigation";
 import AuthNavigation from "./src/routes/AuthNavigation";
+import SplashScreen from "./src/screens/SplashScreen";
 
 const Stack = createNativeStackNavigator();
 const queryClient = new QueryClient();
@@ -32,7 +33,7 @@ export default function App() {
     return (
         <QueryClientProvider client={queryClient}>
             <NavigationContainer>
-                {login ?
+                {/* {login ?
                     <MainNavigation
                         Stack={Stack}
                         socket={socket}
@@ -42,7 +43,8 @@ export default function App() {
                         Stack={Stack}
                         setLoginToken={setLoginToken()}
                     />
-                }
+                } */}
+                <SplashScreen />
             </NavigationContainer>
         </QueryClientProvider>
     );
