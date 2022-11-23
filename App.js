@@ -1,9 +1,9 @@
-import {NavigationContainer} from "@react-navigation/native";
-import {createNativeStackNavigator} from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import useSocket from "./src/hooks/useSocket";
-import {useEffect, useState} from "react";
-import {QueryClient, QueryClientProvider} from "react-query";
-import {getAccessToken} from "./src/utils/storage/token";
+import { useEffect, useState } from "react";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { getAccessToken } from "./src/utils/storage/token";
 import MainNavigation from "./src/routes/MainNavigation";
 import AuthNavigation from "./src/routes/AuthNavigation";
 import SplashScreen from "./src/screens/SplashScreen";
@@ -30,23 +30,34 @@ export default function App() {
         subscribeChat();
     }, [socket]);
 
+    const [splash, setSplash] = useState(false);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setSplash(true);
+        }, 1000); // 초 조절 가능
+    }, [])
+
     return (
-        <QueryClientProvider client={queryClient}>
-            <NavigationContainer>
-                {/* {login ?
-                    <MainNavigation
-                        Stack={Stack}
-                        socket={socket}
-                    />
-                    :
-                    <AuthNavigation
-                        Stack={Stack}
-                        setLoginToken={setLoginToken()}
-                    />
-                } */}
-                <SplashScreen />
-            </NavigationContainer>
-        </QueryClientProvider>
+        splash ? (
+            <QueryClientProvider client={queryClient} >
+                <NavigationContainer>
+                    {login ?
+                        <MainNavigation
+                            Stack={Stack}
+                            socket={socket}
+                        />
+                        :
+                        <AuthNavigation
+                            Stack={Stack}
+                            setLoginToken={setLoginToken()}
+                        />
+                    }
+                </NavigationContainer>
+            </QueryClientProvider>
+        ) : (
+            <SplashScreen />
+        )
     );
 };
 
