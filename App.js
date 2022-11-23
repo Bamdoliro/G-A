@@ -12,11 +12,15 @@ const Stack = createNativeStackNavigator();
 const queryClient = new QueryClient();
 
 export default function App() {
+    const [splash, setSplash] = useState(false);
     const [login, setLogin] = useState(null);
     const socket = useSocket();
 
     const setLoginToken = async () => {
         setLogin(await getAccessToken());
+        setTimeout(()=> {   
+            setSplash(true);
+        }, 1200)
     }
 
     const subscribeChat = async () => {
@@ -30,13 +34,6 @@ export default function App() {
         subscribeChat();
     }, [socket]);
 
-    const [splash, setSplash] = useState(false);
-
-    useEffect(() => {
-        setTimeout(() => {
-            setSplash(true);
-        }, 1000); // 초 조절 가능
-    }, [])
 
     return (
         splash ? (
