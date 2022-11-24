@@ -11,7 +11,6 @@ export default function PinScreen({navigation}) {
     }
     const onClickEnter = () => {
         if (pinCount.length < 4) return;
-        console.log(pinCount);
     }
 
     return (

@@ -1,4 +1,4 @@
-import {ScrollView, StyleSheet, View} from "react-native";
+import {StyleSheet, View} from "react-native";
 import {useState} from "react";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import CommunityHeader from "../components/Community/CommunityHeader/CommunityHeader";
@@ -7,13 +7,17 @@ import FeedFrame from "../components/Feed/ListFrame/FeedFrame";
 import PlusButton from "../components/common/button/PlusButton/PlusButton";
 import GatiButton from "../components/common/button/GatiButton/GatiButton";
 import Category from "../components/Community/Category/Category";
+import ChangeCommunityModal from "../components/Community/ChangeCommunity/ChangeCommunityModal";
 
 export default function CommunityScreen({navigation}) {
     const [category, setCategory] = useState("FEED");
+    const [changeCommunityModalIsOpen, setChangeCommunityModalIsOpen] = useState(false);
 
     return (
         <SafeAreaView>
-            <CommunityHeader/>
+            <CommunityHeader
+                setChangeCommunityModalIsOpen={setChangeCommunityModalIsOpen}
+            />
             <View
                 style={styles.contents}
             >
@@ -21,13 +25,9 @@ export default function CommunityScreen({navigation}) {
                     category={category}
                     setCategory={setCategory}
                 />
-                <ScrollView
-                    showsVerticalScrollIndicator={false}
-                >
-                    {
-                        category === "GATI" ? <GatiFeedFrame/> : <FeedFrame/>
-                    }
-                </ScrollView>
+                {
+                    category === "GATI" ? <GatiFeedFrame/> : <FeedFrame/>
+                }
             </View>
             {category === "GATI" ?
                 <GatiButton
@@ -38,6 +38,11 @@ export default function CommunityScreen({navigation}) {
                     onPress={() => navigation.navigate('WritePostScreen')}
                 />
             }
+
+            <ChangeCommunityModal
+                isOpen={changeCommunityModalIsOpen}
+                setIsOpen={setChangeCommunityModalIsOpen}
+            />
         </SafeAreaView>
     );
 }

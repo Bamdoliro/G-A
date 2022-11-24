@@ -15,7 +15,7 @@ import ProfileScreen from "../screens/ProfileScreen";
 
 const Tab = createBottomTabNavigator();
 
-export default function TabNavigation() {
+export default function TabNavigation({setLogout}) {
     return (
         <Tab.Navigator screenOptions={{
             headerShown: false,
@@ -36,13 +36,13 @@ export default function TabNavigation() {
                 )
             }}/>
             <Tab.Screen name="ChatListScreen" component={ChatListScreen} options={{
-                tabBarIcon: ({focused}) => focused ? (
+                tabBarIcon: ({focused}) => focused ?   (
                     <Image style={{height: 30, width: 30}} source={ChatFilled}/>
                 ) : (
                     <Image style={{height: 30, width: 30}} source={Chat}/>
                 )
             }}/>
-            <Tab.Screen name="ProfileScreen" component={ProfileScreen} options={{
+            <Tab.Screen name="ProfileScreen" children={() => <ProfileScreen setLogout={setLogout}/> } options={{
                 tabBarIcon: ({focused}) => focused ? (
                     <Image style={{height: 30, width: 30}} source={PersonFilled}/>
                 ) : (

@@ -8,7 +8,7 @@ import ProduceCommunityScreen from "../screens/ProduceCommunityScreen";
 import CommunitySettingScreen from "../screens/CommunitySettingScreen";
 
 
-export default function MainNavigation({Stack, socket}) {
+export default function MainNavigation({Stack, setLogout, socket}) {
 
     return (
         <Stack.Navigator
@@ -17,7 +17,9 @@ export default function MainNavigation({Stack, socket}) {
                 headerShown: false
             }}
         >
-            <Stack.Screen name="TabNavigation" component={TabNavigation}/>
+            <Stack.Screen name="TabNavigation">
+                {props => <TabNavigation {...props} setLogout={setLogout}/>}
+            </Stack.Screen>
             <Stack.Screen name="ChatListScreen" component={ChatListScreen}/>
             <Stack.Screen name="ChatLiveScreen">
                 {props => <ChatLiveScreen {...props} socket={socket}/>}
