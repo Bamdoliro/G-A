@@ -54,14 +54,14 @@ const styles = StyleSheet.create({
         backgroundColor: '#C4C4C4',
         width: 6,
         height: 6,
-        borderRadius: "50%",
+        borderRadius: 999,
         margin: 4,
     },
     activeDot: {
         backgroundColor: '#0D76FF',
         width: 6,
         height: 6,
-        borderRadius: "50%",
+        borderRadius: 999,
         margin: 4,
     }
 })

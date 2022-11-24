@@ -6,8 +6,8 @@ import CommunitySettingScreen from "../screens/CommunitySettingScreen";
 import CommunityReportScreen from "../screens/CommunityPostWritingScreen";
 import CommunityPostModifyScreen from "../screens/CommunityPostModifyScreen";
 import CommunityPostWritingScreen from "../screens/CommunityPostWritingScreen";
-import WritePostScreen from "../screens/WritePostScreen";
-import WriteGatiScreen from "../screens/WriteGatiScreen";
+import WritePostScreen from "../screens/Post/write/WritePostScreen";
+import WriteGatiScreen from "../screens/Post/write/WriteGatiScreen";
 import ProduceCommunityScreen from "../screens/ProduceCommunityScreen";
 
 export default function MainNavigation({Stack, setLogout, socket}) {
