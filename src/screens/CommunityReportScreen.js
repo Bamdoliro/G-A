@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View, ScrollView, SafeAreaView, Image } from 'react-native';
 import ArrowIcon from '../assets/arrow.png';
-import GatiIntroduction from '../components/common/GatiIntroduction/GatiIntroduction';
+import TextArea from "../components/common/input/TextArea/TextArea";
 
 export default function CommunityReportScreen() { // '공동체_신고하기' 페이지
     return (
@@ -15,7 +15,7 @@ export default function CommunityReportScreen() { // '공동체_신고하기' �
             <View>
                 <Text style={styles.ReportReasonText}>신고 사유</Text>
             </View>
-            <GatiIntroduction />
+            <TextArea />
         </View>
     )
 }

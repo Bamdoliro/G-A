@@ -1,0 +1,14 @@
+{
+  "myCommunityList": [
+    {
+      "id": 1,
+      "name": "부산소프트웨어마고",
+      "coverImage": "https://scontent-ssn1-1.cdninstagram.com/v/t51.2885-19/169386213_1447526978915830_8957402691166071935_n.jpg?stp=dst-jpg_s320x320&_nc_ht=scontent-ssn1-1.cdninstagram.com&_nc_cat=110&_nc_ohc=O8UMrXPfPyMAX-_6s3t&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfA79bQBlIi1GoYG9iqypvrP_3d69kNJ5StZu1nU4uQt8w&oe=63803057&_nc_sid=8fd12b"
+    },
+    {
+      "id": 2,
+      "name": "평택센트럴자이",
+      "coverImage": "https://scontent-ssn1-1.xx.fbcdn.net/v/t1.6435-9/129393075_3441762265915612_8298024169818361964_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=A75hkhGqZ_oAX8OBNgi&_nc_ht=scontent-ssn1-1.xx&oh=00_AfDCN0u-R05xoHTk-Mr01tPrTBPa2MEQFa_Yll41L7o-Cg&oe=63A238C2"
+    }
+  ]
+}

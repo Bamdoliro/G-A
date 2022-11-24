@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View, ScrollView, SafeAreaView, Image } from 'react-native';
 import ArrowIcon from '../assets/arrow.png';
-import GatiIntroduction from '../components/common/GatiIntroduction/GatiIntroduction';
+import TextArea from '../components/common/input/TextArea/TextArea';
 
 export default function CommunityPostModifyScreen() { // '채팅2_공지수정' 페이지
     return (
@@ -15,7 +15,7 @@ export default function CommunityPostModifyScreen() { // '채팅2_공지수정' 
             <View>
                 <Text style={styles.PostWritingText}>글 쓰기</Text>
             </View>
-            <GatiIntroduction />
+            <TextArea />
         </View>
     )
 }
