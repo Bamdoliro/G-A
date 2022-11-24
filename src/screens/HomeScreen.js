@@ -9,7 +9,6 @@ export default function HomeScreen({navigation}) {
         <SafeAreaView>
             <HomeHeader/>
             <Banner/>
-            <MyCommunities/>
             <PlusButton
                 onPress={() => navigation.navigate('ProduceCommunityScreen')}
             />
