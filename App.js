@@ -18,9 +18,6 @@ export default function App() {
 
     const setLoginToken = async () => {
         setLogin(await getAccessToken());
-        setTimeout(()=> {   
-            setSplash(true);
-        }, 1200)
     }
 
     const subscribeChat = async () => {
@@ -30,7 +27,6 @@ export default function App() {
     }
 
     useEffect(() => {
-        setLoginToken();
         subscribeChat();
     }, [socket]);
 
@@ -53,7 +49,10 @@ export default function App() {
                 </NavigationContainer>
             </QueryClientProvider>
         ) : (
-            <SplashScreen />
+            <SplashScreen   
+                setLoginToken={setLoginToken}
+                setSplash={setSplash}
+            />
         )
     );
 };

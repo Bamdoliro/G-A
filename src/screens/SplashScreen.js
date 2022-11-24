@@ -1,7 +1,15 @@
+import { useEffect } from "react";
 import { View, Image, StyleSheet } from "react-native";
 import GatiLogo from "../assets/GatiBlueLogo.png"
 
-export default function SplashScreen() {
+export default function SplashScreen({setLoginToken, setSplash}) {
+    useEffect(() => {
+        setLoginToken();
+        setTimeout(() => {
+            setSplash(true)
+        }, 1200)
+    }, [])
+
     return (
         <View style={styles.SplashScreen}>
             <Image 
