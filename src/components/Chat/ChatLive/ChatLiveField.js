@@ -1,32 +1,35 @@
-import { FlatList, StyleSheet, View } from "react-native";
-import React, { useRef } from 'react';
+import {FlatList, StyleSheet, View} from "react-native";
+import React, {useRef} from 'react';
 
 import ChatLiveMyMessage from "./Message/ChatLiveMyMessage";
 import ChatLiveOtherMessage from "./Message/ChatLiveOtherMessage";
+import SystemMessage from "./Message/ChatLiveSystemMessage";
 
-export default function ChatLiveField({ messageData, currentUserId }) {
+export default function ChatLiveField({messageData, currentUserId}) {
     const flatList = React.useRef(null)
 
     return (
         <View style={styles.ChatLiveField}>
             <FlatList
-                ref = {flatList}
+                ref={flatList}
                 onContentSizeChange={() => {
                     flatList.current.scrollToEnd();
                 }}
                 showsVerticalScrollIndicator={false}
                 showsHorizontalScrollIndicator={false}
-                contentContainerStyle={{ }}
+                contentContainerStyle={{}}
                 style={styles.list}
                 data={messageData}
                 keyExtractor={(item, index) => index.toString()}
-                renderItem={({ item }) =>
-                    item.userId === currentUserId ? (
-                        <ChatLiveMyMessage data={item} />
-                    ) : (
-                        <ChatLiveOtherMessage data={item} />
-                    )
-                }
+                renderItem={({item}) => {
+                    if (item.messageType === "SYSTEM") {
+                        return <SystemMessage data={item}/>
+                    } else if (item.userId === currentUserId) {
+                        return <ChatLiveMyMessage data={item}/>
+                    } else {
+                        return <ChatLiveOtherMessage data={item}/>
+                    }
+                }}
             />
         </View>
     )
