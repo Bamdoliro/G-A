@@ -58,7 +58,9 @@ export default function ChatLiveScreen({route, navigation, socket}) {
 
     useEffect(() => {
         socket.current?.on("message", data => {
-            setMessages(oldDate => [...oldDate, data])
+            if (data.roomId == id) {
+                setMessages(oldDate => [...oldDate, data])
+            }
         });
 
         socket.current?.on("error", err => {
