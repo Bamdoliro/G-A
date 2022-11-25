@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import Delete from '../assets/delete.png'
-import Header from "../components/common/Header/Header";
+import LightHeader from "../components/common/header/LightHeader/LightHeader";
 
 export default function PinScreen({navigation}) {
     const [pinCount, setPinCount] = useState('');
@@ -15,7 +15,7 @@ export default function PinScreen({navigation}) {
 
     return (
         <SafeAreaView style={styles.pinField}>
-            <Header
+            <LightHeader
                 title="PIN 설정"
                 style={{paddingHorizontal: 30, paddingTop: 30}}
             />

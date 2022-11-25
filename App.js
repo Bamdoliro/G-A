@@ -40,7 +40,7 @@ export default function App() {
                     {login ?
                         <MainNavigation
                             Stack={Stack}
-                            setLogout={() => setLogin("")}
+                            setLogout={() => setLogin(null)}
                             socket={socket}
                         />
                         :
@@ -53,7 +53,7 @@ export default function App() {
                 </BottomSheetModalProvider>
             </QueryClientProvider>
         ) : (
-            <SplashScreen   
+            <SplashScreen
                 setLoginToken={setLoginToken}
                 setSplash={setSplash}
             />

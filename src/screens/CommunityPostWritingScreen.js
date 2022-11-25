@@ -1,16 +1,15 @@
-import { StyleSheet, Text, TouchableOpacity, View, ScrollView, SafeAreaView, Image } from 'react-native';
-import ArrowIcon from '../assets/arrow.png';
+import {StyleSheet, Text, View} from 'react-native';
 import TextArea from '../components/common/input/TextArea/TextArea';
-import Header from '../components/common/Header/Header';
+import LightHeader from "../components/common/header/LightHeader/LightHeader";
 
 export default function CommunityReportScreen() { // '채팅_공지작성' 페이지
     return (
         <View style={styles.GatiProduceContainer}>
-            <Header
+            <LightHeader
                 title="공지 작성"
                 buttonText="완료"
                 buttonOnPress={() => {
-                    // 버튼 눌렀을 때 이벤트 추가하기 
+                    // 버튼 눌렀을 때 이벤트 추가하기
                 }}
             />
             <View>
