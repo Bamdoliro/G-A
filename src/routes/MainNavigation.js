@@ -9,6 +9,7 @@ import CommunityPostWritingScreen from "../screens/CommunityPostWritingScreen";
 import WritePostScreen from "../screens/Post/write/WritePostScreen";
 import WriteGatiScreen from "../screens/Post/write/WriteGatiScreen";
 import ProduceCommunityScreen from "../screens/ProduceCommunityScreen";
+import ProfileEditScreen from "../screens/ProfileEditScreen";
 
 export default function MainNavigation({Stack, setLogout, socket}) {
 
@@ -34,6 +35,7 @@ export default function MainNavigation({Stack, setLogout, socket}) {
             <Stack.Screen name="WritePostScreen" component={WritePostScreen}/>
             <Stack.Screen name="WriteGatiScreen" component={WriteGatiScreen}/>
             <Stack.Screen name="ProduceCommunityScreen" component={ProduceCommunityScreen}/>
+            <Stack.Screen name="ProfileEditScreen" component={ProfileEditScreen}/>
         </Stack.Navigator>
     )
 };
