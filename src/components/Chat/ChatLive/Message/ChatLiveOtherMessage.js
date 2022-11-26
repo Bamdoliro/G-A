@@ -1,28 +1,60 @@
-import { View, StyleSheet, Text } from "react-native";
+import {View, StyleSheet, Text, Image} from "react-native";
+import ProfileImage from "../../../../assets/basicProfileImage.png";
 
 export default function ChatLiveOtherMessage({data}) {
     return (
-        <View style={styles.OtherMessage}>
-            <Text style={styles.MessageText}>{data.message}</Text>
+        <View style={styles.container}>
+            <Image source={ProfileImage} style={styles.image}/>
+            <View style={styles.content}>
+                <Text style={styles.name}>{data.username}</Text>
+                <View style={styles.block}>
+                    <View style={styles.textContainer}>
+                        <Text style={styles.text}>{data.message}</Text>
+                    </View>
+                    <Text style={styles.time}>{data.sentAt.substring(11)}</Text>
+                </View>
+            </View>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    OtherMessage: {
+    container: {
         flexDirection: "row",
         flex: 1,
         alignSelf: "flex-start",
-        backgroundColor: "#fff",
-        padding: 9,
-        borderRadius: 20,
-        maxWidth: 170,
-        marginBottom: 7,
-        marginTop: 7
+        marginVertical: 7,
     },
-    MessageText: {
-        color: "#000",
+    content: {
+        alignItems: "flex-start",
+        marginLeft: 5,
+    },
+    name: {
+        fontSize: 13,
+        marginBottom: 4,
+    },
+    block: {
+        flexDirection: "row",
+        alignItems: "flex-end",
+    },
+    time: {
+        fontSize: 12,
+        color: "#737373",
+        marginLeft: 5,
+    },
+    textContainer: {
+        alignItems: "center",
+        backgroundColor: "#0D76FF",
+        padding: 11,
+        borderRadius: 20,
+        maxWidth: "80%",
+    },
+    text: {
+        color: "#fff",
         fontSize: 15,
-        textAlign: "left"
+    },
+    image: {
+        width: 50,
+        height: 50,
     }
 })
