@@ -1,9 +1,9 @@
 import {StyleSheet, Text, View} from "react-native";
 
-export default function InputFrame({title, child}) {
+export default function InputFrame({title, child, style}) {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>{title}</Text>
+            <Text style={[styles.title, style]}>{title}</Text>
             {child}
         </View>
     )

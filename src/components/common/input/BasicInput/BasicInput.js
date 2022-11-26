@@ -1,11 +1,13 @@
 import {StyleSheet, TextInput} from "react-native";
 
-export default function BasicInput({value, setValue}) {
+export default function BasicInput({value, setValue, placeholder, secureTextEntry, style}) {
     return (
         <TextInput
-            style={styles.nameInput}
+            style={[styles.nameInput, style]}
             value={value}
             onChangeText={text => setValue(text)}
+            placeholder={placeholder}
+            secureTextEntry={secureTextEntry}
         />
     )
 }

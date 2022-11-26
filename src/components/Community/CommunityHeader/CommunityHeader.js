@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         blueCircle: {
-            borderRadius: "50%",
+            borderRadius: 999,
             backgroundColor: "#0D76FF",
             width: 8,
             height: 8,
