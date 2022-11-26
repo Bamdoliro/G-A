@@ -10,9 +10,8 @@ export default function ProfileEditSection() {
     const [reNewPassword, setReNewPassword] = useState("");
 
     return (
-        <KeyboardAvoidingView
-            style={styles.Edit}
-            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        <View
+            style={styles.container}
         >
             <InputFrame
                 style={styles.Caption}
@@ -67,12 +66,12 @@ export default function ProfileEditSection() {
                     }
                 />
             </View>
-        </KeyboardAvoidingView>
+        </View>
     )
 }
 
 const styles = StyleSheet.create({
-    Edit: {
+    container: {
         paddingHorizontal: 30,
         flex: 1
     },
@@ -80,7 +79,7 @@ const styles = StyleSheet.create({
         fontSize: 12
     },
     passwordInputs: {
-        marginTop: 46
+        marginTop: 30
     },
     Input: {
         fontSize: 12
