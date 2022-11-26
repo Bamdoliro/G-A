@@ -1,5 +1,6 @@
 import {ScrollView, View, Text, StyleSheet} from "react-native";
 import CommunityList from "../../Feed/CommunityList/CommunityList";
+import CommunityDatas from "../../../data/CommunityListData.json";
 
 export default function MyCommunity() {
     return (
@@ -11,7 +12,15 @@ export default function MyCommunity() {
                 style={styles.MyCommunityScrollView}
                 showsHorizontalScrollIndicator={false}
             >
-                <CommunityList />
+                {
+                    CommunityDatas.map((data) => 
+                        <CommunityList 
+                            title={data.title}
+                            content={data.content}
+                            numberOfPeople={data.numberOfPeople}
+                        />
+                    )
+                }
             </ScrollView>
         </View>
     )
