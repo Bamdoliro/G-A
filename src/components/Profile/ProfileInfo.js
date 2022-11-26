@@ -1,24 +1,21 @@
-import { useNavigation } from '@react-navigation/native';
-import { useEffect } from 'react';
+import {useNavigation} from '@react-navigation/native';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import ProfileImage from '../../assets/profile_image.png';
 
-export default function ProfileInfo({isEditing}) {
+export default function ProfileInfo() {
     const navigation = useNavigation();
+
     return (
-        <View style={[styles.container, !!isEditing && {paddingBottom: 0}]}>
+        <View style={styles.container}>
             <View style={styles.profile}>
-                <Image source={ProfileImage} style={styles.ProfileImage} />
+                <Image source={ProfileImage} style={styles.ProfileImage}/>
                 <View style={styles.UserInfo}>
                     <Text style={styles.ID}>zi존간zi태영</Text>
                     <Text style={styles.Email}>bamdoridori11@gmail.com</Text>
-                    {
-                        isEditing ||
-                    <TouchableOpacity 
+                    <TouchableOpacity
                         onPress={() => navigation.navigate('ProfileEditScreen')}>
                         <Text style={styles.EditProfile}>프로필 편집</Text>
                     </TouchableOpacity>
-                    }
                 </View>
             </View>
         </View>
@@ -40,7 +37,7 @@ const styles = StyleSheet.create({
         shadowColor: "#000000",
         shadowOffset: {
             width: 0,
-            height: 10
+            height: 1
         },
         shadowOpacity: 0.18,
         shadowRadius: 1,

@@ -1,25 +1,34 @@
-import { useEffect } from 'react';
-import {Image, KeyboardAvoidingView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
-import ProfileHeader from '../components/Profile/ProfileHeader';
-import ProfileInfo from '../components/Profile/ProfileInfo';
-import ProfileSection from '../components/Profile/ProfileSection';
+import LightHeader from "../components/common/header/LightHeader/LightHeader";
+import ProfileInfo from "../components/Profile/ProfileInfo";
+import ProfileSection from "../components/Profile/ProfileSection";
 
 export default function ProfileScreen({setLogout}) {
+
     return (
         <SafeAreaView style={styles.root}>
-            <ProfileHeader />
-            <ProfileInfo />
-            <ProfileSection setLogout={setLogout} />
+            <LightHeader
+                title="프로필"
+                buttonOnPress={() => {}}
+                style={styles.header}
+                allowBack={false}
+            />
+            <ProfileInfo/>
+            <ProfileSection
+                setLogout={setLogout}
+            />
         </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
     root: {
-        flex: 1
+        flex: 1,
+        alignItems: 'center',
     },
-    container: {
-        flex: 1
-    }
+    header: {
+        paddingHorizontal: 30,
+        paddingTop: 30,
+    },
 })

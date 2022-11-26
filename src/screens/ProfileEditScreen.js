@@ -1,20 +1,24 @@
-import {Image, KeyboardAvoidingView, StyleSheet, Platform} from 'react-native';
+import {KeyboardAvoidingView, Platform, StyleSheet} from 'react-native';
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
-import ProfileHeader from '../components/Profile/ProfileHeader';
-import ProfileInfo from '../components/Profile/ProfileInfo';
-import ProfileSection from '../components/Profile/ProfileSection';
+import LightHeader from "../components/common/header/LightHeader/LightHeader";
+import ProfileEditSection from "../components/Profile/edit/ProfileEditSection";
 
 export default function ProfileEditScreen({setLogout}) {
-    
+
     return (
         <SafeAreaView style={styles.root}>
             <KeyboardAvoidingView
                 style={styles.container}
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
             >
-                <ProfileHeader isEditing />
-                <ProfileInfo isEditing />
-                <ProfileSection setLogout={setLogout} isEditing />
+                <LightHeader
+                    title="프로필 수정"
+                    buttonText="완료"
+                    buttonOnPress={() => {}}
+                    style={styles.header}
+                    allowBack={true}
+                />
+                <ProfileEditSection/>
             </KeyboardAvoidingView>
         </SafeAreaView>
     );
@@ -23,5 +27,9 @@ export default function ProfileEditScreen({setLogout}) {
 const styles = StyleSheet.create({
     container: {
         flex: 1
+    },
+    header: {
+        paddingHorizontal: 30,
+        paddingTop: 30,
     }
 })
