@@ -1,8 +1,18 @@
 import {ScrollView, View, Text, StyleSheet} from "react-native";
 import CommunityList from "../../Feed/CommunityList/CommunityList";
-import CommunityDatas from "../../../data/CommunityListData.json";
+import {useQuery} from "react-query";
+import {getMyCommunity} from "../../../utils/api/community";
+import {getCurrentCommunity, setCurrentCommunity} from "../../../utils/storage/currentCommunity";
 
 export default function MyCommunity() {
+    const {data} = useQuery('getMyCommunity', getMyCommunity, {
+        onSuccess: async () => {
+            if (!await getCurrentCommunity() && data?.communityList != null) {
+                await setCurrentCommunity(data.communityList[0].id.toString());
+            }
+        }
+    })
+
     return (
         <View>
             <View style={styles.MyCommunityTitle}>
@@ -13,11 +23,12 @@ export default function MyCommunity() {
                 showsHorizontalScrollIndicator={false}
             >
                 {
-                    CommunityDatas.map((data) => 
-                        <CommunityList 
-                            title={data.title}
-                            content={data.content}
-                            numberOfPeople={data.numberOfPeople}
+                    data?.communityList.map((community, index) =>
+                        <CommunityList
+                            title={community.name}
+                            content={community.introduction}
+                            numberOfPeople={community.numberOfPeople}
+                            key={index}
                         />
                     )
                 }

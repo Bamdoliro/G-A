@@ -92,7 +92,7 @@ export default function ChatLiveScreen({route, navigation, socket}) {
 
     const getMessagesHistory = async () => {
         const data = await getMessages(id);
-        setMessages(data.reverse())
+        setMessages(data.messageList.reverse())
     };
 
     return (

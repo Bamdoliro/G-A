@@ -21,7 +21,7 @@ export default function ChatListScreen({navigation}) {
                 <ChatScreenHeader/>
                 <ChatListSection
                     navigation={navigation}
-                    rooms={data}
+                    rooms={data?.roomList}
                 />
             </SafeAreaView>
         </>

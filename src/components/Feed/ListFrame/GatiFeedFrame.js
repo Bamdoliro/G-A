@@ -1,12 +1,16 @@
 import GatiFeed from "../GatiPostList/GatiFeed";
-import GatiListData from "../../../data/GatiListData.json"
 import {FlatList} from "react-native";
+import {useQuery} from "react-query";
+import {getDdoByCommunity} from "../../../utils/api/ddo";
+import {getCurrentCommunity} from "../../../utils/storage/currentCommunity";
 
 export default function GatiFeedFrame() {
+    const {data} = useQuery('getDdoByCommunity', async () => getDdoByCommunity(await getCurrentCommunity()))
+
     return (
         <FlatList
             showsVerticalScrollIndicator={false}
-            data={GatiListData}
+            data={data?.ddoList}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => (
                 <GatiFeed

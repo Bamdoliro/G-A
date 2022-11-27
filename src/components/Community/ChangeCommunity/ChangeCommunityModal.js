@@ -7,8 +7,9 @@ import {
     useBottomSheetDynamicSnapPoints,
 } from "@gorhom/bottom-sheet";
 import {useSafeAreaInsets} from "react-native-safe-area-context";
-import data from "../../../data/MyCommunityList.json";
 import Community from "./Community";
+import {useQuery} from "react-query";
+import {getMyCommunity} from "../../../utils/api/community";
 
 
 export default function ChangeCommunityModal({isOpen, setIsOpen}) {
@@ -18,6 +19,7 @@ export default function ChangeCommunityModal({isOpen, setIsOpen}) {
         useBottomSheetDynamicSnapPoints(initialSnapPoints);
     const {bottom} = useSafeAreaInsets();
     const current = 1;
+    const {data} = useQuery("getMyCommunity", getMyCommunity);
 
     useEffect(() => {
         if (isOpen) {
@@ -61,7 +63,7 @@ export default function ChangeCommunityModal({isOpen, setIsOpen}) {
                 style={[styles.container, {paddingBottom: bottom ? bottom + 15 : 30}]}
                 onLayout={handleContentLayout}
             >
-                {data.myCommunityList.map((c, index) => (
+                {data?.communityList.map((c, index) => (
                     <Community
                         key={index}
                         id={c.id}
