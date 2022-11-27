@@ -8,13 +8,14 @@ import NumberInput from "../../../components/common/input/NumberOfPeopleInput/Nu
 import {useState} from "react";
 import BasicInput from "../../../components/common/input/BasicInput/BasicInput";
 import PeriodInput from "../../../components/common/input/PeriodInput/PeriodInput";
-import {useMutation} from "react-query";
+import {useMutation, useQueryClient} from "react-query";
 import {writeDdo} from "../../../utils/api/ddo";
 import {useNavigation} from "@react-navigation/native";
 import {getCurrentCommunity} from "../../../utils/storage/currentCommunity";
 
 export default function WriteGatiScreen() {
     const navigation = useNavigation();
+    const queryClient = useQueryClient();
     const [title, setTitle] = useState("");
     const [period, setPeriod] = useState({
         startDate: new Date(),
@@ -26,6 +27,7 @@ export default function WriteGatiScreen() {
         onSuccess: () => {
             alert('성공')
             navigation.pop();
+            queryClient.invalidateQueries('getDdoByCommunity');
         }
     })
 

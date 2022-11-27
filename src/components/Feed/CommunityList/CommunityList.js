@@ -3,11 +3,11 @@ import React from "react";
 import coverImage from "../../../assets/feedImage.png";
 import { useNavigation } from "@react-navigation/native";
 
-export default function CommunityList({title, content, numberOfPeople}) {
+export default function CommunityList({title, content, numberOfPeople, onPress}) {
     return (
         <TouchableOpacity
             style={styles.container}
-            onPress={() => navigation.navigate('PostDetailScreen')}
+            onPress={onPress}
         >
             <Image
                 style={styles.coverImage}

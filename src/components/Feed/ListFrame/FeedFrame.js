@@ -1,11 +1,7 @@
 import Feed from "../PostList/Feed";
 import {FlatList} from "react-native";
-import {useQuery} from "react-query";
-import {getFeedsByCommunity} from "../../../utils/api/feed";
-import {getCurrentCommunity} from "../../../utils/storage/currentCommunity";
 
-export default function FeedFrame() {
-    const {data} = useQuery('getFeedsByCommunity', async () => getFeedsByCommunity(await getCurrentCommunity()))
+export default function FeedFrame({data}) {
 
     return (
         <FlatList

@@ -3,8 +3,10 @@ import CommunityList from "../../Feed/CommunityList/CommunityList";
 import {useQuery} from "react-query";
 import {getMyCommunity} from "../../../utils/api/community";
 import {getCurrentCommunity, setCurrentCommunity} from "../../../utils/storage/currentCommunity";
+import {useNavigation} from "@react-navigation/native";
 
 export default function MyCommunity() {
+    const navigation = useNavigation();
     const {data} = useQuery('getMyCommunity', getMyCommunity, {
         onSuccess: async () => {
             if (!await getCurrentCommunity() && data?.communityList != null) {
@@ -29,6 +31,10 @@ export default function MyCommunity() {
                             content={community.introduction}
                             numberOfPeople={community.numberOfPeople}
                             key={index}
+                            onPress={async () => {
+                                await setCurrentCommunity(community.id);
+                                navigation.navigate('CommunityScreen');
+                            }}
                         />
                     )
                 }

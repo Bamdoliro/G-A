@@ -6,19 +6,21 @@ import TextArea from "../../../components/common/input/TextArea/TextArea";
 import InputFrame from "../../../components/common/frame/InputFrame/InputFrame";
 import {useState} from "react";
 import BasicInput from "../../../components/common/input/BasicInput/BasicInput";
-import {useMutation} from "react-query";
+import {useMutation, useQueryClient} from "react-query";
 import {writeFeed} from "../../../utils/api/feed";
 import {getCurrentCommunity} from "../../../utils/storage/currentCommunity";
 import {useNavigation} from "@react-navigation/native";
 
 export default function WritePostScreen() {
     const navigation = useNavigation();
+    const queryClient = useQueryClient();
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("")
     const {mutate} = useMutation(writeFeed, {
         onSuccess: () => {
             alert('성공')
             navigation.pop();
+            queryClient.invalidateQueries('getFeedsByCommunity');
         }
     })
 

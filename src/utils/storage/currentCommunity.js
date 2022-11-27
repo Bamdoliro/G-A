@@ -1,7 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const setCurrentCommunity = async (communityId) => {
-    await AsyncStorage.setItem("community", communityId)
+    await AsyncStorage.setItem("community", communityId.toString())
 }
 
 export const getCurrentCommunity = async () => {

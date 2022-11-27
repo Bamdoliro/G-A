@@ -1,12 +1,8 @@
 import {StyleSheet, Text, View} from 'react-native';
 import DownArrow from "../../common/icon/DownArrow/DownArrow";
 import MainHeader from "../../common/header/MainHeader/MainHeader";
-import {useQuery} from "react-query";
-import {getCommunityDetail} from "../../../utils/api/community";
-import {getCurrentCommunity} from "../../../utils/storage/currentCommunity";
 
-export default function CommunityHeader({setChangeCommunityModalIsOpen}) {
-    const {data} = useQuery('getCommunityDetail', async () => getCommunityDetail(await getCurrentCommunity()))
+export default function CommunityHeader({data, setChangeCommunityModalIsOpen}) {
 
     return (
         <MainHeader
