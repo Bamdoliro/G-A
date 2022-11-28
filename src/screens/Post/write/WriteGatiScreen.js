@@ -13,7 +13,7 @@ import {writeDdo} from "../../../utils/api/ddo";
 import {useNavigation} from "@react-navigation/native";
 import {getCurrentCommunity} from "../../../utils/storage/currentCommunity";
 
-export default function WriteGatiScreen() {
+export default function WriteGatiScreen({socket}) {
     const navigation = useNavigation();
     const queryClient = useQueryClient();
     const [title, setTitle] = useState("");
@@ -24,10 +24,15 @@ export default function WriteGatiScreen() {
     const [capacity, setCapacity] = useState("25");
     const [content, setContent] = useState("")
     const {mutate} = useMutation(writeDdo, {
-        onSuccess: () => {
+        onSuccess: (data) => {
             alert('성공')
             navigation.pop();
-            queryClient.invalidateQueries('getDdoByCommunity');
+            socket.current?.emit("room-join", {
+                roomId: data.id
+            })
+            queryClient.invalidateQueries(['getDdoByCommunity', 'getRooms']);
+
+
         }
     })
 

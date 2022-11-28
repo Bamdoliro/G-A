@@ -63,22 +63,24 @@ const styles = StyleSheet.create({
         borderRadius: 7,
     },
     ChatSetText: {
-        marginLeft: 12
+        marginLeft: 12,
+        maxWidth: "75%",
     },
     ChatSetMainText: {
         flexDirection: "row",
-        alignItems: "center"
+        alignItems: "center",
     },
     ChatMainText: {
         color: "black",
         fontSize: 15,
         fontWeight: "bold",
-        marginRight: 5
+        marginRight: 5,
     },
     NumberOfParticipants: {
         color: "#B1B1B1",
         fontSize: 12,
         fontWeight: "medium",
+        alignSelf: "flex-start",
     },
     ChatSubText: {
         color: "#B1B1B1",
