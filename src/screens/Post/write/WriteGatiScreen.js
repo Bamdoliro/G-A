@@ -30,9 +30,8 @@ export default function WriteGatiScreen({socket}) {
             socket.current?.emit("room-join", {
                 roomId: data.id
             })
-            queryClient.invalidateQueries(['getDdoByCommunity', 'getRooms']);
-
-
+            queryClient.invalidateQueries('getDdoByCommunity');
+            queryClient.invalidateQueries('getRooms');
         }
     })
 

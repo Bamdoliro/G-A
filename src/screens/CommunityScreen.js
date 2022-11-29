@@ -14,7 +14,7 @@ import {getCurrentCommunity} from "../utils/storage/currentCommunity";
 import {getFeedsByCommunity} from "../utils/api/feed";
 import {getDdoByCommunity} from "../utils/api/ddo";
 
-export default function CommunityScreen({navigation}) {
+export default function CommunityScreen({navigation, socket}) {
     const [category, setCategory] = useState("FEED");
     const [changeCommunityModalIsOpen, setChangeCommunityModalIsOpen] = useState(false);
     const communityDetail = useQuery('getCommunityDetail', async () => getCommunityDetail(await getCurrentCommunity()))
@@ -37,6 +37,7 @@ export default function CommunityScreen({navigation}) {
                 {category === "GATI" ?
                     <GatiFeedFrame
                         data={ddo?.data}
+                        socket={socket}
                     />
                     :
                     <FeedFrame

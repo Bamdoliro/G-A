@@ -5,11 +5,14 @@ import coverImage from "../../../assets/feedImage.png"
 import CustomButton from "../../common/button/CustomButton/CustomButton";
 import Tag from "./Tag";
 
-export default function GatiFeed({id, capacity, title, content, startDate, endDate}) {
+export default function GatiFeed({id, capacity, title, content, startDate, endDate, socket}) {
     const navigation = useNavigation();
     const joinGati = () => {
-        alert("참여하기 누름")
+        socket.current?.emit("room-join", {
+            roomId: id
+        })
     }
+
     const changeToPeriod = () => startDate.substring(5) + " ~ " + endDate.substring(5)
 
     return (
