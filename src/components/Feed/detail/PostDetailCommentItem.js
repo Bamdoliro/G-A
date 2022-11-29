@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
         alignItems: "center",
-        marginBottom: 30
+        marginBottom: 25
     },
     profile: {
         width: 29,
