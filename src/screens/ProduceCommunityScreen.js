@@ -9,12 +9,21 @@ import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import InputFrame from "../components/common/frame/InputFrame/InputFrame";
 import PublicScopeArea from "../components/Community/create/PublicScopeArea";
 import BasicInput from "../components/common/input/BasicInput/BasicInput";
+import {useMutation} from "react-query";
+import {createCommunity} from "../utils/api/community";
 
 export default function ProduceCommunityScreen({navigation}) {
     const [name, setName] = useState("");
     const [isPublic, setIsPublic] = useState(true);
     const [numberOfPeople, setNumberOfPeople] = useState("25");
     const [introduction, setIntroduction] = useState("")
+    const [password, setPassword] = useState(null)
+    const {mutate} = useMutation(createCommunity, {
+        onSuccess: () => {
+            alert('성공')
+            navigation.pop()
+        }
+    })
 
     return (
         <SafeAreaView>
@@ -22,8 +31,13 @@ export default function ProduceCommunityScreen({navigation}) {
                 <LightHeader
                     title="공동체 생성"
                     buttonText="완료"
-                    buttonOnPress={() => {
-                    }}
+                    buttonOnPress={() => mutate({
+                        name: name,
+                        introduction: introduction,
+                        capacity: numberOfPeople,
+                        isPublic: isPublic,
+                        password: password,
+                    })}
                 />
                 <ScrollView>
                     {/* 사진 */}

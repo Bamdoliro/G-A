@@ -1,9 +1,8 @@
 import {StyleSheet, Text, View} from 'react-native';
-import community from "../../../data/CummunityData.json";
 import DownArrow from "../../common/icon/DownArrow/DownArrow";
 import MainHeader from "../../common/header/MainHeader/MainHeader";
 
-export default function CommunityHeader({setChangeCommunityModalIsOpen}) {
+export default function CommunityHeader({data, setChangeCommunityModalIsOpen}) {
 
     return (
         <MainHeader
@@ -12,12 +11,12 @@ export default function CommunityHeader({setChangeCommunityModalIsOpen}) {
                     <View style={styles.numberOfPeople}>
                         <View style={styles.numberOfPeople.blueCircle}/>
                         <Text style={styles.numberOfPeople.text}>
-                            {community.numberOfPeople}명
+                            {data?.numberOfPeople}명
                         </Text>
                     </View>
                     <View style={styles.name}>
                         <Text style={styles.name.text}>
-                            {community.name}
+                            {data?.name}
                         </Text>
                         <DownArrow
                             onPress={() => setChangeCommunityModalIsOpen(true)}
@@ -25,7 +24,7 @@ export default function CommunityHeader({setChangeCommunityModalIsOpen}) {
                     </View>
 
                     <Text style={styles.introduction}>
-                        {community.introduction}
+                        {data?.introduction}
                     </Text>
                 </>
             }

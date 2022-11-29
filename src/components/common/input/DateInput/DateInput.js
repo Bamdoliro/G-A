@@ -1,6 +1,7 @@
 import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {useState} from "react";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import {dateFormatter} from "../../../../utils/etc/dateTimeFormatter";
 
 export default function DateInput({value, setValue}) {
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -23,7 +24,7 @@ export default function DateInput({value, setValue}) {
             <TouchableOpacity
                 onPress={showDatePicker}
             >
-                <Text style={styles.date}>{value.toLocaleDateString()}</Text>
+                <Text style={styles.date}>{dateFormatter(value)}</Text>
             </TouchableOpacity>
             <DateTimePickerModal
                 isVisible={isDatePickerVisible}

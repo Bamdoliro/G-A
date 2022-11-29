@@ -1,4 +1,4 @@
-import {useCallback, useEffect, useMemo, useRef} from "react";
+import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 import {StyleSheet} from "react-native";
 import {
     BottomSheetBackdrop,
@@ -7,21 +7,35 @@ import {
     useBottomSheetDynamicSnapPoints,
 } from "@gorhom/bottom-sheet";
 import {useSafeAreaInsets} from "react-native-safe-area-context";
-import data from "../../../data/MyCommunityList.json";
 import Community from "./Community";
+import {useQuery} from "react-query";
+import {getMyCommunity} from "../../../utils/api/community";
+import {getCurrentCommunity, setCurrentCommunity} from "../../../utils/storage/currentCommunity";
 
 
-export default function ChangeCommunityModal({isOpen, setIsOpen}) {
+export default function ChangeCommunityModal({isOpen, setIsOpen, communityRefetch}) {
     const ref = useRef(null);
     const initialSnapPoints = useMemo(() => ["40%", "85%"], []);
     const {animatedHandleHeight, animatedSnapPoints, animatedContentHeight, handleContentLayout} =
         useBottomSheetDynamicSnapPoints(initialSnapPoints);
     const {bottom} = useSafeAreaInsets();
-    const current = 1;
+    const {data} = useQuery("getMyCommunity", getMyCommunity);
+    const [current, setCurrent] = useState(null);
+
+    const setLocalCurrentCommunity = async () => {
+        setCurrent(await getCurrentCommunity());
+    }
+
+    const onSelect = async (id) => {
+        await setCurrentCommunity(id);
+        setIsOpen(false);
+        communityRefetch();
+    }
 
     useEffect(() => {
         if (isOpen) {
             ref.current?.present();
+            setLocalCurrentCommunity();
         } else {
             ref.current?.dismiss();
         }
@@ -61,13 +75,14 @@ export default function ChangeCommunityModal({isOpen, setIsOpen}) {
                 style={[styles.container, {paddingBottom: bottom ? bottom + 15 : 30}]}
                 onLayout={handleContentLayout}
             >
-                {data.myCommunityList.map((c, index) => (
+                {data?.communityList.map((c, index) => (
                     <Community
                         key={index}
                         id={c.id}
                         name={c.name}
-                        coverImage={c.coverImage}
-                        current = {c.id === current}
+                        backgroundImage={c.backgroundImage}
+                        current={c.id == current}
+                        onPress={() => onSelect(c.id)}
                     />
                 ))}
             </BottomSheetScrollView>

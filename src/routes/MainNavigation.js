@@ -33,7 +33,9 @@ export default function MainNavigation({Stack, setLogout, socket}) {
             <Stack.Screen name="CommunityPostWritingScreen" component={CommunityPostWritingScreen}/>
             <Stack.Screen name="CommunityPostModifyScreen" component={CommunityPostModifyScreen}/>
             <Stack.Screen name="WritePostScreen" component={WritePostScreen}/>
-            <Stack.Screen name="WriteGatiScreen" component={WriteGatiScreen}/>
+            <Stack.Screen name="WriteGatiScreen">
+                {props => <WriteGatiScreen {...props} socket={socket}/>}
+            </Stack.Screen>
             <Stack.Screen name="ProduceCommunityScreen" component={ProduceCommunityScreen}/>
             <Stack.Screen name="ProfileEditScreen" component={ProfileEditScreen}/>
         </Stack.Navigator>

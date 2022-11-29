@@ -1,17 +1,19 @@
 import {useNavigation} from '@react-navigation/native';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import ProfileImage from '../../assets/profile_image.png';
+import {useQuery} from "react-query";
+import {getUserInformation} from "../../utils/api/user";
 
 export default function ProfileInfo() {
     const navigation = useNavigation();
+    const {data} = useQuery('getUserInformation', getUserInformation);
 
     return (
         <View style={styles.container}>
             <View style={styles.profile}>
-                <Image source={ProfileImage} style={styles.ProfileImage}/>
+                <Image source={{uri: data?.profileImage}} style={styles.ProfileImage}/>
                 <View style={styles.UserInfo}>
-                    <Text style={styles.ID}>zi존간zi태영</Text>
-                    <Text style={styles.Email}>bamdoridori11@gmail.com</Text>
+                    <Text style={styles.ID}>{data?.name}</Text>
+                    <Text style={styles.Email}>{data?.email}</Text>
                     <TouchableOpacity
                         onPress={() => navigation.navigate('ProfileEditScreen')}>
                         <Text style={styles.EditProfile}>프로필 편집</Text>
@@ -44,7 +46,9 @@ const styles = StyleSheet.create({
         elevation: 10,
     },
     ProfileImage: {
-        borderRadius: 99999
+        width: 60,
+        height: 60,
+        borderRadius: 60,
     },
     UserInfo: {
         marginLeft: 14

@@ -5,8 +5,11 @@ import Logo from "../assets/img.png";
 import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import CustomButton from "../components/common/button/CustomButton/CustomButton";
-import {useMutation} from "react-query";
+import {useMutation, useQuery} from "react-query";
 import {login} from "../utils/api/auth";
+import {getUserInformation} from "../utils/api/user";
+import {setUser} from "../utils/storage/user";
+import {setAccessToken, setRefreshToken} from "../utils/storage/token";
 
 export default function LoginScreen({navigation, setLogin}) {
     const [email, setEmail] = useState("");
@@ -15,8 +18,10 @@ export default function LoginScreen({navigation, setLogin}) {
 
     const {mutate} = useMutation(login, {
         onSuccess: async (data) => {
-            await AsyncStorage.setItem("access-token", data.refreshToken);
-            await AsyncStorage.setItem("refresh-token", data.refreshToken);
+            await setAccessToken(data.refreshToken);
+            await setRefreshToken(data.refreshToken);
+            const userInformation = await getUserInformation();
+            await setUser(userInformation.id.toString());
             setEmail("");
             setPassword("");
             setLogin();

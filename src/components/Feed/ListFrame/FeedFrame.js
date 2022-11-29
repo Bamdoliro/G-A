@@ -1,14 +1,12 @@
 import Feed from "../PostList/Feed";
-import PostListData from "../../../data/PostListData.json"
-import GatiListData from "../../../data/GatiListData.json";
-import GatiFeed from "../GatiPostList/GatiFeed";
 import {FlatList} from "react-native";
 
-export default function FeedFrame() {
+export default function FeedFrame({data}) {
+
     return (
         <FlatList
             showsVerticalScrollIndicator={false}
-            data={PostListData}
+            data={data?.boardList}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({item}) => (
                 <Feed

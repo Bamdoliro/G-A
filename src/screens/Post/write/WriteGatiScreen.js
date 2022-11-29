@@ -8,16 +8,32 @@ import NumberInput from "../../../components/common/input/NumberOfPeopleInput/Nu
 import {useState} from "react";
 import BasicInput from "../../../components/common/input/BasicInput/BasicInput";
 import PeriodInput from "../../../components/common/input/PeriodInput/PeriodInput";
-import FrameInput from "../../../components/common/input/FrameInput/FrameInput";
+import {useMutation, useQueryClient} from "react-query";
+import {writeDdo} from "../../../utils/api/ddo";
+import {useNavigation} from "@react-navigation/native";
+import {getCurrentCommunity} from "../../../utils/storage/currentCommunity";
 
-export default function WriteGatiScreen({navigation}) {
+export default function WriteGatiScreen({socket}) {
+    const navigation = useNavigation();
+    const queryClient = useQueryClient();
     const [title, setTitle] = useState("");
     const [period, setPeriod] = useState({
         startDate: new Date(),
         endDate: new Date(),
     })
-    const [numberOfPeople, setNumberOfPeople] = useState("25");
+    const [capacity, setCapacity] = useState("25");
     const [content, setContent] = useState("")
+    const {mutate} = useMutation(writeDdo, {
+        onSuccess: (data) => {
+            alert('성공')
+            navigation.pop();
+            socket.current?.emit("room-join", {
+                roomId: data.id
+            })
+            queryClient.invalidateQueries('getDdoByCommunity');
+            queryClient.invalidateQueries('getRooms');
+        }
+    })
 
     return (
         <SafeAreaView>
@@ -25,8 +41,14 @@ export default function WriteGatiScreen({navigation}) {
                 <LightHeader
                     title="가티 글 쓰기"
                     buttonText="완료"
-                    buttonOnPress={() => {
-                    }}
+                    buttonOnPress={async () => mutate({
+                        title: title,
+                        content: content,
+                        capacity: capacity,
+                        startDate: period.startDate,
+                        endDate: period.endDate,
+                        communityId: await getCurrentCommunity(),
+                    })}
                 />
                 <ScrollView>
                     {/* 사진 */}
@@ -55,8 +77,8 @@ export default function WriteGatiScreen({navigation}) {
                         title="인원수"
                         child={
                             <NumberInput
-                                setNumberOfPeople={setNumberOfPeople}
-                                numberOfPeople={numberOfPeople}
+                                setNumberOfPeople={setCapacity}
+                                numberOfPeople={capacity}
                             />
                         }
                     />
