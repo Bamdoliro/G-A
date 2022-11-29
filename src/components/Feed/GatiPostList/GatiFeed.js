@@ -22,11 +22,13 @@ export default function GatiFeed({id, capacity, title, content, startDate, endDa
             <TouchableOpacity
                 onPress={() => navigation.navigate('PostDetailScreen')}
             >
-                <Image
-                    style={styles.coverImage}
-                    source={coverImage}
-                    resizeMethod="scale"
-                />
+                {
+                    // <Image
+                    //     style={styles.coverImage}
+                    //     source={{uri: coverImage}}
+                    //     resizeMethod="scale"
+                    // />
+                }
             </TouchableOpacity>
             <View style={styles.informationArea}>
                 <Text style={styles.title} numberOfLines={2} ellipsizeMode="tail">{title}</Text>

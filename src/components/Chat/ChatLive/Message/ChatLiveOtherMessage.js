@@ -1,12 +1,11 @@
-import {View, StyleSheet, Text, Image} from "react-native";
-import ProfileImage from "../../../../assets/basicProfileImage.png";
+import {Image, StyleSheet, Text, View} from "react-native";
 
 export default function ChatLiveOtherMessage({data}) {
     return (
         <View style={styles.container}>
-            <Image source={ProfileImage} style={styles.image}/>
+            <Image source={{uri: data.userProfile.image}} style={styles.image}/>
             <View style={styles.content}>
-                <Text style={styles.name}>{data.username}</Text>
+                <Text style={styles.name}>{data.userProfile.name}</Text>
                 <View style={styles.block}>
                     <View style={styles.textContainer}>
                         <Text style={styles.text}>{data.message}</Text>
@@ -56,5 +55,6 @@ const styles = StyleSheet.create({
     image: {
         width: 50,
         height: 50,
+        borderRadius: 50
     }
 })

@@ -11,11 +11,13 @@ export default function Feed({Title, content}) {
             style={styles.container}
             onPress={() => navigation.navigate('PostDetailScreen')}
         >
-            <Image
-                style={styles.coverImage}
-                source={coverImage}
-                resizeMethod="scale"
-            />
+            {
+                // <Image
+                //     style={styles.coverImage}
+                //     source={coverImage}
+                //     resizeMethod="scale"
+                // />
+            }
             <View style={styles.informationArea}>
                 <Text style={styles.title} numberOfLines={2} ellipsizeMode="tail">{Title}</Text>
                 <Text style={styles.content} numberOfLines={2} ellipsizeMode="tail">

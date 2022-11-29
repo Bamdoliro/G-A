@@ -80,7 +80,7 @@ export default function ChangeCommunityModal({isOpen, setIsOpen, communityRefetc
                         key={index}
                         id={c.id}
                         name={c.name}
-                        coverImage={c.coverImage}
+                        backgroundImage={c.backgroundImage}
                         current={c.id == current}
                         onPress={() => onSelect(c.id)}
                     />

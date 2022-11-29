@@ -1,12 +1,12 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 
-export default function Community({name, coverImage, current, onPress}) {
+export default function Community({name, backgroundImage, current, onPress}) {
     return (
         <TouchableOpacity
             onPress={onPress}
         >
             <View style={[styles.container, current ? styles.current : null]}>
-                <Image source={{uri: coverImage}} style={styles.image}/>
+                <Image source={{uri: backgroundImage}} style={styles.image}/>
                 <Text style={styles.name}>{name}</Text>
             </View>
         </TouchableOpacity>

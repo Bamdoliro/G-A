@@ -9,6 +9,7 @@ export default function MyCommunity() {
     const navigation = useNavigation();
     const {data} = useQuery('getMyCommunity', getMyCommunity, {
         onSuccess: async () => {
+
             if (!await getCurrentCommunity() && data?.communityList != null) {
                 await setCurrentCommunity(data.communityList[0].id.toString());
             }
@@ -30,6 +31,7 @@ export default function MyCommunity() {
                             title={community.name}
                             content={community.introduction}
                             numberOfPeople={community.numberOfPeople}
+                            backgroundImage={community.backgroundImage}
                             key={index}
                             onPress={async () => {
                                 await setCurrentCommunity(community.id);

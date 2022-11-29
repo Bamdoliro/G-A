@@ -3,7 +3,7 @@ import React from "react";
 import coverImage from "../../../assets/feedImage.png";
 import { useNavigation } from "@react-navigation/native";
 
-export default function CommunityList({title, content, numberOfPeople, onPress}) {
+export default function CommunityList({title, content, numberOfPeople, backgroundImage, onPress}) {
     return (
         <TouchableOpacity
             style={styles.container}
@@ -11,7 +11,7 @@ export default function CommunityList({title, content, numberOfPeople, onPress})
         >
             <Image
                 style={styles.coverImage}
-                source={coverImage}
+                source={{uri: backgroundImage}}
                 resizeMethod="scale"
             />
             <View style={styles.informationArea}>
