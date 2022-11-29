@@ -1,9 +1,8 @@
 import { View, StyleSheet, Image,TouchableOpacity, Text } from "react-native";
 import ArrowIcon from "../../../assets/arrow.png";
 import DotDotDot from "../../../assets/dotdotdot.png"
-import Seokkamoni from "../../../assets/seokkamoni.png"
 
-export default function DetailHeader({navigation}) {
+export default function DetailHeader({navigation, name, betime, img}) {
     return (
         <View style={styles.container}>
             <View style={{flexDirection: "row", alignItems: "center"}}>
@@ -15,15 +14,15 @@ export default function DetailHeader({navigation}) {
                 </TouchableOpacity>
                 <View>
                     <Image 
-                        source={Seokkamoni}
+                        source={img}
                         style={styles.profile}
                     />
                 </View>
                 <View style={{paddingLeft: 5, justifyContent: "center"}}>
-                    <Text style={styles.name}>SEOKKAMONI</Text>
+                    <Text style={styles.name}>{name}</Text>
                     <View style={{flexDirection: "row", alignItems: "center"}}>
                         <View style={styles.dot} />
-                        <Text style={styles.betime}>20분 전</Text>
+                        <Text style={styles.betime}>{betime}분 전</Text>
                         {/* before time의 줄임말 */}
                     </View>
                 </View>

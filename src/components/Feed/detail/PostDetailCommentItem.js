@@ -1,22 +1,21 @@
 import { View, StyleSheet, Image, Text } from "react-native";
-import Seokkamoni from "../../../assets/seokkamoni.png"
 
-export default function PostDetailCommentItem() {
+export default function PostDetailCommentItem({img, user, comment, betime}) {
     return (
         <View style={styles.container}>
             <Image
-                source={Seokkamoni}
+                source={img}
                 style={styles.profile}
             />
             <View style={{paddingLeft: 5}}>
                 <View style={{flexDirection: "row", alignItems: "center"}}>
-                    <Text style={styles.name}>SEOKKAMONI</Text>
+                    <Text style={styles.name}>{user}</Text>
                     <View style={{flexDirection: "row", alignItems: "center", paddingLeft: 5}}>
                         <View style={styles.dot} />
-                        <Text style={styles.betime}>20분 전</Text>
+                        <Text style={styles.betime}>{betime}분 전</Text>
                     </View>
                 </View>
-                <Text style={styles.comment}>저는 김석진입니다 하하</Text>     
+                <Text style={styles.comment}>{comment}</Text>     
             </View>
         </View>
     )

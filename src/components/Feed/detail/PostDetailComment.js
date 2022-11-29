@@ -1,18 +1,18 @@
 import { Text, StyleSheet, View } from "react-native";
 import PostDetailCommentItem from "./PostDetailCommentItem";
+import Seokkamoni from "../../../assets/seokkamoni.png"
 
 export default function PostDetailComment() {
     return (
         <>
             <Text style={styles.title}>댓글</Text>
             <View style={styles.container}>
-                <PostDetailCommentItem />
-                <PostDetailCommentItem />
-                <PostDetailCommentItem />
-                <PostDetailCommentItem />
-                <PostDetailCommentItem />
-                <PostDetailCommentItem />
-                <PostDetailCommentItem />
+                <PostDetailCommentItem 
+                    img={Seokkamoni}
+                    user="SEOKKAMONI"
+                    comment="저는 김석진입니다 하하"
+                    betime="20"
+                />
             </View>
         </>
     )
