@@ -3,7 +3,7 @@ import {Image, StyleSheet, TextInput, TouchableOpacity, View} from "react-native
 import SendBtn from "../../../../assets/sendBtn.png";
 
 
-export default function SendField({sendMessage}) {
+export default function SendField({sendMessage, sendImg}) {
     const [message, setMessage] = useState("");
 
     const SendBtnOnClick = () => {
@@ -26,7 +26,7 @@ export default function SendField({sendMessage}) {
             />
             <TouchableOpacity onPress={SendBtnOnClick}>
                 <Image
-                    source={SendBtn}
+                    source={sendImg}
                     style={styles.ChatSendBtn}
                 />
             </TouchableOpacity>
@@ -60,6 +60,6 @@ const styles = StyleSheet.create({
     },
     ChatSendBtn: {
         height: 30,
-        width: 30
+        width: 30,
     }
 })

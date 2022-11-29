@@ -4,7 +4,8 @@ import DetailHeader from '../components/Feed/detail/DetailHeader';
 import PostDetail from '../components/Feed/detail/PostDetail';
 import SendField from '../components/common/input/SendField/SendField';
 import Seokkamoni from "../assets/seokkamoni.png"
-import FeedImg from "..//assets/feedImage.png"
+import FeedImg from "../assets/feedImage.png"
+import sendImg from "../assets/comment_send_field.png"
 
 const PostDetailScreen = ({navigation}) => {
 
@@ -26,7 +27,9 @@ const PostDetailScreen = ({navigation}) => {
                     jhgghjlkmnbghhjlk.,mnbhjkl.,mnhj;l,.mh"
                 /> 
             </ScrollView>
-            <SendField />
+            <SendField 
+                sendImg={sendImg}
+            />
         </SafeAreaView>
     )
 }

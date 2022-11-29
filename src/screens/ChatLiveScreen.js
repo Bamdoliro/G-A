@@ -19,6 +19,7 @@ import jwtDecode from "jwt-decode";
 import Toast from "react-native-toast-message";
 import {toastConfig} from "../components/common/Toast/ToastConfig";
 import {getMessages} from "../utils/api/chat";
+import sendImg from "../assets/sendBtn.png"
 
 export default function ChatLiveScreen({route, navigation, socket}) {
     const {id, name, numberOfMembers} = route.params;
@@ -119,6 +120,7 @@ export default function ChatLiveScreen({route, navigation, socket}) {
                     </TouchableWithoutFeedback>
                     <SendField
                         sendMessage={sendMessage}
+                        sendImg={sendImg}
                     />
                 </KeyboardAvoidingView>
             </SafeAreaView>
