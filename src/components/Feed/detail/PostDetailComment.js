@@ -1,24 +1,36 @@
-import {useState} from "react";
-import {StyleSheet, View} from "react-native";
+import { Text, StyleSheet, View } from "react-native";
 import PostDetailCommentItem from "./PostDetailCommentItem";
+import Seokkamoni from "../../../assets/seokkamoni.png"
+import CommentData from "../../../data/CommentData.json" 
 
-const PostDetailComment = () => {
-  const [commentModal, setCommentModal] = useState(false);
-
-  return (
-    <View style={styles.PostDetailCommentContainer}>
-      <PostDetailCommentItem commentModal={commentModal} setCommentModal={setCommentModal} />
-    </View >
-  )
+export default function PostDetailComment() {
+    return (
+        <>
+            <Text style={styles.title}>댓글</Text>
+            <View style={styles.container}>
+                {
+                    CommentData.map((data) => 
+                    <PostDetailCommentItem 
+                        img={Seokkamoni}
+                        user={data.user}
+                        comment={data.comment}
+                        betime={data.betime}
+                    />
+                     )
+                }
+            </View>
+        </>
+    )
 }
 
 const styles = StyleSheet.create({
-  PostDetailCommentContainer: {
-    marginTop: 32,
-    display: 'flex',
-    width: '100%',
-    alignItems: 'center'
-  }
+    container: {
+        height: "100%"
+    },
+    title: {
+        marginTop: 15,
+        fontSize: 18,
+        fontWeight: "500",
+        marginBottom: 15
+    }
 })
-
-export default PostDetailComment;

@@ -1,104 +1,54 @@
-import {Image, Pressable, StyleSheet, Text, View} from "react-native";
-import {useEffect} from 'react';
-import OptionImage from '../../../assets/option.png';
+import { View, StyleSheet, Image, Text } from "react-native";
 
-const PostDetailCommentItem = ({commentModal, setCommentModal}) => {
-    useEffect(() => {
-        console.log(commentModal)
-    }, [commentModal]);
-
+export default function PostDetailCommentItem({img, user, comment, betime}) {
     return (
-        <View style={styles.PostDetailCommentItemContainer}>
-            <View style={{display: "flex", flexDirection: 'row', alignItems: "center"}}>
-                <View style={styles.PostDetailCommentItemProfileImg}>
-                </View>
-                <View style={{display: 'flex', marginLeft: 5, height: 50, justifyContent: "center"}}>
-                    <View>
-                        <Text style={styles.PostDetailCommentItemProfileName}>신중빈</Text>
+        <View style={styles.container}>
+            <Image
+                source={img}
+                style={styles.profile}
+            />
+            <View style={{paddingLeft: 5}}>
+                <View style={{flexDirection: "row", alignItems: "center"}}>
+                    <Text style={styles.name}>{user}</Text>
+                    <View style={{flexDirection: "row", alignItems: "center", paddingLeft: 5}}>
+                        <View style={styles.dot} />
+                        <Text style={styles.betime}>{betime}분 전</Text>
                     </View>
-                    <View>
-                        <Text style={styles.PostDetailCommentItemProfileTime}>17분 전</Text>
-                    </View>
                 </View>
-            </View>
-            <View style={styles.PostDetailCommentItemContentContainer}>
-                <View style={{flex: '1', marginLeft: 10, marginRight: 5}}>
-                    <Text>화나요 화나요 화나요 화나요 화나요 화나요 화나요 화나요 화나요 화나요 화나요 화나요 </Text>
-                </View>
-                <View style={{marginRight: 'auto',}}>
-                    <Pressable onPress={() => setCommentModal(!commentModal)}>
-                        <Image source={OptionImage} style={{marginRight: 15, width: 8, height: 15}}/>
-                    </Pressable>
-                    {commentModal && <View style={styles.PostDetailCommentModal}>
-                        <View style={{
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            borderColor: 'white',
-                            borderBottomColor: '#D9D9D9',
-                            borderWidth: 3,
-                            height: 25
-                        }}>
-                            <Text>신고</Text>
-                        </View>
-                        <View style={{alignItems: 'center', justifyContent: 'center', height: 25}}>
-                            <Text>삭제</Text>
-                        </View>
-                    </View>}
-                </View>
+                <Text style={styles.comment}>{comment}</Text>     
             </View>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    PostDetailCommentItemContainer: {
-        display: 'flex',
-        width: 340,
+    container: {
+        flexDirection: "row",
+        alignItems: "center",
+        marginBottom: 25
     },
-    PostDetailCommentItemProfileImg: {
-        width: 40,
-        height: 40,
-        backgroundColor: '#D9D9D9',
-        borderRadius: 30
+    profile: {
+        width: 29,
+        height: 29
     },
-    PostDetailCommentItemProfileName: {
-        fontWeight: '700',
-        fontSize: 16,
-        lineHeight: 18,
+    name: {
+        fontSize: 13,
+        fontWeight: "500",
     },
-    PostDetailCommentItemProfileTime: {
-        fontWeight: '500',
-        fontSize: 12,
-        lineHeight: 14,
+    betime: {
+        color: "#B0B0B0",
+        fontSize: 10,
+        paddingLeft: 2
     },
-    PostDetailCommentItemContentContainer: {
-        backgroundColor: '#D9D9D9',
-        width: 340,
-        height: 60,
-        borderRadius: 27,
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: "center"
+    dot: {
+        width: 3,
+        height: 3,
+        backgroundColor: "#B0B0B0", 
+        borderRadius: "50%",
     },
-    PostDetailCommentModal: {
-        zIndex: 0,
-        marginTop: 20,
-        right: 10,
-        position: 'absolute',
-        display: 'flex',
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 6,
-        },
-        shadowOpacity: 0.37,
-        shadowRadius: 7.49,
-        elevation: 12,
-        borderRadius: 5,
-        width: 70,
-        height: 50,
-        backgroundColor: 'white'
+    comment: {
+        color: "#636363",
+        fontSize: 13,
+        fontWeight: "300"
     }
-});
-
-export default PostDetailCommentItem;
+})

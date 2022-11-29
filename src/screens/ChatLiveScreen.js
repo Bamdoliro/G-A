@@ -17,6 +17,7 @@ import {aiUrl} from "../utils/api/urls";
 import Toast from "react-native-toast-message";
 import {toastConfig} from "../components/common/Toast/ToastConfig";
 import {getMessages} from "../utils/api/chat";
+import sendImg from "../assets/sendBtn.png"
 import {useQuery} from "react-query";
 import {getUser} from "../utils/storage/user";
 
@@ -118,6 +119,7 @@ export default function ChatLiveScreen({route, navigation, socket}) {
                     </TouchableWithoutFeedback>
                     <SendField
                         sendMessage={sendMessage}
+                        sendImg={sendImg}
                     />
                 </KeyboardAvoidingView>
             </SafeAreaView>
