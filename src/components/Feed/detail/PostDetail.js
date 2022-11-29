@@ -1,5 +1,6 @@
 import { View, StyleSheet, Image, Text } from "react-native";
 import FeedImg from "../../../assets/feedImage.png"
+import PostDetailComment from "./PostDetailComment";
 
 export default function PostDetail() {
     return (
@@ -14,6 +15,7 @@ export default function PostDetail() {
                 싶으면 세탁실에 다시 돌려 놓아 주세요... ehdgoanfrhfaafdsfvxcjhjfdkoslkm
                 jhgghjlkmnbghhjlk.,mnbhjkl.,mnhj;l,.mh
             </Text>
+            <PostDetailComment />
         </View>
     )
 }
