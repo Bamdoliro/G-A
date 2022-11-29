@@ -1,11 +1,15 @@
-import {Image, StyleSheet, Text, View} from "react-native";
+import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 
-export default function Community({id, name, coverImage, current}) {
+export default function Community({name, backgroundImage, current, onPress}) {
     return (
-        <View style={[styles.container, current ? styles.current : null]}>
-            <Image source={{uri: coverImage}} style={styles.image}/>
-            <Text style={styles.name}>{name}</Text>
-        </View>
+        <TouchableOpacity
+            onPress={onPress}
+        >
+            <View style={[styles.container, current ? styles.current : null]}>
+                <Image source={{uri: backgroundImage}} style={styles.image}/>
+                <Text style={styles.name}>{name}</Text>
+            </View>
+        </TouchableOpacity>
     )
 }
 
@@ -18,7 +22,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     current: {
-      backgroundColor: "#ECECEC"
+        backgroundColor: "#ECECEC"
     },
     image: {
         width: 30,

@@ -1,12 +1,12 @@
 import GatiFeed from "../GatiPostList/GatiFeed";
-import GatiListData from "../../../data/GatiListData.json"
 import {FlatList} from "react-native";
 
-export default function GatiFeedFrame() {
+export default function GatiFeedFrame({data, socket}) {
+
     return (
         <FlatList
             showsVerticalScrollIndicator={false}
-            data={GatiListData}
+            data={data?.ddoList}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => (
                 <GatiFeed
@@ -16,6 +16,7 @@ export default function GatiFeedFrame() {
                     content={item.content}
                     startDate={item.startDate}
                     endDate={item.endDate}
+                    socket={socket}
                 />
             )}
         />

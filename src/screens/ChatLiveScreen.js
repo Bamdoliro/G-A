@@ -12,18 +12,23 @@ import ChatLiveField from "../components/Chat/ChatLive/ChatLiveField";
 import ChatLiveHeader from "../components/Chat/ChatLive/ChatLiveHeader";
 import SendField from "../components/common/input/SendField/SendField";
 import {useEffect, useState} from "react";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import {aiUrl} from "../utils/api/urls";
-import jwtDecode from "jwt-decode";
 import Toast from "react-native-toast-message";
 import {toastConfig} from "../components/common/Toast/ToastConfig";
 import {getMessages} from "../utils/api/chat";
+import {useQuery} from "react-query";
+import {getUser} from "../utils/storage/user";
 
 export default function ChatLiveScreen({route, navigation, socket}) {
     const {id, name, numberOfMembers} = route.params;
     const [messages, setMessages] = useState([]);
     const [currentUserId, setCurrentUserId] = useState(0);
+    const {} = useQuery('getMessages', () => getMessages(id), {
+        onSuccess: (data) => {
+            setMessages(data?.messageList.reverse());
+        }
+    });
 
     const sendMessage = (message) => {
         if (message.length > 0) {
@@ -81,19 +86,13 @@ export default function ChatLiveScreen({route, navigation, socket}) {
     const [statusBarHeight, setStatusBarHeight] = useState(0);
 
     useEffect(() => {
-        navigation.addListener('focus', getMessagesHistory);
         navigation.addListener('focus', setCurrentUser);
     }, [navigation]);
 
     const setCurrentUser = async () => {
-        const token = await AsyncStorage.getItem("access-token");
-        setCurrentUserId(jwtDecode(token).userId)
+        const id = await getUser();
+        setCurrentUserId(parseInt(id));
     }
-
-    const getMessagesHistory = async () => {
-        const data = await getMessages(id);
-        setMessages(data.reverse())
-    };
 
     return (
         <>

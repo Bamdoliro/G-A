@@ -1,29 +1,20 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import axios from "axios";
-import {baseUrl} from "../../utils/api/urls";
 import {useState} from 'react';
 import Toggle from "../common/input/Toggle/Toggle";
-import {deleteAccessToken, deleteRefreshToken} from "../../utils/storage/token";
+import {deleteAccessToken, deleteRefreshToken, getAccessToken} from "../../utils/storage/token";
+import {logout} from "../../utils/api/auth";
+import {useMutation} from "react-query";
 
 export default function ProfileSection({setLogout}) {
     const [isNoticeAllow, setIsNoticeAllow] = useState(false);
-
-    const logoutUser = async () => {
-        try {
-            const accessToken = await AsyncStorage.getItem("access-token");
-            const response = await axios.delete(`${baseUrl}/auth`, {
-                headers: {
-                    Authorization: `Bearer ${accessToken}`,
-                },
-            });
+    const {mutate} = useMutation(logout, {
+        onSuccess: async () => {
             await deleteAccessToken();
             await deleteRefreshToken();
             setLogout();
-        } catch (e) {
-            console.log(e);
         }
-    }
+    })
+
     return (
         <>
             <View style={styles.Settings}>
@@ -34,7 +25,7 @@ export default function ProfileSection({setLogout}) {
                         setValue={setIsNoticeAllow}
                     />
                 </View>
-                <TouchableOpacity style={styles.Logout} onPress={logoutUser}>
+                <TouchableOpacity style={styles.Logout} onPress={() => mutate()}>
                     <Text>로그아웃</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => console.log('계정 탈퇴')}>

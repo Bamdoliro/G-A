@@ -1,7 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const setUser = async (userId) => {
-    await  AsyncStorage.setItem("user", userId)
+    await AsyncStorage.setItem("user", userId)
 }
 
 export const getUser = async () => {

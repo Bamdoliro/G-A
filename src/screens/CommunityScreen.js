@@ -8,14 +8,23 @@ import PlusButton from "../components/common/button/PlusButton/PlusButton";
 import GatiButton from "../components/common/button/GatiButton/GatiButton";
 import Category from "../components/Community/Category/Category";
 import ChangeCommunityModal from "../components/Community/ChangeCommunity/ChangeCommunityModal";
+import {useQuery} from "react-query";
+import {getCommunityDetail} from "../utils/api/community";
+import {getCurrentCommunity} from "../utils/storage/currentCommunity";
+import {getFeedsByCommunity} from "../utils/api/feed";
+import {getDdoByCommunity} from "../utils/api/ddo";
 
-export default function CommunityScreen({navigation}) {
+export default function CommunityScreen({navigation, socket}) {
     const [category, setCategory] = useState("FEED");
     const [changeCommunityModalIsOpen, setChangeCommunityModalIsOpen] = useState(false);
+    const communityDetail = useQuery('getCommunityDetail', async () => getCommunityDetail(await getCurrentCommunity()))
+    const feeds = useQuery('getFeedsByCommunity', async () => getFeedsByCommunity(await getCurrentCommunity()))
+    const ddo = useQuery('getDdoByCommunity', async () => getDdoByCommunity(await getCurrentCommunity()))
 
     return (
         <SafeAreaView>
             <CommunityHeader
+                data={communityDetail?.data}
                 setChangeCommunityModalIsOpen={setChangeCommunityModalIsOpen}
             />
             <View
@@ -25,8 +34,15 @@ export default function CommunityScreen({navigation}) {
                     category={category}
                     setCategory={setCategory}
                 />
-                {
-                    category === "GATI" ? <GatiFeedFrame/> : <FeedFrame/>
+                {category === "GATI" ?
+                    <GatiFeedFrame
+                        data={ddo?.data}
+                        socket={socket}
+                    />
+                    :
+                    <FeedFrame
+                        data={feeds?.data}
+                    />
                 }
             </View>
             {category === "GATI" ?
@@ -42,6 +58,11 @@ export default function CommunityScreen({navigation}) {
             <ChangeCommunityModal
                 isOpen={changeCommunityModalIsOpen}
                 setIsOpen={setChangeCommunityModalIsOpen}
+                communityRefetch={() => {
+                    communityDetail?.refetch();
+                    feeds?.refetch();
+                    ddo?.refetch();
+                }}
             />
         </SafeAreaView>
     );
