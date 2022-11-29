@@ -43,8 +43,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         width: "100%",
-        marginBottom: 30,
-        paddingHorizontal: 30,
+        marginBottom: 20,
         paddingTop: 30
     },
     ArrowIcon: {
