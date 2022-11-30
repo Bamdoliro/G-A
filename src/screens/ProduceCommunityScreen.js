@@ -38,8 +38,9 @@ export default function ProduceCommunityScreen({navigation}) {
                         isPublic: isPublic,
                         password: password,
                     })}
+                   style={{paddingHorizontal: 30}}
                 />
-                <ScrollView>
+                <ScrollView style={{paddingHorizontal: 30, flexGrow: 1}}>
                     {/* 사진 */}
                     {/* TODO :: 클릭 이벤트 넣어줘야 함 */}
                     <ImageInput/>
@@ -87,7 +88,7 @@ export default function ProduceCommunityScreen({navigation}) {
 
 const styles = StyleSheet.create({
     container: {
-        padding: 30,
+        flex: 1,
         backgroundColor: "#fff",
     },
 })

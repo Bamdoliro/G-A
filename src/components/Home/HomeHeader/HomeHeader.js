@@ -2,8 +2,10 @@ import {StyleSheet, Text, View} from "react-native";
 import Search from "../../common/input/Search/Search";
 import MainHeader from "../../common/header/MainHeader/MainHeader";
 import MenuBar from "../../Community/CommunityHeader/MenuBar";
+import { useEffect } from "react";
 
-export default function HomeHeader() {
+export default function HomeHeader({setSearchWord, searchWord}) {
+    
     return (
         <MainHeader
             child={
@@ -14,6 +16,8 @@ export default function HomeHeader() {
                     </View>
                     <Search
                         placeholder="공동체 검색 또는 코드 입력"
+                        setSearchWord={setSearchWord}
+                        SearchWord={searchWord}
                     />
                 </>
             }
