@@ -1,26 +1,41 @@
-import { View, StyleSheet, Image, Text } from "react-native";
-import PostDetailComment from "./PostDetailComment";
-import Seokkamoni from "../../../assets/seokkamoni.png"
+import {StyleSheet, Text, View} from "react-native";
 
-export default function PostDetail({img, title, explanation}) {
+export default function PostDetail({data}) {
+
     return (
         <View style={styles.container}>
-            <Image 
-                source={img}
-                style={styles.img}
-            />
-            <Text style={styles.title}>{title}</Text>
-            <Text style={styles.explanation}>
-               {explanation}
-            </Text>
-            <PostDetailComment />
+            <View style={styles.main}>
+                {
+                    // <Image
+                    //     source={img}
+                    //     style={styles.img}
+                    // />
+                }
+                <Text style={styles.title}>{data?.title}</Text>
+                <Text style={styles.explanation}>
+                    {data?.content}
+                </Text>
+            </View>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        width: "100%"
+        width: "100%",
+        paddingHorizontal: 30,
+        paddingVertical: 20,
+        backgroundColor: "#fff"
+    },
+    main: {
+        shadowColor: "#000000",
+        shadowOffset: {
+            width: 0,
+            height: 1
+        },
+        shadowOpacity: 0.18,
+        shadowRadius: 1,
+        elevation: 10,
     },
     img: {
         width: "100%",
@@ -29,13 +44,13 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     title: {
-        fontSize: 15,
+        fontSize: 20,
         fontWeight: "500",
         color: "#00000",
         marginBottom: 4
     },
     explanation: {
-        fontSize: 13,
+        fontSize: 15,
         color: "#636363"
     }
 })

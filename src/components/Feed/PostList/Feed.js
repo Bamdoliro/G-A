@@ -3,13 +3,15 @@ import React from "react";
 import coverImage from "../../../assets/feedImage.png";
 import {useNavigation} from "@react-navigation/native";
 
-export default function Feed({Title, content}) {
+export default function Feed({id, Title, content}) {
     const navigation = useNavigation();
 
     return (
         <TouchableOpacity
             style={styles.container}
-            onPress={() => navigation.navigate('PostDetailScreen')}
+            onPress={() => navigation.navigate('PostDetailScreen', {
+                id: id
+            })}
         >
             {
                 // <Image

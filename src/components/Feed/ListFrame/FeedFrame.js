@@ -10,6 +10,7 @@ export default function FeedFrame({data}) {
             keyExtractor={(item, index) => index.toString()}
             renderItem={({item}) => (
                 <Feed
+                    id={item.id}
                     Title={item.title}
                     content={item.content}
                     numberOfComment={item.numberOfComment}

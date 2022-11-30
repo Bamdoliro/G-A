@@ -1,8 +1,12 @@
 import { View, StyleSheet, Image,TouchableOpacity, Text } from "react-native";
 import ArrowIcon from "../../../assets/arrow.png";
 import DotDotDot from "../../../assets/dotdotdot.png"
+import {useNavigation} from "@react-navigation/native";
+import {dateKoreanFormatter} from "../../../utils/etc/dateTimeFormatter";
 
-export default function DetailHeader({navigation, name, betime, img}) {
+export default function DetailHeader({data, style}) {
+    const navigation = useNavigation();
+
     return (
         <View style={styles.container}>
             <View style={{flexDirection: "row", alignItems: "center"}}>
@@ -13,22 +17,22 @@ export default function DetailHeader({navigation, name, betime, img}) {
                     />
                 </TouchableOpacity>
                 <View>
-                    <Image 
-                        source={img}
+                    <Image
+                        source={{uri: data?.userProfile.image}}
                         style={styles.profile}
                     />
                 </View>
                 <View style={{paddingLeft: 5, justifyContent: "center"}}>
-                    <Text style={styles.name}>{name}</Text>
+                    <Text style={styles.name}>{data?.userProfile.name}</Text>
                     <View style={{flexDirection: "row", alignItems: "center"}}>
                         <View style={styles.dot} />
-                        <Text style={styles.betime}>{betime}분 전</Text>
+                        <Text style={styles.betime}>{dateKoreanFormatter(data?.createdAt)}</Text>
                         {/* before time의 줄임말 */}
                     </View>
                 </View>
             </View>
             <TouchableOpacity>
-                <Image 
+                <Image
                     source={DotDotDot}
                     style={styles.dotdotdot}
                 />
@@ -42,8 +46,9 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         width: "100%",
-        marginBottom: 20,
-        paddingTop: 30
+        paddingTop: 30,
+        paddingHorizontal: 30,
+        backgroundColor: "#fff"
     },
     ArrowIcon: {
         width: 10,
@@ -53,6 +58,7 @@ const styles = StyleSheet.create({
     profile: {
         width: 39,
         height: 39,
+        borderRadius: 39,
     },
     name: {
         fontSize: 16,
@@ -66,7 +72,7 @@ const styles = StyleSheet.create({
     dot: {
         width: 4,
         height: 4,
-        backgroundColor: "#B0B0B0", 
+        backgroundColor: "#B0B0B0",
         borderRadius: "50%",
     },
     dotdotdot: {

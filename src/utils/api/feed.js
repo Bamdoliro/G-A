@@ -12,3 +12,7 @@ export const writeFeed = async ({title, content, communityId}) => {
 export const getFeedsByCommunity = async (communityId) => {
     return ((await server.get(`/board/community/${communityId}`, await authorization()))).data;
 }
+
+export const getFeedDetail = async (id) => {
+    return ((await server.get(`/board/${id}`, await authorization()))).data;
+}
