@@ -16,3 +16,11 @@ export const writeDdo = async ({title, content, capacity, startDate, endDate, co
         communityId: communityId
     }, await authorization())).data;
 }
+
+export const getDdoDetail = async (id) => {
+    return (await server.get(`/ddo/${id}`, await authorization())).data;
+}
+
+export const joinDdo = async (id) => {
+    return (await server.post(`/ddo/${id}/join`, {}, await authorization())).data;
+}

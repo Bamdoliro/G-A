@@ -66,7 +66,7 @@ export default function LoginScreen({navigation, setLogin}) {
                     </View>
                 </View>
                 <CustomButton
-                    title="로그인"
+                    text="로그인"
                     onPress={() => mutate({
                         email: email,
                         password: password

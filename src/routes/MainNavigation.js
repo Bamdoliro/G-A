@@ -10,6 +10,7 @@ import ProduceCommunityScreen from "../screens/ProduceCommunityScreen";
 import WritePostScreen from "../screens/Post/write/WritePostScreen";
 import WriteGatiScreen from "../screens/Post/write/WriteGatiScreen";
 import ProfileEditScreen from "../screens/ProfileEditScreen";
+import GatiPostDetailScreen from "../screens/GatiPostDetailScreen";
 
 export default function MainNavigation({Stack, setLogout, socket}) {
 
@@ -28,6 +29,9 @@ export default function MainNavigation({Stack, setLogout, socket}) {
                 {props => <ChatLiveScreen {...props} socket={socket}/>}
             </Stack.Screen>
             <Stack.Screen name="PostDetailScreen" component={PostDetailScreen}/>
+            <Stack.Screen name="GatiPostDetailScreen">
+                {props => <GatiPostDetailScreen {...props} socket={socket}/>}
+            </Stack.Screen>
             <Stack.Screen name="CommunitySettingScreen" component={CommunitySettingScreen}/>
             <Stack.Screen name="CommunityReportScreen" component={CommunityReportScreen}/>
             <Stack.Screen name="CommunityPostWritingScreen" component={CommunityPostWritingScreen}/>

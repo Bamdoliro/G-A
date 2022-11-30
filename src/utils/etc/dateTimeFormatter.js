@@ -32,3 +32,9 @@ export const dateKoreanFormatter = (params) => {
         (day_diff < 31 && Math.ceil(day_diff / 7) + "주 전")
     );
 }
+
+export const changeToPeriod = (startDate, endDate) => {
+    if (startDate && endDate) {
+        return startDate.substring(5) + " ~ " + endDate.substring(5)
+    }
+}

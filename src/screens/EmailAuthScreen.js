@@ -23,7 +23,7 @@ export default function EmailAuthScreen({navigation}) {
                 <CustomButton
                     onPress={() => {
                     }}
-                    title="인증 메일을 보냅니다!"
+                    text="인증 메일을 보냅니다!"
                     style={styles.sendMailButton}
                 />
                 <TouchableOpacity

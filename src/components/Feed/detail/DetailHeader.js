@@ -22,7 +22,7 @@ export default function DetailHeader({data, style}) {
                         style={styles.profile}
                     />
                 </View>
-                <View style={{paddingLeft: 5, justifyContent: "center"}}>
+                <View style={{paddingLeft: 5, justifyContent: "space-between"}}>
                     <Text style={styles.name}>{data?.userProfile.name}</Text>
                     <View style={{flexDirection: "row", alignItems: "center"}}>
                         <View style={styles.dot} />

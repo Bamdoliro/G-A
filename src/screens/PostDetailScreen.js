@@ -10,7 +10,7 @@ import {useQuery} from "react-query";
 import {getFeedDetail} from "../utils/api/feed";
 import PostDetailComment from "../components/Feed/detail/PostDetailComment";
 
-const PostDetailScreen = ({route, navigation}) => {
+const PostDetailScreen = ({route}) => {
     const {id} = route.params;
     const {data} = useQuery('getFeedDetail', () => getFeedDetail(id), {
         onSuccess: () => {

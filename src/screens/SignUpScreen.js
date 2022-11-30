@@ -181,7 +181,7 @@ export default function SignUpScreen({navigation}) {
                             alert('비밀번호가 다릅니다')
                         }
                     }}
-                    title="회원가입"
+                    text="회원가입"
                     style={styles.signUpButton}
                 />
             </View>

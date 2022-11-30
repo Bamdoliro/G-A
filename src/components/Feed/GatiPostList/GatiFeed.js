@@ -1,26 +1,21 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import React from "react";
 import {useNavigation} from "@react-navigation/native";
-import coverImage from "../../../assets/feedImage.png"
 import CustomButton from "../../common/button/CustomButton/CustomButton";
 import Tag from "./Tag";
+import {changeToPeriod} from "../../../utils/etc/dateTimeFormatter";
 
 export default function GatiFeed({id, capacity, title, content, startDate, endDate, socket}) {
     const navigation = useNavigation();
-    const joinGati = () => {
-        socket.current?.emit("room-join", {
-            roomId: id
-        })
-    }
-
-    const changeToPeriod = () => startDate.substring(5) + " ~ " + endDate.substring(5)
 
     return (
         <View
             style={styles.container}
         >
             <TouchableOpacity
-                onPress={() => navigation.navigate('PostDetailScreen')}
+                onPress={() => navigation.navigate('GatiPostDetailScreen', {
+                    id: id
+                })}
             >
                 {
                     // <Image
@@ -29,22 +24,22 @@ export default function GatiFeed({id, capacity, title, content, startDate, endDa
                     //     resizeMethod="scale"
                     // />
                 }
-            </TouchableOpacity>
-            <View style={styles.informationArea}>
-                <Text style={styles.title} numberOfLines={2} ellipsizeMode="tail">{title}</Text>
-                <Text style={styles.content} numberOfLines={2} ellipsizeMode="tail">
-                    {content}
-                </Text>
-                <View style={styles.tags}>
-                    <Tag text={`${capacity}명`}/>
-                    <Tag text={changeToPeriod()}/>
+                <View style={styles.informationArea}>
+                    <Text style={styles.title} numberOfLines={2} ellipsizeMode="tail">{title}</Text>
+                    <Text style={styles.content} numberOfLines={2} ellipsizeMode="tail">
+                        {content}
+                    </Text>
+                    <View style={styles.tags}>
+                        <Tag text={`${capacity}명`}/>
+                        <Tag text={changeToPeriod(startDate, endDate)}/>
+                    </View>
+                    {/*<CustomButton*/}
+                    {/*    title="참여하기"*/}
+                    {/*    onPress={joinGati}*/}
+                    {/*    style={styles.button}*/}
+                    {/*/>*/}
                 </View>
-                <CustomButton
-                    title="참여하기"
-                    onPress={joinGati}
-                    style={styles.button}
-                />
-            </View>
+            </TouchableOpacity>
         </View>
     )
 }

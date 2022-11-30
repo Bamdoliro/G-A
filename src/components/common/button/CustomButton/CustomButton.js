@@ -1,11 +1,11 @@
 import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
-export default function CustomButton({ title, onPress, style }) {
+export default function CustomButton({ text, onPress, style, textStyle }) {
     return (
         <View style={[styles.container, style]}>
             <Pressable style={styles.button} onPress={onPress}>
-                <Text style={styles.text}>{title}</Text>
+                <Text style={[styles.text, styles.textStyle]}>{text}</Text>
             </Pressable>
         </View>
     );
@@ -16,8 +16,6 @@ const styles = StyleSheet.create({
         width: "100%",
         backgroundColor: "#0D76FF",
         borderRadius: 20,
-        borderWidth: 1,
-        borderColor: "transparent",
         paddingVertical: 5,
     },
     button: {
@@ -28,8 +26,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     text: {
-        color: "white",
         fontSize: 17,
+        color: "#fff",
         fontWeight: "600",
     }
 });
