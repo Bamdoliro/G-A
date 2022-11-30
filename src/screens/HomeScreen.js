@@ -9,13 +9,13 @@ import {useState} from "react";
 export default function HomeScreen({navigation}) {
 
     const [isSearchChecking, setSearchingChecking] = useState(true);
-    const [SearchWord, setSearchWord] = useState(null);
+    const [searchWord, setSearchWord] = useState(null);
 
     return (
         <SafeAreaView>
             <HomeHeader 
                 setSearchWord={setSearchWord}
-                SearchWord={SearchWord}
+                SearchWord={searchWord}
             />
             {
                 isSearchChecking ? (

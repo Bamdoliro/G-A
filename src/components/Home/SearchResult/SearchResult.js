@@ -5,13 +5,13 @@ import { useQuery } from "react-query";
 import { getMyCommunity } from "../../../utils/api/community";
 import { getCurrentCommunity, setCurrentCommunity } from "../../../utils/storage/currentCommunity";
 
-export default function SearchResult({ navigation, SearchWord, numberOfSearches}) {
+export default function SearchResult({ navigation, searchWord, numberOfSearches}) {
 
     return (
         <View style={styles.container}>
             <ScrollView>
                 <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 5 }}>
-                    <Text>"{SearchWord}" 검색결과</Text>
+                    <Text>"{searchWord}" 검색결과</Text>
                     <View style={{ flexDirection: "row", alignItems: "center", marginLeft: 5 }}>
                         <View style={styles.dot} />
                         <Text style={{ color: "#0D76FF" }}>{numberOfSearches}건</Text>
