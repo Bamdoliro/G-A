@@ -4,6 +4,8 @@ import Toggle from "../common/input/Toggle/Toggle";
 import {deleteAccessToken, deleteRefreshToken, getAccessToken} from "../../utils/storage/token";
 import {logout} from "../../utils/api/auth";
 import {useMutation} from "react-query";
+import {deleteCurrentCommunity} from "../../utils/storage/currentCommunity";
+import {deleteUser} from "../../utils/storage/user";
 
 export default function ProfileSection({setLogout}) {
     const [isNoticeAllow, setIsNoticeAllow] = useState(false);
@@ -11,6 +13,8 @@ export default function ProfileSection({setLogout}) {
         onSuccess: async () => {
             await deleteAccessToken();
             await deleteRefreshToken();
+            await deleteUser();
+            await deleteCurrentCommunity();
             setLogout();
         }
     })

@@ -12,11 +12,9 @@ import ChatLiveField from "../components/Chat/ChatLive/ChatLiveField";
 import ChatLiveHeader from "../components/Chat/ChatLive/ChatLiveHeader";
 import SendField from "../components/common/input/SendField/SendField";
 import {useEffect, useState} from "react";
-import axios from "axios";
-import {aiUrl} from "../utils/api/urls";
 import Toast from "react-native-toast-message";
 import {toastConfig} from "../components/common/Toast/ToastConfig";
-import {getMessages} from "../utils/api/chat";
+import {getAIMessage, getMessages} from "../utils/api/chat";
 import sendImg from "../assets/sendBtn.png"
 import {useQuery} from "react-query";
 import {getUser} from "../utils/storage/user";
@@ -31,7 +29,7 @@ export default function ChatLiveScreen({route, navigation, socket}) {
         }
     });
 
-    const sendMessage = (message) => {
+    const sendMessage = async (message) => {
         if (message.length > 0) {
             const data = {
                 roomId: id,
@@ -40,17 +38,12 @@ export default function ChatLiveScreen({route, navigation, socket}) {
             };
 
             socket.current?.emit("message", data);
-            // TODO :: AI server 구축시 추가
-            // showChatNotification(message);
+            await showChatNotification(message);
         }
     };
 
     const showChatNotification = async (message) => {
-        const r = await axios.get(aiUrl, {
-            params: {
-                msg: message
-            }
-        });
+        const r = await getAIMessage(message);
 
         if (r.data !== "0") {
             let result = r.data.split(',')

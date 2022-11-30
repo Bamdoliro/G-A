@@ -6,15 +6,15 @@ export default function ChatListSection({navigation, rooms}) {
 
     return (
         <ScrollView style={styles.ScrollSection}>
-            {rooms?.map(r => (
+            {rooms?.map((r, index) => (
                 <ChatList
+                    key={index}
                     IMG={ChatListData.row.IMG}
                     name={r.name}
                     SUB_TEXT={"내용내용"}
                     numberOfMembers={r.numberOfMembers}
                     DATE={ChatListData.row.DATE}
                     id={r.id}
-                    key={r.id}
                     navigation={navigation}
                 />
             ))}

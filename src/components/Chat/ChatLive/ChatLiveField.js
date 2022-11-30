@@ -1,5 +1,5 @@
 import {FlatList, StyleSheet, View} from "react-native";
-import React, {useRef} from 'react';
+import React from 'react';
 
 import ChatLiveMyMessage from "./Message/ChatLiveMyMessage";
 import ChatLiveOtherMessage from "./Message/ChatLiveOtherMessage";
@@ -24,7 +24,7 @@ export default function ChatLiveField({messageData, currentUserId}) {
                 renderItem={({item}) => {
                     if (item.messageType === "SYSTEM") {
                         return <SystemMessage data={item}/>
-                    } else if (item.userId === currentUserId) {
+                    } else if (item.userProfile.id === currentUserId) {
                         return <ChatLiveMyMessage data={item}/>
                     } else {
                         return <ChatLiveOtherMessage data={item}/>
