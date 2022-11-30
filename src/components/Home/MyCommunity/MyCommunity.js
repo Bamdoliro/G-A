@@ -1,15 +1,15 @@
 import {ScrollView, View, Text, StyleSheet} from "react-native";
 import CommunityList from "../../Feed/CommunityList/CommunityList";
-import {useQuery} from "react-query";
+import {useQuery, useQueryClient} from "react-query";
 import {getMyCommunity} from "../../../utils/api/community";
 import {getCurrentCommunity, setCurrentCommunity} from "../../../utils/storage/currentCommunity";
 import {useNavigation} from "@react-navigation/native";
 
 export default function MyCommunity() {
     const navigation = useNavigation();
+    const queryClient = useQueryClient();
     const {data} = useQuery('getMyCommunity', getMyCommunity, {
         onSuccess: async () => {
-
             if (!await getCurrentCommunity() && data?.communityList != null) {
                 await setCurrentCommunity(data.communityList[0].id.toString());
             }
@@ -36,6 +36,9 @@ export default function MyCommunity() {
                             onPress={async () => {
                                 await setCurrentCommunity(community.id);
                                 navigation.navigate('CommunityScreen');
+                                queryClient.invalidateQueries('getCommunityDetail')
+                                queryClient.invalidateQueries('getFeedsByCommunity')
+                                queryClient.invalidateQueries('getDdoByCommunity')
                             }}
                         />
                     )

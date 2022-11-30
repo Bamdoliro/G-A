@@ -9,10 +9,11 @@ import SafeAreaView from "../components/common/SafeAreaView/SafeAreaView";
 import InputFrame from "../components/common/frame/InputFrame/InputFrame";
 import PublicScopeArea from "../components/Community/create/PublicScopeArea";
 import BasicInput from "../components/common/input/BasicInput/BasicInput";
-import {useMutation} from "react-query";
+import {useMutation, useQueryClient} from "react-query";
 import {createCommunity} from "../utils/api/community";
 
 export default function ProduceCommunityScreen({navigation}) {
+    const queryClient = useQueryClient();
     const [name, setName] = useState("");
     const [isPublic, setIsPublic] = useState(true);
     const [numberOfPeople, setNumberOfPeople] = useState("25");
@@ -22,6 +23,7 @@ export default function ProduceCommunityScreen({navigation}) {
         onSuccess: () => {
             alert('성공')
             navigation.pop()
+            queryClient.invalidateQueries('getMyCommunity')
         }
     })
 
