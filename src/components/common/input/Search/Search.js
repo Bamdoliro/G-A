@@ -1,7 +1,7 @@
 import {Image, StyleSheet, TextInput, View} from 'react-native';
 import SearchIcon from "../../../../assets/Search_Icon.png"
 
-export default function Search({placeholder}){
+export default function Search({placeholder, setSearchWord, SearchWord}){
     return (
       <View style={styles.SearchFrame}>
         <Image
@@ -11,6 +11,8 @@ export default function Search({placeholder}){
         <TextInput
             style={styles.input}
             placeholder={placeholder}
+            onChangeText={setSearchWord}
+            value={SearchWord}
         />
       </View>
     );

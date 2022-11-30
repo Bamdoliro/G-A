@@ -6,14 +6,7 @@ import { getMyCommunity } from "../../../utils/api/community";
 import { getCurrentCommunity, setCurrentCommunity } from "../../../utils/storage/currentCommunity";
 
 export default function SearchResult({ navigation, SearchWord, numberOfSearches}) {
-    const { data } = useQuery('getMyCommunity', getMyCommunity, {
-        onSuccess: async () => {
 
-            if (!await getCurrentCommunity() && data?.communityList != null) {
-                await setCurrentCommunity(data.communityList[0].id.toString());
-            }
-        }
-    })
     return (
         <View style={styles.container}>
             <ScrollView>
@@ -24,21 +17,11 @@ export default function SearchResult({ navigation, SearchWord, numberOfSearches}
                         <Text style={{ color: "#0D76FF" }}>{numberOfSearches}건</Text>
                     </View>
                 </View>
-                {
-                    data?.communityList.map((community, index) =>
-                        <CommunityList
-                            title={community.name}
-                            content={community.introduction}
-                            numberOfPeople={community.numberOfPeople}
-                            backgroundImage={community.backgroundImage}
-                            key={index}
-                            onPress={async () => {
-                                await setCurrentCommunity(community.id);
-                                navigation.navigate('CommunityScreen');
-                            }}
-                        />
-                    )
-                }
+                <CommunityList 
+                    title="김석진의 타이틀"
+                    content="김석진의 컨텐트 입니다"
+                    numberOfPeople={12}
+                />
             </ScrollView>
         </View>
     )
