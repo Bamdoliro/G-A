@@ -17,7 +17,7 @@ export default function MyCommunity() {
     })
 
     return (
-        <View>
+        <View style={{flex: 1}}>
             <View style={styles.MyCommunityTitle}>
                 <Text style={styles.MyCommunityH1}>내 커뮤니티</Text>
             </View>
@@ -59,7 +59,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     MyCommunityScrollView: {
-        paddingHorizontal: 30
+        paddingHorizontal: 30,
+        flexGrow: 1
     },
     MyCommunityShowMore: {
         fontSize: 14,

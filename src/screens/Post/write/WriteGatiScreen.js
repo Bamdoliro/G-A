@@ -49,8 +49,9 @@ export default function WriteGatiScreen({socket}) {
                         endDate: period.endDate,
                         communityId: await getCurrentCommunity(),
                     })}
+                    style={{paddingHorizontal: 30}}
                 />
-                <ScrollView>
+                <ScrollView style={{flexGrow: 1, paddingHorizontal: 30}}>
                     {/* 사진 */}
                     {/* 클릭 이벤트 넣어줘야 함 */}
                     <ImageInput/>
@@ -99,7 +100,7 @@ export default function WriteGatiScreen({socket}) {
 
 const styles = StyleSheet.create({
     container: {
-        padding: 30,
+        flex: 1
     },
     item: {
         color: "#999",
