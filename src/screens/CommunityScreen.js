@@ -71,5 +71,6 @@ export default function CommunityScreen({navigation, socket}) {
 const styles = StyleSheet.create({
     contents: {
         paddingHorizontal: 30,
+        flex: 1,
     }
 })

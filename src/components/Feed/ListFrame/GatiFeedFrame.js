@@ -1,13 +1,14 @@
 import GatiFeed from "../GatiPostList/GatiFeed";
-import {FlatList} from "react-native";
+import { FlatList } from "react-native";
 
-export default function GatiFeedFrame({data, socket}) {
+export default function GatiFeedFrame({ data, socket }) {
 
     return (
         <FlatList
             showsVerticalScrollIndicator={false}
             data={data?.ddoList}
             keyExtractor={(item, index) => index.toString()}
+            style={{ flexGrow: 1, flex: 1 }}
             renderItem={({ item }) => (
                 <GatiFeed
                     id={item.id}
