@@ -18,3 +18,10 @@ export const createCommunity = async ({name, introduction, capacity, isPublic, p
         password: password,
     }, await authorization()))
 }
+
+export const joinCommunity = async ({id, password}) => {
+    return (await server.post('/community/member', {
+        communityId: id,
+        password: password ? password : "0000"
+    }, await authorization())).data;
+}

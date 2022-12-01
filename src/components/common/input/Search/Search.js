@@ -1,7 +1,7 @@
 import {Image, StyleSheet, TextInput, View} from 'react-native';
 import SearchIcon from "../../../../assets/Search_Icon.png"
 
-export default function Search({placeholder, setSearchWord, SearchWord}){
+export default function Search({placeholder, setSearchWord, searchWord, joinCommunity}){
     return (
       <View style={styles.SearchFrame}>
         <Image
@@ -12,7 +12,11 @@ export default function Search({placeholder, setSearchWord, SearchWord}){
             style={styles.input}
             placeholder={placeholder}
             onChangeText={setSearchWord}
-            value={SearchWord}
+            value={searchWord}
+            onSubmitEditing={() => {
+                joinCommunity(searchWord)
+                setSearchWord('');
+            }}
         />
       </View>
     );
