@@ -15,6 +15,7 @@ const GatiPostDetailScreen = ({route, socket}) => {
     const {mutate} = useMutation(joinDdo, {
         onSuccess: () => {
             queryClient.invalidateQueries('getDdoDetail');
+            queryClient.invalidateQueries('getRooms')
         }
     })
 

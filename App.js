@@ -40,7 +40,10 @@ export default function App() {
                     {login ?
                         <MainNavigation
                             Stack={Stack}
-                            setLogout={() => setLogin(null)}
+                            setLogout={() => {
+                                setLogin(null)
+                                socket.current?.disconnect();
+                            }}
                             socket={socket}
                         />
                         :
