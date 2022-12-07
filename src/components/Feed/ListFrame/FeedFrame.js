@@ -6,7 +6,7 @@ export default function FeedFrame({data}) {
     return (
         <FlatList
             showsVerticalScrollIndicator={false}
-            data={data?.boardList}
+            data={data?.boardList.reverse()}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({item}) => (
                 <Feed
